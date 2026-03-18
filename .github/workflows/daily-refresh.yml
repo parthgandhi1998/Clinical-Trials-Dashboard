@@ -1,0 +1,54 @@
+name: Daily Clinical Trials Refresh
+
+on:
+  schedule:
+    # Runs daily at 06:00 UTC (adjust to your timezone)
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # Allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch latest clinical trials data
+        env:
+          # ANTHROPIC_API_KEY is OPTIONAL.
+          # If set (via repo secret), trials are classified by Claude Haiku (smarter).
+          # If not set, keyword-based classification is used automatically — no error.
+          # Add the secret later at: Settings → Secrets → Actions → ANTHROPIC_API_KEY
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python fetch_trials.py \
+            --json data/trials_data.json \
+            --cache-path classification_cache.json \
+            --days 365
+
+      - name: Check for data changes
+        id: check_changes
+        run: |
+          git diff --quiet data/trials_data.json classification_cache.json || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push updated data
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/trials_data.json classification_cache.json
+          git commit -m "chore: refresh clinical trials data ($(date -u +%Y-%m-%d))"
+          git push
