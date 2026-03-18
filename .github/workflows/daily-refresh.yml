@@ -39,16 +39,9 @@ jobs:
             --cache-path classification_cache.json \
             --days 365
 
-      - name: Check for data changes
-        id: check_changes
-        run: |
-          git diff --quiet data/trials_data.json classification_cache.json || echo "changed=true" >> $GITHUB_OUTPUT
-
       - name: Commit and push updated data
-        if: steps.check_changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/trials_data.json classification_cache.json
-          git commit -m "chore: refresh clinical trials data ($(date -u +%Y-%m-%d))"
-          git push
+          git diff --cached --quiet && echo "No changes to commit" || (git commit -m "chore: refresh clinical trials data ($(date -u +%Y-%m-%d))" && git push)
