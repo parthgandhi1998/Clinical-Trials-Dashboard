@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PumasAI — Campaign Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f0f2f5;--surface:#fff;--surface2:#f8fafc;
+  --border:#e2e8f0;--border2:#cbd5e1;
+  --text:#0f172a;--text-mid:#334155;--text-muted:#718096;
+  --accent:#4f46e5;--accent-light:#eef2ff;
+  --green:#16a34a;--green-light:#f0fdf4;
+  --amber:#d97706;--amber-light:#fffbeb;
+  --red:#dc2626;--red-light:#fef2f2;
+  --radius:10px;
+  --shadow:0 1px 3px rgba(0,0,0,.08),0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:0 4px 6px rgba(0,0,0,.07),0 2px 4px rgba(0,0,0,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+button{font-family:inherit;cursor:pointer}
+
+/* ── HEADER ── */
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header-left{display:flex;align-items:center;gap:12px}
+.header h1{font-size:17px;font-weight:700;letter-spacing:-.4px}
+.header h1 span{color:var(--accent)}
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--text-muted);border:1px solid var(--border);border-radius:6px;padding:5px 10px;background:var(--surface);transition:all .15s}
+.back-btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+.header-badge{background:var(--accent-light);color:var(--accent);font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.3px}
+
+/* ── LAYOUT ── */
+.layout{display:grid;grid-template-columns:280px 1fr;min-height:calc(100vh - 53px)}
+.sidebar{background:var(--surface);border-right:1px solid var(--border);padding:16px;display:flex;flex-direction:column;gap:10px;overflow-y:auto;max-height:calc(100vh - 53px);position:sticky;top:53px}
+.main{padding:20px 24px;overflow-y:auto;min-height:calc(100vh - 53px)}
+
+/* ── SIDEBAR ── */
+.sidebar-section-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--text-muted);margin:6px 0 4px;padding-left:4px}
+.btn{border:none;border-radius:7px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;display:inline-flex;align-items:center;gap:6px}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:#4338ca}
+.btn-ghost{background:transparent;color:var(--text-mid);border:1px solid var(--border)}.btn-ghost:hover{background:var(--surface2);border-color:var(--border2)}
+.btn-danger{background:var(--red-light);color:var(--red);border:1px solid #fecaca}.btn-danger:hover{background:#fee2e2}
+.btn-sm{padding:5px 10px;font-size:12px;border-radius:5px}
+.btn-full{width:100%;justify-content:center}
+.campaign-item{padding:9px 10px;border-radius:7px;cursor:pointer;border:1px solid transparent;transition:all .15s;position:relative}
+.campaign-item:hover{background:var(--surface2);border-color:var(--border)}
+.campaign-item.active{background:var(--accent-light);border-color:#c7d2fe}
+.campaign-item-name{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px}
+.campaign-item-meta{font-size:11px;color:var(--text-muted);margin-top:1px}
+.campaign-status-dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:5px;flex-shrink:0}
+.dot-active{background:#16a34a}.dot-paused{background:#d97706}.dot-draft{background:#94a3b8}
+
+/* ── EMPTY STATE ── */
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:80px 40px;text-align:center;gap:12px}
+.empty-icon{font-size:48px;opacity:.4}
+.empty-title{font-size:18px;font-weight:700;color:var(--text)}
+.empty-sub{font-size:13px;color:var(--text-muted);max-width:380px;line-height:1.6}
+
+/* ── SECTION HEADERS ── */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.section-title{font-size:16px;font-weight:700;color:var(--text)}
+.section-sub{font-size:12px;color:var(--text-muted);margin-top:2px}
+.section-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+
+/* ── TABS ── */
+.tab-bar{display:flex;gap:2px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.tab{background:none;border:none;padding:8px 14px;font-size:13px;font-weight:600;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-badge{background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:1px 5px;border-radius:999px;margin-left:4px}
+.tab:not(.active) .tab-badge{background:#94a3b8}
+.tab-panel{display:none}.tab-panel.active{display:block}
+
+/* ── PIPELINE TABLE ── */
+.pipeline-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;background:var(--surface);font-size:13px}
+th{background:var(--surface2);border-bottom:2px solid var(--border);padding:9px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);white-space:nowrap;text-align:left}
+td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#fafbff}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;white-space:nowrap}
+.badge-phase{background:#dbeafe;color:#1e40af}
+.badge-area{padding:2px 7px;border-radius:4px;font-size:10px;font-weight:700;color:#fff;margin:1px 2px 1px 0;display:inline-block}
+
+/* ── STATUS BADGES ── */
+.status-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;white-space:nowrap}
+.status-not-started{background:#f1f5f9;color:#64748b}
+.status-email1-sent{background:#dbeafe;color:#1d4ed8}
+.status-fu1-due{background:#fef3c7;color:#92400e}
+.status-fu1-sent{background:#ede9fe;color:#6d28d9}
+.status-fu2-due{background:#fff7ed;color:#c2410c}
+.status-fu2-sent{background:#d1fae5;color:#065f46}
+.status-replied{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+.status-closed{background:#f1f5f9;color:#94a3b8}
+.status-not-interested{background:#fee2e2;color:#b91c1c}
+
+/* ── CONTACT CARDS ── */
+.contacts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;transition:all .15s}
+.contact-card:hover{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.07)}
+.contact-name{font-size:13px;font-weight:700;color:var(--text)}
+.contact-title{font-size:12px;color:var(--text-muted);margin-top:2px;margin-bottom:8px;line-height:1.4}
+.contact-company{font-size:11px;font-weight:600;color:var(--accent);margin-bottom:6px}
+.contact-email{font-size:12px;color:var(--text-mid);font-family:'JetBrains Mono',monospace;margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.contact-actions{display:flex;gap:6px;flex-wrap:wrap}
+
+/* ── DRAFT PANEL ── */
+.draft-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+@media(max-width:900px){.draft-grid{grid-template-columns:1fr}}
+.draft-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.draft-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px}
+.draft-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.draft-approved{background:#dcfce7;color:#15803d;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px}
+.draft-pending{background:#fef9c3;color:#a16207;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px}
+.draft-textarea{width:100%;min-height:160px;border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:13px;font-family:'Inter',system-ui,sans-serif;color:var(--text);resize:vertical;line-height:1.5;outline:none;transition:border .15s}
+.draft-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.08)}
+.draft-subj{width:100%;border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:13px;color:var(--text);margin-bottom:8px;outline:none;transition:border .15s}
+.draft-subj:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.08)}
+.linkedin-card{background:linear-gradient(135deg,#0077b5 0%,#005885 100%);color:#fff;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+.linkedin-card-header{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.linkedin-icon{font-size:16px}
+.linkedin-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;opacity:.8}
+.linkedin-body{background:rgba(255,255,255,.12);border-radius:6px;padding:12px;font-size:13px;line-height:1.6;min-height:100px;white-space:pre-wrap;cursor:text}
+.linkedin-body:focus{outline:2px solid rgba(255,255,255,.4);border-radius:6px}
+
+/* ── SEQUENCE STEPS INDICATOR ── */
+.sequence-steps{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:14px}
+.seq-step{display:flex;align-items:center;gap:4px}
+.seq-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:2px solid var(--border);background:var(--surface2);color:var(--text-muted)}
+.seq-dot.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.seq-dot.done{background:var(--green);color:#fff;border-color:var(--green)}
+.seq-line{width:20px;height:2px;background:var(--border)}
+.seq-line.done{background:var(--green)}
+.seq-label{font-size:10px;color:var(--text-muted);text-align:center;margin-top:2px}
+
+/* ── UPLOAD ZONE ── */
+.upload-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:28px 20px;text-align:center;cursor:pointer;transition:all .2s;background:var(--surface2)}
+.upload-zone:hover,.upload-zone.drag-over{border-color:var(--accent);background:var(--accent-light)}
+.upload-zone-icon{font-size:28px;margin-bottom:8px}
+.upload-zone-title{font-size:13px;font-weight:600;color:var(--accent)}
+.upload-zone-sub{font-size:11px;color:var(--text-muted);margin-top:4px}
+
+/* ── STATS ROW ── */
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;text-align:center;box-shadow:var(--shadow)}
+.stat-value{font-size:22px;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;line-height:1}
+.stat-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-top:3px}
+
+/* ── FOLLOW-UP ALERT ── */
+.followup-banner{background:var(--amber-light);border:1px solid #fde68a;border-radius:var(--radius);padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;gap:10px;font-size:13px}
+.followup-banner strong{color:var(--amber)}
+
+/* ── NEW CAMPAIGN MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(2px)}
+.modal-overlay.open{display:flex}
+.modal{background:var(--surface);border-radius:14px;width:100%;max-width:500px;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.modal-header{padding:20px 24px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.modal-title{font-size:15px;font-weight:700}
+.modal-close{background:var(--surface2);border:1px solid var(--border);border-radius:6px;width:28px;height:28px;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--text-muted)}
+.modal-close:hover{background:var(--border)}
+.modal-body{padding:20px 24px}
+.modal-footer{padding:14px 24px;border-top:1px solid var(--border);display:flex;gap:8px;justify-content:flex-end}
+.form-group{margin-bottom:14px}
+.form-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:5px;display:block}
+.form-input{width:100%;border:1px solid var(--border);border-radius:6px;padding:8px 10px;font-size:13px;color:var(--text);outline:none;transition:border .15s;font-family:inherit}
+.form-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.08)}
+select.form-input{cursor:pointer}
+.form-hint{font-size:11px;color:var(--text-muted);margin-top:4px}
+
+/* ── COPY TOAST ── */
+.toast{position:fixed;bottom:24px;right:24px;background:#1e293b;color:#fff;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:500;z-index:9999;opacity:0;transform:translateY(8px);transition:all .25s;pointer-events:none}
+.toast.show{opacity:1;transform:translateY(0)}
+
+/* ── COMPANY SELECTOR IN CAMPAIGN ── */
+.company-row{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:7px;border:1px solid var(--border);margin-bottom:6px;background:var(--surface);cursor:pointer;transition:all .15s}
+.company-row:hover{border-color:var(--accent);background:var(--accent-light)}
+.company-row.selected{border-color:var(--accent);background:var(--accent-light)}
+.company-row-name{font-size:13px;font-weight:600;flex:1}
+.company-row-meta{font-size:11px;color:var(--text-muted)}
+
+/* ── MISC ── */
+.tag{display:inline-block;padding:1px 7px;border-radius:4px;font-size:11px;font-weight:600;background:var(--surface2);color:var(--text-muted);border:1px solid var(--border);margin:1px 2px 1px 0}
+.divider{border:none;border-top:1px solid var(--border);margin:16px 0}
+.info-box{background:var(--accent-light);border:1px solid #c7d2fe;border-radius:8px;padding:12px 14px;font-size:13px;color:#3730a3;line-height:1.6;margin-bottom:16px}
+.info-box strong{font-weight:700}
+select{font-family:inherit}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-left">
+    <a href="index.html" class="back-btn">← Dashboard</a>
+    <h1>Pumas<span>AI</span> — Campaign Manager</h1>
+    <span class="header-badge">BETA</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <span id="header-campaign-name" style="font-size:13px;color:var(--text-muted)">No campaign selected</span>
+    <button class="btn btn-primary btn-sm" onclick="openNewCampaignModal()">＋ New Campaign</button>
+  </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR: campaign list -->
+  <div class="sidebar">
+    <div class="sidebar-section-label">Your Campaigns</div>
+    <div id="campaign-list">
+      <div style="font-size:12px;color:var(--text-muted);padding:8px 4px;text-align:center">No campaigns yet.<br>Click ＋ New Campaign to start.</div>
+    </div>
+    <div style="margin-top:auto;padding-top:10px;border-top:1px solid var(--border)">
+      <div class="sidebar-section-label">Data Source</div>
+      <div id="data-status" style="font-size:11px;color:var(--text-muted);padding:4px">
+        No trials data loaded.
+      </div>
+      <button class="btn btn-ghost btn-sm btn-full" style="margin-top:6px" onclick="document.getElementById('data-file-input').click()">Load trials_data.json</button>
+      <input type="file" id="data-file-input" accept=".json" style="display:none" onchange="loadTrialsData(this.files[0])">
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main" id="main-content">
+    <div class="empty-state">
+      <div class="empty-icon">🎯</div>
+      <div class="empty-title">Campaign Manager</div>
+      <div class="empty-sub">Create a campaign to manage your outreach pipeline — select target companies, import contacts from SeamlessAI, generate personalised email sequences, and track follow-ups.</div>
+      <button class="btn btn-primary" onclick="openNewCampaignModal()">＋ Create your first campaign</button>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:8px">or go to the <a href="index.html">Dashboard</a> to select companies first</div>
+    </div>
+  </div>
+</div>
+
+<!-- NEW CAMPAIGN MODAL -->
+<div class="modal-overlay" id="new-campaign-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">New Campaign</div>
+      <button class="modal-close" onclick="closeModal('new-campaign-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">Campaign Name</label>
+        <input type="text" id="nc-name" class="form-input" placeholder="e.g. Oncology Phase 2 — Q2 2026" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Owner</label>
+        <input type="text" id="nc-owner" class="form-input" placeholder="Your name" />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Target Therapy Area (optional)</label>
+        <select id="nc-area" class="form-input">
+          <option value="">All therapy areas</option>
+          <option>Oncology</option><option>Neurology</option><option>Cardiovascular</option>
+          <option>Immunology &amp; Inflammation</option><option>Infectious Disease</option>
+          <option>Respiratory</option><option>Metabolic &amp; Endocrine</option>
+          <option>Hematology</option><option>Dermatology</option><option>Rare &amp; Genetic Diseases</option>
+          <option>Psychiatry &amp; Mental Health</option><option>Musculoskeletal</option>
+          <option>Gastroenterology &amp; Hepatology</option><option>Ophthalmology</option>
+          <option>Women's Health</option><option>Vaccines</option><option>Pain</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Notes (optional)</label>
+        <input type="text" id="nc-notes" class="form-input" placeholder="e.g. Focus on INDUSTRY-funded sponsors only" />
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('new-campaign-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="createCampaign()">Create Campaign</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ────────────────────────────────────────────────────────────────────────────
+// STATE
+// ────────────────────────────────────────────────────────────────────────────
+let campaigns   = JSON.parse(localStorage.getItem('pumas_campaigns') || '[]');
+let activeCampaignId = null;
+let trialsData  = [];
+
+const AREA_COLORS = {
+  "Oncology":"#e53935","Neurology":"#8e24aa","Cardiovascular":"#d81b60",
+  "Immunology & Inflammation":"#f4511e","Infectious Disease":"#6d4c41",
+  "Respiratory":"#0097a7","Metabolic & Endocrine":"#2e7d32","Hematology":"#c62828",
+  "Dermatology":"#e65100","Ophthalmology":"#1565c0",
+  "Gastroenterology & Hepatology":"#558b2f","Psychiatry & Mental Health":"#4527a0",
+  "Musculoskeletal":"#546e7a","Rare & Genetic Diseases":"#ad1457",
+  "Renal & Urology":"#00695c","Women's Health":"#c2185b",
+  "Vaccines":"#00838f","Pain":"#e65100","Other":"#78909c"
+};
+
+// ────────────────────────────────────────────────────────────────────────────
+// PERSISTENCE
+// ────────────────────────────────────────────────────────────────────────────
+function saveCampaigns() {
+  localStorage.setItem('pumas_campaigns', JSON.stringify(campaigns));
+}
+
+function getCampaign(id) {
+  return campaigns.find(c => c.id === id);
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// TRIALS DATA LOADER
+// ────────────────────────────────────────────────────────────────────────────
+function loadTrialsData(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      trialsData = data.records || data;
+      localStorage.setItem('pumas_trials_count', trialsData.length);
+      document.getElementById('data-status').innerHTML =
+        `<span style="color:var(--green)">✓ ${trialsData.length.toLocaleString()} trials loaded</span><br>
+         <span style="color:var(--text-muted)">${data.meta?.since_date||''} – ${data.meta?.until_date||''}</span>`;
+      showToast(`${trialsData.length.toLocaleString()} trials loaded`);
+    } catch(e) {
+      showToast('Could not parse file', true);
+    }
+  };
+  reader.readAsText(file);
+}
+
+// Auto-fetch trials_data.json if hosted
+(function() {
+  fetch('./data/trials_data.json')
+    .then(r => { if (!r.ok) throw 0; return r.json(); })
+    .then(data => {
+      trialsData = data.records || data;
+      document.getElementById('data-status').innerHTML =
+        `<span style="color:var(--green)">✓ ${trialsData.length.toLocaleString()} trials</span><br>
+         <span style="color:var(--text-muted)">${data.meta?.since_date||''} – ${data.meta?.until_date||''}</span>`;
+    })
+    .catch(() => {});
+})();
+
+// Check for companies passed from index.html
+(function() {
+  const pending = localStorage.getItem('pumas_pending_companies');
+  if (pending) {
+    localStorage.removeItem('pumas_pending_companies');
+    const companies = JSON.parse(pending);
+    if (companies && companies.length > 0) {
+      // Open new campaign modal with these companies pre-loaded
+      setTimeout(() => {
+        openNewCampaignModal(companies);
+      }, 300);
+    }
+  }
+})();
+
+// ────────────────────────────────────────────────────────────────────────────
+// CAMPAIGN MANAGEMENT
+// ────────────────────────────────────────────────────────────────────────────
+let pendingCompaniesForNewCampaign = [];
+
+function openNewCampaignModal(companies) {
+  pendingCompaniesForNewCampaign = companies || [];
+  document.getElementById('nc-name').value = '';
+  document.getElementById('nc-owner').value = '';
+  document.getElementById('nc-area').value = '';
+  document.getElementById('nc-notes').value = '';
+  openModal('new-campaign-modal');
+}
+
+function createCampaign() {
+  const name  = document.getElementById('nc-name').value.trim();
+  const owner = document.getElementById('nc-owner').value.trim();
+  const area  = document.getElementById('nc-area').value;
+  const notes = document.getElementById('nc-notes').value.trim();
+  if (!name) { showToast('Please enter a campaign name', true); return; }
+
+  const id = 'cmp_' + Date.now();
+  const campaign = {
+    id, name, owner: owner || 'Me', area, notes,
+    status: 'draft',
+    created: new Date().toISOString(),
+    companies: pendingCompaniesForNewCampaign.map(c => ({
+      ...c, contacts: [], contactsImported: false
+    })),
+    contacts: []
+  };
+  campaigns.unshift(campaign);
+  saveCampaigns();
+  closeModal('new-campaign-modal');
+  renderSidebar();
+  selectCampaign(id);
+  showToast(`Campaign "${name}" created`);
+}
+
+function deleteCampaign(id) {
+  if (!confirm('Delete this campaign? This cannot be undone.')) return;
+  campaigns = campaigns.filter(c => c.id !== id);
+  saveCampaigns();
+  if (activeCampaignId === id) {
+    activeCampaignId = null;
+    renderMain();
+  }
+  renderSidebar();
+  showToast('Campaign deleted');
+}
+
+function selectCampaign(id) {
+  activeCampaignId = id;
+  renderSidebar();
+  renderMain();
+  const c = getCampaign(id);
+  document.getElementById('header-campaign-name').textContent = c ? c.name : '';
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// SIDEBAR RENDER
+// ────────────────────────────────────────────────────────────────────────────
+function renderSidebar() {
+  const el = document.getElementById('campaign-list');
+  if (!campaigns.length) {
+    el.innerHTML = '<div style="font-size:12px;color:var(--text-muted);padding:8px 4px;text-align:center">No campaigns yet.<br>Click ＋ New Campaign to start.</div>';
+    return;
+  }
+  el.innerHTML = campaigns.map(c => {
+    const active = c.id === activeCampaignId;
+    const dotClass = c.status === 'active' ? 'dot-active' : c.status === 'paused' ? 'dot-paused' : 'dot-draft';
+    const contactCount = (c.contacts || []).length;
+    const dueCount = (c.contacts || []).filter(ct => needsFollowUp(ct)).length;
+    return `
+    <div class="campaign-item ${active ? 'active' : ''}" onclick="selectCampaign('${c.id}')">
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="campaign-status-dot ${dotClass}"></span>
+        <div class="campaign-item-name">${c.name}</div>
+      </div>
+      <div class="campaign-item-meta">
+        ${c.owner} · ${(c.companies||[]).length} co · ${contactCount} contacts
+        ${dueCount > 0 ? `· <span style="color:var(--amber);font-weight:700">${dueCount} follow-ups due</span>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// MAIN RENDER (tabs)
+// ────────────────────────────────────────────────────────────────────────────
+function renderMain() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) {
+    document.getElementById('main-content').innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">🎯</div>
+        <div class="empty-title">Campaign Manager</div>
+        <div class="empty-sub">Create a campaign to manage your outreach pipeline.</div>
+        <button class="btn btn-primary" onclick="openNewCampaignModal()">＋ Create Campaign</button>
+        <div style="font-size:12px;color:var(--text-muted);margin-top:8px">or go to the <a href="index.html">Dashboard</a> to select companies first</div>
+      </div>`;
+    return;
+  }
+
+  const contacts    = c.contacts || [];
+  const dueContacts = contacts.filter(ct => needsFollowUp(ct));
+  const companyCt   = (c.companies||[]).length;
+  const replied     = contacts.filter(ct => ct.status === 'replied').length;
+  const sent        = contacts.filter(ct => ct.status !== 'not-started').length;
+
+  const dueBanner = dueContacts.length > 0
+    ? `<div class="followup-banner">⏰ <strong>${dueContacts.length} follow-up${dueContacts.length > 1 ? 's' : ''} due today</strong> — see the Tracker tab for details.</div>`
+    : '';
+
+  document.getElementById('main-content').innerHTML = `
+    <div class="section-header">
+      <div>
+        <div class="section-title">${c.name}</div>
+        <div class="section-sub">${c.owner} · Created ${fmtDate(c.created)} · ${c.area || 'All areas'}</div>
+      </div>
+      <div class="section-actions">
+        <button class="btn btn-ghost btn-sm" onclick="setCampaignStatus('${c.id}','${c.status === 'active' ? 'paused' : 'active'}')">
+          ${c.status === 'active' ? '⏸ Pause' : '▶ Activate'}
+        </button>
+        <button class="btn btn-danger btn-sm" onclick="deleteCampaign('${c.id}')">🗑 Delete</button>
+      </div>
+    </div>
+
+    ${dueBanner}
+
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-value">${companyCt}</div><div class="stat-label">Companies</div></div>
+      <div class="stat-card"><div class="stat-value">${contacts.length}</div><div class="stat-label">Contacts</div></div>
+      <div class="stat-card"><div class="stat-value">${sent}</div><div class="stat-label">Contacted</div></div>
+      <div class="stat-card"><div class="stat-value">${replied}</div><div class="stat-label">Replied</div></div>
+      <div class="stat-card"><div class="stat-value">${sent > 0 ? Math.round(replied/sent*100) : 0}%</div><div class="stat-label">Reply Rate</div></div>
+    </div>
+
+    <div class="tab-bar">
+      <button class="tab active" onclick="switchTab('companies',this)">Companies <span class="tab-badge">${companyCt}</span></button>
+      <button class="tab" onclick="switchTab('contacts',this)">Contacts <span class="tab-badge">${contacts.length}</span></button>
+      <button class="tab" onclick="switchTab('drafts',this)">Drafts</button>
+      <button class="tab" onclick="switchTab('tracker',this)">Tracker <span class="tab-badge" style="${dueContacts.length > 0 ? 'background:#d97706' : ''}">${dueContacts.length > 0 ? dueContacts.length + ' due' : contacts.length}</span></button>
+      <button class="tab" onclick="switchTab('export',this)">Export</button>
+    </div>
+
+    <div id="tab-companies" class="tab-panel active">${renderCompaniesTab(c)}</div>
+    <div id="tab-contacts"  class="tab-panel">${renderContactsTab(c)}</div>
+    <div id="tab-drafts"    class="tab-panel">${renderDraftsTab(c)}</div>
+    <div id="tab-tracker"   class="tab-panel">${renderTrackerTab(c)}</div>
+    <div id="tab-export"    class="tab-panel">${renderExportTab(c)}</div>
+  `;
+}
+
+function switchTab(name, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// COMPANIES TAB
+// ────────────────────────────────────────────────────────────────────────────
+function renderCompaniesTab(c) {
+  const companies = c.companies || [];
+  if (!companies.length) {
+    return `<div class="empty-state" style="padding:40px 20px">
+      <div class="empty-icon">🏢</div>
+      <div class="empty-title">No companies yet</div>
+      <div class="empty-sub">Go to the <a href="index.html">Research Dashboard</a>, check companies you want to reach out to, and click "Add to Campaign".<br><br>Or add companies manually below.</div>
+      <button class="btn btn-ghost" style="margin-top:8px" onclick="openAddCompanyModal('${c.id}')">＋ Add company manually</button>
+    </div>`;
+  }
+  return `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div style="font-size:13px;color:var(--text-muted)">${companies.length} companies in this campaign</div>
+      <button class="btn btn-ghost btn-sm" onclick="openAddCompanyModal('${c.id}')">＋ Add company</button>
+    </div>
+    <div class="pipeline-wrap">
+    <table>
+      <thead><tr>
+        <th>Company</th><th>NCT / Trial</th><th>Phase</th><th>Therapy Area</th><th>Status</th><th>Contacts</th><th></th>
+      </tr></thead>
+      <tbody>
+        ${companies.map((co,i) => {
+          const cContacts = (c.contacts||[]).filter(ct => ct.company === co.sponsor);
+          const areas = (co.therapy_areas||[]).slice(0,2).map(a =>
+            `<span class="badge-area" style="background:${AREA_COLORS[a]||'#78909c'}">${a}</span>`).join('');
+          return `<tr>
+            <td><div style="font-weight:600">${co.sponsor||'—'}</div><div style="font-size:11px;color:var(--text-muted)">${co.org_type||''}</div></td>
+            <td><a href="${co.url||'#'}" target="_blank" style="font-family:monospace;font-size:12px">${co.nct_id||'—'}</a><div style="font-size:11px;color:var(--text-muted);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${co.title||''}</div></td>
+            <td><span class="badge badge-phase">${co.phase||'N/A'}</span></td>
+            <td>${areas||'<span style="color:var(--text-muted);font-size:12px">—</span>'}</td>
+            <td><span class="status-badge ${coStatus(cContacts)}">${coStatusLabel(cContacts)}</span></td>
+            <td style="font-size:12px">${cContacts.length} contact${cContacts.length!==1?'s':''}</td>
+            <td><button class="btn btn-ghost btn-sm" onclick="removeCompany('${c.id}',${i})">✕</button></td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table>
+    </div>`;
+}
+
+function coStatus(contacts) {
+  if (!contacts.length) return 'status-not-started';
+  if (contacts.some(ct => ct.status === 'replied')) return 'status-replied';
+  if (contacts.some(ct => ['fu2-sent','fu1-sent','email1-sent'].includes(ct.status))) return 'status-email1-sent';
+  return 'status-not-started';
+}
+function coStatusLabel(contacts) {
+  if (!contacts.length) return 'Not Started';
+  if (contacts.some(ct => ct.status === 'replied')) return '✓ Replied';
+  if (contacts.some(ct => ['fu2-sent','fu1-sent','email1-sent'].includes(ct.status))) return 'Contacted';
+  return 'Not Started';
+}
+
+function removeCompany(cid, idx) {
+  const c = getCampaign(cid);
+  if (!c) return;
+  c.companies.splice(idx, 1);
+  saveCampaigns();
+  renderMain();
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// CONTACTS TAB
+// ────────────────────────────────────────────────────────────────────────────
+function renderContactsTab(c) {
+  const contacts = c.contacts || [];
+  return `
+    <div class="info-box" style="margin-bottom:16px">
+      <strong>Import contacts from SeamlessAI:</strong> In SeamlessAI, search for decision-makers at your target companies (filter by title: VP, Director, Head of, Pharmacometrician, Clinical Pharmacology, Pharmacometrics, Biometrics, Regulatory, Translational, Modeling). Export as CSV and upload below.
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+      <div class="upload-zone" style="flex:1;min-width:220px" onclick="document.getElementById('contacts-csv-input').click()"
+           ondragover="event.preventDefault();this.classList.add('drag-over')"
+           ondragleave="this.classList.remove('drag-over')"
+           ondrop="event.preventDefault();this.classList.remove('drag-over');handleContactsCSV(event.dataTransfer.files[0])">
+        <div class="upload-zone-icon">📋</div>
+        <div class="upload-zone-title">Upload SeamlessAI CSV</div>
+        <div class="upload-zone-sub">Drag & drop or click to browse</div>
+        <input type="file" id="contacts-csv-input" accept=".csv" style="display:none" onchange="handleContactsCSV(this.files[0])">
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="openAddContactModal('${c.id}')">＋ Add manually</button>
+      ${contacts.length ? `<button class="btn btn-ghost btn-sm" onclick="clearContacts('${c.id}')">🗑 Clear all</button>` : ''}
+    </div>
+    <div id="contacts-csv-hint" style="font-size:11px;color:var(--text-muted);margin-bottom:12px">
+      Expected CSV columns: <code>First Name</code>, <code>Last Name</code>, <code>Title</code>, <code>Company</code>, <code>Email</code>, <code>LinkedIn URL</code> (column names are flexible)
+    </div>
+    ${contacts.length === 0
+      ? '<div style="text-align:center;padding:40px;color:var(--text-muted)">No contacts yet. Upload a CSV from SeamlessAI or add manually.</div>'
+      : `<div class="contacts-grid">${contacts.map((ct,i) => renderContactCard(ct, c.id, i)).join('')}</div>`
+    }`;
+}
+
+function renderContactCard(ct, cid, idx) {
+  return `
+  <div class="contact-card">
+    <div class="contact-company">${ct.company||'—'}</div>
+    <div class="contact-name">${ct.name}</div>
+    <div class="contact-title">${ct.title||'—'}</div>
+    <div class="contact-email">✉ ${ct.email||'—'}</div>
+    ${ct.linkedin ? `<div style="font-size:11px;margin-bottom:6px"><a href="${ct.linkedin}" target="_blank">LinkedIn ↗</a></div>` : ''}
+    <div class="contact-actions">
+      <button class="btn btn-ghost btn-sm" onclick="viewDraftForContact('${cid}',${idx})">✏ Drafts</button>
+      <button class="btn btn-ghost btn-sm" onclick="removeContact('${cid}',${idx})">✕</button>
+    </div>
+  </div>`;
+}
+
+function handleContactsCSV(file) {
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    const text = ev.target.result;
+    const lines = text.split('\n').filter(l => l.trim());
+    if (!lines.length) return;
+    const headers = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, '').toLowerCase());
+
+    // Flexible column mapping
+    const col = (candidates) => {
+      for (const c of candidates) {
+        const idx = headers.findIndex(h => h.includes(c));
+        if (idx >= 0) return idx;
+      }
+      return -1;
+    };
+    const iFirst   = col(['first name','firstname']);
+    const iLast    = col(['last name','lastname','surname']);
+    const iName    = col(['full name','name']);
+    const iTitle   = col(['title','job title','position']);
+    const iCompany = col(['company','organization','account']);
+    const iEmail   = col(['email','email address','work email']);
+    const iLinkedin= col(['linkedin','profile url','linkedin url']);
+
+    const c = getCampaign(activeCampaignId);
+    if (!c) return;
+    let added = 0;
+    for (let i = 1; i < lines.length; i++) {
+      const cols = parseCSVLine(lines[i]);
+      let name = '';
+      if (iName >= 0 && cols[iName]) {
+        name = cols[iName];
+      } else {
+        const fn = iFirst >= 0 ? cols[iFirst] : '';
+        const ln = iLast  >= 0 ? cols[iLast]  : '';
+        name = [fn,ln].filter(Boolean).join(' ');
+      }
+      if (!name) continue;
+      const contact = {
+        id: 'ct_' + Date.now() + '_' + i,
+        name:     name.trim(),
+        title:    iTitle   >= 0 ? cols[iTitle]   : '',
+        company:  iCompany >= 0 ? cols[iCompany] : '',
+        email:    iEmail   >= 0 ? cols[iEmail]   : '',
+        linkedin: iLinkedin>= 0 ? cols[iLinkedin]: '',
+        status:   'not-started',
+        drafts:   {},
+        lastContacted: null,
+        followUpDate:  null,
+        notes: ''
+      };
+      c.contacts.push(contact);
+      added++;
+    }
+    saveCampaigns();
+    renderMain();
+    showToast(`${added} contacts imported`);
+  };
+  reader.readAsText(file);
+}
+
+function parseCSVLine(line) {
+  const result = [];
+  let cur = '', inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === '"') { inQ = !inQ; continue; }
+    if (ch === ',' && !inQ) { result.push(cur.trim()); cur = ''; continue; }
+    cur += ch;
+  }
+  result.push(cur.trim());
+  return result;
+}
+
+function removeContact(cid, idx) {
+  const c = getCampaign(cid);
+  if (!c) return;
+  c.contacts.splice(idx, 1);
+  saveCampaigns();
+  renderMain();
+}
+
+function clearContacts(cid) {
+  if (!confirm('Remove all contacts from this campaign?')) return;
+  const c = getCampaign(cid);
+  c.contacts = [];
+  saveCampaigns();
+  renderMain();
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// DRAFTS TAB
+// ────────────────────────────────────────────────────────────────────────────
+function renderDraftsTab(c) {
+  const contacts = c.contacts || [];
+  if (!contacts.length) {
+    return `<div class="empty-state" style="padding:40px"><div class="empty-icon">✉</div>
+      <div class="empty-title">No contacts yet</div>
+      <div class="empty-sub">Import contacts first in the Contacts tab, then generate personalised email sequences here.</div>
+    </div>`;
+  }
+
+  const contactSel = `<div style="margin-bottom:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    <label style="font-size:12px;font-weight:600;color:var(--text-muted)">Contact:</label>
+    <select id="draft-contact-sel" class="form-input" style="width:300px" onchange="renderDraftForSelected()">
+      ${contacts.map((ct,i) => `<option value="${i}">${ct.name} — ${ct.company||'?'} (${ct.title||'?'})</option>`).join('')}
+    </select>
+    <button class="btn btn-primary btn-sm" onclick="generateAllDrafts()">⚡ Generate All Drafts</button>
+    <button class="btn btn-ghost btn-sm" onclick="approveDraft(getCurrentContactIdx(),'all')">✓ Approve All</button>
+  </div>
+  <div id="draft-content"></div>`;
+
+  return contactSel;
+}
+
+function getCurrentContactIdx() {
+  const sel = document.getElementById('draft-contact-sel');
+  return sel ? parseInt(sel.value) : 0;
+}
+
+function renderDraftForSelected() {
+  const idx = getCurrentContactIdx();
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  const ct = c.contacts[idx];
+  if (!ct) return;
+  renderDraftForContact(ct, idx);
+}
+
+function renderDraftForContact(ct, idx) {
+  const el = document.getElementById('draft-content');
+  if (!el) return;
+
+  // Find the company trial data
+  const companyData = (getCampaign(activeCampaignId)?.companies || [])
+    .find(co => co.sponsor === ct.company) || null;
+
+  if (!ct.drafts || !ct.drafts.email1) {
+    // Show generate button
+    el.innerHTML = `
+      <div class="info-box">
+        <strong>Ready to generate drafts for ${ct.name}</strong> at ${ct.company||'this company'}.<br>
+        ${companyData ? `Trial context: <strong>${companyData.nct_id}</strong> · ${(companyData.therapy_areas||[]).join(', ')} · ${companyData.phase}` : 'No trial data linked — drafts will be generic.'}
+      </div>
+      <button class="btn btn-primary" onclick="generateDraftsForContact(${idx})">⚡ Generate Sequence Drafts</button>`;
+    return;
+  }
+
+  const d = ct.drafts;
+  el.innerHTML = `
+    <div class="sequence-steps">
+      <div class="seq-step"><div class="seq-dot ${d.email1Approved?'done':'active'}">1</div></div>
+      <div class="seq-line ${d.email1Approved?'done':''}"></div>
+      <div class="seq-step"><div class="seq-dot ${d.fu1Approved?'done':d.email1Approved?'active':''}">2</div></div>
+      <div class="seq-line ${d.fu1Approved?'done':''}"></div>
+      <div class="seq-step"><div class="seq-dot ${d.fu2Approved?'done':d.fu1Approved?'active':''}">3</div></div>
+      <div class="seq-line ${d.fu2Approved?'done':''}"></div>
+      <div class="seq-step"><div class="seq-dot" style="background:#0077b5;color:#fff;border-color:#0077b5">in</div></div>
+    </div>
+
+    <div class="draft-grid">
+      <div class="draft-card">
+        <div class="draft-card-header">
+          <div><div class="draft-label">Email 1 — Initial Outreach</div><div style="font-size:11px;color:var(--text-muted)">Send on Day 1</div></div>
+          <span class="${d.email1Approved?'draft-approved':'draft-pending'}">${d.email1Approved?'✓ Approved':'Pending'}</span>
+        </div>
+        <input class="draft-subj" id="subj1_${idx}" value="${d.subject1||''}" placeholder="Subject line…">
+        <textarea class="draft-textarea" id="email1_${idx}" oninput="saveDraftEdit(${idx},'email1',this.value)">${d.email1||''}</textarea>
+        <div style="display:flex;gap:6px;margin-top:8px">
+          <button class="btn btn-primary btn-sm" onclick="approveDraft(${idx},'email1')">✓ Approve</button>
+          <button class="btn btn-ghost btn-sm" onclick="generateDraftsForContact(${idx})">↺ Regenerate</button>
+        </div>
+      </div>
+
+      <div class="draft-card">
+        <div class="draft-card-header">
+          <div><div class="draft-label">Follow-up 1</div><div style="font-size:11px;color:var(--text-muted)">Send ~7 days later</div></div>
+          <span class="${d.fu1Approved?'draft-approved':'draft-pending'}">${d.fu1Approved?'✓ Approved':'Pending'}</span>
+        </div>
+        <input class="draft-subj" id="subj2_${idx}" value="${d.subject2||''}" placeholder="Subject line…">
+        <textarea class="draft-textarea" id="fu1_${idx}" oninput="saveDraftEdit(${idx},'fu1',this.value)">${d.fu1||''}</textarea>
+        <div style="display:flex;gap:6px;margin-top:8px">
+          <button class="btn btn-primary btn-sm" onclick="approveDraft(${idx},'fu1')">✓ Approve</button>
+        </div>
+      </div>
+
+      <div class="draft-card">
+        <div class="draft-card-header">
+          <div><div class="draft-label">Follow-up 2 — Break-up</div><div style="font-size:11px;color:var(--text-muted)">Send ~14 days later</div></div>
+          <span class="${d.fu2Approved?'draft-approved':'draft-pending'}">${d.fu2Approved?'✓ Approved':'Pending'}</span>
+        </div>
+        <input class="draft-subj" id="subj3_${idx}" value="${d.subject3||''}" placeholder="Subject line…">
+        <textarea class="draft-textarea" id="fu2_${idx}" oninput="saveDraftEdit(${idx},'fu2',this.value)">${d.fu2||''}</textarea>
+        <div style="display:flex;gap:6px;margin-top:8px">
+          <button class="btn btn-primary btn-sm" onclick="approveDraft(${idx},'fu2')">✓ Approve</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="linkedin-card">
+          <div class="linkedin-card-header"><span class="linkedin-icon">in</span><span class="linkedin-label">LinkedIn Message</span>
+            <button onclick="copyLinkedIn(${idx})" style="margin-left:auto;background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:5px;padding:3px 8px;font-size:11px;cursor:pointer;font-weight:600">Copy</button>
+          </div>
+          <div class="linkedin-body" contenteditable="true" id="linkedin_${idx}" oninput="saveDraftEdit(${idx},'linkedin',this.innerText)">${d.linkedin||''}</div>
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:6px">Click Copy, then paste directly into LinkedIn.</div>
+      </div>
+    </div>`;
+}
+
+function viewDraftForContact(cid, idx) {
+  selectCampaign(cid);
+  setTimeout(() => {
+    document.querySelectorAll('.tab')[2].click();
+    const sel = document.getElementById('draft-contact-sel');
+    if (sel) { sel.value = idx; renderDraftForSelected(); }
+  }, 100);
+}
+
+function saveDraftEdit(idx, field, value) {
+  const c = getCampaign(activeCampaignId);
+  if (!c || !c.contacts[idx]) return;
+  if (!c.contacts[idx].drafts) c.contacts[idx].drafts = {};
+  c.contacts[idx].drafts[field] = value;
+  saveCampaigns();
+}
+
+function approveDraft(idx, which) {
+  const c = getCampaign(activeCampaignId);
+  if (!c || !c.contacts[idx]) return;
+  if (!c.contacts[idx].drafts) c.contacts[idx].drafts = {};
+  if (which === 'all') {
+    c.contacts[idx].drafts.email1Approved = true;
+    c.contacts[idx].drafts.fu1Approved    = true;
+    c.contacts[idx].drafts.fu2Approved    = true;
+  } else {
+    c.contacts[idx].drafts[which + 'Approved'] = true;
+  }
+  saveCampaigns();
+  renderDraftForSelected();
+  showToast('Draft approved');
+}
+
+function copyLinkedIn(idx) {
+  const el = document.getElementById('linkedin_' + idx);
+  if (!el) return;
+  navigator.clipboard.writeText(el.innerText).then(() => showToast('LinkedIn message copied!'));
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// SMART TEMPLATE ENGINE  (PumasAI-specific, Phase/Area-aware)
+// ────────────────────────────────────────────────────────────────────────────
+function generateDraftsForContact(idx) {
+  const c = getCampaign(activeCampaignId);
+  if (!c || !c.contacts[idx]) return;
+  const ct = c.contacts[idx];
+  const co = (c.companies || []).find(co => co.sponsor === ct.company) || {};
+  const drafts = buildDrafts(ct, co);
+  c.contacts[idx].drafts = drafts;
+  saveCampaigns();
+  renderDraftForSelected();
+  showToast('Drafts generated for ' + ct.name);
+}
+
+function generateAllDrafts() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  c.contacts.forEach((ct, idx) => {
+    const co = (c.companies || []).find(co => co.sponsor === ct.company) || {};
+    c.contacts[idx].drafts = buildDrafts(ct, co);
+  });
+  saveCampaigns();
+  renderDraftForSelected();
+  showToast(`Drafts generated for ${c.contacts.length} contacts`);
+}
+
+function buildDrafts(ct, co) {
+  const firstName    = ct.name.split(' ')[0] || ct.name;
+  const company      = ct.company || co.sponsor || 'your company';
+  const nctId        = co.nct_id  || '';
+  const trialTitle   = co.title   || '';
+  const phase        = co.phase   || '';
+  const areas        = (co.therapy_areas || []).join(', ') || 'your therapeutic area';
+  const enrollment   = co.enrollment || '';
+  const conditions   = (co.conditions || []).slice(0, 2).join(', ') || '';
+  const interventions= (co.interventions || []).slice(0, 2).join(', ') || '';
+  const countries    = (co.countries || []).slice(0, 3).join(', ') || '';
+  const multiNational = (co.countries || []).length > 3;
+
+  // Phase-specific angle
+  const phaseContext = phaseAngle(phase, conditions, interventions, areas);
+
+  // Email 1 — Initial outreach
+  const subject1 = nctId
+    ? `${nctId} — ${phaseContext.subjectAngle}`
+    : `${company} — ${phaseContext.subjectAngle}`;
+
+  const email1 = `Hi ${firstName},
+
+I came across ${nctId ? nctId + ' — ' : ''}${trialTitle || ('your ' + (phase ? phase + ' ' : '') + areas + ' programme')}${conditions ? ' in ' + conditions : ''}, and wanted to reach out.
+
+${phaseContext.openingHook}
+
+At PumasAI, we partner with clinical development teams to deliver ${phaseContext.serviceAngle}. Our scientists are pharmacometricians and clinical pharmacologists — former Pfizer, FDA, and academia — and we work end-to-end from model development through regulatory submission.
+
+${enrollment ? 'With an enrollment of ' + enrollment + ' patients, ' + phaseContext.enrollmentNote + ' ' : ''}${multiNational ? 'Across your ' + (co.countries||[]).length + '-country footprint, regulatory-ready PK/PD packages are a recurring need — something we handle routinely.' : ''}
+
+Would a 20-minute call be worthwhile to see if there's a fit? Happy to share a brief case study relevant to your programme first.
+
+Best,
+[Your Name]
+PumasAI | www.pumas.ai`;
+
+  // Follow-up 1 — Value add
+  const subject2 = `Re: ${subject1}`;
+  const fu1 = `Hi ${firstName},
+
+Wanted to follow up briefly on my previous note.
+
+${phaseContext.followUp1Hook}
+
+We recently ${phaseContext.recentWork} — I'd be glad to share a short summary if it would be useful context for your team.
+
+No commitment — just a conversation to see if the timing makes sense for ${company}.
+
+Still interested in a quick call?
+
+Best,
+[Your Name]
+PumasAI | www.pumas.ai`;
+
+  // Follow-up 2 — Break-up
+  const subject3 = `Last note — ${company}`;
+  const fu2 = `Hi ${firstName},
+
+I know inboxes get busy — this will be my last note on this.
+
+${phaseContext.breakupLine}
+
+If the timing isn't right now, I completely understand. Feel free to reach out whenever it makes sense — we're happy to help at any stage of development.
+
+Wishing your team every success with ${nctId ? nctId : 'the programme'}.
+
+[Your Name]
+PumasAI | www.pumas.ai`;
+
+  // LinkedIn
+  const linkedin = `Hi ${firstName}, I noticed ${company} is running ${nctId ? nctId + ' — ' : ''}a ${phase ? phase + ' ' : ''}${areas} trial. At PumasAI, we help teams like yours with ${phaseContext.linkedInAngle}. Happy to share a relevant example if useful. Best, [Your Name]`;
+
+  return {
+    subject1, email1, email1Approved: false,
+    subject2, fu1,   fu1Approved: false,
+    subject3, fu2,   fu2Approved: false,
+    linkedin
+  };
+}
+
+function phaseAngle(phase, conditions, interventions, areas) {
+  const p = (phase || '').toLowerCase();
+
+  if (p.includes('1')) return {
+    subjectAngle:    'Early-Phase PK & Dose Characterisation',
+    openingHook:     'Early-phase programmes like this are exactly where MIDD pays the highest dividends — getting the PK characterisation and dose-escalation design right from the start reduces risk and informs every decision downstream.',
+    serviceAngle:    'first-in-human PK modelling, dose escalation design support, and regulatory-ready NCA and PopPK analyses',
+    enrollmentNote:  'a clean, well-powered PK dataset at this size sets up a strong Phase 2 transition.',
+    followUp1Hook:   'One thing I often hear from Phase 1 teams is that PK data interpretation bottlenecks the dose decision timeline. We\'ve built workflows that compress this — worth 15 minutes to walk through?',
+    recentWork:      'supported a Phase 1 FIH programme where our NCA + PopPK package directly informed the dose-escalation decision, getting to RP2D two months ahead of plan',
+    breakupLine:     'If you ever need support with PK analysis, dose escalation modelling, or FDA/EMA submission packages for a Phase 1 programme, PumasAI is a call away.',
+    linkedInAngle:   'Phase 1 PK characterisation, NCA, and dose-escalation modelling'
+  };
+
+  if (p.includes('2')) return {
+    subjectAngle:    'Exposure-Response Modelling for Phase 2 Dose Decision',
+    openingHook:     'Phase 2 is typically where the exposure-response relationship defines the programme\'s fate — a well-built E-R model at this stage directly supports the Phase 3 dose rationale and reduces regulatory back-and-forth.',
+    serviceAngle:    'population PK/PD modelling, exposure-response analysis, and Phase 2 → Phase 3 transition support',
+    enrollmentNote:  'this is a well-powered dataset for a robust PopPK/E-R analysis.',
+    followUp1Hook:   'The difference between a clean Phase 3 package and a slow FDA review often comes down to the quality of the E-R analysis done in Phase 2. Happy to share how we\'ve navigated that for similar programmes.',
+    recentWork:      'completed an exposure-response analysis for a Phase 2 oncology asset that directly informed the dose selection in the pivotal trial — the sponsor credited it with avoiding a Phase 3 protocol amendment',
+    breakupLine:     'If a need for population PK, E-R modelling, or Phase 3 dose justification support comes up, please don\'t hesitate to reach out.',
+    linkedInAngle:   'Phase 2 exposure-response modelling and Phase 3 dose justification'
+  };
+
+  if (p.includes('3')) return {
+    subjectAngle:    'Regulatory-Ready Clinical Pharmacology Package',
+    openingHook:     'Phase 3 programmes are on the submission runway, and the clinical pharmacology package — PopPK, E-R, DDI, special populations — is typically on the critical path. This is our core strength.',
+    serviceAngle:    'NDA/BLA-ready clinical pharmacology packages, population PK, model-based meta-analysis, and FDA/EMA submission support',
+    enrollmentNote:  'a trial of this size generates the rich dataset that supports a comprehensive regulatory PK/PD submission.',
+    followUp1Hook:   'Regulatory reviewers increasingly expect MIDD-supported dose justification in Phase 3 submissions. We\'ve helped teams prepare packages that have received minimal FDA queries — worth a conversation?',
+    recentWork:      'supported a Phase 3 submission package for an oncology programme where our PopPK and E-R analyses directly addressed an FDA information request, keeping the review timeline on track',
+    breakupLine:     'If a need for clinical pharmacology package preparation, regulatory consulting, or submission support arises, PumasAI is here.',
+    linkedInAngle:   'Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions'
+  };
+
+  // Generic
+  return {
+    subjectAngle:    'MIDD & Clinical Pharmacology Support',
+    openingHook:     'Model-Informed Drug Development is increasingly expected by FDA and EMA reviewers — and programmes that build MIDD into their clinical strategy from the start consistently reach decision points faster with fewer surprises.',
+    serviceAngle:    'model-informed drug development, clinical pharmacology, and regulatory strategy',
+    enrollmentNote:  'this dataset creates a strong foundation for a model-based analysis.',
+    followUp1Hook:   'Many teams we work with find that proactive MIDD strategy reduces overall development time and strengthens regulatory interactions. Happy to share a relevant example for your programme.',
+    recentWork:      'supported a clinical development programme with PK/PD modelling that supported a key regulatory decision, reducing back-and-forth with FDA by several months',
+    breakupLine:     'If a pharmacometrics or clinical pharmacology need comes up at any stage, please feel free to reach out.',
+    linkedInAngle:   'pharmacometrics, clinical pharmacology, and MIDD strategy'
+  };
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// TRACKER TAB
+// ────────────────────────────────────────────────────────────────────────────
+const STATUS_OPTIONS = [
+  {val:'not-started',     label:'Not Started'},
+  {val:'email1-sent',     label:'Email 1 Sent'},
+  {val:'fu1-due',         label:'Follow-up 1 Due'},
+  {val:'fu1-sent',        label:'Follow-up 1 Sent'},
+  {val:'fu2-due',         label:'Follow-up 2 Due'},
+  {val:'fu2-sent',        label:'Follow-up 2 Sent'},
+  {val:'replied',         label:'✓ Replied'},
+  {val:'not-interested',  label:'Not Interested'},
+  {val:'closed',          label:'Closed'}
+];
+
+function renderTrackerTab(c) {
+  const contacts = c.contacts || [];
+  if (!contacts.length) {
+    return `<div class="empty-state" style="padding:40px"><div class="empty-icon">📊</div><div class="empty-title">No contacts yet</div><div class="empty-sub">Import contacts to start tracking your outreach progress.</div></div>`;
+  }
+
+  const dueContacts = contacts.filter(ct => needsFollowUp(ct));
+  const dueBanner = dueContacts.length
+    ? `<div class="followup-banner">⏰ <strong>${dueContacts.length} contact${dueContacts.length>1?'s':''} need follow-up:</strong> ${dueContacts.map(ct=>ct.name).join(', ')}</div>`
+    : '';
+
+  return `
+    ${dueBanner}
+    <div class="pipeline-wrap">
+    <table>
+      <thead><tr>
+        <th>Contact</th><th>Company</th><th>Status</th><th>Last Contact</th><th>Follow-up</th><th>Notes</th>
+      </tr></thead>
+      <tbody>
+        ${contacts.map((ct, idx) => `
+        <tr>
+          <td><div style="font-weight:600">${ct.name}</div><div style="font-size:11px;color:var(--text-muted)">${ct.title||''}</div></td>
+          <td style="font-size:13px">${ct.company||'—'}</td>
+          <td>
+            <select class="form-input" style="padding:4px 8px;font-size:12px;width:160px" onchange="updateContactStatus('${c.id}',${idx},this.value)">
+              ${STATUS_OPTIONS.map(s => `<option value="${s.val}" ${ct.status===s.val?'selected':''}>${s.label}</option>`).join('')}
+            </select>
+          </td>
+          <td>
+            <input type="date" value="${ct.lastContacted||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none" onchange="updateContactField('${c.id}',${idx},'lastContacted',this.value)">
+          </td>
+          <td>
+            <input type="date" value="${ct.followUpDate||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none;${needsFollowUp(ct)?'border-color:#d97706;background:#fffbeb':''}" onchange="updateContactField('${c.id}',${idx},'followUpDate',this.value)">
+          </td>
+          <td>
+            <input type="text" value="${ct.notes||''}" placeholder="Add note…" style="border:1px solid var(--border);border-radius:5px;padding:4px 8px;font-size:12px;width:180px;outline:none" onchange="updateContactField('${c.id}',${idx},'notes',this.value)">
+          </td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+    </div>`;
+}
+
+function updateContactStatus(cid, idx, val) {
+  const c = getCampaign(cid);
+  if (!c || !c.contacts[idx]) return;
+  c.contacts[idx].status = val;
+  if (val === 'email1-sent' && !c.contacts[idx].lastContacted) {
+    c.contacts[idx].lastContacted = new Date().toISOString().split('T')[0];
+    // Auto-set follow-up date to 7 days later
+    const fu = new Date(); fu.setDate(fu.getDate() + 7);
+    c.contacts[idx].followUpDate = fu.toISOString().split('T')[0];
+  }
+  saveCampaigns();
+  renderMain();
+}
+
+function updateContactField(cid, idx, field, value) {
+  const c = getCampaign(cid);
+  if (!c || !c.contacts[idx]) return;
+  c.contacts[idx][field] = value;
+  saveCampaigns();
+}
+
+function needsFollowUp(ct) {
+  if (!ct.followUpDate) return false;
+  if (['replied','closed','not-interested'].includes(ct.status)) return false;
+  return new Date(ct.followUpDate) <= new Date();
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// EXPORT TAB
+// ────────────────────────────────────────────────────────────────────────────
+function renderExportTab(c) {
+  const contacts  = c.contacts || [];
+  const approved  = contacts.filter(ct => ct.drafts && ct.drafts.email1);
+  return `
+    <div class="info-box">
+      <strong>Outlook Mail Merge Export:</strong> This creates a CSV with one row per contact, containing all personalised email copy. In Outlook, use <em>Mailings → Start Mail Merge → E-mail Messages</em>, connect this CSV as your recipient list, and insert the merge fields (Email1_Subject, Email1_Body, etc.) into your template.
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
+      <div class="stat-card">
+        <div class="stat-value">${contacts.length}</div>
+        <div class="stat-label">Total Contacts</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" style="color:${approved.length>0?'var(--green)':'var(--text)'}">${approved.length}</div>
+        <div class="stat-label">With Drafts</div>
+      </div>
+    </div>
+
+    ${approved.length === 0
+      ? '<div class="info-box" style="background:var(--amber-light);border-color:#fde68a;color:#92400e">⚠ No contacts have drafts yet. Go to the Drafts tab and generate sequences first.</div>'
+      : `<div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="exportMailMergeCSV()">⬇ Download Mail Merge CSV</button>
+          <button class="btn btn-ghost" onclick="exportLinkedInMessages()">⬇ LinkedIn Messages (.txt)</button>
+          <button class="btn btn-ghost" onclick="exportCampaignSummary()">⬇ Campaign Summary (.csv)</button>
+        </div>`
+    }
+
+    <div style="margin-top:24px">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px">Mail Merge Column Reference</div>
+      <div class="pipeline-wrap"><table>
+        <thead><tr><th>Column</th><th>Description</th><th>Use in Outlook as</th></tr></thead>
+        <tbody>
+          ${[
+            ['FirstName','Contact first name','Dear {{FirstName}}'],
+            ['FullName','Full name',''],
+            ['Email','Email address','Recipient address'],
+            ['Title','Job title',''],
+            ['Company','Company name','{{Company}}'],
+            ['Email1_Subject','Initial email subject line','Email subject'],
+            ['Email1_Body','Initial email body','Email body'],
+            ['FU1_Subject','Follow-up 1 subject',''],
+            ['FU1_Body','Follow-up 1 body',''],
+            ['FU2_Subject','Follow-up 2 subject',''],
+            ['FU2_Body','Follow-up 2 body',''],
+            ['LinkedIn_Message','LinkedIn message (copy-paste)',''],
+            ['NCT_ID','Trial ID for reference',''],
+            ['Phase','Trial phase',''],
+            ['Status','Outreach status',''],
+          ].map(([col,desc,use]) => `<tr><td style="font-family:monospace;font-size:12px">${col}</td><td style="font-size:12px">${desc}</td><td style="font-size:12px;color:var(--text-muted)">${use}</td></tr>`).join('')}
+        </tbody>
+      </table></div>
+    </div>`;
+}
+
+function exportMailMergeCSV() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  const cols = ['FirstName','FullName','Email','Title','Company',
+                'Email1_Subject','Email1_Body','FU1_Subject','FU1_Body',
+                'FU2_Subject','FU2_Body','LinkedIn_Message',
+                'NCT_ID','Phase','TherapyAreas','Status','Notes'];
+  const rows = [cols];
+  (c.contacts || []).forEach(ct => {
+    const co = (c.companies || []).find(co => co.sponsor === ct.company) || {};
+    const d  = ct.drafts || {};
+    rows.push([
+      ct.name.split(' ')[0],
+      ct.name,
+      ct.email || '',
+      ct.title  || '',
+      ct.company || '',
+      d.subject1 || '',
+      (d.email1  || '').replace(/\n/g,'\\n'),
+      d.subject2 || '',
+      (d.fu1     || '').replace(/\n/g,'\\n'),
+      d.subject3 || '',
+      (d.fu2     || '').replace(/\n/g,'\\n'),
+      (d.linkedin|| '').replace(/\n/g,'\\n'),
+      co.nct_id  || '',
+      co.phase   || '',
+      (co.therapy_areas||[]).join('; '),
+      ct.status  || 'not-started',
+      ct.notes   || ''
+    ]);
+  });
+  downloadCSV(rows, `${c.name.replace(/\s+/g,'_')}_mail_merge.csv`);
+  showToast('Mail merge CSV downloaded');
+}
+
+function exportLinkedInMessages() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  let txt = `LINKEDIN MESSAGES — ${c.name}\nGenerated: ${new Date().toLocaleDateString()}\n${'─'.repeat(60)}\n\n`;
+  (c.contacts || []).forEach(ct => {
+    const d = ct.drafts || {};
+    txt += `Contact: ${ct.name} (${ct.title||'?'}) at ${ct.company||'?'}\n`;
+    txt += `LinkedIn: ${ct.linkedin||'—'}\n\n`;
+    txt += (d.linkedin || '[No draft generated yet]') + '\n\n';
+    txt += '─'.repeat(60) + '\n\n';
+  });
+  downloadFile(txt, `${c.name.replace(/\s+/g,'_')}_linkedin.txt`, 'text/plain');
+  showToast('LinkedIn messages downloaded');
+}
+
+function exportCampaignSummary() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  const contacts = c.contacts || [];
+  const cols = ['Name','Company','Title','Email','Status','Last Contacted','Follow-up Date','Notes'];
+  const rows = [cols, ...contacts.map(ct => [
+    ct.name, ct.company, ct.title, ct.email,
+    STATUS_OPTIONS.find(s=>s.val===ct.status)?.label || ct.status,
+    ct.lastContacted || '', ct.followUpDate || '', ct.notes || ''
+  ])];
+  downloadCSV(rows, `${c.name.replace(/\s+/g,'_')}_summary.csv`);
+  showToast('Campaign summary downloaded');
+}
+
+function downloadCSV(rows, filename) {
+  const csv = rows.map(r => r.map(v => '"' + String(v).replace(/"/g,'""') + '"').join(',')).join('\n');
+  downloadFile(csv, filename, 'text/csv');
+}
+function downloadFile(content, filename, mime) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content], {type: mime}));
+  a.download = filename;
+  a.click();
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// ADD COMPANY MANUALLY
+// ────────────────────────────────────────────────────────────────────────────
+function openAddCompanyModal(cid) {
+  const sponsor = prompt('Company / sponsor name:');
+  if (!sponsor) return;
+  const c = getCampaign(cid);
+  if (!c) return;
+  // Try to find in trialsData
+  const match = trialsData.find(r => r.sponsor && r.sponsor.toLowerCase() === sponsor.toLowerCase());
+  c.companies.push(match || { sponsor, nct_id:'', title:'', phase:'', therapy_areas:[], conditions:[], interventions:[], countries:[], org_type:'' });
+  saveCampaigns();
+  renderMain();
+  showToast(`Added ${sponsor}`);
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// ADD CONTACT MANUALLY
+// ────────────────────────────────────────────────────────────────────────────
+function openAddContactModal(cid) {
+  const name = prompt('Contact full name:');
+  if (!name) return;
+  const email   = prompt('Email address (optional):') || '';
+  const title   = prompt('Job title (optional:)') || '';
+  const company = prompt('Company (optional):') || '';
+  const c = getCampaign(cid);
+  if (!c) return;
+  c.contacts.push({ id:'ct_'+Date.now(), name, email, title, company, linkedin:'', status:'not-started', drafts:{}, notes:'' });
+  saveCampaigns();
+  renderMain();
+  showToast(`Added ${name}`);
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// CAMPAIGN STATUS
+// ────────────────────────────────────────────────────────────────────────────
+function setCampaignStatus(cid, status) {
+  const c = getCampaign(cid);
+  if (!c) return;
+  c.status = status;
+  saveCampaigns();
+  renderSidebar();
+  renderMain();
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// MODAL HELPERS
+// ────────────────────────────────────────────────────────────────────────────
+function openModal(id)  { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open')); });
+document.querySelectorAll('.modal-overlay').forEach(m => m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); }));
+
+// ────────────────────────────────────────────────────────────────────────────
+// TOAST
+// ────────────────────────────────────────────────────────────────────────────
+function showToast(msg, isErr) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = isErr ? '#dc2626' : '#1e293b';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// UTILS
+// ────────────────────────────────────────────────────────────────────────────
+function fmtDate(iso) {
+  if (!iso) return '—';
+  return new Date(iso).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'});
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// INIT
+// ────────────────────────────────────────────────────────────────────────────
+renderSidebar();
+if (campaigns.length > 0) selectCampaign(campaigns[0].id);
+</script>
+</body>
+</html>

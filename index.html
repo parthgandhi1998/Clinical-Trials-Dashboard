@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinical Trials Lead Gen Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #f0f2f5;
+  --surface: #ffffff;
+  --surface2: #f8fafc;
+  --border: #e2e8f0;
+  --border2: #cbd5e1;
+  --text: #0f172a;
+  --text-mid: #334155;
+  --text-muted: #718096;
+  --accent: #4f46e5;
+  --accent-light: #eef2ff;
+  --radius: 10px;
+  --shadow: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 6px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+
+/* HEADER */
+.header{background:var(--surface);border-bottom:1px solid var(--border);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.header h1{font-size:17px;font-weight:700;color:var(--text);letter-spacing:-.4px;display:flex;align-items:center;gap:8px}
+.header h1 span{color:var(--accent)}
+.header-badge{background:var(--accent-light);color:var(--accent);font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.3px}
+.header-meta{font-size:12px;color:var(--text-muted);text-align:right}
+.header-meta strong{color:var(--text-mid)}
+.header-nav{display:flex;align-items:center;gap:12px}
+.campaign-nav-link{display:inline-flex;align-items:center;gap:6px;background:#4f46e5;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border-radius:8px;text-decoration:none;letter-spacing:.2px;transition:background .15s}
+.campaign-nav-link:hover{background:#4338ca;text-decoration:none;color:#fff}
+.campaign-nav-link .badge-count{background:rgba(255,255,255,.25);border-radius:999px;padding:1px 6px;font-size:11px;min-width:18px;text-align:center}
+
+/* KPI CARDS */
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px 28px 0}
+.kpi-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:8px 14px;box-shadow:var(--shadow);position:relative;overflow:hidden;display:flex;align-items:center;gap:10px}
+.kpi-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--kpi-color,var(--accent))}
+.kpi-card-body{padding-left:2px}
+.kpi-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--text-muted);margin-bottom:1px}
+.kpi-value{font-size:20px;font-weight:700;color:var(--text);line-height:1;font-variant-numeric:tabular-nums}
+.kpi-sub{font-size:10px;color:var(--text-muted);margin-top:1px}
+
+/* ANALYTICS TAB */
+.analytics-wrap{padding:20px 28px 40px}
+.analytics-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.chart-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.chart-card.full{grid-column:1/-1}
+.chart-card.third{grid-column:span 1}
+.chart-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text-muted);margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+.chart-title span{font-size:11px;font-weight:500;text-transform:none;letter-spacing:0;color:var(--text-muted)}
+.chart-container{position:relative}
+.chart-container.h240{height:240px}
+.chart-container.h300{height:300px}
+.chart-container.h360{height:360px}
+.chart-container.h420{height:420px}
+.analytics-summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:16px}
+.summary-stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:10px 14px;text-align:center}
+.summary-stat-value{font-size:20px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
+.summary-stat-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-top:2px}
+
+/* TAB BAR */
+.tab-bar{display:flex;gap:4px;padding:14px 28px 0;border-bottom:1px solid var(--border);background:var(--surface);position:sticky;top:49px;z-index:90}
+.tab{background:none;border:none;padding:8px 16px;font-size:13px;font-weight:600;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;display:flex;align-items:center;gap:6px;transition:all .15s}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-badge{background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:999px;min-width:18px;text-align:center}
+.tab.active .tab-badge{background:var(--accent)}
+.tab:not(.active) .tab-badge{background:#94a3b8}
+
+/* SPONSOR CARDS */
+.sponsors-wrap{padding:16px 28px 28px}
+.sponsors-toolbar{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.sponsors-toolbar input{border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:13px;outline:none;width:240px}
+.sponsors-toolbar input:focus{border-color:var(--accent)}
+.sponsors-count{font-size:12px;color:var(--text-muted);margin-left:auto}
+.sponsors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.sponsor-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;cursor:pointer;transition:all .15s;position:relative}
+.sponsor-card:hover{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.08);transform:translateY(-1px)}
+.sponsor-card.selected{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.18);background:var(--accent-light)}
+.sponsor-card.selected .sponsor-card-name{color:var(--accent)}
+.sp-select-cb{position:absolute;top:10px;right:10px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent);z-index:2}
+/* Floating campaign action bar */
+#campaign-action-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e1b4b;color:#fff;border-radius:14px;padding:12px 20px;display:none;align-items:center;gap:14px;box-shadow:0 8px 32px rgba(0,0,0,.35);z-index:400;min-width:360px;max-width:600px;animation:slideUp .2s ease}
+#campaign-action-bar.visible{display:flex}
+@keyframes slideUp{from{transform:translateX(-50%) translateY(20px);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
+.cab-count{font-size:13px;font-weight:700;background:var(--accent);padding:3px 10px;border-radius:999px}
+.cab-label{font-size:13px;flex:1}
+.cab-btn{background:#4f46e5;color:#fff;border:none;border-radius:8px;padding:7px 16px;font-size:12px;font-weight:700;cursor:pointer;transition:background .15s}
+.cab-btn:hover{background:#6366f1}
+.cab-clear{background:rgba(255,255,255,.12);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:12px;cursor:pointer}
+.cab-clear:hover{background:rgba(255,255,255,.2)}
+.sponsor-card-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;line-height:1.3}
+.sponsor-card-meta{font-size:11px;color:var(--text-muted);margin-bottom:8px}
+.sponsor-card-areas{display:flex;flex-wrap:wrap;gap:3px}
+.sponsor-trial-count{position:absolute;top:12px;right:14px;font-size:22px;font-weight:800;color:var(--accent);opacity:.18;font-variant-numeric:tabular-nums;line-height:1}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(2px)}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--surface);border-radius:14px;width:100%;max-width:680px;max-height:88vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.modal-header{padding:20px 24px 16px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:12px;position:sticky;top:0;background:var(--surface);border-radius:14px 14px 0 0;z-index:1}
+.modal-title{font-size:15px;font-weight:700;color:var(--text);line-height:1.4}
+.modal-close{background:var(--bg);border:1px solid var(--border);border-radius:6px;width:28px;height:28px;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text-muted)}
+.modal-close:hover{background:var(--border);color:var(--text)}
+.modal-body{padding:20px 24px}
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.modal-field{display:flex;flex-direction:column;gap:3px}
+.modal-field.full{grid-column:1/-1}
+.modal-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--text-muted)}
+.modal-value{font-size:13px;color:var(--text);line-height:1.5}
+.modal-footer{padding:14px 24px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+
+/* EXPORT BUTTONS */
+.export-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn-xlsx{background:#1d7a3a;color:#fff}
+.btn-xlsx:hover{background:#166830}
+.btn-sponsors{background:#0369a1;color:#fff}
+.btn-sponsors:hover{background:#075985}
+.btn-sponsors-wrap{position:relative;display:inline-flex;align-items:center}
+.btn-sponsors-badge{position:absolute;top:-6px;right:-6px;background:#f59e0b;color:#fff;font-size:9px;font-weight:700;padding:1px 5px;border-radius:999px;pointer-events:none}
+
+/* FILTER BAR */
+.filter-bar{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin:18px 28px;padding:16px 20px;box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.filter-group{display:flex;flex-direction:column;gap:4px}
+.filter-group label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
+.filter-group input, .filter-group select{border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:13px;color:var(--text);background:var(--surface);outline:none;transition:border .15s}
+.filter-group input:focus, .filter-group select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+#search-input{width:260px}
+.filter-group select{width:170px;cursor:pointer}
+.btn{border:none;border-radius:6px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s}
+.btn-clear{background:#f1f5f9;color:var(--text-muted)}
+.btn-clear:hover{background:#e2e8f0;color:var(--text)}
+.btn-export{background:var(--accent);color:#fff}
+.btn-export:hover{background:#4338ca}
+
+/* MULTI-SELECT DROPDOWNS (shared pattern for all multi-filters) */
+.multi-dd{position:relative}
+.multi-dd-btn{border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:13px;cursor:pointer;background:var(--surface);width:180px;display:flex;align-items:center;justify-content:space-between;gap:6px;white-space:nowrap;overflow:hidden}
+.multi-dd-btn:hover{border-color:#a0aec0}
+.multi-dd-btn.active{border-color:var(--accent);background:var(--accent-light)}
+.multi-dd-btn span.label{overflow:hidden;text-overflow:ellipsis;flex:1}
+.multi-panel{display:none;position:absolute;top:calc(100% + 4px);left:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-md);width:240px;max-height:300px;overflow-y:auto;z-index:200;padding:8px}
+.multi-panel.wide{width:280px}
+.multi-panel.open{display:block}
+.multi-search{width:100%;border:1px solid var(--border);border-radius:5px;padding:5px 8px;font-size:12px;margin-bottom:6px;outline:none}
+.multi-search:focus{border-color:var(--accent)}
+.cb-label{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:6px;cursor:pointer;font-size:13px}
+.cb-label:hover{background:var(--accent-light)}
+.cb-label input{cursor:pointer;accent-color:var(--accent)}
+.panel-actions{display:flex;gap:8px;padding:8px 8px 4px;border-top:1px solid var(--border);margin-top:4px}
+.panel-actions a{font-size:12px;color:var(--accent);cursor:pointer}
+/* DATE RANGE */
+.date-range{display:flex;gap:6px;align-items:center}
+.date-range input[type=date]{border:1px solid var(--border);border-radius:6px;padding:7px 8px;font-size:12px;color:var(--text);background:var(--surface);outline:none;width:138px}
+.date-range input[type=date]:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.1)}
+.date-range span{font-size:12px;color:var(--text-muted)}
+
+/* RESULTS INFO */
+.results-info{padding:0 28px 10px;display:flex;align-items:center;justify-content:space-between}
+.results-info span{font-size:13px;color:var(--text-muted)}
+.results-info strong{color:var(--text)}
+
+/* TABLE — scrolls in its own container so headers stick cleanly */
+.table-wrap{padding:0 28px 28px}
+.table-container{overflow-x:auto;overflow-y:auto;max-height:calc(100vh - 310px);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;background:var(--surface)}
+th{background:#f8fafc;border-bottom:2px solid var(--border);padding:10px 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:10}
+th:hover{background:#f1f5f9;color:var(--text)}
+th.sort-asc::after{content:" ↑";color:var(--accent)}
+th.sort-desc::after{content:" ↓";color:var(--accent)}
+td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;font-size:13px}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#fafbff}
+
+/* BADGES */
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;white-space:nowrap;margin:2px 2px 2px 0}
+.badge-status{padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:.2px}
+.tag-area{padding:2px 8px;border-radius:5px;font-size:11px;font-weight:600;margin:2px 2px 2px 0;display:inline-block;color:#fff}
+
+/* TITLE CELL */
+.trial-title{max-width:320px;line-height:1.4}
+.trial-title a{color:var(--text);font-weight:500}
+.trial-title a:hover{color:var(--accent)}
+.nct-link{font-family:monospace;font-size:12px;color:var(--accent);white-space:nowrap}
+
+/* INTERVENTION TYPE PILLS */
+.intv-type-pill{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;padding:1px 6px;border-radius:4px;margin:1px 2px 1px 0;white-space:nowrap}
+.itp-DRUG{background:#dbeafe;color:#1d4ed8}
+.itp-BIOLOGICAL{background:#ede9fe;color:#6d28d9}
+.itp-DEVICE{background:#d1fae5;color:#065f46}
+.itp-PROCEDURE{background:#fef3c7;color:#92400e}
+.itp-BEHAVIORAL{background:#e0f2fe;color:#0369a1}
+.itp-RADIATION{background:#fee2e2;color:#b91c1c}
+.itp-DIETARY_SUPPLEMENT{background:#ecfccb;color:#3f6212}
+.itp-GENETIC{background:#eef2ff;color:#3730a3}
+.itp-COMBINATION_PRODUCT{background:#fce7f3;color:#9d174d}
+.itp-DIAGNOSTIC_TEST{background:#f1f5f9;color:#475569}
+.itp-OTHER{background:#f3f4f6;color:#6b7280}
+
+/* COLLABORATOR LINES in table + sponsor cards */
+.sponsor-collabs{font-size:10px;color:var(--text-muted);margin-top:2px;line-height:1.3;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px}
+.role-badge{display:inline-block;font-size:9px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;padding:1px 6px;border-radius:4px;margin-right:4px;vertical-align:middle}
+.role-lead{background:#eef2ff;color:#4f46e5;border:1px solid #c7d2fe}
+.role-collab{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}
+.role-both{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa}
+
+/* PAGINATION */
+.pagination{display:flex;align-items:center;justify-content:center;gap:6px;padding:20px 28px}
+.page-btn{border:1px solid var(--border);background:var(--surface);border-radius:6px;padding:6px 12px;font-size:13px;cursor:pointer;transition:all .15s;color:var(--text)}
+.page-btn:hover{border-color:var(--accent);color:var(--accent)}
+.page-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.page-btn:disabled{opacity:.4;cursor:default}
+.page-info{font-size:13px;color:var(--text-muted);padding:0 8px}
+
+/* MODAL SECTIONS */
+.modal-section-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:16px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--accent-light)}
+.modal-section-label:first-child{margin-top:0}
+
+/* DETAIL ROW */
+.detail-row td{background:#f8fafc;padding:12px 20px}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:12px}
+.detail-grid .dl{display:flex;flex-direction:column;gap:3px}
+.detail-grid .dl dt{font-weight:700;text-transform:uppercase;font-size:10px;letter-spacing:.5px;color:var(--text-muted)}
+.detail-grid .dl dd{color:var(--text)}
+.expand-btn{font-size:11px;color:var(--text-muted);cursor:pointer;white-space:nowrap}
+.expand-btn:hover{color:var(--accent)}
+
+/* SPONSOR HIGHLIGHT */
+.sponsor-cell{font-weight:600;color:var(--text);max-width:160px}
+.org-industry{color:#1a1a2e}
+.org-nih{color:#1b5e20}
+.org-other{color:#3e2723}
+
+@media(max-width:900px){
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .detail-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>Clinical Trials <span>Lead Gen</span> Dashboard <span class="header-badge">LIVE</span></h1>
+  <div class="header-nav">
+    <div class="header-meta">
+      <span id="meta-refresh">No data loaded — drop a trials_data.json file</span> &nbsp;·&nbsp; clinicaltrials.gov API v2
+    </div>
+    <a href="campaigns.html" class="campaign-nav-link">🚀 Campaigns <span class="badge-count" id="camp-nav-badge" style="display:none">0</span></a>
+  </div>
+</div>
+
+<!-- KPI CARDS -->
+<div class="kpi-grid">
+  <div class="kpi-card" style="--kpi-color:#4f46e5">
+    <div class="kpi-card-body">
+      <div class="kpi-label">Active Trials</div>
+      <div class="kpi-value" id="kpi-trials">0</div>
+      <div class="kpi-sub">Start date: 2025-03-17 – 2026-03-17</div>
+    </div>
+  </div>
+  <div class="kpi-card" style="--kpi-color:#0ea5e9">
+    <div class="kpi-card-body">
+      <div class="kpi-label">Unique Sponsors</div>
+      <div class="kpi-value" id="kpi-sponsors">0</div>
+      <div class="kpi-sub">Target companies</div>
+    </div>
+  </div>
+  <div class="kpi-card" style="--kpi-color:#10b981">
+    <div class="kpi-card-body">
+      <div class="kpi-label">Countries</div>
+      <div class="kpi-value" id="kpi-countries">0</div>
+      <div class="kpi-sub">Trial locations</div>
+    </div>
+  </div>
+  <div class="kpi-card" style="--kpi-color:#f59e0b">
+    <div class="kpi-card-body">
+      <div class="kpi-label">Therapy Areas</div>
+      <div class="kpi-value" id="kpi-recruiting">0</div>
+      <div class="kpi-sub" id="kpi-recruiting-sub">Loading…</div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab active" id="tab-trials" onclick="switchTab('trials')">◫ Trials <span class="tab-badge" id="tab-trials-badge">0</span></button>
+  <button class="tab" id="tab-sponsors" onclick="switchTab('sponsors')">◈ Sponsors <span class="tab-badge" id="tab-sponsors-badge">0</span></button>
+  <button class="tab" id="tab-analytics" onclick="switchTab('analytics')">▦ Analytics</button>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+
+  <div class="filter-group">
+    <label>Search</label>
+    <input id="search-input" type="text" placeholder="Sponsor, title, NCT ID, drug…" autocomplete="off">
+  </div>
+
+  <div class="filter-group">
+    <label>Therapy Area</label>
+    <div class="multi-dd">
+      <div class="multi-dd-btn" id="area-btn"><span class="label" id="area-btn-label">All Areas</span><span>▾</span></div>
+      <div class="multi-panel wide open-panel" id="area-panel">
+        
+        <div class="panel-actions"><a id="area-select-all">All</a><a id="area-clear-all">Clear</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label>Phase</label>
+    <div class="multi-dd">
+      <div class="multi-dd-btn" id="phase-btn"><span class="label" id="phase-btn-label">All Phases</span><span>▾</span></div>
+      <div class="multi-panel" id="phase-panel">
+        
+        <div class="panel-actions"><a id="phase-select-all">All</a><a id="phase-clear-all">Clear</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label>Status</label>
+    <div class="multi-dd">
+      <div class="multi-dd-btn" id="status-btn"><span class="label" id="status-btn-label">All Statuses</span><span>▾</span></div>
+      <div class="multi-panel" id="status-panel">
+        
+        <div class="panel-actions"><a id="status-select-all">All</a><a id="status-clear-all">Clear</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label>Country</label>
+    <div class="multi-dd">
+      <div class="multi-dd-btn" id="country-btn"><span class="label" id="country-btn-label">All Countries</span><span>▾</span></div>
+      <div class="multi-panel" id="country-panel">
+        <input class="multi-search" id="country-search" type="text" placeholder="Search country…">
+        
+        <div class="panel-actions"><a id="country-select-all">All</a><a id="country-clear-all">Clear</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label>Intervention Type</label>
+    <div class="multi-dd">
+      <div class="multi-dd-btn" id="intv-type-btn"><span class="label" id="intv-type-btn-label">All Types</span><span>▾</span></div>
+      <div class="multi-panel" id="intv-type-panel">
+        
+        <div class="panel-actions"><a id="intv-type-select-all">All</a><a id="intv-type-clear-all">Clear</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label>Funder Type</label>
+    <div class="multi-dd">
+      <div class="multi-dd-btn" id="funder-btn"><span class="label" id="funder-btn-label">All Funders</span><span>▾</span></div>
+      <div class="multi-panel" id="funder-panel">
+        
+        <div class="panel-actions"><a id="funder-select-all">All</a><a id="funder-clear-all">Clear</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label>Study Type</label>
+    <div class="multi-dd">
+      <div class="multi-dd-btn" id="study-type-btn"><span class="label" id="study-type-btn-label">All Types</span><span>▾</span></div>
+      <div class="multi-panel" id="study-type-panel">
+        
+        <div class="panel-actions"><a id="study-type-select-all">All</a><a id="study-type-clear-all">Clear</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label>Start Date Range</label>
+    <div class="date-range">
+      <input type="date" id="date-from" title="From">
+      <span>→</span>
+      <input type="date" id="date-to" title="To">
+    </div>
+  </div>
+
+  <div style="display:flex;gap:8px;align-items:flex-end">
+    <button class="btn btn-clear" id="btn-clear">✕ Clear</button>
+    <div class="export-row">
+      <button class="btn btn-export" id="btn-export">↓ CSV</button>
+      <button class="btn btn-xlsx" id="btn-export-xlsx">↓ Excel</button>
+      <div class="btn-sponsors-wrap" title="Export deduplicated sponsor list for SeamlessAI / lead gen import">
+        <button class="btn btn-sponsors" id="btn-export-sponsors">↓ Sponsors</button>
+        <span class="btn-sponsors-badge" id="sponsors-export-badge">0</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS INFO -->
+<div class="results-info">
+  <span>Showing <strong id="showing-count">–</strong> of <strong id="total-count">–</strong> trials</span>
+  <span id="page-info-top"></span>
+</div>
+
+<!-- TRIALS PANEL -->
+<div id="panel-trials">
+<!-- TABLE -->
+<div class="table-wrap"><div class="table-container">
+<table id="main-table">
+  <thead>
+    <tr>
+      <th data-col="nct_id">NCT ID</th>
+      <th data-col="title">Trial Title</th>
+      <th data-col="sponsor">Sponsor</th>
+      <th data-col="therapy_areas">Therapy Area</th>
+      <th data-col="intervention_types">Int. Type</th>
+      <th data-col="phase">Phase</th>
+      <th data-col="status">Status</th>
+      <th data-col="countries">Countries</th>
+      <th data-col="start_date">Start</th>
+      <th data-col="completion_date">Est. Completion</th>
+      <th data-col="enrollment">Enroll.</th>
+    </tr>
+  </thead>
+  <tbody id="table-body"></tbody>
+</table>
+</div></div>
+
+<!-- PAGINATION -->
+<div class="pagination" id="pagination"></div>
+</div><!-- /panel-trials -->
+
+<!-- ANALYTICS PANEL -->
+<div id="panel-analytics" style="display:none">
+<div class="analytics-wrap">
+
+  <!-- Summary row -->
+  <div class="analytics-summary">
+    <div class="summary-stat"><div class="summary-stat-value" id="an-total">–</div><div class="summary-stat-label">Trials in view</div></div>
+    <div class="summary-stat"><div class="summary-stat-value" id="an-recruiting">–</div><div class="summary-stat-label">Recruiting</div></div>
+    <div class="summary-stat"><div class="summary-stat-value" id="an-sponsors">–</div><div class="summary-stat-label">Unique Sponsors</div></div>
+    <div class="summary-stat"><div class="summary-stat-value" id="an-countries">–</div><div class="summary-stat-label">Countries</div></div>
+    <div class="summary-stat"><div class="summary-stat-value" id="an-enrollment">–</div><div class="summary-stat-label">Total Enrollment</div></div>
+  </div>
+
+  <!-- Charts grid -->
+  <div class="analytics-grid">
+
+    <!-- Row 1: Monthly trend full width -->
+    <div class="chart-card full">
+      <div class="chart-title">Trials Started per Month <span>based on start date</span></div>
+      <div class="chart-container h240"><canvas id="ch-trend"></canvas></div>
+    </div>
+
+    <!-- Row 2: Therapy area + Phase -->
+    <div class="chart-card">
+      <div class="chart-title">Trials by Therapy Area <span>top 15</span></div>
+      <div class="chart-container h360"><canvas id="ch-area"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Trials by Phase</div>
+      <div class="chart-container h360"><canvas id="ch-phase"></canvas></div>
+    </div>
+
+    <!-- Row 3: Status + Funder Type -->
+    <div class="chart-card">
+      <div class="chart-title">Trials by Status</div>
+      <div class="chart-container h300"><canvas id="ch-status"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Trials by Funder Type</div>
+      <div class="chart-container h300"><canvas id="ch-funder"></canvas></div>
+    </div>
+
+    <!-- Row 4: Intervention types + Study type -->
+    <div class="chart-card">
+      <div class="chart-title">Trials by Intervention Type</div>
+      <div class="chart-container h300"><canvas id="ch-intv-type"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Trials by Study Type</div>
+      <div class="chart-container h300"><canvas id="ch-study-type"></canvas></div>
+    </div>
+
+    <!-- Row 5: Top countries + Top sponsors full width each -->
+    <div class="chart-card">
+      <div class="chart-title">Top Countries <span>by trial count</span></div>
+      <div class="chart-container h420"><canvas id="ch-country"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">Top Lead Sponsors <span>by trial count</span></div>
+      <div class="chart-container h420"><canvas id="ch-sponsor"></canvas></div>
+    </div>
+
+  </div>
+</div>
+</div><!-- /panel-analytics -->
+
+<!-- SPONSORS PANEL -->
+<div id="panel-sponsors" style="display:none">
+  <div class="sponsors-wrap">
+    <div class="sponsors-toolbar">
+      <input id="sponsor-search" type="text" placeholder="Search sponsors…" oninput="renderSponsors()">
+      <div class="filter-group" style="flex-direction:row;align-items:center;gap:6px">
+        <label style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)">Filter by area:</label>
+        <div class="multi-dd">
+          <div class="multi-dd-btn" id="sp-area-btn" style="width:160px"><span class="label" id="sp-area-label">All Areas</span><span>▾</span></div>
+          <div class="multi-panel wide" id="sp-area-panel">
+            
+            <div class="panel-actions"><a id="sp-area-all">All</a><a id="sp-area-clear">Clear</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="sponsors-count"><span id="sponsors-showing">–</span> sponsors</div>
+      <button class="btn btn-export" style="font-size:11px;padding:5px 10px" onclick="selectAllVisible()">☑ Select All</button>
+      <button class="btn btn-clear" style="font-size:11px;padding:5px 10px" onclick="clearSelection()">☐ Clear</button>
+    </div>
+    <div class="sponsors-grid" id="sponsors-grid"></div>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-title">Trial Details</div>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+    <div class="modal-footer">
+      <a id="modal-ct-link" href="#" target="_blank" style="font-size:12px;font-weight:600">↗ View on ClinicalTrials.gov</a>
+      <button class="btn btn-clear" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- CAMPAIGN ACTION BAR (floating) -->
+<div id="campaign-action-bar">
+  <span class="cab-count" id="cab-count">0</span>
+  <span class="cab-label">companies selected</span>
+  <button class="cab-btn" onclick="addToCampaign()">🚀 Add to Campaign →</button>
+  <button class="cab-clear" onclick="clearSelection()">✕</button>
+</div>
+
+<script>
+let ALL_DATA=[];
+let AREA_COLORS={};
+let STATUS_COLORS={};
+
+const PAGE_SIZE_UI = 75;
+let filtered = [...ALL_DATA];
+let currentPage = 1;
+let sortCol = "start_date";
+let sortDir = "desc";
+
+// ── CAMPAIGN SELECTION STATE ───────────────────────────────────────────────────
+const selectedSponsors = new Set();
+
+function toggleSponsor(name, checked) {
+  if (checked) selectedSponsors.add(name);
+  else selectedSponsors.delete(name);
+  updateCampaignBar();
+}
+
+function updateCampaignBar() {
+  const n = selectedSponsors.size;
+  const bar = document.getElementById("campaign-action-bar");
+  document.getElementById("cab-count").textContent = n;
+  bar.classList.toggle("visible", n > 0);
+  // Update nav badge
+  const navBadge = document.getElementById("camp-nav-badge");
+  if (n > 0) { navBadge.textContent = n; navBadge.style.display = ""; }
+  else { navBadge.style.display = "none"; }
+}
+
+function clearSelection() {
+  selectedSponsors.clear();
+  // Uncheck all sponsor checkboxes
+  document.querySelectorAll(".sp-select-cb").forEach(cb => cb.checked = false);
+  document.querySelectorAll(".sponsor-card.selected").forEach(el => el.classList.remove("selected"));
+  updateCampaignBar();
+}
+
+function selectAllVisible() {
+  document.querySelectorAll(".sponsor-card").forEach(card => {
+    const cb = card.querySelector(".sp-select-cb");
+    if (!cb) return;
+    // Extract name from the card-name div
+    const nameEl = card.querySelector(".sponsor-card-name");
+    if (!nameEl) return;
+    const name = nameEl.textContent;
+    selectedSponsors.add(name);
+    cb.checked = true;
+    card.classList.add("selected");
+  });
+  updateCampaignBar();
+}
+
+function addToCampaign() {
+  if (!selectedSponsors.size) return;
+  // Build company objects with trial context from ALL_DATA
+  const map = {};
+  ALL_DATA.forEach(r => {
+    [r.sponsor, ...(r.collaborators||[])].filter(Boolean).forEach(compName => {
+      if (!selectedSponsors.has(compName)) return;
+      if (!map[compName]) map[compName] = {
+        name: compName,
+        org_type: compName === r.sponsor ? (r.org_type||"OTHER") : "",
+        funder_types: new Set(),
+        therapy_areas: new Set(),
+        phases: new Set(),
+        trials: [],
+        countries: new Set(),
+        total: 0
+      };
+      const e = map[compName];
+      if (r.funder_type) e.funder_types.add(r.funder_type);
+      r.therapy_areas.forEach(a => e.therapy_areas.add(a));
+      if (r.phase) e.phases.add(r.phase);
+      r.countries.forEach(c => e.countries.add(c));
+      e.trials.push({ nct_id: r.nct_id, title: r.title, phase: r.phase, status: r.status, enrollment: r.enrollment, start_date: r.start_date });
+      e.total++;
+    });
+  });
+
+  const companies = Object.values(map).map(e => ({
+    name: e.name,
+    org_type: e.org_type || "OTHER",
+    funder_types: [...e.funder_types],
+    therapy_areas: [...e.therapy_areas],
+    phases: [...e.phases],
+    countries: [...e.countries],
+    trials: e.trials.slice(0, 10),  // cap at 10 representative trials
+    total: e.total
+  }));
+
+  // Store in localStorage for campaigns.html to pick up
+  localStorage.setItem("pumas_pending_companies", JSON.stringify(companies));
+  localStorage.setItem("pumas_pending_ts", Date.now().toString());
+
+  // Navigate to campaigns
+  window.location.href = "campaigns.html";
+}
+
+// ── FILTER STATE ──────────────────────────────────────────────────────────────
+const state = {
+  search:     "",
+  areas:      new Set(),   // empty = all
+  phases:     new Set(),
+  statuses:   new Set(),
+  countries:  new Set(),
+  funders:    new Set(),
+  studyTypes: new Set(),
+  intTypes:   new Set(),
+  dateFrom:   "",
+  dateTo:     "",
+};
+
+// Normalise a partial date string (YYYY-MM or YYYY) to YYYY-MM-DD for comparison
+function toFullDate(d, endOfPeriod=false) {
+  if (!d) return "";
+  if (/^\d{4}$/.test(d))       return endOfPeriod ? d + "-12-31" : d + "-01-01";
+  if (/^\d{4}-\d{2}$/.test(d)) return endOfPeriod ? d + "-28"   : d + "-01";
+  return d;
+}
+
+// ── FILTER LOGIC ──────────────────────────────────────────────────────────────
+function applyFilters() {
+  const q = state.search.toLowerCase();
+  filtered = ALL_DATA.filter(r => {
+    if (q && ![r.nct_id, r.title, r.sponsor, ...(r.collaborators||[]), ...r.interventions, ...r.conditions]
+              .join(" ").toLowerCase().includes(q)) return false;
+    if (state.areas.size      > 0 && !r.therapy_areas.some(a => state.areas.has(a)))           return false;
+    if (state.phases.size     > 0 && !state.phases.has(r.phase))                               return false;
+    if (state.statuses.size   > 0 && !state.statuses.has(r.status))                            return false;
+    if (state.countries.size  > 0 && !r.countries.some(c => state.countries.has(c)))           return false;
+    if (state.funders.size    > 0 && !(r.funder_types||[]).some(f => state.funders.has(f)))          return false;
+    if (state.studyTypes.size > 0 && !state.studyTypes.has(r.study_type))                            return false;
+    if (state.intTypes.size   > 0 && !(r.intervention_types||[]).some(t => state.intTypes.has(t)))   return false;
+    if (state.dateFrom) {
+      const rd = toFullDate(r.start_date);
+      if (!rd || rd < state.dateFrom) return false;
+    }
+    if (state.dateTo) {
+      const rd = toFullDate(r.start_date, true);
+      if (!rd || rd > state.dateTo) return false;
+    }
+    return true;
+  });
+
+  // Sort
+  filtered.sort((a, b) => {
+    let va = a[sortCol], vb = b[sortCol];
+    if (Array.isArray(va)) va = va.join(", ");
+    if (Array.isArray(vb)) vb = vb.join(", ");
+    va = va ?? ""; vb = vb ?? "";
+    const cmp = String(va).localeCompare(String(vb), undefined, {numeric: true});
+    return sortDir === "asc" ? cmp : -cmp;
+  });
+
+  currentPage = 1;
+  updateKPIs();
+  updateSponsorsBadge();
+  renderTable();
+  renderPagination();
+  if (document.getElementById("tab-analytics").classList.contains("active")) renderAnalytics();
+}
+
+// ── RENDER KPIs (dynamic — reflect current filtered set) ─────────────────────
+function updateKPIs() {
+  document.getElementById("kpi-trials").textContent    = filtered.length.toLocaleString();
+  document.getElementById("kpi-sponsors").textContent  = new Set(filtered.map(r=>r.sponsor)).size.toLocaleString();
+  document.getElementById("kpi-countries").textContent = new Set(filtered.flatMap(r=>r.countries)).size.toLocaleString();
+  document.getElementById("showing-count").textContent = filtered.length.toLocaleString();
+  document.getElementById("total-count").textContent   = ALL_DATA.length.toLocaleString();
+  document.getElementById("tab-trials-badge").textContent = filtered.length.toLocaleString();
+  const recruiting = filtered.filter(r => r.status === "RECRUITING").length;
+  document.getElementById("kpi-recruiting").textContent = recruiting.toLocaleString();
+  document.getElementById("kpi-recruiting-sub").textContent = "Actively recruiting";
+}
+
+// ── BADGE HELPERS ─────────────────────────────────────────────────────────────
+function areaTag(area) {
+  const c = AREA_COLORS[area] || "#78909c";
+  return `<span class="tag-area" style="background:${c}">${area}</span>`;
+}
+
+function statusBadge(s) {
+  const c  = STATUS_COLORS[s] || "#78909c";
+  const lb = s.replace(/_/g," ").replace(/\w/g,x=>x.toUpperCase());
+  return `<span class="badge-status" style="background:${c}1a;color:${c};border:1px solid ${c}50">${lb}</span>`;
+}
+
+const _INTV_TYPE_LABELS_JS = {DRUG:"Drug",BIOLOGICAL:"Biological",DEVICE:"Device",PROCEDURE:"Procedure",BEHAVIORAL:"Behavioral",RADIATION:"Radiation",DIETARY_SUPPLEMENT:"Dietary Supplement",GENETIC:"Genetic",COMBINATION_PRODUCT:"Combination Product",DIAGNOSTIC_TEST:"Diagnostic Test",OTHER:"Other"};
+function intvTypePills(types) {
+  return (types||[]).map(t =>
+    `<span class="intv-type-pill itp-${t}">${_INTV_TYPE_LABELS_JS[t]||t}</span>`
+  ).join("");
+}
+
+function phaseColor(p) {
+  if (p.includes("4")) return "#0d47a1";
+  if (p.includes("3")) return "#1565c0";
+  if (p.includes("2")) return "#1976d2";
+  if (p.includes("1")) return "#42a5f5";
+  return "#90a4ae";
+}
+
+// ── TABLE RENDER ──────────────────────────────────────────────────────────────
+function renderTable() {
+  const tbody = document.getElementById("table-body");
+  const start = (currentPage - 1) * PAGE_SIZE_UI;
+  const slice = filtered.slice(start, start + PAGE_SIZE_UI);
+
+  if (!slice.length) {
+    tbody.innerHTML = `<tr><td colspan="11" style="text-align:center;padding:40px;color:#718096">
+      No trials match the current filters.</td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = slice.map((r, i) => {
+    const idx = start + i;
+    const areas   = r.therapy_areas.map(areaTag).join("");
+    const statusB = statusBadge(r.status);
+    const phaseC  = phaseColor(r.phase);
+    const phaseBadge = r.phase !== "N/A"
+      ? `<span style="color:${phaseC};font-weight:700">${r.phase}</span>`
+      : `<span style="color:#a0aec0">N/A</span>`;
+    const countries = r.countries.slice(0,3).join(", ") + (r.countries.length > 3 ? ` +${r.countries.length-3}` : "");
+    const orgClass  = r.org_type === "INDUSTRY" ? "org-industry" : r.org_type === "NIH" ? "org-nih" : "org-other";
+
+    return `<tr data-idx="${idx}" onclick="showModal(${idx})" style="cursor:pointer" title="Click for details">
+      <td onclick="event.stopPropagation()"><a class="nct-link" href="${r.url}" target="_blank">${r.nct_id}</a></td>
+      <td class="trial-title"><span style="color:var(--text);font-weight:500">${
+        r.title.length > 88 ? r.title.slice(0,88)+"…" : r.title
+      }</span></td>
+      <td class="sponsor-cell ${orgClass}" title="${[r.sponsor, ...(r.collaborators||[])].join(' | ')}">
+        <div>${r.sponsor.length > 28 ? r.sponsor.slice(0,28)+"…" : r.sponsor}</div>
+        ${(r.collaborators||[]).length ? `<div class="sponsor-collabs" title="${(r.collaborators||[]).join(', ')}">${
+          (r.collaborators||[]).slice(0,2).map(c => c.length > 22 ? c.slice(0,22)+"…" : c).join(" · ")
+          + ((r.collaborators||[]).length > 2 ? ` +${(r.collaborators||[]).length - 2}` : "")
+        }</div>` : ""}
+      }</td>
+      <td>${areas}</td>
+      <td>${intvTypePills(r.intervention_types)}</td>
+      <td>${phaseBadge}</td>
+      <td>${statusB}</td>
+      <td style="font-size:12px;color:var(--text-mid)">${countries}</td>
+      <td style="white-space:nowrap;font-size:12px;font-family:'JetBrains Mono',monospace">${r.start_date || "–"}</td>
+      <td style="white-space:nowrap;font-size:12px;font-family:'JetBrains Mono',monospace">${r.completion_date || "–"}</td>
+      <td style="text-align:right;font-size:12px;color:var(--text-mid);font-variant-numeric:tabular-nums">${r.enrollment ? Number(r.enrollment).toLocaleString() : "–"}</td>
+    </tr>`;
+  }).join("");
+}
+
+// ── MODAL ─────────────────────────────────────────────────────────────────────
+function showModal(idx) {
+  const r = filtered[idx];
+  document.getElementById("modal-title").textContent = r.title;
+  document.getElementById("modal-ct-link").href = r.url;
+  document.getElementById("modal-body").innerHTML = `
+    <div class="modal-section-label">Overview</div>
+    <div class="modal-grid">
+      <div class="modal-field"><div class="modal-label">NCT ID</div>
+        <div class="modal-value"><a href="${r.url}" target="_blank" style="font-family:'JetBrains Mono',monospace">${r.nct_id}</a></div></div>
+      <div class="modal-field"><div class="modal-label">Study Type</div>
+        <div class="modal-value">${r.study_type ? r.study_type.replace(/_/g," ") : "–"}</div></div>
+      <div class="modal-field"><div class="modal-label">Lead Sponsor</div>
+        <div class="modal-value" style="font-weight:600">
+          <span class="role-badge role-lead">Lead</span>
+          <span style="cursor:pointer;color:var(--accent)" onclick="event.stopPropagation();filterBySponsor('${r.sponsor.replace(/'/g,"\'")}');document.getElementById('modal-overlay').style.display='none'">${r.sponsor || "–"}</span>
+        </div></div>
+      ${(r.collaborators||[]).length ? `
+      <div class="modal-field full"><div class="modal-label">Collaborators</div>
+        <div class="modal-value">${(r.collaborators||[]).map(c =>
+          `<span class="role-badge role-collab">Collab</span><span style="cursor:pointer;color:var(--accent);margin-right:12px" onclick="event.stopPropagation();filterBySponsor('${c.replace(/'/g,"\'")}');document.getElementById('modal-overlay').style.display='none'">${c}</span>`
+        ).join("")}</div></div>` : ""}
+      <div class="modal-field"><div class="modal-label">Funder Type</div>
+        <div class="modal-value">${(r.funder_types||[]).map(f=>({INDUSTRY:"Industry",NIH:"NIH",FED:"U.S. Fed Gov't (non-NIH)",OTHER_GOV:"Other Gov't",INDIV:"Individual",NETWORK:"Network",OTHER:"Other",UNKNOWN:"Unknown"}[f]||f.replace(/_/g," "))).join(", ") || "–"}</div></div>
+      <div class="modal-field"><div class="modal-label">Phase</div>
+        <div class="modal-value">${r.phase || "–"}</div></div>
+      <div class="modal-field"><div class="modal-label">Status</div>
+        <div class="modal-value">${statusBadge(r.status)}</div></div>
+      <div class="modal-field"><div class="modal-label">Enrollment</div>
+        <div class="modal-value">${r.enrollment ? Number(r.enrollment).toLocaleString() + " participants" : "–"}</div></div>
+      <div class="modal-field"><div class="modal-label">Last Updated</div>
+        <div class="modal-value">${r.last_update || "–"}</div></div>
+      <div class="modal-field"><div class="modal-label">Start Date</div>
+        <div class="modal-value">${r.start_date || "–"}</div></div>
+      <div class="modal-field"><div class="modal-label">Est. Completion</div>
+        <div class="modal-value">${r.completion_date || "–"}</div></div>
+      ${r.acronym ? `<div class="modal-field"><div class="modal-label">Acronym</div>
+        <div class="modal-value" style="font-family:'JetBrains Mono',monospace;font-weight:600">${r.acronym}</div></div>` : ""}
+    </div>
+
+    ${(r.official_title && r.official_title !== r.title) ? `
+    <div class="modal-section-label">Official Title</div>
+    <div style="font-size:13px;color:var(--text-mid);line-height:1.6;margin-bottom:14px">${r.official_title}</div>` : ""}
+
+    <div class="modal-section-label">Disease &amp; Therapy</div>
+    <div class="modal-grid">
+      <div class="modal-field full"><div class="modal-label">Therapy Areas</div>
+        <div class="modal-value">${r.therapy_areas.map(areaTag).join(" ")}</div></div>
+      <div class="modal-field full"><div class="modal-label">Conditions</div>
+        <div class="modal-value">${r.conditions.join(" · ") || "–"}</div></div>
+      ${r.interventions.length ? `<div class="modal-field full"><div class="modal-label">Interventions</div>
+        <div class="modal-value">
+          ${(r.intervention_types||[]).length ? `<div style="margin-bottom:4px">${intvTypePills(r.intervention_types)}</div>` : ""}
+          ${r.interventions.join(" · ")}
+        </div></div>` : ""}
+      ${""/* collaborators moved to Overview section */}
+    </div>
+
+    ${(r.allocation || r.intervention_model || r.primary_purpose || r.masking) ? `
+    <div class="modal-section-label">Study Design</div>
+    <div class="modal-grid">
+      ${r.allocation ? `<div class="modal-field"><div class="modal-label">Allocation</div>
+        <div class="modal-value">${r.allocation}</div></div>` : ""}
+      ${r.intervention_model ? `<div class="modal-field"><div class="modal-label">Intervention Model</div>
+        <div class="modal-value">${r.intervention_model}</div></div>` : ""}
+      ${r.primary_purpose ? `<div class="modal-field"><div class="modal-label">Primary Purpose</div>
+        <div class="modal-value">${r.primary_purpose}</div></div>` : ""}
+      ${r.masking ? `<div class="modal-field"><div class="modal-label">Masking</div>
+        <div class="modal-value">${r.masking}</div></div>` : ""}
+    </div>` : ""}
+
+    ${(r.min_age || r.max_age || r.sex || r.eligibility_criteria) ? `
+    <div class="modal-section-label">Eligibility</div>
+    <div class="modal-grid">
+      ${r.sex ? `<div class="modal-field"><div class="modal-label">Sex</div>
+        <div class="modal-value">${r.sex.replace(/_/g," ")}</div></div>` : ""}
+      ${r.min_age ? `<div class="modal-field"><div class="modal-label">Min Age</div>
+        <div class="modal-value">${r.min_age}</div></div>` : ""}
+      ${r.max_age ? `<div class="modal-field"><div class="modal-label">Max Age</div>
+        <div class="modal-value">${r.max_age}</div></div>` : ""}
+      ${r.healthy_volunteers ? `<div class="modal-field"><div class="modal-label">Healthy Volunteers</div>
+        <div class="modal-value">${r.healthy_volunteers}</div></div>` : ""}
+      ${r.eligibility_criteria ? `<div class="modal-field full"><div class="modal-label">Eligibility Criteria</div>
+        <div class="modal-value" style="font-size:12px;line-height:1.7;color:var(--text-mid);white-space:pre-wrap;max-height:180px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;padding:8px 10px">${r.eligibility_criteria}</div></div>` : ""}
+    </div>` : ""}
+
+    ${(r.primary_outcomes.length || r.secondary_outcomes.length) ? `
+    <div class="modal-section-label">Outcome Measures</div>
+    <div class="modal-grid">
+      ${r.primary_outcomes.length ? `<div class="modal-field full"><div class="modal-label">Primary Outcomes</div>
+        <div class="modal-value"><ul style="margin:0;padding-left:16px;font-size:12px;color:var(--text-mid);line-height:1.8">${r.primary_outcomes.map(o=>`<li>${o}</li>`).join("")}</ul></div></div>` : ""}
+      ${r.secondary_outcomes.length ? `<div class="modal-field full"><div class="modal-label">Secondary Outcomes</div>
+        <div class="modal-value"><ul style="margin:0;padding-left:16px;font-size:12px;color:var(--text-mid);line-height:1.8">${r.secondary_outcomes.map(o=>`<li>${o}</li>`).join("")}</ul></div></div>` : ""}
+    </div>` : ""}
+
+    <div class="modal-section-label">Locations &amp; Contact</div>
+    <div class="modal-grid">
+      <div class="modal-field full"><div class="modal-label">Countries</div>
+        <div class="modal-value">${r.countries.join(", ") || "–"}</div></div>
+      ${r.contacts && r.contacts.length ? `<div class="modal-field full"><div class="modal-label">Central Contact</div>
+        <div class="modal-value">${r.contacts.map(c =>
+          `<span style="font-weight:600">${c.name}</span>`
+          + (c.email ? ` &nbsp;·&nbsp; <a href="mailto:${c.email}">${c.email}</a>` : "")
+          + (c.phone ? ` &nbsp;·&nbsp; ${c.phone}` : "")).join("<br>")}</div></div>` : ""}
+    </div>
+
+    ${r.summary ? `
+    <div class="modal-section-label">Brief Summary</div>
+    <div style="font-size:13px;line-height:1.8;color:var(--text-mid)">${r.summary}</div>` : ""}
+  `;
+  document.getElementById("modal-overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal(e) {
+  if (e && e.target !== document.getElementById("modal-overlay") && e.type !== "click") return;
+  document.getElementById("modal-overlay").classList.remove("open");
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal({type:"click"}); });
+
+// ── PAGINATION ────────────────────────────────────────────────────────────────
+function renderPagination() {
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE_UI);
+  const pg = document.getElementById("pagination");
+
+  if (totalPages <= 1) { pg.innerHTML = ""; return; }
+
+  let html = `<button class="page-btn" onclick="goPage(${currentPage-1})" ${currentPage===1?"disabled":""}>‹ Prev</button>`;
+
+  const win = 2;
+  for (let p = 1; p <= totalPages; p++) {
+    if (p === 1 || p === totalPages || (p >= currentPage-win && p <= currentPage+win)) {
+      html += `<button class="page-btn ${p===currentPage?"active":""}" onclick="goPage(${p})">${p}</button>`;
+    } else if (p === currentPage-win-1 || p === currentPage+win+1) {
+      html += `<span style="padding:0 4px;color:#a0aec0">…</span>`;
+    }
+  }
+
+  html += `<button class="page-btn" onclick="goPage(${currentPage+1})" ${currentPage===totalPages?"disabled":""}>Next ›</button>`;
+  html += `<span class="page-info">Page ${currentPage} of ${totalPages}</span>`;
+  pg.innerHTML = html;
+}
+
+function goPage(p) {
+  const totalPages = Math.ceil(filtered.length / PAGE_SIZE_UI);
+  currentPage = Math.max(1, Math.min(totalPages, p));
+  renderTable();
+  renderPagination();
+  window.scrollTo({top: 0, behavior: "smooth"});
+}
+
+// ── SORT ──────────────────────────────────────────────────────────────────────
+document.querySelectorAll("th[data-col]").forEach(th => {
+  th.addEventListener("click", () => {
+    const col = th.dataset.col;
+    if (sortCol === col) sortDir = sortDir === "asc" ? "desc" : "asc";
+    else { sortCol = col; sortDir = "asc"; }
+    document.querySelectorAll("th").forEach(h => h.classList.remove("sort-asc","sort-desc"));
+    th.classList.add(sortDir === "asc" ? "sort-asc" : "sort-desc");
+    applyFilters();
+  });
+});
+
+// ── GENERIC MULTI-SELECT DROPDOWN FACTORY ────────────────────────────────────
+function makeMultiDD({btnId, panelId, cbClass, stateKey, allLabel, btnLabelId,
+                       selectAllId, clearAllId, searchId=null}) {
+  const btn   = document.getElementById(btnId);
+  const panel = document.getElementById(panelId);
+
+  btn.addEventListener("click", e => {
+    e.stopPropagation();
+    document.querySelectorAll(".multi-panel.open").forEach(p => { if (p !== panel) p.classList.remove("open"); });
+    panel.classList.toggle("open");
+  });
+
+  panel.addEventListener("click", e => e.stopPropagation());
+
+  // Optional search within panel
+  if (searchId) {
+    document.getElementById(searchId).addEventListener("input", e => {
+      const q = e.target.value.toLowerCase();
+      panel.querySelectorAll(".cb-label").forEach(l => {
+        l.style.display = l.textContent.toLowerCase().includes(q) ? "" : "none";
+      });
+    });
+  }
+
+  panel.querySelectorAll("." + cbClass).forEach(cb => {
+    cb.addEventListener("change", () => {
+      if (cb.checked) state[stateKey].add(cb.value);
+      else            state[stateKey].delete(cb.value);
+      updateBtnLabel(); applyFilters();
+    });
+  });
+
+  document.getElementById(selectAllId).addEventListener("click", () => {
+    panel.querySelectorAll("." + cbClass).forEach(cb => cb.checked = true);
+    state[stateKey] = new Set([...panel.querySelectorAll("." + cbClass)].map(c=>c.value));
+    updateBtnLabel(); applyFilters();
+  });
+
+  document.getElementById(clearAllId).addEventListener("click", () => {
+    panel.querySelectorAll("." + cbClass).forEach(cb => cb.checked = false);
+    state[stateKey].clear(); updateBtnLabel(); applyFilters();
+  });
+
+  function updateBtnLabel() {
+    const n = state[stateKey].size;
+    const lbl = document.getElementById(btnLabelId);
+    lbl.textContent = n === 0 ? allLabel : n === 1 ? [...state[stateKey]][0] : `${n} selected`;
+    btn.classList.toggle("active", n > 0);
+  }
+
+  return { reset: () => {
+    panel.querySelectorAll("." + cbClass).forEach(cb => cb.checked = false);
+    state[stateKey].clear(); updateBtnLabel();
+  } };
+}
+
+// Wire up all four multi-select dropdowns
+const areaDD      = makeMultiDD({ btnId:"area-btn",       panelId:"area-panel",       cbClass:"area-cb",       stateKey:"areas",      allLabel:"All Areas",      btnLabelId:"area-btn-label",       selectAllId:"area-select-all",       clearAllId:"area-clear-all" });
+const phaseDD     = makeMultiDD({ btnId:"phase-btn",      panelId:"phase-panel",      cbClass:"phase-cb",      stateKey:"phases",     allLabel:"All Phases",     btnLabelId:"phase-btn-label",      selectAllId:"phase-select-all",      clearAllId:"phase-clear-all" });
+const statusDD    = makeMultiDD({ btnId:"status-btn",     panelId:"status-panel",     cbClass:"status-cb",     stateKey:"statuses",   allLabel:"All Statuses",   btnLabelId:"status-btn-label",     selectAllId:"status-select-all",     clearAllId:"status-clear-all" });
+const countryDD   = makeMultiDD({ btnId:"country-btn",    panelId:"country-panel",    cbClass:"country-cb",    stateKey:"countries",  allLabel:"All Countries",  btnLabelId:"country-btn-label",    selectAllId:"country-select-all",    clearAllId:"country-clear-all",  searchId:"country-search" });
+const intvTypeDD  = makeMultiDD({ btnId:"intv-type-btn", panelId:"intv-type-panel", cbClass:"intv-type-cb", stateKey:"intTypes", allLabel:"All Types", btnLabelId:"intv-type-btn-label", selectAllId:"intv-type-select-all", clearAllId:"intv-type-clear-all" });
+const funderDD    = makeMultiDD({ btnId:"funder-btn",     panelId:"funder-panel",     cbClass:"funder-cb",     stateKey:"funders",    allLabel:"All Funders",    btnLabelId:"funder-btn-label",     selectAllId:"funder-select-all",     clearAllId:"funder-clear-all" });
+const studyTypeDD = makeMultiDD({ btnId:"study-type-btn", panelId:"study-type-panel", cbClass:"study-type-cb", stateKey:"studyTypes", allLabel:"All Types",      btnLabelId:"study-type-btn-label", selectAllId:"study-type-select-all", clearAllId:"study-type-clear-all" });
+
+// Close all panels when clicking outside
+document.addEventListener("click", () => document.querySelectorAll(".multi-panel.open").forEach(p => p.classList.remove("open")));
+
+// ── SEARCH ────────────────────────────────────────────────────────────────────
+let searchTimer;
+document.getElementById("search-input").addEventListener("input", e => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(() => { state.search = e.target.value; applyFilters(); }, 200);
+});
+
+// ── DATE RANGE ────────────────────────────────────────────────────────────────
+document.getElementById("date-from").addEventListener("change", e => { state.dateFrom = e.target.value; applyFilters(); });
+document.getElementById("date-to").addEventListener("change",   e => { state.dateTo   = e.target.value; applyFilters(); });
+
+// ── CLEAR ALL ─────────────────────────────────────────────────────────────────
+document.getElementById("btn-clear").addEventListener("click", () => {
+  document.getElementById("search-input").value = "";
+  document.getElementById("date-from").value    = "";
+  document.getElementById("date-to").value      = "";
+  state.search = ""; state.dateFrom = ""; state.dateTo = "";
+  areaDD.reset(); phaseDD.reset(); statusDD.reset(); countryDD.reset(); intvTypeDD.reset(); funderDD.reset(); studyTypeDD.reset();
+  applyFilters();
+});
+
+// ── CSV EXPORT ────────────────────────────────────────────────────────────────
+document.getElementById("btn-export").addEventListener("click", () => {
+  const cols = ["nct_id","title","sponsor","funder_types","study_type","therapy_areas","phase","status",
+                "countries","intervention_types","interventions","conditions","start_date","completion_date","enrollment",
+                "allocation","intervention_model","primary_purpose","masking","url"];
+  const header = ["NCT ID","Title","Sponsor","Funder Type","Study Type","Therapy Areas","Phase","Status",
+                  "Countries","Intervention Types","Interventions","Conditions","Start Date","Completion Date","Enrollment",
+                  "Allocation","Intervention Model","Primary Purpose","Masking","URL"];
+
+  const rows = [header, ...filtered.map(r =>
+    cols.map(c => {
+      let v = r[c];
+      if (Array.isArray(v)) v = v.join("; ");
+      v = String(v ?? "").replace(/"/g,'""');
+      return `"${v}"`;
+    })
+  )];
+
+  const blob = new Blob([rows.map(r=>r.join(",")).join("\n")], {type:"text/csv"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `clinical_trials_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+});
+
+// ── XLSX EXPORT ───────────────────────────────────────────────────────────────
+document.getElementById("btn-export-xlsx").addEventListener("click", () => {
+  const cols = ["nct_id","title","sponsor","funder_types","study_type","therapy_areas","phase","status",
+                "countries","intervention_types","interventions","conditions","start_date","completion_date","enrollment",
+                "allocation","intervention_model","primary_purpose","masking","url"];
+  const header = ["NCT ID","Title","Sponsor","Funder Type","Study Type","Therapy Areas","Phase","Status",
+                  "Countries","Intervention Types","Interventions","Conditions","Start Date","Completion Date","Enrollment",
+                  "Allocation","Intervention Model","Primary Purpose","Masking","URL"];
+  const rows = [header, ...filtered.map(r =>
+    cols.map(c => Array.isArray(r[c]) ? r[c].join("; ") : (r[c] ?? ""))
+  )];
+  const ws = XLSX.utils.aoa_to_sheet(rows);
+  // Column widths
+  ws['!cols'] = [8,40,25,18,18,28,10,20,22,18,30,28,12,12,10,14,20,18,14,35].map(w => ({wch:w}));
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Trials");
+  XLSX.writeFile(wb, `clinical_trials_${new Date().toISOString().slice(0,10)}.xlsx`);
+});
+
+// ── SPONSORS EXPORT (deduplicated, SeamlessAI-ready) ─────────────────────────
+function buildSponsorMap(source) {
+  const map = {};
+  function ensure(name, org, funderTypes) {
+    if (!map[name]) map[name] = {
+      name, org_type: org||"", funder_types: new Set(funderTypes||[]),
+      areas: new Set(), countries: new Set(),
+      lead_trials: 0, collab_trials: 0,
+      phases: new Set(), statuses: new Set(),
+    };
+  }
+  source.forEach(r => {
+    if (r.sponsor) {
+      ensure(r.sponsor, r.org_type, r.funder_types);
+      const e = map[r.sponsor];
+      e.lead_trials++;
+      (r.therapy_areas||[]).forEach(a => e.areas.add(a));
+      (r.countries    ||[]).forEach(c => e.countries.add(c));
+      (r.funder_types ||[]).forEach(f => e.funder_types.add(f));
+      if (r.phase && r.phase !== "N/A") e.phases.add(r.phase);
+      if (r.status) e.statuses.add(r.status);
+    }
+    (r.collaborators||[]).forEach(c => {
+      if (!c) return;
+      ensure(c, "", []);
+      map[c].collab_trials++;
+      (r.therapy_areas||[]).forEach(a => map[c].areas.add(a));
+      (r.countries    ||[]).forEach(ct=> map[c].countries.add(ct));
+      if (r.phase && r.phase !== "N/A") map[c].phases.add(r.phase);
+      if (r.status) map[c].statuses.add(r.status);
+    });
+  });
+  return Object.values(map)
+    .map(e => ({...e, total_trials: e.lead_trials + e.collab_trials}))
+    .sort((a,b) => b.total_trials - a.total_trials);
+}
+
+const FUNDER_MAP = {INDUSTRY:"Industry",NIH:"NIH",FED:"U.S. Fed Gov't (non-NIH)",OTHER_GOV:"Other Gov't",INDIV:"Individual",NETWORK:"Network",OTHER:"Other",UNKNOWN:"Unknown"};
+
+document.getElementById("btn-export-sponsors").addEventListener("click", () => {
+  const sponsors = buildSponsorMap(filtered);
+  const header   = ["Company Name","Org Type","Funder Types","Role","Lead Trials","Collab Trials","Total Trials","Therapy Areas","Phases","Statuses","Countries"];
+  const rows = sponsors.map(s => {
+    const orgLabel    = FUNDER_MAP[s.org_type] || s.org_type || "Other";
+    const funderLabel = [...s.funder_types].map(f => FUNDER_MAP[f]||f).join("; ");
+    const role        = s.lead_trials > 0 && s.collab_trials > 0 ? "Lead + Collaborator"
+                      : s.lead_trials > 0 ? "Lead Sponsor" : "Collaborator";
+    const areas       = [...s.areas].sort().join("; ");
+    const countries   = [...s.countries].sort().join("; ");
+    const phases      = [...s.phases].join("; ");
+    const statuses    = [...s.statuses].join("; ");
+    return [s.name, orgLabel, funderLabel, role, s.lead_trials, s.collab_trials, s.total_trials, areas, phases, statuses, countries];
+  });
+
+  const ws = XLSX.utils.aoa_to_sheet([header, ...rows]);
+  ws['!cols'] = [36,14,22,18,10,10,10,40,20,22,30].map(w => ({wch:w}));
+
+  // Freeze header row
+  ws['!freeze'] = {xSplit:0, ySplit:1};
+
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, "Sponsors");
+  const date = new Date().toISOString().slice(0,10);
+  XLSX.writeFile(wb, `sponsors_seamlessai_${date}.xlsx`);
+});
+
+function updateSponsorsBadge() {
+  const n = new Set(filtered.filter(r => r.sponsor).map(r => r.sponsor)).size;
+  document.getElementById("sponsors-export-badge").textContent = n.toLocaleString();
+}
+
+// ── TAB SWITCHING ─────────────────────────────────────────────────────────────
+function switchTab(tab) {
+  document.getElementById("panel-trials").style.display    = tab === "trials"    ? "" : "none";
+  document.getElementById("panel-sponsors").style.display  = tab === "sponsors"  ? "" : "none";
+  document.getElementById("panel-analytics").style.display = tab === "analytics" ? "" : "none";
+  document.getElementById("tab-trials").classList.toggle("active",    tab === "trials");
+  document.getElementById("tab-sponsors").classList.toggle("active",  tab === "sponsors");
+  document.getElementById("tab-analytics").classList.toggle("active", tab === "analytics");
+  if (tab === "sponsors")  renderSponsors();
+  if (tab === "analytics") renderAnalytics();
+}
+
+// ── ANALYTICS ─────────────────────────────────────────────────────────────────
+const _chartInstances = {};
+
+function _destroyChart(id) {
+  if (_chartInstances[id]) { _chartInstances[id].destroy(); delete _chartInstances[id]; }
+}
+
+function _countBy(arr, keyFn) {
+  const m = {};
+  arr.forEach(r => {
+    const keys = keyFn(r);
+    (Array.isArray(keys) ? keys : [keys]).forEach(k => {
+      if (k) m[k] = (m[k] || 0) + 1;
+    });
+  });
+  return m;
+}
+
+function _topN(map, n) {
+  return Object.entries(map).sort((a,b) => b[1]-a[1]).slice(0,n);
+}
+
+const _CHART_DEFAULTS = {
+  responsive: true,
+  maintainAspectRatio: false,
+  animation: { duration: 400 },
+  plugins: {
+    legend: { labels: { font: { size: 12, family: "'Inter', system-ui, sans-serif" }, boxWidth: 12, padding: 14 } },
+    tooltip: { bodyFont: { size: 12 }, titleFont: { size: 12 } },
+  },
+};
+
+const _PALETTE = [
+  "#4f46e5","#0ea5e9","#10b981","#f59e0b","#ef4444","#8b5cf6",
+  "#06b6d4","#84cc16","#f97316","#ec4899","#14b8a6","#a855f7",
+  "#6366f1","#22d3ee","#facc15","#fb923c","#e879f9","#34d399",
+];
+
+const _FUNDER_LABELS_A = {
+  INDUSTRY:"Industry", NIH:"NIH", FED:"U.S. Fed (non-NIH)",
+  OTHER_GOV:"Other Gov't", INDIV:"Individual", NETWORK:"Network",
+  OTHER:"Other", UNKNOWN:"Unknown",
+};
+const _INTV_TYPE_LABELS_A = {
+  DRUG:"Drug", BIOLOGICAL:"Biological", DEVICE:"Device",
+  PROCEDURE:"Procedure", BEHAVIORAL:"Behavioral", RADIATION:"Radiation",
+  DIETARY_SUPPLEMENT:"Dietary Supplement", GENETIC:"Genetic",
+  COMBINATION_PRODUCT:"Combination Product", DIAGNOSTIC_TEST:"Diagnostic Test",
+  OTHER:"Other",
+};
+const _INTV_TYPE_COLORS_A = {
+  DRUG:"#dbeafe", BIOLOGICAL:"#ede9fe", DEVICE:"#d1fae5",
+  PROCEDURE:"#fef3c7", BEHAVIORAL:"#e0f2fe", RADIATION:"#fee2e2",
+  DIETARY_SUPPLEMENT:"#ecfccb", GENETIC:"#eef2ff",
+  COMBINATION_PRODUCT:"#fce7f3", DIAGNOSTIC_TEST:"#f1f5f9", OTHER:"#f3f4f6",
+};
+const _INTV_TYPE_BORDER_A = {
+  DRUG:"#1d4ed8", BIOLOGICAL:"#6d28d9", DEVICE:"#065f46",
+  PROCEDURE:"#92400e", BEHAVIORAL:"#0369a1", RADIATION:"#b91c1c",
+  DIETARY_SUPPLEMENT:"#3f6212", GENETIC:"#3730a3",
+  COMBINATION_PRODUCT:"#9d174d", DIAGNOSTIC_TEST:"#475569", OTHER:"#6b7280",
+};
+
+function renderAnalytics() {
+  const src = filtered;
+  if (!src.length) return;
+
+  // ── Summary stats ──────────────────────────────────────────────────────────
+  const totalEnroll = src.reduce((s,r) => s + (parseInt(r.enrollment)||0), 0);
+  document.getElementById("an-total").textContent      = src.length.toLocaleString();
+  document.getElementById("an-recruiting").textContent = src.filter(r=>r.status==="RECRUITING").length.toLocaleString();
+  document.getElementById("an-sponsors").textContent   = new Set(src.map(r=>r.sponsor).filter(Boolean)).size.toLocaleString();
+  document.getElementById("an-countries").textContent  = new Set(src.flatMap(r=>r.countries)).size.toLocaleString();
+  document.getElementById("an-enrollment").textContent = totalEnroll > 0 ? totalEnroll.toLocaleString() : "–";
+
+  // ── 1. Monthly trend ───────────────────────────────────────────────────────
+  (function() {
+    const m = {};
+    src.forEach(r => {
+      if (!r.start_date) return;
+      const ym = r.start_date.slice(0,7);
+      if (/^\d{4}-\d{2}$/.test(ym)) m[ym] = (m[ym]||0) + 1;
+    });
+    const labels = Object.keys(m).sort();
+    const values = labels.map(l => m[l]);
+    const pretty = labels.map(l => {
+      const [y,mo] = l.split("-");
+      return new Date(+y, +mo-1).toLocaleString("default",{month:"short",year:"2-digit"});
+    });
+    _destroyChart("trend");
+    _chartInstances["trend"] = new Chart(document.getElementById("ch-trend"), {
+      type: "bar",
+      data: {
+        labels: pretty,
+        datasets: [{ label:"Trials Started", data: values,
+          backgroundColor: "rgba(79,70,229,.75)", borderColor:"#4f46e5",
+          borderWidth:1, borderRadius:3 }]
+      },
+      options: { ..._CHART_DEFAULTS,
+        plugins: { ..._CHART_DEFAULTS.plugins, legend:{display:false} },
+        scales: {
+          x: { grid:{display:false}, ticks:{font:{size:11},maxRotation:45} },
+          y: { grid:{color:"#f1f5f9"}, ticks:{font:{size:11},precision:0} },
+        },
+      },
+    });
+  })();
+
+  // ── 2. Therapy area horizontal bar ────────────────────────────────────────
+  (function() {
+    const m = _countBy(src, r => r.therapy_areas);
+    const top = _topN(m, 15).reverse();
+    const labels = top.map(([k]) => k);
+    const values = top.map(([,v]) => v);
+    const colors = labels.map(l => (AREA_COLORS[l] || "#78909c") + "cc");
+    _destroyChart("area");
+    _chartInstances["area"] = new Chart(document.getElementById("ch-area"), {
+      type: "bar",
+      data: { labels, datasets:[{ label:"Trials", data:values,
+        backgroundColor:colors, borderColor:colors.map(c=>c.slice(0,7)),
+        borderWidth:1, borderRadius:3 }] },
+      options: { ..._CHART_DEFAULTS,
+        indexAxis:"y",
+        plugins:{ ..._CHART_DEFAULTS.plugins, legend:{display:false} },
+        scales:{
+          x:{ grid:{color:"#f1f5f9"}, ticks:{font:{size:11},precision:0} },
+          y:{ grid:{display:false}, ticks:{font:{size:11}} },
+        },
+      },
+    });
+  })();
+
+  // ── 3. Phase doughnut ─────────────────────────────────────────────────────
+  (function() {
+    const m = _countBy(src, r => r.phase || "N/A");
+    const phaseOrder = ["Phase 1","Phase 1/Phase 2","Phase 2","Phase 2/Phase 3","Phase 3","Phase 3/Phase 4","Phase 4","N/A","Early Phase 1"];
+    const entries = Object.entries(m).sort((a,b) => {
+      const ia = phaseOrder.indexOf(a[0]), ib = phaseOrder.indexOf(b[0]);
+      return (ia<0?99:ia) - (ib<0?99:ib);
+    });
+    const labels = entries.map(([k])=>k);
+    const values = entries.map(([,v])=>v);
+    const phaseColors = ["#42a5f5","#64b5f6","#1976d2","#1565c0","#0d47a1","#0a3470","#082a5e","#90a4ae","#90caf9"];
+    _destroyChart("phase");
+    _chartInstances["phase"] = new Chart(document.getElementById("ch-phase"), {
+      type: "doughnut",
+      data: { labels, datasets:[{ data:values,
+        backgroundColor: labels.map((_,i) => phaseColors[i % phaseColors.length]),
+        borderWidth:2, borderColor:"#fff" }] },
+      options: { ..._CHART_DEFAULTS,
+        cutout:"55%",
+        plugins:{ ..._CHART_DEFAULTS.plugins,
+          legend:{ position:"right", labels:{font:{size:11},boxWidth:12,padding:10} } },
+      },
+    });
+  })();
+
+  // ── 4. Status doughnut ────────────────────────────────────────────────────
+  (function() {
+    const m = _countBy(src, r => r.status);
+    const entries = _topN(m, 10);
+    const labels = entries.map(([k]) => k.replace(/_/g," ").replace(/\w/g,x=>x.toUpperCase()));
+    const values = entries.map(([,v]) => v);
+    const rawKeys = entries.map(([k]) => k);
+    const colors  = rawKeys.map(k => STATUS_COLORS[k] || "#94a3b8");
+    _destroyChart("status");
+    _chartInstances["status"] = new Chart(document.getElementById("ch-status"), {
+      type: "doughnut",
+      data: { labels, datasets:[{ data:values,
+        backgroundColor: colors.map(c => c+"cc"),
+        borderColor: colors, borderWidth:2 }] },
+      options: { ..._CHART_DEFAULTS,
+        cutout:"52%",
+        plugins:{ ..._CHART_DEFAULTS.plugins,
+          legend:{ position:"right", labels:{font:{size:11},boxWidth:12,padding:8} } },
+      },
+    });
+  })();
+
+  // ── 5. Funder type doughnut ───────────────────────────────────────────────
+  (function() {
+    const m = _countBy(src, r => r.funder_types||[]);
+    const entries = _topN(m, 8);
+    const labels = entries.map(([k]) => _FUNDER_LABELS_A[k] || k);
+    const values = entries.map(([,v]) => v);
+    const fColors = ["#4f46e5","#0ea5e9","#10b981","#f59e0b","#ef4444","#8b5cf6","#06b6d4","#94a3b8"];
+    _destroyChart("funder");
+    _chartInstances["funder"] = new Chart(document.getElementById("ch-funder"), {
+      type: "doughnut",
+      data: { labels, datasets:[{ data:values,
+        backgroundColor: fColors.map(c=>c+"cc"),
+        borderColor: fColors, borderWidth:2 }] },
+      options: { ..._CHART_DEFAULTS,
+        cutout:"52%",
+        plugins:{ ..._CHART_DEFAULTS.plugins,
+          legend:{ position:"right", labels:{font:{size:11},boxWidth:12,padding:8} } },
+      },
+    });
+  })();
+
+  // ── 6. Intervention type horizontal bar ───────────────────────────────────
+  (function() {
+    const m = _countBy(src, r => r.intervention_types||[]);
+    const order = ["DRUG","BIOLOGICAL","DEVICE","PROCEDURE","BEHAVIORAL","RADIATION","DIETARY_SUPPLEMENT","GENETIC","COMBINATION_PRODUCT","DIAGNOSTIC_TEST","OTHER"];
+    const entries = Object.entries(m).sort((a,b) => {
+      const ia=order.indexOf(a[0]), ib=order.indexOf(b[0]);
+      return (ia<0?99:ia)-(ib<0?99:ib);
+    }).reverse();
+    const labels = entries.map(([k]) => _INTV_TYPE_LABELS_A[k]||k);
+    const values = entries.map(([,v]) => v);
+    const rawKeys = entries.map(([k]) => k);
+    _destroyChart("intv-type");
+    _chartInstances["intv-type"] = new Chart(document.getElementById("ch-intv-type"), {
+      type: "bar",
+      data: { labels, datasets:[{ label:"Trials", data:values,
+        backgroundColor: rawKeys.map(k=>_INTV_TYPE_COLORS_A[k]||"#f1f5f9"),
+        borderColor:     rawKeys.map(k=>_INTV_TYPE_BORDER_A[k]||"#94a3b8"),
+        borderWidth:1, borderRadius:4 }] },
+      options: { ..._CHART_DEFAULTS,
+        indexAxis:"y",
+        plugins:{ ..._CHART_DEFAULTS.plugins, legend:{display:false} },
+        scales:{
+          x:{ grid:{color:"#f1f5f9"}, ticks:{font:{size:11},precision:0} },
+          y:{ grid:{display:false}, ticks:{font:{size:11}} },
+        },
+      },
+    });
+  })();
+
+  // ── 7. Study type doughnut ────────────────────────────────────────────────
+  (function() {
+    const m = _countBy(src, r => r.study_type ? r.study_type.replace(/_/g," ") : "Unknown");
+    const entries = _topN(m, 8);
+    const labels = entries.map(([k])=>k);
+    const values = entries.map(([,v])=>v);
+    const stColors = ["#4f46e5","#10b981","#f59e0b","#ef4444","#8b5cf6","#0ea5e9","#94a3b8","#06b6d4"];
+    _destroyChart("study-type");
+    _chartInstances["study-type"] = new Chart(document.getElementById("ch-study-type"), {
+      type: "doughnut",
+      data: { labels, datasets:[{ data:values,
+        backgroundColor: stColors.map(c=>c+"cc"),
+        borderColor: stColors, borderWidth:2 }] },
+      options: { ..._CHART_DEFAULTS,
+        cutout:"52%",
+        plugins:{ ..._CHART_DEFAULTS.plugins,
+          legend:{ position:"right", labels:{font:{size:11},boxWidth:12,padding:8} } },
+      },
+    });
+  })();
+
+  // ── 8. Top countries horizontal bar ───────────────────────────────────────
+  (function() {
+    const m = _countBy(src, r => r.countries||[]);
+    const top = _topN(m, 15).reverse();
+    const labels = top.map(([k])=>k);
+    const values = top.map(([,v])=>v);
+    _destroyChart("country");
+    _chartInstances["country"] = new Chart(document.getElementById("ch-country"), {
+      type: "bar",
+      data: { labels, datasets:[{ label:"Trials", data:values,
+        backgroundColor:"rgba(14,165,233,.75)", borderColor:"#0ea5e9",
+        borderWidth:1, borderRadius:3 }] },
+      options: { ..._CHART_DEFAULTS,
+        indexAxis:"y",
+        plugins:{ ..._CHART_DEFAULTS.plugins, legend:{display:false} },
+        scales:{
+          x:{ grid:{color:"#f1f5f9"}, ticks:{font:{size:11},precision:0} },
+          y:{ grid:{display:false}, ticks:{font:{size:11}} },
+        },
+      },
+    });
+  })();
+
+  // ── 9. Top sponsors horizontal bar ────────────────────────────────────────
+  (function() {
+    const m = _countBy(src, r => r.sponsor);
+    const top = _topN(m, 15).reverse();
+    const labels = top.map(([k])=>k.length>30?k.slice(0,30)+"…":k);
+    const values = top.map(([,v])=>v);
+    _destroyChart("sponsor");
+    _chartInstances["sponsor"] = new Chart(document.getElementById("ch-sponsor"), {
+      type: "bar",
+      data: { labels, datasets:[{ label:"Trials", data:values,
+        backgroundColor:"rgba(16,185,129,.75)", borderColor:"#10b981",
+        borderWidth:1, borderRadius:3 }] },
+      options: { ..._CHART_DEFAULTS,
+        indexAxis:"y",
+        plugins:{ ..._CHART_DEFAULTS.plugins, legend:{display:false} },
+        scales:{
+          x:{ grid:{color:"#f1f5f9"}, ticks:{font:{size:11},precision:0} },
+          y:{ grid:{display:false}, ticks:{font:{size:11}} },
+        },
+      },
+    });
+  })();
+}
+
+// ── SPONSORS PANEL ────────────────────────────────────────────────────────────
+const spAreas = new Set();
+const spAreaBtn   = document.getElementById("sp-area-btn");
+const spAreaPanel = document.getElementById("sp-area-panel");
+spAreaBtn.addEventListener("click", e => {
+  e.stopPropagation();
+  document.querySelectorAll(".multi-panel.open").forEach(p => p !== spAreaPanel && p.classList.remove("open"));
+  spAreaPanel.classList.toggle("open");
+});
+spAreaPanel.addEventListener("click", e => e.stopPropagation());
+document.getElementById("sp-area-all").addEventListener("click", () => {
+  spAreaPanel.querySelectorAll(".sp-area-cb").forEach(cb => cb.checked = true);
+  spAreas.clear();
+  [...spAreaPanel.querySelectorAll(".sp-area-cb")].forEach(cb => spAreas.add(cb.value));
+  updateSpAreaLabel(); renderSponsors();
+});
+document.getElementById("sp-area-clear").addEventListener("click", () => {
+  spAreaPanel.querySelectorAll(".sp-area-cb").forEach(cb => cb.checked = false);
+  spAreas.clear(); updateSpAreaLabel(); renderSponsors();
+});
+spAreaPanel.querySelectorAll(".sp-area-cb").forEach(cb => {
+  cb.addEventListener("change", () => {
+    if (cb.checked) spAreas.add(cb.value); else spAreas.delete(cb.value);
+    updateSpAreaLabel(); renderSponsors();
+  });
+});
+function updateSpAreaLabel() {
+  const n = spAreas.size;
+  document.getElementById("sp-area-label").textContent = n === 0 ? "All Areas" : n === 1 ? [...spAreas][0] : `${n} areas`;
+  spAreaBtn.classList.toggle("active", n > 0);
+}
+
+function renderSponsors() {
+  const q   = (document.getElementById("sponsor-search")?.value || "").toLowerCase();
+  const src = spAreas.size > 0
+    ? ALL_DATA.filter(r => r.therapy_areas.some(a => spAreas.has(a)))
+    : ALL_DATA;
+
+  // Build unified company map — track lead sponsorships AND collaborations separately
+  const map = {};
+  function ensureEntry(name, org) {
+    if (!map[name]) map[name] = { lead:0, collab:0, areas:new Set(), countries:new Set(), org: org||"OTHER" };
+  }
+  src.forEach(r => {
+    if (r.sponsor) {
+      ensureEntry(r.sponsor, r.org_type);
+      map[r.sponsor].lead++;
+      r.therapy_areas.forEach(a => map[r.sponsor].areas.add(a));
+      r.countries.forEach(c => map[r.sponsor].countries.add(c));
+    }
+    (r.collaborators||[]).forEach(c => {
+      if (!c) return;
+      ensureEntry(c, "");
+      map[c].collab++;
+      r.therapy_areas.forEach(a => map[c].areas.add(a));
+      r.countries.forEach(ct => map[c].countries.add(ct));
+    });
+  });
+
+  let sorted = Object.entries(map)
+    .map(([name, info]) => [name, {...info, total: info.lead + info.collab}])
+    .sort((a,b) => b[1].total - a[1].total);
+  if (q) sorted = sorted.filter(([name]) => name.toLowerCase().includes(q));
+
+  document.getElementById("sponsors-showing").textContent = sorted.length.toLocaleString();
+  document.getElementById("tab-sponsors-badge").textContent = sorted.length.toLocaleString();
+
+  const grid = document.getElementById("sponsors-grid");
+  if (!sorted.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--text-muted)">No companies match the current filter.</div>`;
+    return;
+  }
+
+  grid.innerHTML = sorted.map(([name, info]) => {
+    const areas    = [...info.areas].slice(0,3).map(areaTag).join("");
+    const orgColor = info.org === "INDUSTRY" ? "#4f46e5" : info.org === "NIH" ? "#059669" : "#78909c";
+    // Role badge: Lead / Collab / Both
+    const roleBadge = info.lead > 0 && info.collab > 0
+      ? `<span class="role-badge role-both">Lead + Collab</span>`
+      : info.lead > 0
+        ? `<span class="role-badge role-lead">Lead Sponsor</span>`
+        : `<span class="role-badge role-collab">Collaborator</span>`;
+    const metaParts = [];
+    if (info.lead  > 0) metaParts.push(`${info.lead} lead`);
+    if (info.collab> 0) metaParts.push(`${info.collab} collab`);
+    const safeName = name.replace(/\\/g,"\\\\").replace(/'/g,"\\'");
+    const isSelected = selectedSponsors.has(name);
+    return `<div class="sponsor-card${isSelected?' selected':''}" id="spcard-${btoa(encodeURIComponent(name)).replace(/[^a-zA-Z0-9]/g,'')}" onclick="cardClick(event,'${safeName}')">
+      <input type="checkbox" class="sp-select-cb" ${isSelected?'checked':''} onclick="event.stopPropagation();toggleSponsor('${safeName}',this.checked);this.closest('.sponsor-card').classList.toggle('selected',this.checked)" title="Select for campaign">
+      <div class="sponsor-trial-count">${info.total}</div>
+      <div style="margin-bottom:3px">${roleBadge}</div>
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">
+        <span style="width:7px;height:7px;border-radius:50%;background:${orgColor};flex-shrink:0"></span>
+        <div class="sponsor-card-name">${name}</div>
+      </div>
+      <div class="sponsor-card-meta">${metaParts.join(" · ")} &nbsp;·&nbsp; ${info.countries.size} countr${info.countries.size>1?"ies":"y"}</div>
+      <div class="sponsor-card-areas">${areas}</div>
+    </div>`;
+  }).join("");
+}
+
+function cardClick(event, name) {
+  // If clicking on the checkbox area (top-right corner), toggle selection — handled by checkbox onclick
+  // Otherwise filter by sponsor
+  filterBySponsor(name);
+}
+
+function filterBySponsor(name) {
+  // Switch to trials tab and set search to this sponsor
+  switchTab("trials");
+  const si = document.getElementById("search-input");
+  si.value = name;
+  state.search = name;
+  applyFilters();
+  si.focus();
+}
+
+// ── KPI: RECRUITING COUNT ─────────────────────────────────────────────────────
+function updateRecruitingKPI() {
+  const n = filtered.filter(r => r.status === "RECRUITING").length;
+  document.getElementById("kpi-recruiting").textContent = n.toLocaleString();
+  document.getElementById("kpi-recruiting-sub").textContent = "Actively recruiting";
+}
+
+// ── INITIAL RENDER ────────────────────────────────────────────────────────────
+// Default sort: newest start date first
+document.querySelector('th[data-col="start_date"]').classList.add("sort-desc");
+applyFilters();
+updateRecruitingKPI();
+
+</script>
+
+<!-- FILE LOAD OVERLAY (viewer mode only) -->
+<div id="load-overlay" style="display:flex;position:fixed;inset:0;z-index:9999;background:#f0f2f5;flex-direction:column;align-items:center;justify-content:center;font-family:'Inter',system-ui,sans-serif">
+  <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:48px 52px;max-width:520px;width:90%;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.1)">
+    <div style="font-size:40px;margin-bottom:16px">📊</div>
+    <div style="font-size:22px;font-weight:700;color:#0f172a;margin-bottom:8px">Clinical Trials Dashboard</div>
+    <div style="font-size:14px;color:#718096;margin-bottom:28px;line-height:1.6">Drop your <code style="background:#f1f5f9;padding:2px 6px;border-radius:4px;font-size:13px">trials_data.json</code> file here,<br>or click to browse</div>
+    <div id="drop-zone" style="border:2px dashed #c7d2fe;border-radius:10px;padding:32px 20px;cursor:pointer;transition:all .2s;background:#f8faff"
+         ondragover="event.preventDefault();this.style.borderColor='#4f46e5';this.style.background='#eef2ff'"
+         ondragleave="this.style.borderColor='#c7d2fe';this.style.background='#f8faff'"
+         ondrop="event.preventDefault();this.style.borderColor='#c7d2fe';this.style.background='#f8faff';handleFile(event.dataTransfer.files[0])">
+      <div style="font-size:32px;margin-bottom:8px">⬆</div>
+      <div style="font-size:14px;font-weight:600;color:#4f46e5">Click to select file</div>
+      <div style="font-size:12px;color:#94a3b8;margin-top:4px">or drag &amp; drop</div>
+      <input type="file" id="file-input" accept=".json" style="display:none" onchange="handleFile(this.files[0])">
+    </div>
+    <div id="load-error" style="display:none;margin-top:14px;padding:10px 14px;background:#fee2e2;border-radius:8px;color:#b91c1c;font-size:13px"></div>
+    <div style="margin-top:20px;font-size:11px;color:#94a3b8">Generated by fetch_trials.py &nbsp;·&nbsp; clinicaltrials.gov API v2</div>
+  </div>
+</div>
+
+<script>
+// ── VIEWER MODE: FILE LOADER + BOOTSTRAP ─────────────────────────────────────
+document.getElementById("drop-zone").addEventListener("click", () => document.getElementById("file-input").click());
+
+function handleFile(file) {
+  if (!file) return;
+  if (!file.name.endsWith(".json")) {
+    document.getElementById("load-error").style.display = "";
+    document.getElementById("load-error").textContent   = "Please select a .json file generated by fetch_trials.py";
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      bootstrapDashboard(data);
+    } catch(e) {
+      document.getElementById("load-error").style.display = "";
+      document.getElementById("load-error").textContent   = "Could not parse file: " + e.message;
+    }
+  };
+  reader.readAsText(file);
+}
+
+const _FUNDER_LABELS_V = {INDUSTRY:"Industry",NIH:"NIH",FED:"U.S. Fed Gov't (non-NIH)",OTHER_GOV:"Other Gov't",INDIV:"Individual",NETWORK:"Network",OTHER:"Other",UNKNOWN:"Unknown"};
+const _INTV_LABELS_V   = {DRUG:"Drug",BIOLOGICAL:"Biological",DEVICE:"Device",PROCEDURE:"Procedure",BEHAVIORAL:"Behavioral",RADIATION:"Radiation",DIETARY_SUPPLEMENT:"Dietary Supplement",GENETIC:"Genetic",COMBINATION_PRODUCT:"Combination Product",DIAGNOSTIC_TEST:"Diagnostic Test",OTHER:"Other"};
+
+function buildFilterPanels(records) {
+  const uniq = arr => [...new Set(arr.filter(Boolean))].sort();
+  function cbs(items, cls, labelFn) {
+    return items.map(v => `<label class="cb-label"><input type="checkbox" class="${cls}" value="${v}"> ${labelFn ? labelFn(v) : v}</label>`).join("\n");
+  }
+  function inject(panelId, cbHtml, selId, clrId, searchId) {
+    const search = searchId ? `<input type="text" id="${searchId}" placeholder="Search…" style="width:100%;border:1px solid var(--border);border-radius:5px;padding:5px 8px;font-size:12px;margin-bottom:6px;box-sizing:border-box">` : "";
+    document.getElementById(panelId).innerHTML = search + cbHtml + `<div class="panel-actions"><a id="${selId}">All</a><a id="${clrId}">Clear</a></div>`;
+  }
+
+  const areas     = uniq(records.flatMap(r => r.therapy_areas   || []));
+  const phases    = uniq(records.map(r => r.phase).filter(p => p && p !== "N/A"));
+  const statuses  = uniq(records.map(r => r.status));
+  const countries = uniq(records.flatMap(r => r.countries       || []));
+  const funders   = uniq(records.flatMap(r => r.funder_types    || []));
+  const studyTypes= uniq(records.map(r => r.study_type));
+  const intvTypes = uniq(records.flatMap(r => r.intervention_types || []));
+
+  inject("area-panel",       cbs(areas,      "area-cb",       null),                                                           "area-select-all",       "area-clear-all");
+  inject("phase-panel",      cbs(phases,     "phase-cb",      null),                                                           "phase-select-all",      "phase-clear-all");
+  inject("status-panel",     cbs(statuses,   "status-cb",     s=>s.replace(/_/g," ").replace(/\w/g,x=>x.toUpperCase())),    "status-select-all",     "status-clear-all");
+  inject("country-panel",    cbs(countries,  "country-cb",    null),                                                           "country-select-all",    "country-clear-all", "country-search");
+  inject("funder-panel",     cbs(funders,    "funder-cb",     f=>_FUNDER_LABELS_V[f]||f),                                     "funder-select-all",     "funder-clear-all");
+  inject("study-type-panel", cbs(studyTypes, "study-type-cb", s=>s.replace(/_/g," ").replace(/\w/g,x=>x.toUpperCase())),    "study-type-select-all", "study-type-clear-all");
+  inject("intv-type-panel",  cbs(intvTypes,  "intv-type-cb",  t=>_INTV_LABELS_V[t]||t),                                       "intv-type-select-all",  "intv-type-clear-all");
+
+  // Sponsors area filter
+  const spPanel = document.getElementById("sp-area-panel");
+  if (spPanel) spPanel.innerHTML = areas.map(a => `<label class="cb-label"><input type="checkbox" class="sp-area-cb" value="${a}"> ${a}</label>`).join("\n") + `<div class="panel-actions"><a id="sp-area-all">All</a><a id="sp-area-clear">Clear</a></div>`;
+}
+
+function rewireDropdowns() {
+  // Re-initialise all makeMultiDD instances after checkboxes are in the DOM
+  window._areaDD     = makeMultiDD({ btnId:"area-btn",       panelId:"area-panel",       cbClass:"area-cb",       stateKey:"areas",      allLabel:"All Areas",      btnLabelId:"area-btn-label",       selectAllId:"area-select-all",       clearAllId:"area-clear-all" });
+  window._phaseDD    = makeMultiDD({ btnId:"phase-btn",      panelId:"phase-panel",      cbClass:"phase-cb",      stateKey:"phases",     allLabel:"All Phases",     btnLabelId:"phase-btn-label",      selectAllId:"phase-select-all",      clearAllId:"phase-clear-all" });
+  window._statusDD   = makeMultiDD({ btnId:"status-btn",     panelId:"status-panel",     cbClass:"status-cb",     stateKey:"statuses",   allLabel:"All Statuses",   btnLabelId:"status-btn-label",     selectAllId:"status-select-all",     clearAllId:"status-clear-all" });
+  window._countryDD  = makeMultiDD({ btnId:"country-btn",    panelId:"country-panel",    cbClass:"country-cb",    stateKey:"countries",  allLabel:"All Countries",  btnLabelId:"country-btn-label",    selectAllId:"country-select-all",    clearAllId:"country-clear-all", searchId:"country-search" });
+  window._intvTypeDD = makeMultiDD({ btnId:"intv-type-btn",  panelId:"intv-type-panel",  cbClass:"intv-type-cb",  stateKey:"intTypes",   allLabel:"All Types",      btnLabelId:"intv-type-btn-label",  selectAllId:"intv-type-select-all",  clearAllId:"intv-type-clear-all" });
+  window._funderDD   = makeMultiDD({ btnId:"funder-btn",     panelId:"funder-panel",     cbClass:"funder-cb",     stateKey:"funders",    allLabel:"All Funders",    btnLabelId:"funder-btn-label",     selectAllId:"funder-select-all",     clearAllId:"funder-clear-all" });
+  window._studyTypeDD= makeMultiDD({ btnId:"study-type-btn", panelId:"study-type-panel", cbClass:"study-type-cb", stateKey:"studyTypes", allLabel:"All Types",      btnLabelId:"study-type-btn-label", selectAllId:"study-type-select-all", clearAllId:"study-type-clear-all" });
+
+  // Rewire Sponsors area DD
+  const spBtn  = document.getElementById("sp-area-btn");
+  const spPanl = document.getElementById("sp-area-panel");
+  if (spBtn && spPanl) {
+    spBtn.addEventListener("click", e => {
+      e.stopPropagation();
+      document.querySelectorAll(".multi-panel.open").forEach(p => p !== spPanl && p.classList.remove("open"));
+      spPanl.classList.toggle("open");
+    });
+    spPanl.addEventListener("click", e => e.stopPropagation());
+    document.getElementById("sp-area-all")?.addEventListener("click",   () => { spPanl.querySelectorAll(".sp-area-cb").forEach(c=>c.checked=true);  spAreas.clear(); [...spPanl.querySelectorAll(".sp-area-cb")].forEach(c=>spAreas.add(c.value)); updateSpAreaLabel(); renderSponsors(); });
+    document.getElementById("sp-area-clear")?.addEventListener("click", () => { spPanl.querySelectorAll(".sp-area-cb").forEach(c=>c.checked=false); spAreas.clear(); updateSpAreaLabel(); renderSponsors(); });
+    spPanl.querySelectorAll(".sp-area-cb").forEach(cb => cb.addEventListener("change", () => { if(cb.checked) spAreas.add(cb.value); else spAreas.delete(cb.value); updateSpAreaLabel(); renderSponsors(); }));
+  }
+
+  // Rewire Clear-All button to use new DD references
+  document.getElementById("btn-clear").replaceWith(document.getElementById("btn-clear").cloneNode(true));
+  document.getElementById("btn-clear").addEventListener("click", () => {
+    document.getElementById("search-input").value = "";
+    document.getElementById("date-from").value    = "";
+    document.getElementById("date-to").value      = "";
+    state.search = ""; state.dateFrom = ""; state.dateTo = "";
+    [window._areaDD, window._phaseDD, window._statusDD, window._countryDD, window._intvTypeDD, window._funderDD, window._studyTypeDD].forEach(dd => dd && dd.reset());
+    applyFilters();
+  });
+}
+
+function bootstrapDashboard(data) {
+  // Populate global data
+  ALL_DATA     = data.records || data;
+  AREA_COLORS  = data.area_colors  || {};
+  STATUS_COLORS= data.status_colors|| {};
+
+  // Update header meta
+  const m = data.meta || {};
+  const metaEl = document.getElementById("meta-refresh");
+  if (metaEl) metaEl.textContent = [
+    m.generated_at ? "Refreshed: " + m.generated_at : "",
+    (m.since_date && m.until_date) ? m.since_date + " – " + m.until_date : "",
+    m.total ? m.total.toLocaleString() + " trials" : ""
+  ].filter(Boolean).join("  ·  ");
+
+  // Update date range label in KPI
+  const kpiSub = document.querySelector(".kpi-sub");
+  if (kpiSub && m.since_date && m.until_date) kpiSub.textContent = "Start date: " + m.since_date + " – " + m.until_date;
+
+  // Add reload button to header
+  const hdBtns = document.querySelector(".header-meta");
+  if (hdBtns && !document.getElementById("btn-reload")) {
+    hdBtns.insertAdjacentHTML("beforeend",
+      `<br><button id="btn-reload" onclick="document.getElementById('file-input-reload').click()" style="margin-top:4px;font-size:11px;border:1px solid #c7d2fe;background:#eef2ff;color:#4f46e5;border-radius:5px;padding:2px 8px;cursor:pointer;font-weight:600">⟳ Load different file</button>` +
+      `<input type="file" id="file-input-reload" accept=".json" style="display:none" onchange="handleFile(this.files[0])">`
+    );
+  }
+
+  // Build filter panels, rewire dropdowns, hide overlay, render
+  buildFilterPanels(ALL_DATA);
+  rewireDropdowns();
+  document.getElementById("load-overlay").style.display = "none";
+  sortCol = "start_date"; sortDir = "desc";
+  applyFilters();
+  updateRecruitingKPI();
+}
+</script>
+
+<script>
+// AUTO-FETCH: when hosted on a web server (GitHub Pages), load data automatically
+(function() {{
+  fetch('./data/trials_data.json')
+    .then(function(r) {{ if (!r.ok) throw new Error(r.status); return r.json(); }})
+    .then(function(data) {{
+      bootstrapDashboard(data);
+    }})
+    .catch(function() {{
+      console.log('Auto-fetch unavailable — showing file picker');
+    }});
+}})();
+</script>
+
+</body>
+</html>
