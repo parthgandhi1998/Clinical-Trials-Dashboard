@@ -164,6 +164,33 @@
         "total": 138,
         "contacts": [],
         "contactsImported": false
+      },
+      {
+        "name": "Summit Therapeutics",
+        "org_type": "INDUSTRY",
+        "therapy_areas": [
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [
+          "Canada",
+          "Japan",
+          "Puerto Rico",
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07228832",
+            "title": "Phase III Study of Ivonescimab or Bevacizumab Combined With FOLFOX in Patients With Metastatic Colorectal Cancer",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "600",
+            "start_date": "2025-11-18"
+          }
+        ],
+        "total": 1
       }
     ],
     "contacts": [
