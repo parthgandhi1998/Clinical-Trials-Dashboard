@@ -191,6 +191,15 @@
           }
         ],
         "total": 1
+      },
+      {
+        "name": "Eli Lilly",
+        "org_type": "",
+        "therapy_areas": [],
+        "phases": [],
+        "countries": [],
+        "trials": [],
+        "total": 0
       }
     ],
     "contacts": [
