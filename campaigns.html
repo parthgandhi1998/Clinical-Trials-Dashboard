@@ -754,6 +754,16 @@ function switchTab(name, el) {
 // Helper: get canonical company name from either data shape
 function coName(co) { return co.name || co.sponsor || '—'; }
 
+// Fuzzy company match — handles "Pfizer" vs "Pfizer Inc." / "Pfizer, Inc." etc.
+function companyMatch(contactCompany, campaignCompany) {
+  if (!contactCompany || !campaignCompany) return false;
+  const a = contactCompany.toLowerCase().replace(/[,.\-\s]+(inc|llc|ltd|corp|co|plc|sa|ag|gmbh|limited|corporation|incorporated|company)?\.?\s*$/i, '').trim();
+  const b = campaignCompany.toLowerCase().replace(/[,.\-\s]+(inc|llc|ltd|corp|co|plc|sa|ag|gmbh|limited|corporation|incorporated|company)?\.?\s*$/i, '').trim();
+  if (a === b) return true;
+  // Also check if one contains the other (for "Novartis Pharmaceuticals" vs "Novartis")
+  return a.includes(b) || b.includes(a);
+}
+
 function renderCompaniesTab(c) {
   const companies = c.companies || [];
   if (!companies.length) {
@@ -777,7 +787,7 @@ function renderCompaniesTab(c) {
       <tbody>
         ${companies.map((co,i) => {
           const cn = coName(co);
-          const cContacts = (c.contacts||[]).filter(ct => ct.company === cn);
+          const cContacts = (c.contacts||[]).filter(ct => companyMatch(ct.company, cn));
 
           // Trial count & detail
           const trialCount = co.total || (co.trials||[]).length || (co.nct_id ? 1 : 0);
@@ -1019,7 +1029,7 @@ function renderDraftForContact(ct, idx) {
 
   // Find the company trial data
   const companyData = (getCampaign(activeCampaignId)?.companies || [])
-    .find(co => coName(co) === ct.company) || null;
+    .find(co => companyMatch(ct.company, coName(co))) || null;
 
   if (!ct.drafts || !ct.drafts.email1) {
     // Show generate button
@@ -1195,7 +1205,7 @@ function generateDraftsForContact(idx) {
   const c = getCampaign(activeCampaignId);
   if (!c || !c.contacts[idx]) return;
   const ct = c.contacts[idx];
-  const co = (c.companies || []).find(co => coName(co) === ct.company) || {};
+  const co = (c.companies || []).find(co => companyMatch(ct.company, coName(co))) || {};
   const drafts = buildDrafts(ct, co);
   c.contacts[idx].drafts = drafts;
   saveCampaigns();
@@ -1207,7 +1217,7 @@ function generateAllDrafts() {
   const c = getCampaign(activeCampaignId);
   if (!c) return;
   c.contacts.forEach((ct, idx) => {
-    const co = (c.companies || []).find(co => coName(co) === ct.company) || {};
+    const co = (c.companies || []).find(co => companyMatch(ct.company, coName(co))) || {};
     c.contacts[idx].drafts = buildDrafts(ct, co);
   });
   saveCampaigns();
@@ -1505,7 +1515,7 @@ function exportMailMergeCSV() {
                 'NCT_ID','Phase','TherapyAreas','Status','Notes'];
   const rows = [cols];
   (c.contacts || []).forEach(ct => {
-    const co = (c.companies || []).find(co => coName(co) === ct.company) || {};
+    const co = (c.companies || []).find(co => companyMatch(ct.company, coName(co))) || {};
     const d  = ct.drafts || {};
     rows.push([
       ct.name.split(' ')[0],
