@@ -391,7 +391,7 @@
         "company": "Summit Therapeutics",
         "email": "lingmin.zeng@summitplc.com",
         "linkedin": "https://www.linkedin.com/in/lingmin-zeng-9124407",
-        "status": "not-interested",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Summit Therapeutics — MIDD & Clinical Pharmacology Support",
           "email1": "Hi Lingmin,\n\nI came across your Oncology programme, and wanted to reach out.\n\nModel-Informed Drug Development is increasingly expected by FDA and EMA reviewers — and programmes that build MIDD into their clinical strategy from the start consistently reach decision points faster with fewer surprises.\n\nAt PumasAI, we partner with clinical development teams to deliver model-informed drug development, clinical pharmacology, and regulatory strategy. Our scientists are pharmacometricians and clinical pharmacologists — former Pfizer, FDA, and academia — and we work end-to-end from model development through regulatory submission.\n\nAcross your 4-country footprint, regulatory-ready PK/PD packages are a recurring need — something we handle routinely.\n\nWould a 20-minute call be worthwhile to see if there's a fit? Happy to share a brief case study relevant to your programme first.\n\nBest,\n[Your Name]\nPumasAI | www.pumas.ai",
@@ -404,8 +404,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Lingmin, I noticed Summit Therapeutics is running a Oncology trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Happy to share a relevant example if useful. Best, [Your Name]"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-03-19",
+        "followUpDate": "2026-03-26",
         "notes": ""
       },
       {
