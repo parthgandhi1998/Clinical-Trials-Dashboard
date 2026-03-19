@@ -31,6 +31,18 @@ button{font-family:inherit;cursor:pointer}
 .header h1 span{color:var(--accent)}
 .back-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--text-muted);border:1px solid var(--border);border-radius:6px;padding:5px 10px;background:var(--surface);transition:all .15s}
 .back-btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+/* ── SYNC STATUS ── */
+.sync-indicator{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;padding:6px 8px;border-radius:7px;margin-bottom:6px}
+.sync-synced{background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0}
+.sync-syncing{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe}
+.sync-error{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.sync-offline{background:var(--surface2);color:var(--text-muted);border:1px solid var(--border)}
+.sync-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.sync-synced .sync-dot{background:#16a34a}
+.sync-syncing .sync-dot{background:#2563eb;animation:pulse .8s infinite}
+.sync-error .sync-dot{background:#dc2626}
+.sync-offline .sync-dot{background:#94a3b8}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 .header-badge{background:var(--accent-light);color:var(--accent);font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;letter-spacing:.3px}
 
 /* ── LAYOUT ── */
@@ -215,7 +227,12 @@ select{font-family:inherit}
       <div style="font-size:12px;color:var(--text-muted);padding:8px 4px;text-align:center">No campaigns yet.<br>Click ＋ New Campaign to start.</div>
     </div>
     <div style="margin-top:auto;padding-top:10px;border-top:1px solid var(--border)">
-      <div class="sidebar-section-label">Data Source</div>
+      <div class="sidebar-section-label">Team Sync</div>
+      <div id="sync-status" class="sync-indicator sync-offline">
+        <div class="sync-dot"></div><span id="sync-label">Not connected</span>
+      </div>
+      <button class="btn btn-ghost btn-sm btn-full" onclick="openGitHubSettings()" style="margin-bottom:8px">⚙ Sync Settings</button>
+      <div class="sidebar-section-label">Trials Data</div>
       <div id="data-status" style="font-size:11px;color:var(--text-muted);padding:4px">
         No trials data loaded.
       </div>
@@ -277,6 +294,45 @@ select{font-family:inherit}
   </div>
 </div>
 
+<!-- GITHUB SETTINGS MODAL -->
+<div class="modal-overlay" id="github-settings-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">⚙ GitHub Team Sync Settings</div>
+      <button class="modal-close" onclick="closeModal('github-settings-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:7px;padding:10px 12px;font-size:12px;color:#1e40af;margin-bottom:14px;line-height:1.6">
+        Campaign data is stored in your GitHub repo and shared with your whole team in real-time.
+        Each team member sets this up once — your token is saved only in your browser, never shared.
+      </div>
+      <div class="form-group">
+        <label class="form-label">GitHub Username / Org</label>
+        <input type="text" id="gh-owner" class="form-input" placeholder="e.g. parthgandhi1998" value="parthgandhi1998">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Repository Name</label>
+        <input type="text" id="gh-repo" class="form-input" placeholder="e.g. Clinical-Trials-Dashboard" value="Clinical-Trials-Dashboard">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Personal Access Token (PAT)
+          <a href="https://github.com/settings/tokens?type=beta" target="_blank" style="font-size:11px;margin-left:6px;font-weight:400">Get one ↗</a>
+        </label>
+        <input type="password" id="gh-pat" class="form-input" placeholder="github_pat_…">
+        <div style="font-size:11px;color:var(--text-muted);margin-top:4px">
+          Create a <strong>Fine-grained token</strong> → select your repo → Permissions → Repository contents: <strong>Read and write</strong>. No other permissions needed.
+        </div>
+      </div>
+      <div id="gh-test-result" style="margin-top:8px;font-size:12px"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeModal('github-settings-modal')">Cancel</button>
+      <button class="btn btn-ghost" onclick="testGitHubConnection()" id="gh-test-btn">Test Connection</button>
+      <button class="btn btn-primary" onclick="saveGitHubSettings()">Save &amp; Connect</button>
+    </div>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
@@ -300,10 +356,180 @@ const AREA_COLORS = {
 };
 
 // ────────────────────────────────────────────────────────────────────────────
-// PERSISTENCE
+// GITHUB SYNC
+// ────────────────────────────────────────────────────────────────────────────
+const GH = {
+  owner: '', repo: '', pat: '',
+  filePath: 'data/campaigns_data.json',
+  sha: null, configured: false, syncing: false,
+  lastSync: null, pollTimer: null, saveTimer: null
+};
+
+function initGitHubSync() {
+  const cfg = JSON.parse(localStorage.getItem('pumas_github_cfg') || '{}');
+  if (cfg.owner && cfg.repo && cfg.pat) {
+    GH.owner = cfg.owner; GH.repo = cfg.repo; GH.pat = cfg.pat;
+    GH.configured = true;
+    fetchFromGitHub();
+    startPoll();
+  }
+  renderSyncStatus('offline');
+}
+
+async function fetchFromGitHub(silent = false) {
+  if (!GH.configured) return;
+  if (!silent) renderSyncStatus('syncing');
+  try {
+    const r = await fetch(
+      `https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/${GH.filePath}`,
+      { headers: { Authorization: `token ${GH.pat}`, Accept: 'application/vnd.github.v3+json' } }
+    );
+    if (r.status === 404) {
+      // File doesn't exist yet in repo — we'll create it on first save
+      GH.sha = null; GH.lastSync = new Date();
+      renderSyncStatus('synced'); return;
+    }
+    if (!r.ok) throw new Error('GitHub API ' + r.status);
+    const data = await r.json();
+    const remoteSha = data.sha;
+    // Only update local data if remote has changed
+    if (remoteSha !== GH.sha) {
+      GH.sha = remoteSha;
+      const decoded = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\s/g, '')))));
+      const remoteJson = JSON.stringify(decoded);
+      if (remoteJson !== JSON.stringify(campaigns)) {
+        campaigns = decoded;
+        localStorage.setItem('pumas_campaigns', remoteJson);
+        renderSidebar();
+        if (!silent) showToast('📡 Campaigns synced from GitHub');
+        else {
+          const prevId = activeCampaignId;
+          if (prevId && getCampaign(prevId)) renderMain();
+        }
+      }
+    }
+    GH.lastSync = new Date();
+    renderSyncStatus('synced');
+  } catch(e) {
+    renderSyncStatus('error', e.message);
+  }
+}
+
+async function saveToGitHub() {
+  if (!GH.configured || GH.syncing) return;
+  GH.syncing = true;
+  renderSyncStatus('syncing');
+  try {
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(campaigns, null, 2))));
+    const body = {
+      message: `Update campaigns (${new Date().toISOString().slice(0,10)})`,
+      content,
+      ...(GH.sha ? { sha: GH.sha } : {})
+    };
+    const r = await fetch(
+      `https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/${GH.filePath}`,
+      { method: 'PUT',
+        headers: { Authorization: `token ${GH.pat}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(body) }
+    );
+    if (r.status === 409) {
+      // Conflict: someone else saved first — re-fetch then retry
+      GH.syncing = false;
+      await fetchFromGitHub(true);
+      await saveToGitHub();
+      return;
+    }
+    if (!r.ok) throw new Error('GitHub save failed: ' + r.status);
+    const data = await r.json();
+    GH.sha = data.content.sha;
+    GH.lastSync = new Date();
+    renderSyncStatus('synced');
+  } catch(e) {
+    renderSyncStatus('error', e.message);
+  } finally {
+    GH.syncing = false;
+  }
+}
+
+function startPoll() {
+  if (GH.pollTimer) clearInterval(GH.pollTimer);
+  GH.pollTimer = setInterval(() => fetchFromGitHub(true), 60000); // every 60s
+}
+
+function renderSyncStatus(state, msg) {
+  const el = document.getElementById('sync-status');
+  const lbl = document.getElementById('sync-label');
+  if (!el || !lbl) return;
+  el.className = 'sync-indicator sync-' + (state || 'offline');
+  const labels = {
+    synced:  GH.lastSync ? `Synced ${timeSince(GH.lastSync)}` : 'Synced',
+    syncing: 'Syncing…',
+    error:   'Sync error — ' + (msg || ''),
+    offline: GH.configured ? 'Connecting…' : 'Not connected'
+  };
+  lbl.textContent = labels[state] || labels.offline;
+}
+
+function timeSince(d) {
+  const s = Math.floor((Date.now() - d) / 1000);
+  if (s < 60) return 'just now';
+  if (s < 3600) return Math.floor(s / 60) + 'm ago';
+  return Math.floor(s / 3600) + 'h ago';
+}
+
+function openGitHubSettings() {
+  const cfg = JSON.parse(localStorage.getItem('pumas_github_cfg') || '{}');
+  document.getElementById('gh-owner').value = cfg.owner || 'parthgandhi1998';
+  document.getElementById('gh-repo').value  = cfg.repo  || 'Clinical-Trials-Dashboard';
+  document.getElementById('gh-pat').value   = cfg.pat   || '';
+  document.getElementById('gh-test-result').innerHTML = '';
+  openModal('github-settings-modal');
+}
+
+async function testGitHubConnection() {
+  const btn = document.getElementById('gh-test-btn');
+  const res = document.getElementById('gh-test-result');
+  btn.textContent = 'Testing…'; btn.disabled = true;
+  const owner = document.getElementById('gh-owner').value.trim();
+  const repo  = document.getElementById('gh-repo').value.trim();
+  const pat   = document.getElementById('gh-pat').value.trim();
+  try {
+    const r = await fetch(`https://api.github.com/repos/${owner}/${repo}`,
+      { headers: { Authorization: `token ${pat}` } });
+    if (r.ok) {
+      const d = await r.json();
+      res.innerHTML = `<span style="color:var(--green)">✅ Connected — found repo: <strong>${d.full_name}</strong></span>`;
+    } else {
+      res.innerHTML = `<span style="color:var(--red)">❌ Error ${r.status} — check username, repo name, and token permissions.</span>`;
+    }
+  } catch(e) {
+    res.innerHTML = `<span style="color:var(--red)">❌ Network error: ${e.message}</span>`;
+  }
+  btn.textContent = 'Test Connection'; btn.disabled = false;
+}
+
+function saveGitHubSettings() {
+  const owner = document.getElementById('gh-owner').value.trim();
+  const repo  = document.getElementById('gh-repo').value.trim();
+  const pat   = document.getElementById('gh-pat').value.trim();
+  if (!owner || !repo || !pat) { showToast('Please fill in all fields', true); return; }
+  localStorage.setItem('pumas_github_cfg', JSON.stringify({ owner, repo, pat }));
+  GH.owner = owner; GH.repo = repo; GH.pat = pat; GH.configured = true; GH.sha = null;
+  closeModal('github-settings-modal');
+  showToast('GitHub sync configured — connecting…');
+  fetchFromGitHub();
+  startPoll();
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// PERSISTENCE  (localStorage as instant local cache + GitHub as shared store)
 // ────────────────────────────────────────────────────────────────────────────
 function saveCampaigns() {
-  localStorage.setItem('pumas_campaigns', JSON.stringify(campaigns));
+  localStorage.setItem('pumas_campaigns', JSON.stringify(campaigns)); // instant local cache
+  if (GH.configured) {
+    clearTimeout(GH.saveTimer);
+    GH.saveTimer = setTimeout(saveToGitHub, 1500); // debounce: wait 1.5s before pushing to GitHub
+  }
 }
 
 function getCampaign(id) {
@@ -1397,6 +1623,7 @@ function fmtDate(iso) {
 // ────────────────────────────────────────────────────────────────────────────
 renderSidebar();
 if (campaigns.length > 0) selectCampaign(campaigns[0].id);
+initGitHubSync(); // load GitHub config and start syncing if configured
 </script>
 </body>
 </html>
