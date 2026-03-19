@@ -107,6 +107,7 @@ tr:hover td{background:#fafbff}
 .status-fu2-due{background:#fff7ed;color:#c2410c}
 .status-fu2-sent{background:#d1fae5;color:#065f46}
 .status-replied{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+.status-drafts-ready{background:#fefce8;color:#a16207;border:1px solid #fde68a}
 .status-closed{background:#f1f5f9;color:#94a3b8}
 .status-not-interested{background:#fee2e2;color:#b91c1c}
 
@@ -750,6 +751,9 @@ function switchTab(name, el) {
 // ────────────────────────────────────────────────────────────────────────────
 // COMPANIES TAB
 // ────────────────────────────────────────────────────────────────────────────
+// Helper: get canonical company name from either data shape
+function coName(co) { return co.name || co.sponsor || '—'; }
+
 function renderCompaniesTab(c) {
   const companies = c.companies || [];
   if (!companies.length) {
@@ -768,20 +772,43 @@ function renderCompaniesTab(c) {
     <div class="pipeline-wrap">
     <table>
       <thead><tr>
-        <th>Company</th><th>NCT / Trial</th><th>Phase</th><th>Therapy Area</th><th>Status</th><th>Contacts</th><th></th>
+        <th>Company</th><th>Trials</th><th>Phases</th><th>Therapy Area</th><th>Outreach Progress</th><th>Contacts</th><th></th>
       </tr></thead>
       <tbody>
         ${companies.map((co,i) => {
-          const cContacts = (c.contacts||[]).filter(ct => ct.company === co.sponsor);
+          const cn = coName(co);
+          const cContacts = (c.contacts||[]).filter(ct => ct.company === cn);
+
+          // Trial count & detail
+          const trialCount = co.total || (co.trials||[]).length || (co.nct_id ? 1 : 0);
+          const trialDetail = co.trials && co.trials.length
+            ? co.trials.slice(0,3).map(t => t.nct_id).join(', ') + (co.trials.length > 3 ? ` +${co.trials.length-3} more` : '')
+            : co.nct_id || '—';
+
+          // Phases — handle array or single string
+          const phases = co.phases && co.phases.length
+            ? co.phases.map(p => `<span class="badge badge-phase">${p}</span>`).join(' ')
+            : co.phase
+              ? `<span class="badge badge-phase">${co.phase}</span>`
+              : '<span style="color:var(--text-muted);font-size:12px">—</span>';
+
+          // Therapy areas
           const areas = (co.therapy_areas||[]).slice(0,2).map(a =>
             `<span class="badge-area" style="background:${AREA_COLORS[a]||'#78909c'}">${a}</span>`).join('');
+
           return `<tr>
-            <td><div style="font-weight:600">${co.sponsor||'—'}</div><div style="font-size:11px;color:var(--text-muted)">${co.org_type||''}</div></td>
-            <td><a href="${co.url||'#'}" target="_blank" style="font-family:monospace;font-size:12px">${co.nct_id||'—'}</a><div style="font-size:11px;color:var(--text-muted);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${co.title||''}</div></td>
-            <td><span class="badge badge-phase">${co.phase||'N/A'}</span></td>
+            <td>
+              <div style="font-weight:600;font-size:13px">${cn}</div>
+              <div style="font-size:11px;color:var(--text-muted)">${co.org_type||''}</div>
+            </td>
+            <td>
+              <div style="font-weight:600;font-size:13px">${trialCount} trial${trialCount!==1?'s':''}</div>
+              <div style="font-size:10px;color:var(--text-muted);font-family:monospace;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${trialDetail}">${trialDetail}</div>
+            </td>
+            <td>${phases}</td>
             <td>${areas||'<span style="color:var(--text-muted);font-size:12px">—</span>'}</td>
-            <td><span class="status-badge ${coStatus(cContacts)}">${coStatusLabel(cContacts)}</span></td>
-            <td style="font-size:12px">${cContacts.length} contact${cContacts.length!==1?'s':''}</td>
+            <td>${coOutreachBadge(cContacts)}</td>
+            <td style="font-size:12px;font-weight:600">${cContacts.length} <span style="font-weight:400;color:var(--text-muted)">contact${cContacts.length!==1?'s':''}</span></td>
             <td><button class="btn btn-ghost btn-sm" onclick="removeCompany('${c.id}',${i})">✕</button></td>
           </tr>`;
         }).join('')}
@@ -790,17 +817,15 @@ function renderCompaniesTab(c) {
     </div>`;
 }
 
-function coStatus(contacts) {
-  if (!contacts.length) return 'status-not-started';
-  if (contacts.some(ct => ct.status === 'replied')) return 'status-replied';
-  if (contacts.some(ct => ['fu2-sent','fu1-sent','email1-sent'].includes(ct.status))) return 'status-email1-sent';
-  return 'status-not-started';
-}
-function coStatusLabel(contacts) {
-  if (!contacts.length) return 'Not Started';
-  if (contacts.some(ct => ct.status === 'replied')) return '✓ Replied';
-  if (contacts.some(ct => ['fu2-sent','fu1-sent','email1-sent'].includes(ct.status))) return 'Contacted';
-  return 'Not Started';
+function coOutreachBadge(contacts) {
+  if (!contacts.length) return '<span class="status-badge status-not-started">No contacts</span>';
+  const replied  = contacts.filter(ct => ct.status === 'replied').length;
+  const sent     = contacts.filter(ct => !['not-started','not-interested','closed'].includes(ct.status)).length;
+  const total    = contacts.length;
+  if (replied > 0) return `<span class="status-badge status-replied">✓ ${replied}/${total} replied</span>`;
+  if (sent > 0) return `<span class="status-badge status-email1-sent">${sent}/${total} contacted</span>`;
+  if (contacts.some(ct => ct.drafts && ct.drafts.email1)) return '<span class="status-badge status-drafts-ready">Drafts ready</span>';
+  return '<span class="status-badge status-not-started">Not started</span>';
 }
 
 function removeCompany(cid, idx) {
@@ -994,7 +1019,7 @@ function renderDraftForContact(ct, idx) {
 
   // Find the company trial data
   const companyData = (getCampaign(activeCampaignId)?.companies || [])
-    .find(co => co.sponsor === ct.company) || null;
+    .find(co => coName(co) === ct.company) || null;
 
   if (!ct.drafts || !ct.drafts.email1) {
     // Show generate button
@@ -1170,7 +1195,7 @@ function generateDraftsForContact(idx) {
   const c = getCampaign(activeCampaignId);
   if (!c || !c.contacts[idx]) return;
   const ct = c.contacts[idx];
-  const co = (c.companies || []).find(co => co.sponsor === ct.company) || {};
+  const co = (c.companies || []).find(co => coName(co) === ct.company) || {};
   const drafts = buildDrafts(ct, co);
   c.contacts[idx].drafts = drafts;
   saveCampaigns();
@@ -1182,7 +1207,7 @@ function generateAllDrafts() {
   const c = getCampaign(activeCampaignId);
   if (!c) return;
   c.contacts.forEach((ct, idx) => {
-    const co = (c.companies || []).find(co => co.sponsor === ct.company) || {};
+    const co = (c.companies || []).find(co => coName(co) === ct.company) || {};
     c.contacts[idx].drafts = buildDrafts(ct, co);
   });
   saveCampaigns();
@@ -1192,7 +1217,7 @@ function generateAllDrafts() {
 
 function buildDrafts(ct, co) {
   const firstName    = ct.name.split(' ')[0] || ct.name;
-  const company      = ct.company || co.sponsor || 'your company';
+  const company      = ct.company || coName(co) || 'your company';
   const nctId        = co.nct_id  || '';
   const trialTitle   = co.title   || '';
   const phase        = co.phase   || '';
@@ -1480,7 +1505,7 @@ function exportMailMergeCSV() {
                 'NCT_ID','Phase','TherapyAreas','Status','Notes'];
   const rows = [cols];
   (c.contacts || []).forEach(ct => {
-    const co = (c.companies || []).find(co => co.sponsor === ct.company) || {};
+    const co = (c.companies || []).find(co => coName(co) === ct.company) || {};
     const d  = ct.drafts || {};
     rows.push([
       ct.name.split(' ')[0],
@@ -1550,16 +1575,29 @@ function downloadFile(content, filename, mime) {
 // ADD COMPANY MANUALLY
 // ────────────────────────────────────────────────────────────────────────────
 function openAddCompanyModal(cid) {
-  const sponsor = prompt('Company / sponsor name:');
-  if (!sponsor) return;
+  const companyName = prompt('Company / sponsor name:');
+  if (!companyName) return;
   const c = getCampaign(cid);
   if (!c) return;
-  // Try to find in trialsData
-  const match = trialsData.find(r => r.sponsor && r.sponsor.toLowerCase() === sponsor.toLowerCase());
-  c.companies.push(match || { sponsor, nct_id:'', title:'', phase:'', therapy_areas:[], conditions:[], interventions:[], countries:[], org_type:'' });
+  // Try to find matching trials in loaded trialsData
+  const matches = trialsData.filter(r => r.sponsor && r.sponsor.toLowerCase() === companyName.toLowerCase());
+  if (matches.length) {
+    // Build a proper company object from matched trials
+    const phases = [...new Set(matches.map(r=>r.phase).filter(Boolean))];
+    const areas  = [...new Set(matches.flatMap(r=>r.therapy_areas||[]))];
+    const countries = [...new Set(matches.flatMap(r=>r.countries||[]))];
+    c.companies.push({
+      name: matches[0].sponsor, org_type: matches[0].org_type || '',
+      therapy_areas: areas, phases, countries,
+      trials: matches.slice(0,10).map(r=>({nct_id:r.nct_id,title:r.title,phase:r.phase,status:r.status,enrollment:r.enrollment,start_date:r.start_date})),
+      total: matches.length
+    });
+  } else {
+    c.companies.push({ name: companyName, org_type:'', therapy_areas:[], phases:[], countries:[], trials:[], total:0 });
+  }
   saveCampaigns();
   renderMain();
-  showToast(`Added ${sponsor}`);
+  showToast(`Added ${companyName}`);
 }
 
 // ────────────────────────────────────────────────────────────────────────────
