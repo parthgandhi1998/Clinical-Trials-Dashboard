@@ -488,9 +488,9 @@ function renderMain() {
       </div>
     </div>
 
-    ${dueBanner}
+    <div id="campaign-due-banner">${dueBanner}</div>
 
-    <div class="stats-row">
+    <div class="stats-row" id="campaign-stats-row">
       <div class="stat-card"><div class="stat-value">${companyCt}</div><div class="stat-label">Companies</div></div>
       <div class="stat-card"><div class="stat-value">${contacts.length}</div><div class="stat-label">Contacts</div></div>
       <div class="stat-card"><div class="stat-value">${sent}</div><div class="stat-label">Contacted</div></div>
@@ -501,8 +501,8 @@ function renderMain() {
     <div class="tab-bar">
       <button class="tab active" onclick="switchTab('companies',this)">Companies <span class="tab-badge">${companyCt}</span></button>
       <button class="tab" onclick="switchTab('contacts',this)">Contacts <span class="tab-badge">${contacts.length}</span></button>
-      <button class="tab" onclick="switchTab('drafts',this)">Drafts</button>
-      <button class="tab" onclick="switchTab('tracker',this)">Tracker <span class="tab-badge" style="${dueContacts.length > 0 ? 'background:#d97706' : ''}">${dueContacts.length > 0 ? dueContacts.length + ' due' : contacts.length}</span></button>
+      <button class="tab" onclick="switchTab('drafts',this)">Drafts <span class="tab-badge" id="drafts-badge">${contacts.filter(ct=>ct.drafts&&ct.drafts.email1Approved).length||''}</span></button>
+      <button class="tab" onclick="switchTab('tracker',this)">Tracker <span class="tab-badge" style="${dueContacts.length > 0 ? 'background:#d97706' : ''}" id="tracker-badge">${dueContacts.length > 0 ? dueContacts.length + ' due' : contacts.length}</span></button>
       <button class="tab" onclick="switchTab('export',this)">Export</button>
     </div>
 
@@ -740,7 +740,8 @@ function renderDraftsTab(c) {
       ${contacts.map((ct,i) => `<option value="${i}">${ct.name} — ${ct.company||'?'} (${ct.title||'?'})</option>`).join('')}
     </select>
     <button class="btn btn-primary btn-sm" onclick="generateAllDrafts()">⚡ Generate All Drafts</button>
-    <button class="btn btn-ghost btn-sm" onclick="approveDraft(getCurrentContactIdx(),'all')">✓ Approve All</button>
+    <button class="btn btn-ghost btn-sm" onclick="approveDraft(getCurrentContactIdx(),'all')" title="Approve all 3 emails for this contact">✓ Approve This Contact</button>
+    <button class="btn btn-ghost btn-sm" onclick="approveAllContacts()" title="Approve all drafts for every contact in this campaign">✓ Approve All Contacts</button>
   </div>
   <div id="draft-content"></div>`;
 
@@ -872,7 +873,62 @@ function approveDraft(idx, which) {
   }
   saveCampaigns();
   renderDraftForSelected();
+  updateStatsInPlace();
   showToast('Draft approved');
+}
+
+function approveAllContacts() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  let count = 0;
+  c.contacts.forEach((ct, idx) => {
+    if (ct.drafts && ct.drafts.email1) {
+      c.contacts[idx].drafts.email1Approved = true;
+      c.contacts[idx].drafts.fu1Approved    = true;
+      c.contacts[idx].drafts.fu2Approved    = true;
+      count++;
+    }
+  });
+  saveCampaigns();
+  renderDraftForSelected();
+  updateStatsInPlace();
+  showToast(`Approved drafts for ${count} contact${count !== 1 ? 's' : ''}`);
+}
+
+// Lightweight stats refresh — updates KPI row, due banner and tab badges
+// without re-rendering the whole page (avoids tab reset bug)
+function updateStatsInPlace() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  const contacts    = c.contacts || [];
+  const dueContacts = contacts.filter(ct => needsFollowUp(ct));
+  const replied     = contacts.filter(ct => ct.status === 'replied').length;
+  const sent        = contacts.filter(ct => ct.status !== 'not-started').length;
+  const approved    = contacts.filter(ct => ct.drafts && ct.drafts.email1Approved).length;
+
+  // Update stats row
+  const sr = document.getElementById('campaign-stats-row');
+  if (sr) {
+    const vals = sr.querySelectorAll('.stat-value');
+    if (vals[2]) vals[2].textContent = sent;
+    if (vals[3]) vals[3].textContent = replied;
+    if (vals[4]) vals[4].textContent = sent > 0 ? Math.round(replied/sent*100) + '%' : '0%';
+  }
+  // Update due banner
+  const db = document.getElementById('campaign-due-banner');
+  if (db) {
+    db.innerHTML = dueContacts.length > 0
+      ? `<div class="followup-banner">⏰ <strong>${dueContacts.length} follow-up${dueContacts.length > 1 ? 's' : ''} due today</strong> — see the Tracker tab for details.</div>`
+      : '';
+  }
+  // Update tab badges
+  const draftsBadge  = document.getElementById('drafts-badge');
+  const trackerBadge = document.getElementById('tracker-badge');
+  if (draftsBadge)  { draftsBadge.textContent = approved || ''; }
+  if (trackerBadge) {
+    trackerBadge.textContent = dueContacts.length > 0 ? dueContacts.length + ' due' : contacts.length;
+    trackerBadge.style.background = dueContacts.length > 0 ? '#d97706' : '';
+  }
 }
 
 function copyLinkedIn(idx) {
@@ -1073,7 +1129,7 @@ function renderTrackerTab(c) {
       </tr></thead>
       <tbody>
         ${contacts.map((ct, idx) => `
-        <tr>
+        <tr data-contact-idx="${idx}">
           <td><div style="font-weight:600">${ct.name}</div><div style="font-size:11px;color:var(--text-muted)">${ct.title||''}</div></td>
           <td style="font-size:13px">${ct.company||'—'}</td>
           <td>
@@ -1082,10 +1138,10 @@ function renderTrackerTab(c) {
             </select>
           </td>
           <td>
-            <input type="date" value="${ct.lastContacted||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none" onchange="updateContactField('${c.id}',${idx},'lastContacted',this.value)">
+            <input type="date" class="last-contacted-input" value="${ct.lastContacted||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none" onchange="updateContactField('${c.id}',${idx},'lastContacted',this.value)">
           </td>
           <td>
-            <input type="date" value="${ct.followUpDate||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none;${needsFollowUp(ct)?'border-color:#d97706;background:#fffbeb':''}" onchange="updateContactField('${c.id}',${idx},'followUpDate',this.value)">
+            <input type="date" class="followup-input" value="${ct.followUpDate||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none;${needsFollowUp(ct)?'border-color:#d97706;background:#fffbeb':''}" onchange="updateContactField('${c.id}',${idx},'followUpDate',this.value)">
           </td>
           <td>
             <input type="text" value="${ct.notes||''}" placeholder="Add note…" style="border:1px solid var(--border);border-radius:5px;padding:4px 8px;font-size:12px;width:180px;outline:none" onchange="updateContactField('${c.id}',${idx},'notes',this.value)">
@@ -1101,13 +1157,22 @@ function updateContactStatus(cid, idx, val) {
   if (!c || !c.contacts[idx]) return;
   c.contacts[idx].status = val;
   if (val === 'email1-sent' && !c.contacts[idx].lastContacted) {
-    c.contacts[idx].lastContacted = new Date().toISOString().split('T')[0];
-    // Auto-set follow-up date to 7 days later
+    const today = new Date().toISOString().split('T')[0];
+    c.contacts[idx].lastContacted = today;
+    // Auto-set follow-up date to 7 days later and update date inputs in-place
     const fu = new Date(); fu.setDate(fu.getDate() + 7);
     c.contacts[idx].followUpDate = fu.toISOString().split('T')[0];
+    // Update date inputs in the tracker table without re-rendering
+    const row = document.querySelector(`tr[data-contact-idx="${idx}"]`);
+    if (row) {
+      const lastInput = row.querySelector('.last-contacted-input');
+      const fuInput   = row.querySelector('.followup-input');
+      if (lastInput) lastInput.value = today;
+      if (fuInput)   fuInput.value   = c.contacts[idx].followUpDate;
+    }
   }
   saveCampaigns();
-  renderMain();
+  updateStatsInPlace();  // update KPIs and badges without resetting the active tab
 }
 
 function updateContactField(cid, idx, field, value) {
