@@ -87,7 +87,8 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .sponsor-card:hover{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.08);transform:translateY(-1px)}
 .sponsor-card.selected{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.18);background:var(--accent-light)}
 .sponsor-card.selected .sponsor-card-name{color:var(--accent)}
-.sp-select-cb{position:absolute;top:10px;right:10px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent);z-index:2}
+/* Checkbox top-right, trial count to its immediate left — no overlap */
+.sp-select-cb{position:absolute;top:11px;right:10px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent);z-index:2}
 /* Floating campaign action bar */
 #campaign-action-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e1b4b;color:#fff;border-radius:14px;padding:12px 20px;display:none;align-items:center;gap:14px;box-shadow:0 8px 32px rgba(0,0,0,.35);z-index:400;min-width:360px;max-width:600px;animation:slideUp .2s ease}
 #campaign-action-bar.visible{display:flex}
@@ -101,7 +102,8 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .sponsor-card-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;line-height:1.3}
 .sponsor-card-meta{font-size:11px;color:var(--text-muted);margin-bottom:8px}
 .sponsor-card-areas{display:flex;flex-wrap:wrap;gap:3px}
-.sponsor-trial-count{position:absolute;top:12px;right:14px;font-size:22px;font-weight:800;color:var(--accent);opacity:.18;font-variant-numeric:tabular-nums;line-height:1}
+/* Trial count sits clearly to the LEFT of the checkbox — distinct, not overlapping */
+.sponsor-trial-count{position:absolute;top:8px;right:34px;font-size:13px;font-weight:800;color:var(--accent);background:var(--accent-light);border:1px solid rgba(79,70,229,.2);border-radius:5px;padding:1px 6px;line-height:1.6;font-variant-numeric:tabular-nums;white-space:nowrap}
 
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(2px)}
@@ -1169,6 +1171,9 @@ document.getElementById("btn-export-sponsors").addEventListener("click", () => {
 function updateSponsorsBadge() {
   const n = new Set(filtered.filter(r => r.sponsor).map(r => r.sponsor)).size;
   document.getElementById("sponsors-export-badge").textContent = n.toLocaleString();
+  // Also keep the Sponsors tab badge in sync — applyFilters() calls this on every update
+  // so the badge is accurate from the moment data loads, before the tab is ever clicked.
+  document.getElementById("tab-sponsors-badge").textContent = n.toLocaleString();
 }
 
 // ── TAB SWITCHING ─────────────────────────────────────────────────────────────
@@ -1481,35 +1486,17 @@ function renderAnalytics() {
 }
 
 // ── SPONSORS PANEL ────────────────────────────────────────────────────────────
-const spAreas = new Set();
-const spAreaBtn   = document.getElementById("sp-area-btn");
+const spAreas     = new Set();
+// spAreaBtn/spAreaPanel references are kept for updateSpAreaLabel()
+// Full wiring happens in buildFilterPanels() after the panel is populated with real data
 const spAreaPanel = document.getElementById("sp-area-panel");
-spAreaBtn.addEventListener("click", e => {
-  e.stopPropagation();
-  document.querySelectorAll(".multi-panel.open").forEach(p => p !== spAreaPanel && p.classList.remove("open"));
-  spAreaPanel.classList.toggle("open");
-});
+// Panel click stop-propagation (panel open/close) — safe to bind now, persists
 spAreaPanel.addEventListener("click", e => e.stopPropagation());
-document.getElementById("sp-area-all").addEventListener("click", () => {
-  spAreaPanel.querySelectorAll(".sp-area-cb").forEach(cb => cb.checked = true);
-  spAreas.clear();
-  [...spAreaPanel.querySelectorAll(".sp-area-cb")].forEach(cb => spAreas.add(cb.value));
-  updateSpAreaLabel(); renderSponsors();
-});
-document.getElementById("sp-area-clear").addEventListener("click", () => {
-  spAreaPanel.querySelectorAll(".sp-area-cb").forEach(cb => cb.checked = false);
-  spAreas.clear(); updateSpAreaLabel(); renderSponsors();
-});
-spAreaPanel.querySelectorAll(".sp-area-cb").forEach(cb => {
-  cb.addEventListener("change", () => {
-    if (cb.checked) spAreas.add(cb.value); else spAreas.delete(cb.value);
-    updateSpAreaLabel(); renderSponsors();
-  });
-});
 function updateSpAreaLabel() {
-  const n = spAreas.size;
+  const n   = spAreas.size;
+  const btn = document.getElementById("sp-area-btn");
   document.getElementById("sp-area-label").textContent = n === 0 ? "All Areas" : n === 1 ? [...spAreas][0] : `${n} areas`;
-  spAreaBtn.classList.toggle("active", n > 0);
+  if (btn) btn.classList.toggle("active", n > 0);
 }
 
 function renderSponsors() {
@@ -1685,9 +1672,46 @@ function buildFilterPanels(records) {
   inject("study-type-panel", cbs(studyTypes, "study-type-cb", s=>s.replace(/_/g," ").replace(/\w/g,x=>x.toUpperCase())),    "study-type-select-all", "study-type-clear-all");
   inject("intv-type-panel",  cbs(intvTypes,  "intv-type-cb",  t=>_INTV_LABELS_V[t]||t),                                       "intv-type-select-all",  "intv-type-clear-all");
 
-  // Sponsors area filter
+  // Sponsors area filter — populate panel then fully rewire all its controls
   const spPanel = document.getElementById("sp-area-panel");
-  if (spPanel) spPanel.innerHTML = areas.map(a => `<label class="cb-label"><input type="checkbox" class="sp-area-cb" value="${a}"> ${a}</label>`).join("\n") + `<div class="panel-actions"><a id="sp-area-all">All</a><a id="sp-area-clear">Clear</a></div>`;
+  if (spPanel) {
+    spPanel.innerHTML = areas.map(a =>
+      `<label class="cb-label"><input type="checkbox" class="sp-area-cb" value="${a}"> ${a}</label>`
+    ).join("\n") + `<div class="panel-actions"><a id="sp-area-all">All</a><a id="sp-area-clear">Clear</a></div>`;
+
+    // Clone+replace the button to clear the old click listener bound at page-load
+    const oldBtn = document.getElementById("sp-area-btn");
+    if (oldBtn) {
+      const newBtn = oldBtn.cloneNode(true);
+      oldBtn.replaceWith(newBtn);
+      newBtn.addEventListener("click", e => {
+        e.stopPropagation();
+        document.querySelectorAll(".multi-panel.open").forEach(p => p !== spPanel && p.classList.remove("open"));
+        spPanel.classList.toggle("open");
+      });
+    }
+
+    // "All" and "Clear" — these are fresh elements inside the new innerHTML
+    document.getElementById("sp-area-all").addEventListener("click", () => {
+      spPanel.querySelectorAll(".sp-area-cb").forEach(cb => cb.checked = true);
+      spAreas.clear();
+      spPanel.querySelectorAll(".sp-area-cb").forEach(cb => spAreas.add(cb.value));
+      updateSpAreaLabel(); renderSponsors();
+    });
+    document.getElementById("sp-area-clear").addEventListener("click", () => {
+      spPanel.querySelectorAll(".sp-area-cb").forEach(cb => cb.checked = false);
+      spAreas.clear(); updateSpAreaLabel(); renderSponsors();
+    });
+
+    // Checkbox changes — use event delegation on the panel so this survives
+    // any future innerHTML replacement without needing another rewire
+    spPanel.addEventListener("change", e => {
+      if (!e.target.classList.contains("sp-area-cb")) return;
+      if (e.target.checked) spAreas.add(e.target.value);
+      else spAreas.delete(e.target.value);
+      updateSpAreaLabel(); renderSponsors();
+    });
+  }
 }
 
 function rewireDropdowns() {
