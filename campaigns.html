@@ -113,13 +113,20 @@ tr:hover td{background:#fafbff}
 
 /* ── CONTACT CARDS ── */
 .contacts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;transition:all .15s}
+.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;transition:all .15s;position:relative}
 .contact-card:hover{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.07)}
+.contact-card.selected{border-color:var(--accent);background:var(--accent-light);box-shadow:0 0 0 2px rgba(79,70,229,.18)}
+.contact-card .cc-check{position:absolute;top:12px;right:12px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent)}
 .contact-name{font-size:13px;font-weight:700;color:var(--text)}
 .contact-title{font-size:12px;color:var(--text-muted);margin-top:2px;margin-bottom:8px;line-height:1.4}
 .contact-company{font-size:11px;font-weight:600;color:var(--accent);margin-bottom:6px}
 .contact-email{font-size:12px;color:var(--text-mid);font-family:'JetBrains Mono',monospace;margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .contact-actions{display:flex;gap:6px;flex-wrap:wrap}
+/* Selection bar */
+.selection-bar{position:sticky;bottom:0;background:var(--accent);color:#fff;border-radius:var(--radius);padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;box-shadow:var(--shadow-md);margin-top:14px;z-index:10}
+.selection-bar-label{font-size:13px;font-weight:700;flex:1}
+.selection-bar .btn-sel{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:6px;padding:5px 12px;font-size:12px;font-weight:600;cursor:pointer}
+.selection-bar .btn-sel:hover{background:rgba(255,255,255,.3)}
 
 /* ── DRAFT PANEL ── */
 .draft-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
@@ -129,8 +136,25 @@ tr:hover td{background:#fafbff}
 .draft-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)}
 .draft-approved{background:#dcfce7;color:#15803d;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px}
 .draft-pending{background:#fef9c3;color:#a16207;font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px}
-.draft-textarea{width:100%;min-height:160px;border:1px solid var(--border);border-radius:6px;padding:10px 12px;font-size:13px;font-family:'Inter',system-ui,sans-serif;color:var(--text);resize:vertical;line-height:1.5;outline:none;transition:border .15s}
+.draft-textarea{width:100%;min-height:160px;border:1px solid var(--border);border-radius:0 0 6px 6px;padding:10px 12px;font-size:13px;font-family:'Inter',system-ui,sans-serif;color:var(--text);resize:vertical;line-height:1.5;outline:none;transition:border .15s}
 .draft-textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.08)}
+/* Rich editor */
+.rich-editor-wrap{border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:box-shadow .15s}
+.rich-editor-wrap:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.08)}
+.editor-toolbar{display:flex;gap:2px;padding:4px 6px;background:var(--surface2);border-bottom:1px solid var(--border);flex-wrap:wrap}
+.editor-toolbar button{background:none;border:1px solid transparent;border-radius:4px;padding:3px 7px;font-size:11px;font-weight:600;color:var(--text-mid);cursor:pointer;transition:all .1s;line-height:1.4}
+.editor-toolbar button:hover{background:var(--border);border-color:var(--border2)}
+.editor-toolbar button.active{background:var(--accent-light);color:var(--accent);border-color:var(--accent)}
+.editor-toolbar .t-sep{width:1px;background:var(--border);margin:2px 2px;align-self:stretch}
+.rich-editor{min-height:140px;padding:10px 12px;font-size:13px;font-family:'Inter',system-ui,sans-serif;color:var(--text);line-height:1.6;outline:none;background:var(--surface);white-space:pre-wrap;overflow-y:auto;max-height:280px}
+.rich-editor a{color:var(--accent);text-decoration:underline}
+.rich-editor img{max-width:100%;height:auto;border-radius:4px;margin:4px 0}
+/* Attachment zone in send panel */
+.attach-zone{border:2px dashed var(--border);border-radius:8px;padding:14px 16px;cursor:pointer;transition:all .2s;background:var(--surface2);text-align:center;font-size:12px;color:var(--text-muted)}
+.attach-zone:hover,.attach-zone.drag-over{border-color:var(--accent);background:var(--accent-light);color:var(--accent)}
+.attach-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.attach-chip{display:inline-flex;align-items:center;gap:5px;background:var(--accent-light);color:var(--accent);border:1px solid rgba(79,70,229,.2);border-radius:6px;padding:3px 8px;font-size:11px;font-weight:600}
+.attach-chip button{background:none;border:none;color:var(--accent);cursor:pointer;font-size:12px;padding:0;line-height:1}
 .draft-subj{width:100%;border:1px solid var(--border);border-radius:6px;padding:7px 10px;font-size:13px;color:var(--text);margin-bottom:8px;outline:none;transition:border .15s}
 .draft-subj:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.08)}
 .linkedin-card{background:linear-gradient(135deg,#0077b5 0%,#005885 100%);color:#fff;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
@@ -344,6 +368,8 @@ select{font-family:inherit}
 let campaigns   = JSON.parse(localStorage.getItem('pumas_campaigns') || '[]');
 let activeCampaignId = null;
 let trialsData  = [];
+let selectedContactIndices = new Set();   // indices of checked contacts
+let pendingAttachments     = [];          // [{name, dataB64}] for email sending
 
 const AREA_COLORS = {
   "Oncology":"#e53935","Neurology":"#8e24aa","Cardiovascular":"#d81b60",
@@ -746,6 +772,7 @@ function switchTab(name, el) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
   document.getElementById('tab-' + name).classList.add('active');
+  if (name === 'export') checkOutlookServer();
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -873,13 +900,32 @@ function renderContactsTab(c) {
     </div>
     ${contacts.length === 0
       ? '<div style="text-align:center;padding:40px;color:var(--text-muted)">No contacts yet. Upload a CSV from SeamlessAI or add manually.</div>'
-      : `<div class="contacts-grid">${contacts.map((ct,i) => renderContactCard(ct, c.id, i)).join('')}</div>`
+      : `<div id="contacts-list-wrap">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
+            <div style="font-size:12px;color:var(--text-muted)">${contacts.length} contacts — check boxes to select for bulk send</div>
+            <div style="display:flex;gap:6px">
+              <button class="btn btn-ghost btn-sm" onclick="selectAllContacts()">☑ Select All</button>
+              <button class="btn btn-ghost btn-sm" onclick="clearContactSelection()">☐ Clear</button>
+            </div>
+          </div>
+          <div class="contacts-grid">${contacts.map((ct,i) => renderContactCard(ct, c.id, i)).join('')}</div>
+          <div id="contact-selection-bar" style="display:none" class="selection-bar">
+            <span class="selection-bar-label" id="sel-bar-label">0 selected</span>
+            <button class="btn-sel" onclick="sendSelectedContacts('email1')">Send Email 1</button>
+            <button class="btn-sel" onclick="sendSelectedContacts('fu1')">Send FU 1</button>
+            <button class="btn-sel" onclick="sendSelectedContacts('fu2')">Send FU 2</button>
+            <button class="btn-sel" style="background:rgba(255,255,255,.08)" onclick="clearContactSelection()">✕ Clear</button>
+          </div>
+        </div>`
     }`;
 }
 
 function renderContactCard(ct, cid, idx) {
+  const isSelected = selectedContactIndices.has(idx);
+  const hasDraft = ct.drafts && ct.drafts.email1;
   return `
-  <div class="contact-card">
+  <div class="contact-card ${isSelected ? 'selected' : ''}" id="cc-${idx}">
+    <input type="checkbox" class="cc-check" ${isSelected ? 'checked' : ''} onchange="toggleContactSelect(${idx}, this.checked)" title="Select for bulk send">
     <div class="contact-company">${ct.company||'—'}</div>
     <div class="contact-name">${ct.name}</div>
     <div class="contact-title">${ct.title||'—'}</div>
@@ -887,6 +933,7 @@ function renderContactCard(ct, cid, idx) {
     ${ct.linkedin ? `<div style="font-size:11px;margin-bottom:6px"><a href="${ct.linkedin}" target="_blank">LinkedIn ↗</a></div>` : ''}
     <div class="contact-actions">
       <button class="btn btn-ghost btn-sm" onclick="viewDraftForContact('${cid}',${idx})">✏ Drafts</button>
+      ${hasDraft ? `<button class="btn btn-ghost btn-sm" style="color:var(--accent)" onclick="openSingleInOutlook(${idx},'email1')" title="Open Email 1 in Outlook for review">✉ Open in Outlook</button>` : ''}
       <button class="btn btn-ghost btn-sm" onclick="removeContact('${cid}',${idx})">✕</button>
     </div>
   </div>`;
@@ -1060,11 +1107,12 @@ function renderDraftForContact(ct, idx) {
           <div><div class="draft-label">Email 1 — Initial Outreach</div><div style="font-size:11px;color:var(--text-muted)">Send on Day 1</div></div>
           <span class="${d.email1Approved?'draft-approved':'draft-pending'}">${d.email1Approved?'✓ Approved':'Pending'}</span>
         </div>
-        <input class="draft-subj" id="subj1_${idx}" value="${d.subject1||''}" placeholder="Subject line…">
-        <textarea class="draft-textarea" id="email1_${idx}" oninput="saveDraftEdit(${idx},'email1',this.value)">${d.email1||''}</textarea>
-        <div style="display:flex;gap:6px;margin-top:8px">
+        <input class="draft-subj" id="subj1_${idx}" value="${escHtml(d.subject1||'')}" placeholder="Subject line…" oninput="saveDraftEdit(${idx},'subject1',this.value)">
+        ${richEditor('email1_'+idx, d.email1||'', idx, 'email1')}
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
           <button class="btn btn-primary btn-sm" onclick="approveDraft(${idx},'email1')">✓ Approve</button>
           <button class="btn btn-ghost btn-sm" onclick="generateDraftsForContact(${idx})">↺ Regenerate</button>
+          <button class="btn btn-ghost btn-sm" style="color:var(--accent)" onclick="openSingleInOutlook(${idx},'email1')" title="Open in Outlook — you review and click Send">✉ Open in Outlook</button>
         </div>
       </div>
 
@@ -1073,10 +1121,11 @@ function renderDraftForContact(ct, idx) {
           <div><div class="draft-label">Follow-up 1</div><div style="font-size:11px;color:var(--text-muted)">Send ~7 days later</div></div>
           <span class="${d.fu1Approved?'draft-approved':'draft-pending'}">${d.fu1Approved?'✓ Approved':'Pending'}</span>
         </div>
-        <input class="draft-subj" id="subj2_${idx}" value="${d.subject2||''}" placeholder="Subject line…">
-        <textarea class="draft-textarea" id="fu1_${idx}" oninput="saveDraftEdit(${idx},'fu1',this.value)">${d.fu1||''}</textarea>
-        <div style="display:flex;gap:6px;margin-top:8px">
+        <input class="draft-subj" id="subj2_${idx}" value="${escHtml(d.subject2||'')}" placeholder="Subject line…" oninput="saveDraftEdit(${idx},'subject2',this.value)">
+        ${richEditor('fu1_'+idx, d.fu1||'', idx, 'fu1')}
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
           <button class="btn btn-primary btn-sm" onclick="approveDraft(${idx},'fu1')">✓ Approve</button>
+          <button class="btn btn-ghost btn-sm" style="color:var(--accent)" onclick="openSingleInOutlook(${idx},'fu1')" title="Open in Outlook — you review and click Send">✉ Open in Outlook</button>
         </div>
       </div>
 
@@ -1085,10 +1134,11 @@ function renderDraftForContact(ct, idx) {
           <div><div class="draft-label">Follow-up 2 — Break-up</div><div style="font-size:11px;color:var(--text-muted)">Send ~14 days later</div></div>
           <span class="${d.fu2Approved?'draft-approved':'draft-pending'}">${d.fu2Approved?'✓ Approved':'Pending'}</span>
         </div>
-        <input class="draft-subj" id="subj3_${idx}" value="${d.subject3||''}" placeholder="Subject line…">
-        <textarea class="draft-textarea" id="fu2_${idx}" oninput="saveDraftEdit(${idx},'fu2',this.value)">${d.fu2||''}</textarea>
-        <div style="display:flex;gap:6px;margin-top:8px">
+        <input class="draft-subj" id="subj3_${idx}" value="${escHtml(d.subject3||'')}" placeholder="Subject line…" oninput="saveDraftEdit(${idx},'subject3',this.value)">
+        ${richEditor('fu2_'+idx, d.fu2||'', idx, 'fu2')}
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
           <button class="btn btn-primary btn-sm" onclick="approveDraft(${idx},'fu2')">✓ Approve</button>
+          <button class="btn btn-ghost btn-sm" style="color:var(--accent)" onclick="openSingleInOutlook(${idx},'fu2')" title="Open in Outlook — you review and click Send">✉ Open in Outlook</button>
         </div>
       </div>
 
@@ -1453,54 +1503,113 @@ function needsFollowUp(ct) {
 // EXPORT TAB
 // ────────────────────────────────────────────────────────────────────────────
 function renderExportTab(c) {
-  const contacts  = c.contacts || [];
-  const approved  = contacts.filter(ct => ct.drafts && ct.drafts.email1);
+  const contacts = c.contacts || [];
+  const approved = contacts.filter(ct => ct.drafts && ct.drafts.email1);
   return `
-    <div class="info-box">
-      <strong>Outlook Mail Merge Export:</strong> This creates a CSV with one row per contact, containing all personalised email copy. In Outlook, use <em>Mailings → Start Mail Merge → E-mail Messages</em>, connect this CSV as your recipient list, and insert the merge fields (Email1_Subject, Email1_Body, etc.) into your template.
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px">
-      <div class="stat-card">
-        <div class="stat-value">${contacts.length}</div>
-        <div class="stat-label">Total Contacts</div>
+    <!-- ── SEND VIA OUTLOOK (local server) ── -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:20px;box-shadow:var(--shadow)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+        <div>
+          <div style="font-size:14px;font-weight:700">Send via Outlook</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Bulk sends directly · Individual emails open in Outlook for your final review</div>
+        </div>
+        <div id="server-status-badge" style="font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f1f5f9;color:#64748b;border:1px solid var(--border)">
+          Checking…
+        </div>
       </div>
-      <div class="stat-card">
-        <div class="stat-value" style="color:${approved.length>0?'var(--green)':'var(--text)'}">${approved.length}</div>
-        <div class="stat-label">With Drafts</div>
-      </div>
+      <div id="server-status-detail" style="font-size:12px;color:var(--text-muted);margin-bottom:14px"></div>
+
+      ${approved.length === 0
+        ? '<div style="font-size:12px;color:#92400e;background:var(--amber-light);border:1px solid #fde68a;border-radius:6px;padding:10px">⚠ No drafts yet — go to the Drafts tab first.</div>'
+        : `<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+            <!-- Step + Scope -->
+            <div>
+              <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:4px">Email Step</label>
+              <select id="send-step-sel" class="form-input" style="width:100%">
+                <option value="email1">Email 1 — Initial Outreach</option>
+                <option value="fu1">Follow-up 1 (~7 days later)</option>
+                <option value="fu2">Follow-up 2 — Break-up (~14 days)</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:4px">Recipients</label>
+              <select id="send-scope-sel" class="form-input" style="width:100%">
+                <option value="all">All contacts with drafts</option>
+                <option value="selected">Selected contacts only</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Attachments -->
+          <div style="margin-bottom:16px">
+            <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:6px">Attachments (optional)</label>
+            <div class="attach-zone" id="attach-drop-zone"
+                 onclick="document.getElementById('attach-file-input').click()"
+                 ondragover="event.preventDefault();this.classList.add('drag-over')"
+                 ondragleave="this.classList.remove('drag-over')"
+                 ondrop="event.preventDefault();this.classList.remove('drag-over');handleAttachmentDrop(event.dataTransfer.files)">
+              📎 Click or drag files here to attach to every email
+              <input type="file" id="attach-file-input" multiple style="display:none" onchange="handleAttachmentFiles(this.files)">
+            </div>
+            <div class="attach-chips" id="attach-chips-list"></div>
+          </div>
+
+          <!-- Send buttons -->
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+            <button class="btn btn-ghost btn-sm" onclick="serverPreviewEmails()">👁 Preview 3</button>
+            <button class="btn btn-primary btn-sm" id="btn-send-server" onclick="serverSendEmails()" disabled>⚡ Bulk Send (direct)</button>
+            <div style="font-size:11px;color:var(--text-muted);flex:1;text-align:right">Bulk = sends immediately · <em>Open in Outlook</em> on each contact card for individual review</div>
+          </div>
+          <div id="server-send-log" style="margin-top:12px;font-size:12px;font-family:monospace;background:#f8fafc;border:1px solid var(--border);border-radius:6px;padding:10px;display:none;max-height:200px;overflow-y:auto;white-space:pre-wrap"></div>`
+      }
     </div>
 
-    ${approved.length === 0
-      ? '<div class="info-box" style="background:var(--amber-light);border-color:#fde68a;color:#92400e">⚠ No contacts have drafts yet. Go to the Drafts tab and generate sequences first.</div>'
-      : `<div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn btn-primary" onclick="exportMailMergeCSV()">⬇ Download Mail Merge CSV</button>
-          <button class="btn btn-ghost" onclick="exportLinkedInMessages()">⬇ LinkedIn Messages (.txt)</button>
-          <button class="btn btn-ghost" onclick="exportCampaignSummary()">⬇ Campaign Summary (.csv)</button>
-        </div>`
-    }
+    <!-- ── CSV EXPORT ── -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:20px;box-shadow:var(--shadow)">
+      <div style="font-size:14px;font-weight:700;margin-bottom:4px">CSV / Manual Export</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-bottom:14px">Download the mail merge CSV and run locally with <code>send_campaign.py</code>, or open in Excel.</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+        <div class="stat-card">
+          <div class="stat-value">${contacts.length}</div>
+          <div class="stat-label">Total Contacts</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" style="color:${approved.length>0?'var(--green)':'var(--text)'}">${approved.length}</div>
+          <div class="stat-label">With Drafts</div>
+        </div>
+      </div>
+      ${approved.length === 0
+        ? '<div class="info-box" style="background:var(--amber-light);border-color:#fde68a;color:#92400e">⚠ No contacts have drafts yet. Go to the Drafts tab and generate sequences first.</div>'
+        : `<div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-primary" onclick="exportMailMergeCSV()">⬇ Mail Merge CSV</button>
+            <button class="btn btn-ghost" onclick="exportLinkedInMessages()">⬇ LinkedIn Messages (.txt)</button>
+            <button class="btn btn-ghost" onclick="exportCampaignSummary()">⬇ Campaign Summary (.csv)</button>
+          </div>`
+      }
+    </div>
 
-    <div style="margin-top:24px">
-      <div style="font-size:13px;font-weight:700;margin-bottom:10px">Mail Merge Column Reference</div>
+    <div style="margin-top:4px">
+      <div style="font-size:13px;font-weight:700;margin-bottom:10px">CSV Column Reference</div>
       <div class="pipeline-wrap"><table>
-        <thead><tr><th>Column</th><th>Description</th><th>Use in Outlook as</th></tr></thead>
+        <thead><tr><th>Column</th><th>Description</th></tr></thead>
         <tbody>
           ${[
-            ['FirstName','Contact first name','Dear {{FirstName}}'],
-            ['FullName','Full name',''],
-            ['Email','Email address','Recipient address'],
-            ['Title','Job title',''],
-            ['Company','Company name','{{Company}}'],
-            ['Email1_Subject','Initial email subject line','Email subject'],
-            ['Email1_Body','Initial email body','Email body'],
-            ['FU1_Subject','Follow-up 1 subject',''],
-            ['FU1_Body','Follow-up 1 body',''],
-            ['FU2_Subject','Follow-up 2 subject',''],
-            ['FU2_Body','Follow-up 2 body',''],
-            ['LinkedIn_Message','LinkedIn message (copy-paste)',''],
-            ['NCT_ID','Trial ID for reference',''],
-            ['Phase','Trial phase',''],
-            ['Status','Outreach status',''],
-          ].map(([col,desc,use]) => `<tr><td style="font-family:monospace;font-size:12px">${col}</td><td style="font-size:12px">${desc}</td><td style="font-size:12px;color:var(--text-muted)">${use}</td></tr>`).join('')}
+            ['FirstName','Contact first name'],
+            ['FullName','Full name'],
+            ['Email','Email address (recipient)'],
+            ['Title','Job title'],
+            ['Company','Company name'],
+            ['Email1_Subject','Initial email subject'],
+            ['Email1_Body','Initial email body (multi-line)'],
+            ['FU1_Subject','Follow-up 1 subject'],
+            ['FU1_Body','Follow-up 1 body'],
+            ['FU2_Subject','Follow-up 2 subject'],
+            ['FU2_Body','Follow-up 2 body'],
+            ['LinkedIn_Message','LinkedIn DM (copy-paste)'],
+            ['NCT_ID','Trial ID'],
+            ['Phase','Trial phase'],
+            ['Status','Outreach status'],
+          ].map(([col,desc]) => `<tr><td style="font-family:monospace;font-size:12px">${col}</td><td style="font-size:12px">${desc}</td></tr>`).join('')}
         </tbody>
       </table></div>
     </div>`;
@@ -1523,13 +1632,13 @@ function exportMailMergeCSV() {
       ct.email || '',
       ct.title  || '',
       ct.company || '',
-      d.subject1 || '',
-      (d.email1  || '').replace(/\n/g,'\\n'),
-      d.subject2 || '',
-      (d.fu1     || '').replace(/\n/g,'\\n'),
-      d.subject3 || '',
-      (d.fu2     || '').replace(/\n/g,'\\n'),
-      (d.linkedin|| '').replace(/\n/g,'\\n'),
+      d.subject1  || '',
+      d.email1    || '',
+      d.subject2  || '',
+      d.fu1       || '',
+      d.subject3  || '',
+      d.fu2       || '',
+      d.linkedin  || '',
       co.nct_id  || '',
       co.phase   || '',
       (co.therapy_areas||[]).join('; '),
@@ -1540,6 +1649,313 @@ function exportMailMergeCSV() {
   downloadCSV(rows, `${c.name.replace(/\s+/g,'_')}_mail_merge.csv`);
   showToast('Mail merge CSV downloaded');
 }
+
+// ────────────────────────────────────────────────────────────────────────────
+// HELPERS
+// ────────────────────────────────────────────────────────────────────────────
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Build rich editor — contenteditable with toolbar for links + images
+function richEditor(id, content, ctIdx, field) {
+  // Convert plain newlines → <br> for display; stored HTML is used as-is
+  const html = content.includes('<') ? content : content.replace(/\n/g, '<br>');
+  return `
+    <div class="rich-editor-wrap">
+      <div class="editor-toolbar">
+        <button onmousedown="event.preventDefault();document.execCommand('bold')" title="Bold"><b>B</b></button>
+        <button onmousedown="event.preventDefault();document.execCommand('italic')" title="Italic"><i>I</i></button>
+        <div class="t-sep"></div>
+        <button onmousedown="event.preventDefault();insertEditorLink('${id}')" title="Insert link">🔗 Link</button>
+        <button onmousedown="event.preventDefault();insertEditorImage('${id}')" title="Insert image URL">🖼 Image</button>
+        <div class="t-sep"></div>
+        <button onmousedown="event.preventDefault();document.execCommand('removeFormat')" title="Clear formatting">✕ Format</button>
+      </div>
+      <div class="rich-editor" id="${id}" contenteditable="true"
+           oninput="saveDraftEdit(${ctIdx},'${field}',document.getElementById('${id}').innerHTML)"
+           onpaste="handleEditorPaste(event,'${id}',${ctIdx},'${field}')">${html}</div>
+    </div>`;
+}
+
+function insertEditorLink(editorId) {
+  const url = prompt('Enter URL:');
+  if (!url) return;
+  const text = window.getSelection()?.toString() || url;
+  document.execCommand('insertHTML', false, `<a href="${escHtml(url)}">${escHtml(text)}</a>`);
+  const el = document.getElementById(editorId);
+  if (el) {
+    const parts = editorId.split('_');
+    const field = parts.slice(0,-1).join('_');
+    const idx   = parseInt(parts[parts.length-1]);
+    saveDraftEdit(idx, field, el.innerHTML);
+  }
+}
+
+function insertEditorImage(editorId) {
+  const url = prompt('Enter image URL:');
+  if (!url) return;
+  document.execCommand('insertHTML', false, `<img src="${escHtml(url)}" style="max-width:100%">`);
+  const el = document.getElementById(editorId);
+  if (el) {
+    const parts = editorId.split('_');
+    const field = parts.slice(0,-1).join('_');
+    const idx   = parseInt(parts[parts.length-1]);
+    saveDraftEdit(idx, field, el.innerHTML);
+  }
+}
+
+function handleEditorPaste(event, editorId, ctIdx, field) {
+  // If pasting an image file, insert it as base64
+  const items = event.clipboardData?.items;
+  if (!items) return;
+  for (const item of items) {
+    if (item.type.startsWith('image/')) {
+      event.preventDefault();
+      const file = item.getAsFile();
+      const reader = new FileReader();
+      reader.onload = e => {
+        document.execCommand('insertHTML', false, `<img src="${e.target.result}" style="max-width:100%">`);
+        const el = document.getElementById(editorId);
+        if (el) saveDraftEdit(ctIdx, field, el.innerHTML);
+      };
+      reader.readAsDataURL(file);
+      return;
+    }
+  }
+  // For text pastes: strip HTML, paste as plain text to avoid style bleed
+  const text = event.clipboardData.getData('text/plain');
+  if (text) {
+    event.preventDefault();
+    document.execCommand('insertText', false, text);
+  }
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// CONTACT SELECTION
+// ────────────────────────────────────────────────────────────────────────────
+function toggleContactSelect(idx, checked) {
+  if (checked) selectedContactIndices.add(idx);
+  else selectedContactIndices.delete(idx);
+  const card = document.getElementById('cc-' + idx);
+  if (card) card.classList.toggle('selected', checked);
+  updateSelectionBar();
+}
+
+function selectAllContacts() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  (c.contacts || []).forEach((_, i) => {
+    selectedContactIndices.add(i);
+    const card = document.getElementById('cc-' + i);
+    if (card) { card.classList.add('selected'); const cb = card.querySelector('.cc-check'); if (cb) cb.checked = true; }
+  });
+  updateSelectionBar();
+}
+
+function clearContactSelection() {
+  selectedContactIndices.clear();
+  document.querySelectorAll('.contact-card.selected').forEach(el => {
+    el.classList.remove('selected');
+    const cb = el.querySelector('.cc-check'); if (cb) cb.checked = false;
+  });
+  updateSelectionBar();
+}
+
+function updateSelectionBar() {
+  const bar   = document.getElementById('contact-selection-bar');
+  const label = document.getElementById('sel-bar-label');
+  if (!bar) return;
+  const n = selectedContactIndices.size;
+  bar.style.display = n > 0 ? 'flex' : 'none';
+  if (label) label.textContent = `${n} contact${n !== 1 ? 's' : ''} selected`;
+}
+
+async function sendSelectedContacts(step) {
+  if (!outlookServerOnline) { showToast('Server not running — start email_server.py first'); return; }
+  if (!selectedContactIndices.size) { showToast('No contacts selected'); return; }
+  const rows = getExportRows(step, 'selected');
+  if (!rows.length) { showToast('Selected contacts have no drafts for this step'); return; }
+  const stepLabels = { email1: 'Email 1', fu1: 'Follow-up 1', fu2: 'Follow-up 2' };
+  await doServerSend(rows, `${stepLabels[step]} to ${rows.length} selected contacts`, false);
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// ATTACHMENTS
+// ────────────────────────────────────────────────────────────────────────────
+function handleAttachmentDrop(files) { handleAttachmentFiles(files); }
+
+function handleAttachmentFiles(files) {
+  if (!files || !files.length) return;
+  Array.from(files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      // Store as {name, dataB64} - strip the data:xxx;base64, prefix
+      const b64 = e.target.result.split(',')[1];
+      pendingAttachments.push({ name: file.name, dataB64: b64, size: file.size });
+      renderAttachmentChips();
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function removeAttachment(idx) {
+  pendingAttachments.splice(idx, 1);
+  renderAttachmentChips();
+}
+
+function renderAttachmentChips() {
+  const el = document.getElementById('attach-chips-list');
+  if (!el) return;
+  el.innerHTML = pendingAttachments.map((a, i) => `
+    <span class="attach-chip">
+      📎 ${escHtml(a.name)} <span style="opacity:.6">(${(a.size/1024).toFixed(0)}KB)</span>
+      <button onclick="removeAttachment(${i})" title="Remove">✕</button>
+    </span>`).join('');
+}
+
+// ────────────────────────────────────────────────────────────────────────────
+// OUTLOOK SERVER INTEGRATION  (email_server.py running on localhost:5001)
+// ────────────────────────────────────────────────────────────────────────────
+const OUTLOOK_SERVER = 'http://localhost:5001';
+let outlookServerOnline = false;
+
+async function checkOutlookServer() {
+  const badge   = document.getElementById('server-status-badge');
+  const detail  = document.getElementById('server-status-detail');
+  const sendBtn = document.getElementById('btn-send-server');
+  if (!badge) return;
+  try {
+    await fetch(OUTLOOK_SERVER + '/health', { signal: AbortSignal.timeout(1500) });
+    outlookServerOnline = true;
+    badge.textContent = '✓ Server online';
+    badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0';
+    if (detail) detail.textContent = 'email_server.py is running — bulk send goes directly, individual sends open in Outlook.';
+    if (sendBtn) sendBtn.disabled = false;
+  } catch {
+    outlookServerOnline = false;
+    badge.textContent = '○ Server offline';
+    badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f8fafc;color:#94a3b8;border:1px solid #e2e8f0';
+    if (detail) detail.innerHTML = 'Run once in a terminal to enable sending: <code style="background:#f1f5f9;padding:1px 5px;border-radius:3px">python email_server.py</code>';
+    if (sendBtn) sendBtn.disabled = true;
+  }
+}
+
+// Get rows for sending — scope: 'all' | 'selected'
+function getExportRows(step, scope = 'all') {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return [];
+  const stepCols = {
+    email1: ['subject1', 'email1'],
+    fu1:    ['subject2', 'fu1'],
+    fu2:    ['subject3', 'fu2'],
+  };
+  const [subjKey, bodyKey] = stepCols[step] || stepCols.email1;
+  return (c.contacts || [])
+    .map((ct, i) => ({ ct, i }))
+    .filter(({ ct, i }) => {
+      if (!ct.email || !ct.drafts || !ct.drafts[bodyKey]) return false;
+      if (scope === 'selected' && !selectedContactIndices.has(i)) return false;
+      return true;
+    })
+    .map(({ ct }) => {
+      const body = ct.drafts[bodyKey] || '';
+      // Detect if body is HTML (has tags) or plain text
+      const isHtml = /<[a-z][\s\S]*>/i.test(body);
+      return {
+        Email:    ct.email,
+        FullName: ct.name,
+        FirstName: ct.name.split(' ')[0],
+        Company:  ct.company || '',
+        Title:    ct.title  || '',
+        Subject:  ct.drafts[subjKey] || '',
+        Body:     body,
+        IsHtml:   isHtml,
+      };
+    });
+}
+
+async function serverPreviewEmails() {
+  const step  = document.getElementById('send-step-sel')?.value || 'email1';
+  const scope = document.getElementById('send-scope-sel')?.value || 'all';
+  const rows  = getExportRows(step, scope);
+  const log   = document.getElementById('server-send-log');
+  if (!log) return;
+  if (!rows.length) { showToast('No contacts with drafts for this step/scope'); return; }
+  log.style.display = 'block';
+  log.textContent = `Preview (step: ${step}, scope: ${scope}) — first 3 of ${rows.length}\n${'─'.repeat(56)}\n`;
+  rows.slice(0, 3).forEach((r, i) => {
+    const bodyPreview = r.Body.replace(/<[^>]+>/g, '').slice(0, 200);
+    log.textContent += `\n[${i+1}] To:      ${r.FullName} <${r.Email}>\n    Subject: ${r.Subject}\n    Body:    ${bodyPreview}${r.Body.length > 200 ? '…' : ''}\n`;
+  });
+  log.textContent += `\n${'─'.repeat(56)}\n${rows.length} total contacts ready.`;
+  log.scrollTop = log.scrollHeight;
+}
+
+async function serverSendEmails() {
+  if (!outlookServerOnline) { showToast('Server not running — start email_server.py first'); return; }
+  const step  = document.getElementById('send-step-sel')?.value  || 'email1';
+  const scope = document.getElementById('send-scope-sel')?.value || 'all';
+  const rows  = getExportRows(step, scope);
+  if (!rows.length) { showToast('No contacts with drafts for this step/scope'); return; }
+  const stepLabels = { email1: 'Initial Outreach', fu1: 'Follow-up 1', fu2: 'Follow-up 2' };
+  await doServerSend(rows, `${stepLabels[step]} (${scope}) — ${rows.length} emails`, false);
+}
+
+// Open a single contact's email in Outlook for review (display mode — user clicks Send)
+async function openSingleInOutlook(contactIdx, step) {
+  if (!outlookServerOnline) { showToast('Server not running — start email_server.py first'); return; }
+  const c = getCampaign(activeCampaignId);
+  if (!c || !c.contacts[contactIdx]) return;
+  const ct = c.contacts[contactIdx];
+  const stepCols = { email1:['subject1','email1'], fu1:['subject2','fu1'], fu2:['subject3','fu2'] };
+  const [subjKey, bodyKey] = stepCols[step] || stepCols.email1;
+  if (!ct.drafts || !ct.drafts[bodyKey]) { showToast('No draft for this step'); return; }
+  const body = ct.drafts[bodyKey] || '';
+  const row = {
+    Email: ct.email, FullName: ct.name, FirstName: ct.name.split(' ')[0],
+    Company: ct.company||'', Title: ct.title||'',
+    Subject: ct.drafts[subjKey] || '',
+    Body: body,
+    IsHtml: /<[a-z][\s\S]*>/i.test(body),
+  };
+  await doServerSend([row], `Opening for ${ct.name} in Outlook…`, true);
+}
+
+async function doServerSend(rows, label, displayMode) {
+  const log = document.getElementById('server-send-log');
+  if (log) { log.style.display = 'block'; log.textContent = `${label}\n`; }
+  const sendBtn = document.getElementById('btn-send-server');
+  if (sendBtn && !displayMode) { sendBtn.disabled = true; sendBtn.textContent = '⏳ Sending…'; }
+
+  try {
+    const r = await fetch(OUTLOOK_SERVER + '/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        rows,
+        display: displayMode,
+        attachments_b64: pendingAttachments.map(a => ({ name: a.name, data: a.dataB64 })),
+      }),
+    });
+    const result = await r.json();
+    if (log) {
+      if (result.log) log.textContent += result.log;
+      if (!displayMode) log.textContent += `\n✓ Done — ${result.sent} sent, ${result.skipped} skipped, ${result.errors} errors.`;
+      else log.textContent += `\n✓ Email opened in Outlook — review and click Send.`;
+      log.scrollTop = log.scrollHeight;
+    }
+    showToast(displayMode ? 'Email opened in Outlook' : `${result.sent} emails sent`);
+  } catch (e) {
+    if (log) log.textContent += `\n✕ Error: ${e.message}`;
+    showToast('Error — check email_server.py is running');
+  } finally {
+    if (sendBtn && !displayMode) { sendBtn.disabled = false; sendBtn.textContent = '⚡ Bulk Send (direct)'; }
+  }
+}
+
+// Auto-check server whenever Export tab is opened
+const _origSwitchTab = typeof switchTab === 'function' ? switchTab : null;
 
 function exportLinkedInMessages() {
   const c = getCampaign(activeCampaignId);
@@ -1571,8 +1987,9 @@ function exportCampaignSummary() {
 }
 
 function downloadCSV(rows, filename) {
-  const csv = rows.map(r => r.map(v => '"' + String(v).replace(/"/g,'""') + '"').join(',')).join('\n');
-  downloadFile(csv, filename, 'text/csv');
+  // \uFEFF = UTF-8 BOM — ensures Outlook/Excel opens the file with correct encoding (em-dashes, etc.)
+  const csv = '\uFEFF' + rows.map(r => r.map(v => '"' + String(v).replace(/"/g,'""') + '"').join(',')).join('\r\n');
+  downloadFile(csv, filename, 'text/csv;charset=utf-8');
 }
 function downloadFile(content, filename, mime) {
   const a = document.createElement('a');
