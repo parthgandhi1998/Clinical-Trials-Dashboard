@@ -265,30 +265,30 @@ tr:hover td{background:#fafbff}
 <div class="kpi-grid">
   <div class="kpi-card" style="--kpi-color:#4f46e5">
     <div class="kpi-card-body">
-      <div class="kpi-label">Active Trials</div>
+      <div class="kpi-label">Total Trials</div>
       <div class="kpi-value" id="kpi-trials">0</div>
-      <div class="kpi-sub">Start date: 2025-03-17 – 2026-03-17</div>
+      <div class="kpi-sub" id="kpi-trials-sub">Matches current filters</div>
     </div>
   </div>
   <div class="kpi-card" style="--kpi-color:#0ea5e9">
     <div class="kpi-card-body">
-      <div class="kpi-label">Unique Sponsors</div>
+      <div class="kpi-label">Lead Sponsors</div>
       <div class="kpi-value" id="kpi-sponsors">0</div>
-      <div class="kpi-sub">Target companies</div>
+      <div class="kpi-sub" id="kpi-sponsors-sub">Loading…</div>
     </div>
   </div>
   <div class="kpi-card" style="--kpi-color:#10b981">
     <div class="kpi-card-body">
       <div class="kpi-label">Countries</div>
       <div class="kpi-value" id="kpi-countries">0</div>
-      <div class="kpi-sub">Trial locations</div>
+      <div class="kpi-sub" id="kpi-countries-sub">Unique trial locations</div>
     </div>
   </div>
   <div class="kpi-card" style="--kpi-color:#f59e0b">
     <div class="kpi-card-body">
-      <div class="kpi-label">Therapy Areas</div>
+      <div class="kpi-label">Actively Recruiting</div>
       <div class="kpi-value" id="kpi-recruiting">0</div>
-      <div class="kpi-sub" id="kpi-recruiting-sub">Loading…</div>
+      <div class="kpi-sub" id="kpi-recruiting-sub">of total trials</div>
     </div>
   </div>
 </div>
@@ -720,15 +720,43 @@ function applyFilters() {
 
 // ── RENDER KPIs (dynamic — reflect current filtered set) ─────────────────────
 function updateKPIs() {
-  document.getElementById("kpi-trials").textContent    = filtered.length.toLocaleString();
-  document.getElementById("kpi-sponsors").textContent  = new Set(filtered.map(r=>r.sponsor)).size.toLocaleString();
-  document.getElementById("kpi-countries").textContent = new Set(filtered.flatMap(r=>r.countries)).size.toLocaleString();
-  document.getElementById("showing-count").textContent = filtered.length.toLocaleString();
-  document.getElementById("total-count").textContent   = ALL_DATA.length.toLocaleString();
-  document.getElementById("tab-trials-badge").textContent = filtered.length.toLocaleString();
+  const total = filtered.length;
+
+  // Tile 1 — Total Trials (all statuses, reflects active filters)
+  document.getElementById("kpi-trials").textContent = total.toLocaleString();
+  const isFiltered = total < ALL_DATA.length;
+  document.getElementById("kpi-trials-sub").textContent =
+    isFiltered ? `of ${ALL_DATA.length.toLocaleString()} total` : "All statuses";
+
+  // Tile 2 — Lead Sponsors (unique lead sponsors only) + collaborators in sub
+  const leadSponsors = new Set(filtered.map(r => r.sponsor).filter(Boolean));
+  const allCompanies = new Set([
+    ...filtered.map(r => r.sponsor),
+    ...filtered.flatMap(r => r.collaborators || [])
+  ].filter(Boolean));
+  const collabOnly = allCompanies.size - leadSponsors.size;
+  document.getElementById("kpi-sponsors").textContent = leadSponsors.size.toLocaleString();
+  document.getElementById("kpi-sponsors-sub").textContent =
+    collabOnly > 0
+      ? `+ ${collabOnly.toLocaleString()} collaborator${collabOnly !== 1 ? "s" : ""}`
+      : "Lead sponsors only";
+
+  // Tile 3 — Countries (unique across all filtered trials)
+  const countries = new Set(filtered.flatMap(r => r.countries));
+  document.getElementById("kpi-countries").textContent = countries.size.toLocaleString();
+  document.getElementById("kpi-countries-sub").textContent = "Unique trial locations";
+
+  // Tile 4 — Actively Recruiting (most actionable status for outreach)
   const recruiting = filtered.filter(r => r.status === "RECRUITING").length;
+  const pct = total > 0 ? Math.round(recruiting / total * 100) : 0;
   document.getElementById("kpi-recruiting").textContent = recruiting.toLocaleString();
-  document.getElementById("kpi-recruiting-sub").textContent = "Actively recruiting";
+  document.getElementById("kpi-recruiting-sub").textContent =
+    total > 0 ? `${pct}% of trials in view` : "of total trials";
+
+  // Results bar + tab badge
+  document.getElementById("showing-count").textContent = total.toLocaleString();
+  document.getElementById("total-count").textContent   = ALL_DATA.length.toLocaleString();
+  document.getElementById("tab-trials-badge").textContent = total.toLocaleString();
 }
 
 // ── BADGE HELPERS ─────────────────────────────────────────────────────────────
@@ -1584,18 +1612,10 @@ function filterBySponsor(name) {
   si.focus();
 }
 
-// ── KPI: RECRUITING COUNT ─────────────────────────────────────────────────────
-function updateRecruitingKPI() {
-  const n = filtered.filter(r => r.status === "RECRUITING").length;
-  document.getElementById("kpi-recruiting").textContent = n.toLocaleString();
-  document.getElementById("kpi-recruiting-sub").textContent = "Actively recruiting";
-}
-
 // ── INITIAL RENDER ────────────────────────────────────────────────────────────
 // Default sort: newest start date first
 document.querySelector('th[data-col="start_date"]').classList.add("sort-desc");
-applyFilters();
-updateRecruitingKPI();
+applyFilters(); // updateKPIs() is called inside applyFilters → all 4 tiles populated
 
 </script>
 
@@ -1795,8 +1815,7 @@ function bootstrapDashboard(data) {
   rewireDropdowns();
   document.getElementById("load-overlay").style.display = "none";
   sortCol = "start_date"; sortDir = "desc";
-  applyFilters();
-  updateRecruitingKPI();
+  applyFilters(); // updateKPIs() called inside — all tiles refresh
 }
 </script>
 
