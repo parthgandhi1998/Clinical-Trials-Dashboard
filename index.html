@@ -1691,6 +1691,17 @@ function buildFilterPanels(records) {
 }
 
 function rewireDropdowns() {
+  // The initial makeMultiDD() calls at page-load already attached click handlers
+  // to these buttons. buildFilterPanels() then replaced the panel innerHTML with
+  // data-driven checkboxes, destroying the checkbox listeners but leaving the
+  // button click handlers in place. Calling makeMultiDD() again would double-bind
+  // each button: one click → open, same event → close (net: nothing visible).
+  // Fix: clone+replace each button to strip the old listeners before re-wiring.
+  ['area-btn','phase-btn','status-btn','country-btn','intv-type-btn','funder-btn','study-type-btn'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.replaceWith(el.cloneNode(true));
+  });
+
   // Re-initialise all makeMultiDD instances after checkboxes are in the DOM
   window._areaDD     = makeMultiDD({ btnId:"area-btn",       panelId:"area-panel",       cbClass:"area-cb",       stateKey:"areas",      allLabel:"All Areas",      btnLabelId:"area-btn-label",       selectAllId:"area-select-all",       clearAllId:"area-clear-all" });
   window._phaseDD    = makeMultiDD({ btnId:"phase-btn",      panelId:"phase-panel",      cbClass:"phase-cb",      stateKey:"phases",     allLabel:"All Phases",     btnLabelId:"phase-btn-label",      selectAllId:"phase-select-all",      clearAllId:"phase-clear-all" });
