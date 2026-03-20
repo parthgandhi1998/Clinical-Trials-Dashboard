@@ -1903,7 +1903,11 @@ function renderAttachmentChips() {
 // ────────────────────────────────────────────────────────────────────────────
 // OUTLOOK SERVER INTEGRATION  (email_server.py running on localhost:5001)
 // ────────────────────────────────────────────────────────────────────────────
-const OUTLOOK_SERVER = 'http://localhost:5001';
+// Tries HTTPS first (required on Mac when the page is served from GitHub Pages
+// because browsers block HTTPS→HTTP requests). Falls back to HTTP automatically
+// so Windows users are completely unaffected.
+const _SERVERS = ['https://localhost:5001', 'http://localhost:5001'];
+let OUTLOOK_SERVER      = 'http://localhost:5001';
 let outlookServerOnline = false;
 
 async function checkOutlookServer() {
@@ -1911,20 +1915,26 @@ async function checkOutlookServer() {
   const detail  = document.getElementById('server-status-detail');
   const sendBtn = document.getElementById('btn-send-server');
   if (!badge) return;
-  try {
-    await fetch(OUTLOOK_SERVER + '/health', { signal: AbortSignal.timeout(1500) });
-    outlookServerOnline = true;
-    badge.textContent = '✓ Server online';
-    badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0';
-    if (detail) detail.textContent = 'email_server.py is running — bulk send goes directly, individual sends open in Outlook.';
-    if (sendBtn) sendBtn.disabled = false;
-  } catch {
-    outlookServerOnline = false;
-    badge.textContent = '○ Server offline';
-    badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f8fafc;color:#94a3b8;border:1px solid #e2e8f0';
-    if (detail) detail.innerHTML = 'Run once in a terminal to enable sending: <code style="background:#f1f5f9;padding:1px 5px;border-radius:3px">python email_server.py</code>';
-    if (sendBtn) sendBtn.disabled = true;
+
+  for (const base of _SERVERS) {
+    try {
+      await fetch(base + '/health', { signal: AbortSignal.timeout(2000) });
+      OUTLOOK_SERVER      = base;
+      outlookServerOnline = true;
+      badge.textContent   = '✓ Server online';
+      badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0';
+      if (detail) detail.textContent = 'email_server.py is running — bulk send goes directly, individual sends open in Outlook.';
+      if (sendBtn) sendBtn.disabled = false;
+      return;
+    } catch { /* try next */ }
   }
+
+  outlookServerOnline = false;
+  badge.textContent   = '○ Server offline';
+  badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f8fafc;color:#94a3b8;border:1px solid #e2e8f0';
+  if (detail) detail.innerHTML = 'Run: <code style="background:#f1f5f9;padding:1px 5px;border-radius:3px">python3 email_server.py</code>'
+    + ' &nbsp;|&nbsp; macOS first time: open <a href="https://localhost:5001/health" target="_blank">https://localhost:5001/health</a> and click "Proceed to localhost".';
+  if (sendBtn) sendBtn.disabled = true;
 }
 
 // Get rows for sending — scope: 'all' | 'selected'
