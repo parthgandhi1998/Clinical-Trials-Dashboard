@@ -673,6 +673,56 @@ function selectCampaign(id) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
+// INLINE EDIT — Campaign name / owner
+// ────────────────────────────────────────────────────────────────────────────
+function startEditCampField(cid, field) {
+  const c = getCampaign(cid);
+  if (!c) return;
+  const elId = field === 'name' ? 'camp-name-display' : 'camp-owner-display';
+  const el = document.getElementById(elId);
+  if (!el || el.tagName === 'INPUT') return;   // already editing
+
+  const isName = field === 'name';
+  const cur    = c[field] || '';
+
+  const inp = document.createElement('input');
+  inp.value = cur;
+  inp.style.cssText = [
+    'border:1px solid var(--accent)',
+    'border-radius:5px',
+    `padding:${isName ? '3px 8px' : '2px 6px'}`,
+    `font-size:${isName ? '16' : '13'}px`,
+    `font-weight:${isName ? '700' : '400'}`,
+    'outline:none',
+    'color:var(--text)',
+    'min-width:160px',
+    'max-width:340px',
+    'font-family:inherit'
+  ].join(';');
+
+  const save = () => {
+    const val = inp.value.trim() || cur;
+    c[field] = val;
+    saveCampaigns();
+    renderSidebar();
+    renderMain();
+    if (field === 'name') {
+      document.getElementById('header-campaign-name').textContent = val;
+    }
+  };
+
+  inp.addEventListener('blur', save);
+  inp.addEventListener('keydown', e => {
+    if (e.key === 'Enter')  inp.blur();
+    if (e.key === 'Escape') renderMain();   // cancel
+  });
+
+  el.replaceWith(inp);
+  inp.focus();
+  inp.select();
+}
+
+// ────────────────────────────────────────────────────────────────────────────
 // SIDEBAR RENDER
 // ────────────────────────────────────────────────────────────────────────────
 function renderSidebar() {
@@ -730,8 +780,15 @@ function renderMain() {
   document.getElementById('main-content').innerHTML = `
     <div class="section-header">
       <div>
-        <div class="section-title">${c.name}</div>
-        <div class="section-sub">${c.owner} · Created ${fmtDate(c.created)} · ${c.area || 'All areas'}</div>
+        <div class="section-title" style="display:flex;align-items:center;gap:8px">
+          <span id="camp-name-display" title="Click to rename" style="cursor:pointer" onclick="startEditCampField('${c.id}','name')">${c.name}</span>
+          <span style="font-size:13px;color:var(--text-muted);font-weight:400;cursor:pointer;user-select:none" onclick="startEditCampField('${c.id}','name')" title="Rename campaign">✎</span>
+        </div>
+        <div class="section-sub" style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+          <span id="camp-owner-display" title="Click to edit owner" style="cursor:pointer" onclick="startEditCampField('${c.id}','owner')">${c.owner}</span>
+          <span style="color:var(--text-muted);cursor:pointer;user-select:none" onclick="startEditCampField('${c.id}','owner')" title="Edit owner">✎</span>
+          <span style="color:var(--text-muted)">· Created ${fmtDate(c.created)} · ${c.area || 'All areas'}</span>
+        </div>
       </div>
       <div class="section-actions">
         <button class="btn btn-ghost btn-sm" onclick="setCampaignStatus('${c.id}','${c.status === 'active' ? 'paused' : 'active'}')">
@@ -855,14 +912,30 @@ function renderCompaniesTab(c) {
 }
 
 function coOutreachBadge(contacts) {
+  // kept for any legacy calls — delegates to the full breakdown
+  return coOutreachBreakdown(contacts);
+}
+
+function coOutreachBreakdown(contacts) {
   if (!contacts.length) return '<span class="status-badge status-not-started">No contacts</span>';
-  const replied  = contacts.filter(ct => ct.status === 'replied').length;
-  const sent     = contacts.filter(ct => !['not-started','not-interested','closed'].includes(ct.status)).length;
-  const total    = contacts.length;
-  if (replied > 0) return `<span class="status-badge status-replied">✓ ${replied}/${total} replied</span>`;
-  if (sent > 0) return `<span class="status-badge status-email1-sent">${sent}/${total} contacted</span>`;
-  if (contacts.some(ct => ct.drafts && ct.drafts.email1)) return '<span class="status-badge status-drafts-ready">Drafts ready</span>';
-  return '<span class="status-badge status-not-started">Not started</span>';
+
+  // Count per status, preserving STATUS_OPTIONS order
+  const counts = {};
+  contacts.forEach(ct => {
+    const s = ct.status || 'not-started';
+    counts[s] = (counts[s] || 0) + 1;
+  });
+
+  // Build one chip per non-zero status in canonical order
+  const chips = STATUS_OPTIONS
+    .filter(opt => counts[opt.val] > 0)
+    .map(opt => {
+      const meta = STATUS_META[opt.val] || { short: opt.val, cls: 'status-not-started' };
+      const n    = counts[opt.val];
+      return `<span class="status-badge ${meta.cls}" style="font-size:10px;padding:2px 6px;margin:1px 0">${meta.short}&nbsp;<strong>${n}</strong></span>`;
+    });
+
+  return `<div style="display:flex;flex-direction:column;gap:2px;align-items:flex-start">${chips.join('')}</div>`;
 }
 
 function removeCompany(cid, idx) {
@@ -1419,6 +1492,19 @@ const STATUS_OPTIONS = [
   {val:'not-interested',  label:'Not Interested'},
   {val:'closed',          label:'Closed'}
 ];
+
+// Short labels + CSS classes for per-status breakdown chips in the pipeline table
+const STATUS_META = {
+  'not-started':    { short: 'Not started',  cls: 'status-not-started' },
+  'email1-sent':    { short: 'Email 1 sent', cls: 'status-email1-sent' },
+  'fu1-due':        { short: 'FU1 due',      cls: 'status-fu1-due' },
+  'fu1-sent':       { short: 'FU1 sent',     cls: 'status-fu1-sent' },
+  'fu2-due':        { short: 'FU2 due',      cls: 'status-fu2-due' },
+  'fu2-sent':       { short: 'FU2 sent',     cls: 'status-fu2-sent' },
+  'replied':        { short: 'Replied ✓',    cls: 'status-replied' },
+  'not-interested': { short: 'No interest',  cls: 'status-not-interested' },
+  'closed':         { short: 'Closed',       cls: 'status-closed' }
+};
 
 function renderTrackerTab(c) {
   const contacts = c.contacts || [];
