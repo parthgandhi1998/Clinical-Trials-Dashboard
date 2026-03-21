@@ -673,6 +673,14 @@ function selectCampaign(id) {
 }
 
 // ────────────────────────────────────────────────────────────────────────────
+// SENDER INFO — name / title stored per campaign
+function saveSenderField(cid, field, val) {
+  const c = getCampaign(cid);
+  if (!c) return;
+  c[field] = val.trim();
+  saveCampaigns();
+}
+
 // INLINE EDIT — Campaign name / owner
 // ────────────────────────────────────────────────────────────────────────────
 function startEditCampField(cid, field) {
@@ -1626,6 +1634,22 @@ function renderExportTab(c) {
             </div>
           </div>
 
+          <!-- Sender signature info -->
+          <div style="margin-bottom:16px;padding:12px;background:var(--surface2);border:1px solid var(--border);border-radius:8px">
+            <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:6px">✍ Sender Info — appears as email closing</label>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <div>
+                <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">Your name</label>
+                <input id="sender-name-input" class="form-input" style="width:100%" placeholder="e.g. Parth" value="${c.sender_name || ''}" oninput="saveSenderField('${c.id}','sender_name',this.value)">
+              </div>
+              <div>
+                <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">Title / role at company</label>
+                <input id="sender-title-input" class="form-input" style="width:100%" placeholder="e.g. Co-founder, PumasAI" value="${c.sender_title || ''}" oninput="saveSenderField('${c.id}','sender_title',this.value)">
+              </div>
+            </div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:6px">Emails will close with: <em>Best regards, [name] · [title]</em> followed by your Outlook default signature.</div>
+          </div>
+
           <!-- Attachments -->
           <div style="margin-bottom:16px">
             <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:6px">Attachments (optional)</label>
@@ -1903,12 +1927,22 @@ function renderAttachmentChips() {
 // ────────────────────────────────────────────────────────────────────────────
 // OUTLOOK SERVER INTEGRATION  (email_server.py running on localhost:5001)
 // ────────────────────────────────────────────────────────────────────────────
-// Tries HTTPS first (required on Mac when the page is served from GitHub Pages
-// because browsers block HTTPS→HTTP requests). Falls back to HTTP automatically
-// so Windows users are completely unaffected.
+// Tries HTTPS first (Mac server runs HTTPS; Windows runs HTTP).
+// Uses Promise.race for timeout instead of AbortSignal.timeout() for
+// broader browser/Safari compatibility.
 const _SERVERS = ['https://localhost:5001', 'http://localhost:5001'];
 let OUTLOOK_SERVER      = 'http://localhost:5001';
 let outlookServerOnline = false;
+
+function _fetchWithTimeout(url, ms) {
+  return new Promise((resolve, reject) => {
+    const controller = new AbortController();
+    const tid = setTimeout(() => { controller.abort(); reject(new Error('timeout')); }, ms);
+    fetch(url, { signal: controller.signal })
+      .then(r => { clearTimeout(tid); resolve(r); })
+      .catch(e => { clearTimeout(tid); reject(e); });
+  });
+}
 
 async function checkOutlookServer() {
   const badge   = document.getElementById('server-status-badge');
@@ -1916,24 +1950,32 @@ async function checkOutlookServer() {
   const sendBtn = document.getElementById('btn-send-server');
   if (!badge) return;
 
+  badge.textContent   = '⏳ Checking…';
+  badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#fef9c3;color:#854d0e;border:1px solid #fde047';
+
   for (const base of _SERVERS) {
     try {
-      await fetch(base + '/health', { signal: AbortSignal.timeout(2000) });
-      OUTLOOK_SERVER      = base;
-      outlookServerOnline = true;
-      badge.textContent   = '✓ Server online';
-      badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0';
-      if (detail) detail.textContent = 'email_server.py is running — bulk send goes directly, individual sends open in Outlook.';
-      if (sendBtn) sendBtn.disabled = false;
-      return;
-    } catch { /* try next */ }
+      const r = await _fetchWithTimeout(base + '/health', 2500);
+      if (r.status < 500) {
+        OUTLOOK_SERVER      = base;
+        outlookServerOnline = true;
+        badge.textContent   = '✓ Server online';
+        badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0';
+        if (detail) detail.textContent = 'email_server.py is running — bulk send goes directly, individual sends open in Outlook.';
+        if (sendBtn) sendBtn.disabled = false;
+        return;
+      }
+    } catch(e) { /* connection failed or timed out — try next */ }
   }
 
   outlookServerOnline = false;
   badge.textContent   = '○ Server offline';
   badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f8fafc;color:#94a3b8;border:1px solid #e2e8f0';
-  if (detail) detail.innerHTML = 'Run: <code style="background:#f1f5f9;padding:1px 5px;border-radius:3px">python3 email_server.py</code>'
-    + ' &nbsp;|&nbsp; macOS first time: open <a href="https://localhost:5001/health" target="_blank">https://localhost:5001/health</a> and click "Proceed to localhost".';
+  if (detail) detail.innerHTML =
+    '<strong>Windows:</strong> run <code style="background:#f1f5f9;padding:1px 5px;border-radius:3px">python3 email_server.py</code> and keep that terminal open.'
+    + '<br><strong>macOS — one-time cert step required:</strong> with the server running, open '
+    + '<a href="https://localhost:5001/health" target="_blank" style="color:var(--accent)">https://localhost:5001/health</a>'
+    + ' in your browser, click <em>Advanced → Proceed to localhost</em>, then refresh this page.';
   if (sendBtn) sendBtn.disabled = true;
 }
 
@@ -2032,6 +2074,8 @@ async function doServerSend(rows, label, displayMode) {
         rows,
         display: displayMode,
         attachments_b64: pendingAttachments.map(a => ({ name: a.name, data: a.dataB64 })),
+        sender_name:  getCampaign(activeCampaignId)?.sender_name  || '',
+        sender_title: getCampaign(activeCampaignId)?.sender_title || '',
       }),
     });
     const result = await r.json();
