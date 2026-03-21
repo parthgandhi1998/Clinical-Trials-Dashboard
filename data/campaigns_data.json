@@ -332,6 +332,50 @@
           }
         ],
         "total": 1
+      },
+      {
+        "name": "GC Biopharma Corp",
+        "org_type": "INDUSTRY",
+        "therapy_areas": [
+          "Vaccines",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 1, Phase 2",
+          "Phase 3"
+        ],
+        "countries": [
+          "South Korea",
+          "Argentina",
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06997627",
+            "title": "A Phase I/II Study to Evaluate the Safety and Immunogenicity of GC3111B in Healthy Adults",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "120",
+            "start_date": "2025-06-05"
+          },
+          {
+            "nct_id": "NCT07054099",
+            "title": "A Study to Evaluate Immunogenicity and Safety After the First and Second Doses of MG1111 (BARYCELA Inj.) in Healthy Children Aged 12 Months to 12 Years",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "474",
+            "start_date": "2026-03"
+          },
+          {
+            "nct_id": "NCT06858397",
+            "title": "A proof-of Concept Study to Assess Safety and Tolerability of HM15421/GC1134A in Patients With Fabry Disease",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "18",
+            "start_date": "2025-05-14"
+          }
+        ],
+        "total": 3
       }
     ],
     "contacts": [
