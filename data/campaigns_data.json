@@ -307,6 +307,31 @@
         "countries": [],
         "trials": [],
         "total": 0
+      },
+      {
+        "name": "Rokote Laboratories Finland Oy",
+        "org_type": "INDUSTRY",
+        "therapy_areas": [
+          "Infectious Disease",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Finland"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07416539",
+            "title": "Effect of COV2 Vaccine Formulation on the Ability to Generate Antibodies Against Coronavirus That Causes COVID-19",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "20",
+            "start_date": "2026-02-10"
+          }
+        ],
+        "total": 1
       }
     ],
     "contacts": [
