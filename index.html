@@ -735,6 +735,9 @@ function applyFilters() {
   renderTable();
   renderPagination();
   if (document.getElementById("tab-analytics").classList.contains("active")) renderAnalytics();
+  // Keep Sponsors tab in sync — re-render whenever it's visible so its cards
+  // always reflect the same filtered trial set as the Trials tab.
+  if (document.getElementById("tab-sponsors").classList.contains("active")) renderSponsors();
 }
 
 // ── RENDER KPIs (dynamic — reflect current filtered set) ─────────────────────
@@ -1727,9 +1730,11 @@ function updateSpAreaLabel() {
 
 function renderSponsors() {
   const q   = (document.getElementById("sponsor-search")?.value || "").toLowerCase();
+  // Always start from `filtered` (the globally-filtered trial set from applyFilters),
+  // then additionally apply the Sponsors-tab-specific area sub-filter (spAreas).
   const src = spAreas.size > 0
-    ? ALL_DATA.filter(r => r.therapy_areas.some(a => spAreas.has(a)))
-    : ALL_DATA;
+    ? filtered.filter(r => r.therapy_areas.some(a => spAreas.has(a)))
+    : filtered;
 
   // Build unified company map — track lead sponsorships AND collaborations separately
   const map = {};
