@@ -1092,30 +1092,6 @@
         "lastContacted": null,
         "followUpDate": null,
         "notes": ""
-      },
-      {
-        "id": "ct_1773944162411_45",
-        "name": "Pawan",
-        "title": "Head of Information Technology and Facilities",
-        "company": "Summit Therapeutics",
-        "email": "pawan.parihar@summitplc.com",
-        "linkedin": "https://www.linkedin.com/in/pawanparihar",
-        "status": "not-started",
-        "drafts": {
-          "subject1": "Summit Therapeutics — MIDD & Clinical Pharmacology Support",
-          "email1": "Hi Pawan,\n\nI came across your Oncology programme, and wanted to reach out.\n\nModel-Informed Drug Development is increasingly expected by FDA and EMA reviewers — and programmes that build MIDD into their clinical strategy from the start consistently reach decision points faster with fewer surprises.\n\nAt PumasAI, we partner with clinical development teams to deliver model-informed drug development, clinical pharmacology, and regulatory strategy. Our scientists are pharmacometricians and clinical pharmacologists — former Pfizer, FDA, and academia — and we work end-to-end from model development through regulatory submission.\n\nAcross your 4-country footprint, regulatory-ready PK/PD packages are a recurring need — something we handle routinely.\n\nWould a 20-minute call be worthwhile to see if there's a fit? Happy to share a brief case study relevant to your programme first.\n\nBest,\n[Your Name]\nPumasAI | www.pumas.ai",
-          "email1Approved": false,
-          "subject2": "Re: Summit Therapeutics — MIDD & Clinical Pharmacology Support",
-          "fu1": "Hi Pawan,\n\nWanted to follow up briefly on my previous note.\n\nMany teams we work with find that proactive MIDD strategy reduces overall development time and strengthens regulatory interactions. Happy to share a relevant example for your programme.\n\nWe recently supported a clinical development programme with PK/PD modelling that supported a key regulatory decision, reducing back-and-forth with FDA by several months — I'd be glad to share a short summary if it would be useful context for your team.\n\nNo commitment — just a conversation to see if the timing makes sense for Summit Therapeutics.\n\nStill interested in a quick call?\n\nBest,\n[Your Name]\nPumasAI | www.pumas.ai",
-          "fu1Approved": false,
-          "subject3": "Last note — Summit Therapeutics",
-          "fu2": "Hi Pawan,\n\nI know inboxes get busy — this will be my last note on this.\n\nIf a pharmacometrics or clinical pharmacology need comes up at any stage, please feel free to reach out.\n\nIf the timing isn't right now, I completely understand. Feel free to reach out whenever it makes sense — we're happy to help at any stage of development.\n\nWishing your team every success with the programme.\n\n[Your Name]\nPumasAI | www.pumas.ai",
-          "fu2Approved": false,
-          "linkedin": "Hi Pawan, I noticed Summit Therapeutics is running a Oncology trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Happy to share a relevant example if useful. Best, [Your Name]"
-        },
-        "lastContacted": null,
-        "followUpDate": null,
-        "notes": ""
       }
     ],
     "sender_name": "Parth Gandhi",
