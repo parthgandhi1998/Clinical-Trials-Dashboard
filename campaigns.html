@@ -1514,11 +1514,7 @@ At PumasAI, we partner with clinical development teams to deliver ${phaseContext
 
 ${enrollment ? 'With an enrollment of ' + enrollment + ' patients, ' + phaseContext.enrollmentNote + ' ' : ''}${multiNational ? 'Across your ' + (co.countries||[]).length + '-country footprint, regulatory-ready PK/PD packages are a recurring need — something we handle routinely.' : ''}
 
-Would a 20-minute call be worthwhile to see if there's a fit? Happy to share a brief case study relevant to your programme first.
-
-Best,
-[Your Name]
-PumasAI | www.pumas.ai`;
+Would a 20-minute call be worthwhile to see if there's a fit? Happy to share a brief case study relevant to your programme first.`;
 
   // Follow-up 1 — Value add
   const subject2 = `Re: ${subject1}`;
@@ -1532,11 +1528,7 @@ We recently ${phaseContext.recentWork} — I'd be glad to share a short summary 
 
 No commitment — just a conversation to see if the timing makes sense for ${company}.
 
-Still interested in a quick call?
-
-Best,
-[Your Name]
-PumasAI | www.pumas.ai`;
+Still interested in a quick call?`;
 
   // Follow-up 2 — Break-up
   const subject3 = `Last note — ${company}`;
@@ -1548,13 +1540,10 @@ ${phaseContext.breakupLine}
 
 If the timing isn't right now, I completely understand. Feel free to reach out whenever it makes sense — we're happy to help at any stage of development.
 
-Wishing your team every success with ${nctId ? nctId : 'the programme'}.
-
-[Your Name]
-PumasAI | www.pumas.ai`;
+Wishing your team every success with ${nctId ? nctId : 'the programme'}.`;
 
   // LinkedIn
-  const linkedin = `Hi ${firstName}, I noticed ${company} is running ${nctId ? nctId + ' — ' : ''}a ${phase ? phase + ' ' : ''}${areas} trial. At PumasAI, we help teams like yours with ${phaseContext.linkedInAngle}. Happy to share a relevant example if useful. Best, [Your Name]`;
+  const linkedin = `Hi ${firstName}, I noticed ${company} is running ${nctId ? nctId + ' — ' : ''}a ${phase ? phase + ' ' : ''}${areas} trial. At PumasAI, we help teams like yours with ${phaseContext.linkedInAngle}. Happy to share a relevant example if useful.`;
 
   return {
     subject1, email1, email1Approved: false,
@@ -2216,16 +2205,37 @@ async function doServerSend(rows, label, displayMode) {
       }),
     });
     const result = await r.json();
+    const nSent    = result.sent    || 0;
+    const nSkipped = result.skipped || 0;
+    const nErrors  = result.errors  || 0;
+    const logText  = result.log     || '';
+
+    // Always update the Export-tab log if it's present.
     if (log) {
-      if (result.log) log.textContent += result.log;
-      if (!displayMode) log.textContent += `\n✓ Done — ${result.sent} sent, ${result.skipped} skipped, ${result.errors} errors.`;
-      else log.textContent += `\n✓ Email opened in Outlook — review and click Send.`;
+      if (logText) log.textContent += logText;
+      if (!displayMode) log.textContent += `\n✓ Done — ${nSent} sent, ${nSkipped} skipped, ${nErrors} errors.`;
+      else              log.textContent += `\n✓ Email opened in Outlook — review and click Send.`;
       log.scrollTop = log.scrollHeight;
     }
-    showToast(displayMode ? 'Email opened in Outlook' : `${result.sent} emails sent`);
+
+    if (displayMode) {
+      showToast('✓ Email opened in Outlook');
+    } else if (nSent > 0 && nErrors === 0 && nSkipped === 0) {
+      showToast(`✓ ${nSent} email${nSent !== 1 ? 's' : ''} sent`);
+    } else if (nSent > 0) {
+      showToast(`✓ ${nSent} sent${nSkipped ? ', ' + nSkipped + ' skipped' : ''}${nErrors ? ', ' + nErrors + ' errors' : ''}`);
+    } else if (nErrors > 0) {
+      // Show the actual error from the server log so the user knows what went wrong.
+      const firstErr = logText.split('\n').find(l => l.includes('✕') || l.includes('Error')) || '';
+      showToast(`✕ Send failed — ${nErrors} error${nErrors !== 1 ? 's' : ''}${firstErr ? ': ' + firstErr.replace(/^\s*✕\s*/, '').trim() : ''}. Is Outlook open?`);
+    } else if (nSkipped > 0) {
+      showToast(`⚠ ${nSkipped} contact${nSkipped !== 1 ? 's' : ''} skipped — check each has an email address, subject, and body.`);
+    } else {
+      showToast('0 emails sent — check server terminal for details');
+    }
   } catch (e) {
     if (log) log.textContent += `\n✕ Error: ${e.message}`;
-    showToast('Error — check email_server.py is running');
+    showToast(`✕ Connection error: ${e.message} — is email_server.py running?`);
   } finally {
     if (sendBtn && !displayMode) { sendBtn.disabled = false; sendBtn.textContent = '⚡ Bulk Send (direct)'; }
   }
