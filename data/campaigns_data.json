@@ -436,6 +436,33 @@
           }
         ],
         "total": 1
+      },
+      {
+        "name": "Shanghai United Cell Biotechnology Co., Ltd",
+        "org_type": "INDUSTRY",
+        "therapy_areas": [
+          "Dermatology",
+          "Infectious Disease",
+          "Oncology",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 4"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07300462",
+            "title": "A Post-marketing Observational Study of Oral Cholera Vaccine",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "6000",
+            "start_date": "2026-03"
+          }
+        ],
+        "total": 1
       }
     ],
     "contacts": [
