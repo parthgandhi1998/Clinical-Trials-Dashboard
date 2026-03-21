@@ -1636,8 +1636,12 @@ function renderExportTab(c) {
 
           <!-- Sender signature info -->
           <div style="margin-bottom:16px;padding:12px;background:var(--surface2);border:1px solid var(--border);border-radius:8px">
-            <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:6px">✍ Sender Info — appears as email closing</label>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:8px">✍ Email Closing — applies to every email (individual &amp; bulk)</label>
+            <div style="margin-bottom:8px">
+              <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">Closing greeting</label>
+              <input id="sender-closing-input" class="form-input" style="width:100%" placeholder="e.g. Best regards, / Warm regards, / Thanks," value="${c.sender_closing || 'Best regards,'}" oninput="saveSenderField('${c.id}','sender_closing',this.value)">
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
               <div>
                 <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">Your name</label>
                 <input id="sender-name-input" class="form-input" style="width:100%" placeholder="e.g. Parth" value="${c.sender_name || ''}" oninput="saveSenderField('${c.id}','sender_name',this.value)">
@@ -1647,7 +1651,7 @@ function renderExportTab(c) {
                 <input id="sender-title-input" class="form-input" style="width:100%" placeholder="e.g. Co-founder, PumasAI" value="${c.sender_title || ''}" oninput="saveSenderField('${c.id}','sender_title',this.value)">
               </div>
             </div>
-            <div style="font-size:11px;color:var(--text-muted);margin-top:6px">Emails will close with: <em>Best regards, [name] · [title]</em> followed by your Outlook default signature.</div>
+            <div style="font-size:11px;color:var(--text-muted)">Preview: <em style="color:var(--text-mid)">${c.sender_closing || 'Best regards,'}</em> → <em style="color:var(--text-mid)">${c.sender_name || 'Your name'}</em> · <em style="color:var(--text-mid)">${c.sender_title || 'Your title'}</em> → Outlook signature</div>
           </div>
 
           <!-- Attachments -->
@@ -2074,8 +2078,9 @@ async function doServerSend(rows, label, displayMode) {
         rows,
         display: displayMode,
         attachments_b64: pendingAttachments.map(a => ({ name: a.name, data: a.dataB64 })),
-        sender_name:  getCampaign(activeCampaignId)?.sender_name  || '',
-        sender_title: getCampaign(activeCampaignId)?.sender_title || '',
+        sender_closing: getCampaign(activeCampaignId)?.sender_closing || 'Best regards,',
+        sender_name:    getCampaign(activeCampaignId)?.sender_name  || '',
+        sender_title:   getCampaign(activeCampaignId)?.sender_title || '',
       }),
     });
     const result = await r.json();
