@@ -167,6 +167,59 @@
           }
         ],
         "total": 1
+      },
+      {
+        "name": "Biogenea Pharmaceuticals Ltd.",
+        "org_type": "INDUSTRY",
+        "therapy_areas": [
+          "Cardiovascular",
+          "Oncology",
+          "Respiratory",
+          "Vaccines",
+          "Women's Health",
+          "Dermatology"
+        ],
+        "phases": [
+          "EARLY/Phase 1"
+        ],
+        "countries": [
+          "Greece"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07316361",
+            "title": "GYNORYLAQ™-VLINIVAL™: Ψ-Guided Personalized Neoantigen Peptide Vaccine for High-Risk Endometrial Cancer",
+            "phase": "EARLY/Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "40",
+            "start_date": "2026-02-02"
+          },
+          {
+            "nct_id": "NCT07285434",
+            "title": "Clinical Study of the Therapeutic Effectiveness of In-silico-Designed, Machine Learning Inspired, and Quantum-molecularly Coupled Personalized Neoantigenic Vaccines Microlyvaq™ in Patients With Advanced Non-small Cell Lung Cancer",
+            "phase": "EARLY/Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "90",
+            "start_date": "2026-02-02"
+          },
+          {
+            "nct_id": "NCT07328087",
+            "title": "COLONYVAQ™, a Quantum-Classical Guided Personalized Neoantigen Vaccine for MSS Stage III Colorectal Cancer",
+            "phase": "EARLY/Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "12",
+            "start_date": "2026-02-02"
+          },
+          {
+            "nct_id": "NCT07077616",
+            "title": "Clinical Study for the Safety and Therapeutic Efficacy of the AI-QMMM Designed TamavaqTM Personalised Vaccine in Patients With Newly Diagnosed Glioma.",
+            "phase": "EARLY/Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "29",
+            "start_date": "2025-07-01"
+          }
+        ],
+        "total": 4
       }
     ],
     "contacts": [
