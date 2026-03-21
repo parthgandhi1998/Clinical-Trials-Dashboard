@@ -463,6 +463,103 @@
           }
         ],
         "total": 1
+      },
+      {
+        "name": "Sinovac Biotech Co., Ltd",
+        "org_type": "INDUSTRY",
+        "therapy_areas": [
+          "Vaccines",
+          "Dermatology",
+          "Infectious Disease",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 2",
+          "Phase 1",
+          "Phase 1, Phase 2",
+          "Phase 3",
+          "Phase 4"
+        ],
+        "countries": [
+          "Pakistan",
+          "China",
+          "Philippines"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07055880",
+            "title": "Immunogenicity and Safety of Different Dosages of Rabies Vaccine (Serum-free Vero Cell)",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "120",
+            "start_date": "2025-07-28"
+          },
+          {
+            "nct_id": "NCT07418229",
+            "title": "Study to Evaluate the Safety of a Lyophilized RSV mRNA Vaccine",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "60",
+            "start_date": "2026-03-09"
+          },
+          {
+            "nct_id": "NCT07400003",
+            "title": "Study to Evaluate the Safety and Immunogenicity of a Lyophilized Herpes Zoster Virus mRNA Vaccine",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "519",
+            "start_date": "2026-01-06"
+          },
+          {
+            "nct_id": "NCT07416110",
+            "title": "Phase IIIb Clinical Trial to Evaluate Lot-to-lot Consistency of Sinovac Rabies Vaccine",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "912",
+            "start_date": "2026-03-04"
+          },
+          {
+            "nct_id": "NCT07211152",
+            "title": "Influenza Vaccine (Split Virion), Inactivated, Quadrivalent in Pregnant Women",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "150",
+            "start_date": "2025-10-13"
+          },
+          {
+            "nct_id": "NCT07354269",
+            "title": "Phase IV Clinical Study of sIPV Administration in Adolescent and Adult Populations",
+            "phase": "Phase 4",
+            "status": "RECRUITING",
+            "enrollment": "180",
+            "start_date": "2025-09-26"
+          },
+          {
+            "nct_id": "NCT07457060",
+            "title": "Phase IV Clinical Study of Sequential Vaccination of Sabin Strain and Wild Strain Inactivated Poliovirus Vaccine",
+            "phase": "Phase 4",
+            "status": "RECRUITING",
+            "enrollment": "480",
+            "start_date": "2025-11-27"
+          },
+          {
+            "nct_id": "NCT07055893",
+            "title": "Immunogenicity and Safety of Rabies Vaccine (Serum-free Vero Cell) in a Simulated Post-exposure Prophylaxis Regimen",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "390",
+            "start_date": "2026-03-01"
+          },
+          {
+            "nct_id": "NCT07055295",
+            "title": "Immunogenicity and Safety of Rabies Vaccine (Serum-free Vero Cell) in a Pre-exposure Prophylaxis Regimen",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "390",
+            "start_date": "2026-03-01"
+          }
+        ],
+        "total": 9
       }
     ],
     "contacts": [
