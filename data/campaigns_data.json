@@ -376,6 +376,15 @@
           }
         ],
         "total": 3
+      },
+      {
+        "name": "NeoCura",
+        "org_type": "",
+        "therapy_areas": [],
+        "phases": [],
+        "countries": [],
+        "trials": [],
+        "total": 0
       }
     ],
     "contacts": [
