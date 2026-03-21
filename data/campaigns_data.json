@@ -385,6 +385,30 @@
         "countries": [],
         "trials": [],
         "total": 0
+      },
+      {
+        "name": "Neukio Biotherapeutics (Shanghai) Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "therapy_areas": [
+          "Oncology"
+        ],
+        "phases": [
+          "EARLY/Phase 1"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07144462",
+            "title": "A Study to Evaluate the Safety, Tolerability, and Preliminary Efficacy of NEUK203-215 Injection in Adult Chinese Patients With Relapsed/Refractory Autoimmune Diseases",
+            "phase": "EARLY/Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "8",
+            "start_date": "2025-09-04"
+          }
+        ],
+        "total": 1
       }
     ],
     "contacts": [
