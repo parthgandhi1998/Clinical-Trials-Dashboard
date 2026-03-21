@@ -847,7 +847,7 @@ function switchTab(name, el) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
   document.getElementById('tab-' + name).classList.add('active');
-  if (name === 'export') checkOutlookServer();
+  if (name === 'export' || name === 'contacts') checkOutlookServer();
   if (name === 'contacts' && activeCampaignId) renderContactsTable(activeCampaignId);
 }
 
@@ -2008,10 +2008,15 @@ function updateSelectionBar() {
 }
 
 async function sendSelectedContacts(step) {
-  if (!outlookServerOnline) { showToast('Server not running — start email_server.py first'); return; }
   if (!selectedContactIndices.size) { showToast('No contacts selected'); return; }
+  // Auto-check server if not yet verified (user may not have visited Export tab)
+  if (!outlookServerOnline) {
+    showToast('Checking server…');
+    await checkOutlookServer();
+  }
+  if (!outlookServerOnline) { showToast('Server not running — start email_server.py first'); return; }
   const rows = getExportRows(step, 'selected');
-  if (!rows.length) { showToast('Selected contacts have no drafts for this step'); return; }
+  if (!rows.length) { showToast('Selected contacts have no approved drafts for this step'); return; }
   const stepLabels = { email1: 'Email 1', fu1: 'Follow-up 1', fu2: 'Follow-up 2' };
   await doServerSend(rows, `${stepLabels[step]} to ${rows.length} selected contacts`, false);
 }
@@ -2168,6 +2173,11 @@ async function serverSendEmails() {
 
 // Open a single contact's email in Outlook for review (display mode — user clicks Send)
 async function openSingleInOutlook(contactIdx, step) {
+  // Auto-check server if not yet verified (user may not have visited Export tab)
+  if (!outlookServerOnline) {
+    showToast('Checking server…');
+    await checkOutlookServer();
+  }
   if (!outlookServerOnline) { showToast('Server not running — start email_server.py first'); return; }
   const c = getCampaign(activeCampaignId);
   if (!c || !c.contacts[contactIdx]) return;
