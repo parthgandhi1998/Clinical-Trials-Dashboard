@@ -111,17 +111,23 @@ tr:hover td{background:#fafbff}
 .status-closed{background:#f1f5f9;color:#94a3b8}
 .status-not-interested{background:#fee2e2;color:#b91c1c}
 
-/* ── CONTACT CARDS ── */
-.contacts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
-.contact-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;transition:all .15s;position:relative}
-.contact-card:hover{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.07)}
-.contact-card.selected{border-color:var(--accent);background:var(--accent-light);box-shadow:0 0 0 2px rgba(79,70,229,.18)}
-.contact-card .cc-check{position:absolute;top:12px;right:12px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent)}
-.contact-name{font-size:13px;font-weight:700;color:var(--text)}
-.contact-title{font-size:12px;color:var(--text-muted);margin-top:2px;margin-bottom:8px;line-height:1.4}
-.contact-company{font-size:11px;font-weight:600;color:var(--accent);margin-bottom:6px}
-.contact-email{font-size:12px;color:var(--text-mid);font-family:'JetBrains Mono',monospace;margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.contact-actions{display:flex;gap:6px;flex-wrap:wrap}
+/* ── CONTACTS TABLE ── */
+.ct-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius)}
+.ct-tbl{width:100%;border-collapse:collapse;font-size:12px}
+.ct-tbl thead{position:sticky;top:0;z-index:2;background:var(--surface2)}
+.ct-tbl th{padding:8px 10px;text-align:left;font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;border-bottom:2px solid var(--border);white-space:nowrap;user-select:none}
+.ct-tbl th.ct-sort{cursor:pointer}.ct-tbl th.ct-sort:hover{color:var(--accent)}
+.ct-tbl th.ct-sorted{color:var(--accent)}
+.ct-tbl td{padding:6px 10px;border-bottom:1px solid var(--border);vertical-align:middle;max-width:0}
+.ct-tbl tbody tr:last-child td{border-bottom:none}
+.ct-tbl tbody tr:hover{background:var(--surface2)}
+.ct-tbl tbody tr.ct-sel{background:var(--accent-light)}
+.ct-cell{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
+.ct-acts{display:flex;gap:3px;align-items:center}
+.ct-btn{background:none;border:1px solid var(--border);border-radius:4px;padding:2px 7px;font-size:11px;cursor:pointer;color:var(--text-mid);white-space:nowrap;text-decoration:none;display:inline-block}
+.ct-btn:hover{border-color:var(--accent);color:var(--accent)}
+.ct-btn.ct-primary{color:var(--accent);border-color:var(--accent)}
+.ct-btn.ct-danger:hover{border-color:#ef4444;color:#ef4444}
 /* Selection bar */
 .selection-bar{position:sticky;bottom:0;background:var(--accent);color:#fff;border-radius:var(--radius);padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;box-shadow:var(--shadow-md);margin-top:14px;z-index:10}
 .selection-bar-label{font-size:13px;font-weight:700;flex:1}
@@ -370,6 +376,10 @@ let activeCampaignId = null;
 let trialsData  = [];
 let selectedContactIndices = new Set();   // indices of checked contacts
 let pendingAttachments     = [];          // [{name, dataB64}] for email sending
+
+// Contacts table view state
+let _ctSearch = '', _ctStatusFilter = '', _ctSortCol = '', _ctSortDir = 1, _ctPage = 0;
+const CT_PAGE_SIZE = 50;
 
 const AREA_COLORS = {
   "Oncology":"#e53935","Neurology":"#8e24aa","Cardiovascular":"#d81b60",
@@ -838,6 +848,7 @@ function switchTab(name, el) {
   el.classList.add('active');
   document.getElementById('tab-' + name).classList.add('active');
   if (name === 'export') checkOutlookServer();
+  if (name === 'contacts' && activeCampaignId) renderContactsTable(activeCampaignId);
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -958,7 +969,10 @@ function removeCompany(cid, idx) {
 // CONTACTS TAB
 // ────────────────────────────────────────────────────────────────────────────
 function renderContactsTab(c) {
+  _ctPage = 0;  // reset page whenever tab is freshly rendered
   const contacts = c.contacts || [];
+  const statusOpts = (typeof STATUS_OPTIONS !== 'undefined' ? STATUS_OPTIONS : [])
+    .map(o => `<option value="${o.val}">${o.label}</option>`).join('');
   return `
     <div class="info-box" style="margin-bottom:16px">
       <strong>Import contacts from SeamlessAI:</strong> In SeamlessAI, search for decision-makers at your target companies (filter by title: VP, Director, Head of, Pharmacometrician, Clinical Pharmacology, Pharmacometrics, Biometrics, Regulatory, Translational, Modeling). Export as CSV and upload below.
@@ -982,42 +996,155 @@ function renderContactsTab(c) {
     ${contacts.length === 0
       ? '<div style="text-align:center;padding:40px;color:var(--text-muted)">No contacts yet. Upload a CSV from SeamlessAI or add manually.</div>'
       : `<div id="contacts-list-wrap">
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px">
-            <div style="font-size:12px;color:var(--text-muted)">${contacts.length} contacts — check boxes to select for bulk send</div>
-            <div style="display:flex;gap:6px">
-              <button class="btn btn-ghost btn-sm" onclick="selectAllContacts()">☑ Select All</button>
+          <!-- Filter bar -->
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+            <input class="form-input" style="flex:1;min-width:180px;max-width:280px;font-size:12px;padding:5px 9px"
+              placeholder="🔍 Search name, company, title, email…"
+              value="${_ctSearch}"
+              oninput="_ctSearch=this.value;_ctPage=0;renderContactsTable('${c.id}')">
+            <select class="form-input" style="font-size:12px;padding:5px 8px"
+              onchange="_ctStatusFilter=this.value;_ctPage=0;renderContactsTable('${c.id}')">
+              <option value="">All statuses</option>
+              ${statusOpts}
+            </select>
+            <span id="ct-count" style="font-size:12px;color:var(--text-muted)">${contacts.length} contacts</span>
+            <div style="margin-left:auto;display:flex;gap:6px">
+              <button class="btn btn-ghost btn-sm" onclick="ctSelectVisible('${c.id}',true)">☑ Select visible</button>
               <button class="btn btn-ghost btn-sm" onclick="clearContactSelection()">☐ Clear</button>
             </div>
           </div>
-          <div class="contacts-grid">${contacts.map((ct,i) => renderContactCard(ct, c.id, i)).join('')}</div>
+          <!-- Table rendered here dynamically -->
+          <div id="ct-table-wrap"></div>
+          <!-- Selection bar -->
           <div id="contact-selection-bar" style="display:none" class="selection-bar">
             <span class="selection-bar-label" id="sel-bar-label">0 selected</span>
-            <button class="btn-sel" onclick="sendSelectedContacts('email1')">Send Email 1</button>
-            <button class="btn-sel" onclick="sendSelectedContacts('fu1')">Send FU 1</button>
-            <button class="btn-sel" onclick="sendSelectedContacts('fu2')">Send FU 2</button>
+            <button class="btn-sel" onclick="sendSelectedContacts('email1')">✉ Email 1</button>
+            <button class="btn-sel" onclick="sendSelectedContacts('fu1')">✉ FU 1</button>
+            <button class="btn-sel" onclick="sendSelectedContacts('fu2')">✉ FU 2</button>
             <button class="btn-sel" style="background:rgba(255,255,255,.08)" onclick="clearContactSelection()">✕ Clear</button>
           </div>
         </div>`
     }`;
 }
 
-function renderContactCard(ct, cid, idx) {
-  const isSelected = selectedContactIndices.has(idx);
-  const hasDraft = ct.drafts && ct.drafts.email1;
-  return `
-  <div class="contact-card ${isSelected ? 'selected' : ''}" id="cc-${idx}">
-    <input type="checkbox" class="cc-check" ${isSelected ? 'checked' : ''} onchange="toggleContactSelect(${idx}, this.checked)" title="Select for bulk send">
-    <div class="contact-company">${ct.company||'—'}</div>
-    <div class="contact-name">${ct.name}</div>
-    <div class="contact-title">${ct.title||'—'}</div>
-    <div class="contact-email">✉ ${ct.email||'—'}</div>
-    ${ct.linkedin ? `<div style="font-size:11px;margin-bottom:6px"><a href="${ct.linkedin}" target="_blank">LinkedIn ↗</a></div>` : ''}
-    <div class="contact-actions">
-      <button class="btn btn-ghost btn-sm" onclick="viewDraftForContact('${cid}',${idx})">✏ Drafts</button>
-      ${hasDraft ? `<button class="btn btn-ghost btn-sm" style="color:var(--accent)" onclick="openSingleInOutlook(${idx},'email1')" title="Open Email 1 in Outlook for review">✉ Open in Outlook</button>` : ''}
-      <button class="btn btn-ghost btn-sm" onclick="removeContact('${cid}',${idx})">✕</button>
+// ── Contacts table renderer (filter / sort / paginate without full re-render) ──
+function renderContactsTable(cid) {
+  const c = getCampaign(cid);
+  if (!c) return;
+  const contacts = c.contacts || [];
+
+  // Filter
+  const q = _ctSearch.toLowerCase().trim();
+  let rows = contacts.map((ct, i) => ({ ct, i }));
+  if (q) rows = rows.filter(({ ct }) =>
+    [ct.name, ct.company, ct.title, ct.email].some(v => (v||'').toLowerCase().includes(q)));
+  if (_ctStatusFilter) rows = rows.filter(({ ct }) =>
+    (ct.status || 'not-started') === _ctStatusFilter);
+
+  // Sort
+  if (_ctSortCol) {
+    rows.sort((a, b) => {
+      const av = (a.ct[_ctSortCol] || '').toLowerCase();
+      const bv = (b.ct[_ctSortCol] || '').toLowerCase();
+      return av < bv ? -_ctSortDir : av > bv ? _ctSortDir : 0;
+    });
+  }
+
+  // Paginate
+  const total = rows.length;
+  const totalPages = Math.max(1, Math.ceil(total / CT_PAGE_SIZE));
+  _ctPage = Math.max(0, Math.min(_ctPage, totalPages - 1));
+  const pageRows = rows.slice(_ctPage * CT_PAGE_SIZE, (_ctPage + 1) * CT_PAGE_SIZE);
+
+  // Update count
+  const countEl = document.getElementById('ct-count');
+  if (countEl) countEl.textContent = (q || _ctStatusFilter)
+    ? `${total} of ${contacts.length} contacts`
+    : `${contacts.length} contacts`;
+
+  // Sort arrow helper
+  const arr = col => _ctSortCol === col ? (_ctSortDir === 1 ? ' ▲' : ' ▼') : '';
+
+  const wrap = document.getElementById('ct-table-wrap');
+  if (!wrap) return;
+  wrap.innerHTML = `
+    <div class="ct-wrap">
+      <table class="ct-tbl">
+        <thead><tr>
+          <th style="width:34px;padding:8px 6px 8px 10px">
+            <input type="checkbox" id="ct-check-all" title="Select / deselect all visible"
+              onchange="ctSelectVisible('${cid}',this.checked)"
+              style="accent-color:var(--accent)">
+          </th>
+          <th class="ct-sort ${_ctSortCol==='company'?'ct-sorted':''}" style="width:15%" onclick="ctSort('company','${cid}')">Company${arr('company')}</th>
+          <th class="ct-sort ${_ctSortCol==='name'?'ct-sorted':''}" style="width:13%" onclick="ctSort('name','${cid}')">Name${arr('name')}</th>
+          <th class="ct-sort ${_ctSortCol==='title'?'ct-sorted':''}" style="width:18%" onclick="ctSort('title','${cid}')">Title${arr('title')}</th>
+          <th class="ct-sort ${_ctSortCol==='email'?'ct-sorted':''}" style="width:17%" onclick="ctSort('email','${cid}')">Email${arr('email')}</th>
+          <th class="ct-sort ${_ctSortCol==='status'?'ct-sorted':''}" style="width:10%" onclick="ctSort('status','${cid}')">Status${arr('status')}</th>
+          <th style="width:160px">Actions</th>
+        </tr></thead>
+        <tbody>
+          ${pageRows.length === 0
+            ? `<tr><td colspan="7" style="text-align:center;padding:28px;color:var(--text-muted)">No contacts match the current filter.</td></tr>`
+            : pageRows.map(({ ct, i }) => renderContactRow(ct, cid, i)).join('')}
+        </tbody>
+      </table>
     </div>
-  </div>`;
+    ${totalPages > 1 ? `
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px;font-size:12px">
+      <button class="btn btn-ghost btn-sm" ${_ctPage===0?'disabled':''} onclick="_ctPage--;renderContactsTable('${cid}')">← Prev</button>
+      <span style="color:var(--text-muted)">Page ${_ctPage+1} of ${totalPages} &nbsp;·&nbsp; ${total} contacts</span>
+      <button class="btn btn-ghost btn-sm" ${_ctPage>=totalPages-1?'disabled':''} onclick="_ctPage++;renderContactsTable('${cid}')">Next →</button>
+    </div>` : ''}`;
+}
+
+function ctSort(col, cid) {
+  if (_ctSortCol === col) _ctSortDir = -_ctSortDir;
+  else { _ctSortCol = col; _ctSortDir = 1; }
+  renderContactsTable(cid);
+}
+
+function ctSelectVisible(cid, checked) {
+  document.querySelectorAll('#ct-table-wrap tbody tr[id^="ct-row-"]').forEach(row => {
+    const idx = parseInt(row.id.replace('ct-row-', ''));
+    if (isNaN(idx)) return;
+    if (checked) selectedContactIndices.add(idx);
+    else selectedContactIndices.delete(idx);
+    row.classList.toggle('ct-sel', checked);
+    const cb = row.querySelector('input[type=checkbox]');
+    if (cb) cb.checked = checked;
+  });
+  const hdr = document.getElementById('ct-check-all');
+  if (hdr) hdr.checked = checked;
+  updateSelectionBar();
+}
+
+function renderContactRow(ct, cid, idx) {
+  const isSelected = selectedContactIndices.has(idx);
+  const hasDraft   = ct.drafts && ct.drafts.email1;
+  const status     = ct.status || 'not-started';
+  const meta       = (typeof STATUS_META !== 'undefined' && STATUS_META[status])
+                     || { short: status, cls: 'status-not-started' };
+  return `
+  <tr id="ct-row-${idx}" class="${isSelected ? 'ct-sel' : ''}">
+    <td style="padding:6px 6px 6px 10px">
+      <input type="checkbox" ${isSelected ? 'checked' : ''} style="accent-color:var(--accent)"
+        onchange="toggleContactSelect(${idx},this.checked)" title="Select for bulk send">
+    </td>
+    <td style="width:15%"><span class="ct-cell" style="font-weight:600;color:var(--accent)" title="${ct.company||''}">${ct.company||'—'}</span></td>
+    <td style="width:13%"><span class="ct-cell" style="font-weight:500" title="${ct.name||''}">${ct.name||'—'}</span></td>
+    <td style="width:18%"><span class="ct-cell" style="color:var(--text-muted)" title="${ct.title||''}">${ct.title||'—'}</span></td>
+    <td style="width:17%"><span class="ct-cell"><a href="mailto:${ct.email||''}" style="color:var(--accent)" title="${ct.email||''}">${ct.email||'—'}</a></span></td>
+    <td style="width:10%"><span class="status-badge ${meta.cls}" style="font-size:10px;padding:2px 6px">${meta.short}</span></td>
+    <td>
+      <div class="ct-acts">
+        <button class="ct-btn" onclick="viewDraftForContact('${cid}',${idx})" title="View / edit drafts">✏ Drafts</button>
+        ${hasDraft ? `<button class="ct-btn ct-primary" onclick="openSingleInOutlook(${idx},'email1')" title="Open Email 1 in Outlook">✉</button>` : ''}
+        ${ct.linkedin ? `<a href="${ct.linkedin}" target="_blank" class="ct-btn" title="LinkedIn profile">🔗</a>` : ''}
+        <button class="ct-btn ct-danger" onclick="removeContact('${cid}',${idx})" title="Remove contact">✕</button>
+      </div>
+    </td>
+  </tr>`;
 }
 
 function handleContactsCSV(file) {
@@ -1851,28 +1978,23 @@ function handleEditorPaste(event, editorId, ctIdx, field) {
 function toggleContactSelect(idx, checked) {
   if (checked) selectedContactIndices.add(idx);
   else selectedContactIndices.delete(idx);
-  const card = document.getElementById('cc-' + idx);
-  if (card) card.classList.toggle('selected', checked);
+  const row = document.getElementById('ct-row-' + idx);
+  if (row) row.classList.toggle('ct-sel', checked);
   updateSelectionBar();
 }
 
 function selectAllContacts() {
-  const c = getCampaign(activeCampaignId);
-  if (!c) return;
-  (c.contacts || []).forEach((_, i) => {
-    selectedContactIndices.add(i);
-    const card = document.getElementById('cc-' + i);
-    if (card) { card.classList.add('selected'); const cb = card.querySelector('.cc-check'); if (cb) cb.checked = true; }
-  });
-  updateSelectionBar();
+  ctSelectVisible(activeCampaignId, true);
 }
 
 function clearContactSelection() {
   selectedContactIndices.clear();
-  document.querySelectorAll('.contact-card.selected').forEach(el => {
-    el.classList.remove('selected');
-    const cb = el.querySelector('.cc-check'); if (cb) cb.checked = false;
+  document.querySelectorAll('#ct-table-wrap tbody tr.ct-sel').forEach(row => {
+    row.classList.remove('ct-sel');
+    const cb = row.querySelector('input[type=checkbox]'); if (cb) cb.checked = false;
   });
+  const hdr = document.getElementById('ct-check-all');
+  if (hdr) hdr.checked = false;
   updateSelectionBar();
 }
 
