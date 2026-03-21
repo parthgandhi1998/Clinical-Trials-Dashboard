@@ -7,7 +7,17 @@
     "notes": "Used Vaccine as Keyword for Searching Trials. Identified unique Sponsor and Collaborator Companies. Contacts List from SeamlessAI for Feb 2026 period of Trials Initiatiated",
     "status": "active",
     "created": "2026-03-21T07:54:13.019Z",
-    "companies": [],
+    "companies": [
+      {
+        "name": "Sinovac Biotech",
+        "org_type": "",
+        "therapy_areas": [],
+        "phases": [],
+        "countries": [],
+        "trials": [],
+        "total": 0
+      }
+    ],
     "contacts": [
       {
         "id": "ct_1774079702067_1",
