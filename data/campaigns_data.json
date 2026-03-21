@@ -1,5 +1,16 @@
 [
   {
+    "id": "cmp_1774079653019",
+    "name": "Vacinnes_Feb2026",
+    "owner": "Parth",
+    "area": "Vaccines",
+    "notes": "Used Vaccine as Keyword for Searching Trials. Identified unique Sponsor and Collaborator Companies. Contacts List from SeamlessAI for Feb 2026 period of Trials Initiatiated",
+    "status": "draft",
+    "created": "2026-03-21T07:54:13.019Z",
+    "companies": [],
+    "contacts": []
+  },
+  {
     "id": "cmp_1773940990453",
     "name": "First Campaign",
     "owner": "Parth",
