@@ -601,6 +601,32 @@
           }
         ],
         "total": 3
+      },
+      {
+        "name": "Vaxine Pty Ltd",
+        "org_type": "INDUSTRY",
+        "therapy_areas": [
+          "Dermatology",
+          "Infectious Disease",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT03038802",
+            "title": "A Randomised Controlled Phase 1 Study of Vaccine Therapy for Control or Cure of Chronic Hepatitis B Virus Infection",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-03-01"
+          }
+        ],
+        "total": 1
       }
     ],
     "contacts": [
