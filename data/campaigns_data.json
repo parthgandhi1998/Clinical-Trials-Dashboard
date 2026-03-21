@@ -220,6 +220,75 @@
           }
         ],
         "total": 4
+      },
+      {
+        "name": "Changchun BCHT Biotechnology Co.",
+        "org_type": "INDUSTRY",
+        "therapy_areas": [
+          "Oncology",
+          "Vaccines",
+          "Infectious Disease",
+          "Dermatology"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 3",
+          "Phase 4"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07338786",
+            "title": "A Phase I Clinical Trial to Evaluate the Safety of Different Immunization Schedules of a Lyophilized Human Rabies Vaccine (Human Diploid Cell)",
+            "phase": "Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "80",
+            "start_date": "2025-09-13"
+          },
+          {
+            "nct_id": "NCT07349017",
+            "title": "A Phase I Trial to Evaluate the Safety and Immunogenicity of Influenza Virus Split Vaccine (Adjuvant)",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "160",
+            "start_date": "2026-02-07"
+          },
+          {
+            "nct_id": "NCT07330440",
+            "title": "A Phase I Study to Evaluate the Safety, Tolerability, and Immunogenicity of an mRNA Vaccine Against Herpes Simplex Virus Type 2 (HSV-2) Post-Vaccination",
+            "phase": "Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "144",
+            "start_date": "2025-10-13"
+          },
+          {
+            "nct_id": "NCT07112144",
+            "title": "Adsorption of Cell-free Diphtheria and Tetanus (Three-component) Combined With Vaccine Phase III Clinical Trial",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "1650",
+            "start_date": "2025-06-13"
+          },
+          {
+            "nct_id": "NCT07133802",
+            "title": "Clinical Trial to Evaluate the Protective Efficacy and Safety of a Nasal Spray Live Attenuated Influenza Vaccine (LAIV) in Adults Aged 18-59 Years Post-Vaccination",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "6680",
+            "start_date": "2025-08"
+          },
+          {
+            "nct_id": "NCT06961721",
+            "title": "A Multicenter, Randomized, Double-Blind, Placebo-Controlled Phase IV Clinical Trial to Evaluate the Immunogenicity and Safety of a Live Attenuated Herpes Zoster Vaccine in Adults Aged 40 Years and Older",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "600",
+            "start_date": "2025-05"
+          }
+        ],
+        "total": 6
       }
     ],
     "contacts": [
