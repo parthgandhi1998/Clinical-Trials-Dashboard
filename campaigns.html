@@ -849,6 +849,7 @@ function switchTab(name, el) {
   document.getElementById('tab-' + name).classList.add('active');
   if (name === 'export' || name === 'contacts') checkOutlookServer();
   if (name === 'contacts' && activeCampaignId) renderContactsTable(activeCampaignId);
+  if (name === 'tracker' && activeCampaignId) renderTrackerTable(activeCampaignId);
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -1510,37 +1511,35 @@ I came across ${nctId ? nctId + ' — ' : ''}${trialTitle || ('your ' + (phase ?
 
 ${phaseContext.openingHook}
 
-At PumasAI, we partner with clinical development teams to deliver ${phaseContext.serviceAngle}. Our scientists are pharmacometricians and clinical pharmacologists — former Pfizer, FDA, and academia — and we work end-to-end from model development through regulatory submission.
+At PumasAI, we specialise in ${phaseContext.serviceAngle}. Our team of pharmacometricians and clinical pharmacologists — former FDA, Pfizer, BMS, and leading academic centres — have supported 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada with a 100% acceptance rate. We work end-to-end from model development through regulatory submission, so your team gets a single partner for the entire clinical pharmacology programme.
 
-${enrollment ? 'With an enrollment of ' + enrollment + ' patients, ' + phaseContext.enrollmentNote + ' ' : ''}${multiNational ? 'Across your ' + (co.countries||[]).length + '-country footprint, regulatory-ready PK/PD packages are a recurring need — something we handle routinely.' : ''}
+${enrollment ? 'With an enrollment target of ' + enrollment + ' patients, ' + phaseContext.enrollmentNote + ' ' : ''}${multiNational ? 'Across your ' + (co.countries||[]).length + '-country footprint, regulatory-ready PK/PD packages tailored to each agency are a recurring need — something we handle routinely.' : ''}
 
-Would a 20-minute call be worthwhile to see if there's a fit? Happy to share a brief case study relevant to your programme first.`;
+${phaseContext.trialSpecificLine ? phaseContext.trialSpecificLine(conditions, interventions, areas) : ''}Would a 20-minute call be worthwhile to explore whether there is a fit? Happy to share a relevant case study for your programme first.`;
 
   // Follow-up 1 — Value add
   const subject2 = `Re: ${subject1}`;
   const fu1 = `Hi ${firstName},
 
-Wanted to follow up briefly on my previous note.
+Wanted to follow up briefly on my previous note about ${nctId || ('your ' + areas + ' programme')}.
 
 ${phaseContext.followUp1Hook}
 
-We recently ${phaseContext.recentWork} — I'd be glad to share a short summary if it would be useful context for your team.
+We recently ${phaseContext.recentWork}. With our 100% regulatory acceptance record across 40+ submissions (FDA, EMA, PMDA), we take the clinical pharmacology workstream fully off your plate — I'd be glad to share a brief summary if it would be useful context for your team.
 
-No commitment — just a conversation to see if the timing makes sense for ${company}.
-
-Still interested in a quick call?`;
+No commitment — just a conversation to see if the timing makes sense for ${company}.`;
 
   // Follow-up 2 — Break-up
   const subject3 = `Last note — ${company}`;
   const fu2 = `Hi ${firstName},
 
-I know inboxes get busy — this will be my last note on this.
+I know inboxes get busy — this will be my last note regarding ${nctId || ('your ' + areas + ' programme')}.
 
 ${phaseContext.breakupLine}
 
-If the timing isn't right now, I completely understand. Feel free to reach out whenever it makes sense — we're happy to help at any stage of development.
+If the timing isn't right now, I completely understand. Feel free to reach out whenever it makes sense — we work with teams at every stage of clinical development.
 
-Wishing your team every success with ${nctId ? nctId : 'the programme'}.`;
+Wishing ${company} every success with ${nctId ? nctId : 'the programme'}.`;
 
   // LinkedIn
   const linkedin = `Hi ${firstName}, I noticed ${company} is running ${nctId ? nctId + ' — ' : ''}a ${phase ? phase + ' ' : ''}${areas} trial. At PumasAI, we help teams like yours with ${phaseContext.linkedInAngle}. Happy to share a relevant example if useful.`;
@@ -1558,47 +1557,51 @@ function phaseAngle(phase, conditions, interventions, areas) {
 
   if (p.includes('1')) return {
     subjectAngle:    'Early-Phase PK & Dose Characterisation',
-    openingHook:     'Early-phase programmes like this are exactly where MIDD pays the highest dividends — getting the PK characterisation and dose-escalation design right from the start reduces risk and informs every decision downstream.',
+    openingHook:     'Early-phase programmes like this are exactly where Model-Informed Drug Development pays the highest dividends — getting the PK characterisation and dose-escalation design right from the start reduces risk and informs every downstream decision.',
     serviceAngle:    'first-in-human PK modelling, dose escalation design support, and regulatory-ready NCA and PopPK analyses',
     enrollmentNote:  'a clean, well-powered PK dataset at this size sets up a strong Phase 2 transition.',
-    followUp1Hook:   'One thing I often hear from Phase 1 teams is that PK data interpretation bottlenecks the dose decision timeline. We\'ve built workflows that compress this — worth 15 minutes to walk through?',
+    followUp1Hook:   'One thing I often hear from Phase 1 teams is that PK data interpretation bottlenecks the dose decision timeline. We\'ve built workflows that compress turnaround from weeks to days — worth 15 minutes to walk through?',
     recentWork:      'supported a Phase 1 FIH programme where our NCA + PopPK package directly informed the dose-escalation decision, getting to RP2D two months ahead of plan',
-    breakupLine:     'If you ever need support with PK analysis, dose escalation modelling, or FDA/EMA submission packages for a Phase 1 programme, PumasAI is a call away.',
-    linkedInAngle:   'Phase 1 PK characterisation, NCA, and dose-escalation modelling'
+    breakupLine:     'If you ever need support with PK analysis, dose escalation modelling, or regulatory submission packages for an early-phase programme, PumasAI is a call away.',
+    linkedInAngle:   'Phase 1 PK characterisation, NCA, and dose-escalation modelling',
+    trialSpecificLine: (conds, ints, areas) => conds ? `Given the focus on ${conds}, getting the PK/PD characterisation right early is especially critical for informing the dose-finding strategy.\n\n` : ''
   };
 
   if (p.includes('2')) return {
     subjectAngle:    'Exposure-Response Modelling for Phase 2 Dose Decision',
-    openingHook:     'Phase 2 is typically where the exposure-response relationship defines the programme\'s fate — a well-built E-R model at this stage directly supports the Phase 3 dose rationale and reduces regulatory back-and-forth.',
+    openingHook:     'Phase 2 is typically where the exposure-response relationship defines the programme\'s fate — a well-built E-R model at this stage directly supports the Phase 3 dose rationale and significantly reduces regulatory back-and-forth.',
     serviceAngle:    'population PK/PD modelling, exposure-response analysis, and Phase 2 → Phase 3 transition support',
-    enrollmentNote:  'this is a well-powered dataset for a robust PopPK/E-R analysis.',
-    followUp1Hook:   'The difference between a clean Phase 3 package and a slow FDA review often comes down to the quality of the E-R analysis done in Phase 2. Happy to share how we\'ve navigated that for similar programmes.',
-    recentWork:      'completed an exposure-response analysis for a Phase 2 oncology asset that directly informed the dose selection in the pivotal trial — the sponsor credited it with avoiding a Phase 3 protocol amendment',
+    enrollmentNote:  'this is a well-powered dataset for a robust PopPK and exposure-response analysis.',
+    followUp1Hook:   'The difference between a clean Phase 3 package and a prolonged FDA review often comes down to the quality of the E-R analysis done in Phase 2. Happy to share how we\'ve navigated that for similar programmes.',
+    recentWork:      'completed an exposure-response analysis for a Phase 2 oncology asset that directly informed the pivotal trial dose selection — the sponsor credited it with avoiding a costly Phase 3 protocol amendment',
     breakupLine:     'If a need for population PK, E-R modelling, or Phase 3 dose justification support comes up, please don\'t hesitate to reach out.',
-    linkedInAngle:   'Phase 2 exposure-response modelling and Phase 3 dose justification'
+    linkedInAngle:   'Phase 2 exposure-response modelling and Phase 3 dose justification',
+    trialSpecificLine: (conds, ints, areas) => ints ? `For programmes studying ${ints}, a well-characterised E-R relationship is particularly valuable for optimising the benefit-risk profile ahead of Phase 3.\n\n` : ''
   };
 
   if (p.includes('3')) return {
     subjectAngle:    'Regulatory-Ready Clinical Pharmacology Package',
-    openingHook:     'Phase 3 programmes are on the submission runway, and the clinical pharmacology package — PopPK, E-R, DDI, special populations — is typically on the critical path. This is our core strength.',
-    serviceAngle:    'NDA/BLA-ready clinical pharmacology packages, population PK, model-based meta-analysis, and FDA/EMA submission support',
-    enrollmentNote:  'a trial of this size generates the rich dataset that supports a comprehensive regulatory PK/PD submission.',
-    followUp1Hook:   'Regulatory reviewers increasingly expect MIDD-supported dose justification in Phase 3 submissions. We\'ve helped teams prepare packages that have received minimal FDA queries — worth a conversation?',
-    recentWork:      'supported a Phase 3 submission package for an oncology programme where our PopPK and E-R analyses directly addressed an FDA information request, keeping the review timeline on track',
+    openingHook:     'Phase 3 programmes are on the submission runway, and the clinical pharmacology package — PopPK, E-R, DDI, special populations — is typically on the critical path. Delivering these analyses right the first time is our core strength.',
+    serviceAngle:    'NDA/BLA-ready clinical pharmacology packages, population PK, model-based meta-analysis, and multi-agency submission support',
+    enrollmentNote:  'a trial of this size generates the rich dataset that supports a comprehensive regulatory PK/PD package.',
+    followUp1Hook:   'Regulatory reviewers increasingly expect MIDD-supported dose justification in Phase 3 submissions. We\'ve prepared packages that sailed through FDA review with zero clinical pharmacology queries — worth a conversation?',
+    recentWork:      'delivered a complete clinical pharmacology submission package for a Phase 3 oncology programme where our PopPK and E-R analyses directly addressed an FDA information request, keeping the review timeline on track',
     breakupLine:     'If a need for clinical pharmacology package preparation, regulatory consulting, or submission support arises, PumasAI is here.',
-    linkedInAngle:   'Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions'
+    linkedInAngle:   'Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions',
+    trialSpecificLine: (conds, ints, areas) => conds ? `With ${conds} as the focus, we know the regulatory expectations around clinical pharmacology for this indication well — and can map those directly to your submission strategy.\n\n` : ''
   };
 
   // Generic
   return {
     subjectAngle:    'MIDD & Clinical Pharmacology Support',
     openingHook:     'Model-Informed Drug Development is increasingly expected by FDA and EMA reviewers — and programmes that build MIDD into their clinical strategy from the start consistently reach decision points faster with fewer surprises.',
-    serviceAngle:    'model-informed drug development, clinical pharmacology, and regulatory strategy',
+    serviceAngle:    'model-informed drug development, clinical pharmacology, and regulatory strategy across all phases',
     enrollmentNote:  'this dataset creates a strong foundation for a model-based analysis.',
-    followUp1Hook:   'Many teams we work with find that proactive MIDD strategy reduces overall development time and strengthens regulatory interactions. Happy to share a relevant example for your programme.',
+    followUp1Hook:   'Many teams we work with find that proactive MIDD strategy reduces overall development time and strengthens regulatory interactions. Happy to share a relevant case study for your programme.',
     recentWork:      'supported a clinical development programme with PK/PD modelling that supported a key regulatory decision, reducing back-and-forth with FDA by several months',
     breakupLine:     'If a pharmacometrics or clinical pharmacology need comes up at any stage, please feel free to reach out.',
-    linkedInAngle:   'pharmacometrics, clinical pharmacology, and MIDD strategy'
+    linkedInAngle:   'pharmacometrics, clinical pharmacology, and MIDD strategy',
+    trialSpecificLine: () => ''
   };
 }
 
@@ -1643,34 +1646,28 @@ function renderTrackerTab(c) {
 
   return `
     ${dueBanner}
-    <div class="pipeline-wrap">
-    <table>
-      <thead><tr>
-        <th>Contact</th><th>Company</th><th>Status</th><th>Last Contact</th><th>Follow-up</th><th>Notes</th>
-      </tr></thead>
-      <tbody>
-        ${contacts.map((ct, idx) => `
-        <tr data-contact-idx="${idx}">
-          <td><div style="font-weight:600">${ct.name}</div><div style="font-size:11px;color:var(--text-muted)">${ct.title||''}</div></td>
-          <td style="font-size:13px">${ct.company||'—'}</td>
-          <td>
-            <select class="form-input" style="padding:4px 8px;font-size:12px;width:160px" onchange="updateContactStatus('${c.id}',${idx},this.value)">
-              ${STATUS_OPTIONS.map(s => `<option value="${s.val}" ${ct.status===s.val?'selected':''}>${s.label}</option>`).join('')}
-            </select>
-          </td>
-          <td>
-            <input type="date" class="last-contacted-input" value="${ct.lastContacted||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none" onchange="updateContactField('${c.id}',${idx},'lastContacted',this.value)">
-          </td>
-          <td>
-            <input type="date" class="followup-input" value="${ct.followUpDate||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none;${needsFollowUp(ct)?'border-color:#d97706;background:#fffbeb':''}" onchange="updateContactField('${c.id}',${idx},'followUpDate',this.value)">
-          </td>
-          <td>
-            <input type="text" value="${ct.notes||''}" placeholder="Add note…" style="border:1px solid var(--border);border-radius:5px;padding:4px 8px;font-size:12px;width:180px;outline:none" onchange="updateContactField('${c.id}',${idx},'notes',this.value)">
-          </td>
-        </tr>`).join('')}
-      </tbody>
-    </table>
-    </div>`;
+    <!-- Bulk status update bar -->
+    <div id="tracker-bulk-bar" style="display:none;align-items:center;gap:10px;padding:10px 14px;background:var(--accent);color:#fff;border-radius:var(--radius);margin-bottom:10px;font-size:13px;font-weight:600;flex-wrap:wrap">
+      <span id="tracker-bulk-label">0 selected</span>
+      <select id="tracker-bulk-status" class="form-input" style="padding:4px 8px;font-size:12px;width:170px;color:var(--text);border:1px solid rgba(255,255,255,.3)">
+        <option value="">— Update status to —</option>
+        ${STATUS_OPTIONS.map(s => `<option value="${s.val}">${s.label}</option>`).join('')}
+      </select>
+      <button class="btn btn-sm" style="background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3)" onclick="applyBulkStatus('${c.id}')">✓ Apply</button>
+      <button class="btn btn-sm" style="background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2)" onclick="clearTrackerSelection()">✕ Clear</button>
+    </div>
+    <div style="margin-bottom:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <input id="tracker-search" type="text" placeholder="Search contacts…" style="border:1px solid var(--border);border-radius:6px;padding:5px 10px;font-size:12px;width:200px;outline:none" oninput="_tkSearch=this.value;_tkPage=0;renderTrackerTable('${c.id}')">
+      <select id="tracker-status-filter" style="border:1px solid var(--border);border-radius:6px;padding:5px 8px;font-size:12px;outline:none" onchange="_tkStatusFilter=this.value;_tkPage=0;renderTrackerTable('${c.id}')">
+        <option value="">All statuses</option>
+        ${STATUS_OPTIONS.map(s => `<option value="${s.val}">${s.label}</option>`).join('')}
+      </select>
+      <span style="font-size:11px;color:var(--text-muted)" id="tracker-count">${contacts.length} contacts</span>
+      <button class="btn btn-ghost btn-sm" onclick="tkSelectVisible('${c.id}',true)">☑ Select visible</button>
+      <button class="btn btn-ghost btn-sm" onclick="clearTrackerSelection()">☐ Clear</button>
+    </div>
+    <div id="tracker-table-wrap"></div>`;
+}
 }
 
 function updateContactStatus(cid, idx, val) {
@@ -1707,6 +1704,157 @@ function needsFollowUp(ct) {
   if (!ct.followUpDate) return false;
   if (['replied','closed','not-interested'].includes(ct.status)) return false;
   return new Date(ct.followUpDate) <= new Date();
+}
+
+// ── Tracker table rendering (filterable, multi-select, bulk status update) ──
+let _tkSearch = '', _tkStatusFilter = '', _tkPage = 0;
+const TK_PAGE_SIZE = 50;
+const _tkSelected = new Set();
+
+function renderTrackerTable(cid) {
+  const c = getCampaign(cid);
+  if (!c) return;
+  const contacts = c.contacts || [];
+
+  // Filter
+  const q = _tkSearch.toLowerCase().trim();
+  let rows = contacts.map((ct, i) => ({ ct, i }));
+  if (q) rows = rows.filter(({ ct }) =>
+    [ct.name, ct.company, ct.title, ct.email, ct.notes].some(v => (v||'').toLowerCase().includes(q)));
+  if (_tkStatusFilter) rows = rows.filter(({ ct }) =>
+    (ct.status || 'not-started') === _tkStatusFilter);
+
+  // Paginate
+  const total = rows.length;
+  const totalPages = Math.max(1, Math.ceil(total / TK_PAGE_SIZE));
+  _tkPage = Math.max(0, Math.min(_tkPage, totalPages - 1));
+  const pageRows = rows.slice(_tkPage * TK_PAGE_SIZE, (_tkPage + 1) * TK_PAGE_SIZE);
+
+  // Update count
+  const countEl = document.getElementById('tracker-count');
+  if (countEl) countEl.textContent = (q || _tkStatusFilter) ? `${total} of ${contacts.length} contacts` : `${contacts.length} contacts`;
+
+  const wrap = document.getElementById('tracker-table-wrap');
+  if (!wrap) return;
+
+  wrap.innerHTML = `
+    <div class="pipeline-wrap">
+    <table>
+      <thead><tr>
+        <th style="width:34px;padding:8px 6px 8px 10px">
+          <input type="checkbox" id="tk-check-all" title="Select / deselect all visible"
+            onchange="tkSelectVisible('${cid}',this.checked)"
+            ${pageRows.length > 0 && pageRows.every(({i}) => _tkSelected.has(i)) ? 'checked' : ''}>
+        </th>
+        <th>Contact</th><th>Company</th><th>Status</th><th>Last Contact</th><th>Follow-up</th><th>Notes</th>
+      </tr></thead>
+      <tbody>
+        ${pageRows.map(({ct, i: idx}) => {
+          const isSel = _tkSelected.has(idx);
+          return `
+        <tr data-contact-idx="${idx}" class="${isSel ? 'ct-sel' : ''}">
+          <td style="padding:6px 6px 6px 10px">
+            <input type="checkbox" ${isSel ? 'checked' : ''} style="accent-color:var(--accent)"
+              onchange="toggleTrackerSelect(${idx},this.checked)">
+          </td>
+          <td><div style="font-weight:600">${ct.name}</div><div style="font-size:11px;color:var(--text-muted)">${ct.title||''}</div></td>
+          <td style="font-size:13px">${ct.company||'—'}</td>
+          <td>
+            <select class="form-input" style="padding:4px 8px;font-size:12px;width:160px" onchange="updateContactStatus('${cid}',${idx},this.value)">
+              ${STATUS_OPTIONS.map(s => `<option value="${s.val}" ${(ct.status||'not-started')===s.val?'selected':''}>${s.label}</option>`).join('')}
+            </select>
+          </td>
+          <td>
+            <input type="date" class="last-contacted-input" value="${ct.lastContacted||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none" onchange="updateContactField('${cid}',${idx},'lastContacted',this.value)">
+          </td>
+          <td>
+            <input type="date" class="followup-input" value="${ct.followUpDate||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none;${needsFollowUp(ct)?'border-color:#d97706;background:#fffbeb':''}" onchange="updateContactField('${cid}',${idx},'followUpDate',this.value)">
+          </td>
+          <td>
+            <input type="text" value="${escHtml(ct.notes||'')}" placeholder="Add note…" style="border:1px solid var(--border);border-radius:5px;padding:4px 8px;font-size:12px;width:180px;outline:none" onchange="updateContactField('${cid}',${idx},'notes',this.value)">
+          </td>
+        </tr>`;
+        }).join('')}
+      </tbody>
+    </table>
+    </div>
+    ${totalPages > 1 ? `<div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:10px">
+      <button class="btn btn-ghost btn-sm" ${_tkPage===0?'disabled':''} onclick="_tkPage--;renderTrackerTable('${cid}')">← Prev</button>
+      <span style="font-size:12px;color:var(--text-muted)">Page ${_tkPage+1} of ${totalPages}</span>
+      <button class="btn btn-ghost btn-sm" ${_tkPage>=totalPages-1?'disabled':''} onclick="_tkPage++;renderTrackerTable('${cid}')">Next →</button>
+    </div>` : ''}`;
+  updateTrackerBulkBar();
+}
+
+function toggleTrackerSelect(idx, checked) {
+  if (checked) _tkSelected.add(idx);
+  else _tkSelected.delete(idx);
+  const row = document.querySelector(`tr[data-contact-idx="${idx}"]`);
+  if (row) row.classList.toggle('ct-sel', checked);
+  updateTrackerBulkBar();
+}
+
+function tkSelectVisible(cid, checked) {
+  document.querySelectorAll('#tracker-table-wrap tbody tr[data-contact-idx]').forEach(row => {
+    const idx = parseInt(row.getAttribute('data-contact-idx'));
+    if (isNaN(idx)) return;
+    if (checked) _tkSelected.add(idx);
+    else _tkSelected.delete(idx);
+    row.classList.toggle('ct-sel', checked);
+    const cb = row.querySelector('input[type=checkbox]');
+    if (cb) cb.checked = checked;
+  });
+  const hdr = document.getElementById('tk-check-all');
+  if (hdr) hdr.checked = checked;
+  updateTrackerBulkBar();
+}
+
+function clearTrackerSelection() {
+  _tkSelected.clear();
+  document.querySelectorAll('#tracker-table-wrap tbody tr.ct-sel').forEach(row => {
+    row.classList.remove('ct-sel');
+    const cb = row.querySelector('input[type=checkbox]');
+    if (cb) cb.checked = false;
+  });
+  const hdr = document.getElementById('tk-check-all');
+  if (hdr) hdr.checked = false;
+  updateTrackerBulkBar();
+}
+
+function updateTrackerBulkBar() {
+  const bar   = document.getElementById('tracker-bulk-bar');
+  const label = document.getElementById('tracker-bulk-label');
+  if (!bar) return;
+  const n = _tkSelected.size;
+  bar.style.display = n > 0 ? 'flex' : 'none';
+  if (label) label.textContent = `${n} contact${n !== 1 ? 's' : ''} selected`;
+}
+
+function applyBulkStatus(cid) {
+  const sel = document.getElementById('tracker-bulk-status');
+  if (!sel || !sel.value) { showToast('Choose a status first'); return; }
+  const c = getCampaign(cid);
+  if (!c) return;
+  const newStatus = sel.value;
+  const today = new Date().toISOString().split('T')[0];
+  let count = 0;
+  _tkSelected.forEach(idx => {
+    if (!c.contacts[idx]) return;
+    c.contacts[idx].status = newStatus;
+    count++;
+    // Auto-set lastContacted + follow-up for email statuses
+    if (newStatus === 'email1-sent' || newStatus === 'fu1-sent' || newStatus === 'fu2-sent') {
+      if (!c.contacts[idx].lastContacted) c.contacts[idx].lastContacted = today;
+      const fu = new Date(); fu.setDate(fu.getDate() + 7);
+      c.contacts[idx].followUpDate = fu.toISOString().split('T')[0];
+    }
+  });
+  saveCampaigns();
+  _tkSelected.clear();
+  sel.value = '';
+  renderTrackerTable(cid);
+  updateStatsInPlace();
+  showToast(`✓ Updated ${count} contact${count !== 1 ? 's' : ''} to "${STATUS_META[newStatus]?.short || newStatus}"`);
 }
 
 // ────────────────────────────────────────────────────────────────────────────
