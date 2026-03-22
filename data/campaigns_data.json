@@ -1,5 +1,4001 @@
 [
   {
+    "id": "cmp_1774169750208",
+    "name": "Trials",
+    "owner": "Parth",
+    "area": "Vaccines",
+    "notes": "",
+    "status": "draft",
+    "created": "2026-03-22T08:55:50.208Z",
+    "companies": [
+      {
+        "name": "University of Alabama at Birmingham",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Oncology",
+          "Women's Health",
+          "Other",
+          "Cardiovascular",
+          "Respiratory",
+          "Psychiatry & Mental Health",
+          "Metabolic & Endocrine",
+          "Neurology",
+          "Pain",
+          "Infectious Disease",
+          "Hematology",
+          "Rare & Genetic Diseases",
+          "Vaccines",
+          "Ophthalmology",
+          "Immunology & Inflammation",
+          "Renal & Urology",
+          "Musculoskeletal",
+          "Gastroenterology & Hepatology"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 3",
+          "NA",
+          "Phase 4",
+          "Phase 2",
+          "N/A",
+          "Phase 1, Phase 2",
+          "EARLY/Phase 1",
+          "Phase 2, Phase 3"
+        ],
+        "countries": [
+          "Nigeria",
+          "United States",
+          "Zambia",
+          "Norway",
+          "Cameroon",
+          "Kenya",
+          "Bolivia",
+          "Brazil",
+          "Chile",
+          "Colombia",
+          "Dominican Republic",
+          "Ecuador",
+          "Guatemala",
+          "Mexico",
+          "Peru",
+          "Bangladesh",
+          "Democratic Republic of the Congo",
+          "India",
+          "Pakistan"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT04542603",
+            "title": "Neuroinflammation and Age-associated Brain Pathology: Two Potential Mechanisms of Cognitive Impairment in Ovarian Cancer",
+            "phase": "Phase 1",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2025-06",
+            "conditions": [
+              "Ovarian Cancer"
+            ],
+            "interventions": [
+              "[11C]PiB and 18F-labeled DPA-714 PET scan"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06522854",
+            "title": "Oral Sildenafil Citrate to Improve Maternal and Neonatal Outcomes in Low-resource Settings",
+            "phase": "Phase 3",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2025-05-01",
+            "conditions": [
+              "Intrapartum Fetal Distress",
+              "Neonatal Asphyxia",
+              "Intrapartum Asphyxia",
+              "Instrumental Delivery; Affecting Fetus"
+            ],
+            "interventions": [
+              "Sildenafil 50 mg Oral Tablet",
+              "Placebo Oral Tablet"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06638801",
+            "title": "Brain Uptrain to Improve Learning and Development",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "188",
+            "start_date": "2026-02-18",
+            "conditions": [
+              "Term Infant",
+              "Late Preterm Infant"
+            ],
+            "interventions": [
+              "Coach-led caregiver-implemented early literacy and developmental programming",
+              "Reach Out and Read Training"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06673160",
+            "title": "Pumping to Up Maternal Milk Production for Preterms",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "70",
+            "start_date": "2025-06-11",
+            "conditions": [
+              "Breastfeeding",
+              "Breastmilk Expression"
+            ],
+            "interventions": [
+              "Pumping every 2 hours",
+              "breast pumping every 3 hours"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT06373289",
+            "title": "Pulmonary Hypertension and Oxygen Saturation Targeting in Preterm Infants",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "39",
+            "start_date": "2026-03-15",
+            "conditions": [
+              "Bronchopulmonary Dysplasia",
+              "Pulmonary Hypertension"
+            ],
+            "interventions": [
+              "higher oxygen saturation target using Nellcor pulse oximetry sensors",
+              "lower oxygen saturation target using Nellcor pulse oximetry sensors"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology",
+              "Respiratory"
+            ]
+          },
+          {
+            "nct_id": "NCT06370481",
+            "title": "HIV, Equity, and Addiction Training (HEAT) Program",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "30",
+            "start_date": "2026-01-29",
+            "conditions": [
+              "Substance Use Disorders",
+              "Hiv",
+              "Opioid Use Disorder",
+              "Stimulant Use (Diagnosis)"
+            ],
+            "interventions": [
+              "Telemedicine",
+              "Standard of care"
+            ],
+            "therapy_areas": [
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06360536",
+            "title": "Remotely Delivered Resistance Training for Cardiometabolic Health Among Black Women",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "36",
+            "start_date": "2025-06-04",
+            "conditions": [
+              "Overweight or Obesity",
+              "Prediabetes or Diabetes",
+              "Prehypertension (Elevated Blood Pressure) or Hypertension",
+              "Resistance Training"
+            ],
+            "interventions": [
+              "Resistance Training"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology",
+              "Metabolic & Endocrine"
+            ]
+          },
+          {
+            "nct_id": "NCT07104656",
+            "title": "Bony Overlap Following Use of the Inferior Border Saw for the 'Low and Short' Sagittal Split: A Split-Mouth Study",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-01-07",
+            "conditions": [
+              "Mandibular Surgery"
+            ],
+            "interventions": [
+              "Inferior Osteotomy made by border saw",
+              "Inferior Osteotomy made with reciprocating saw"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT06976307",
+            "title": "Development of an Inclusive Adaptive Treatment Strategy for Weight Loss in People With Prediabetes Using a Sequential Multiple Assignment Randomized Trial",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "30",
+            "start_date": "2026-03",
+            "conditions": [
+              "Disabilities",
+              "Obesity and Overweight",
+              "Prediabetes"
+            ],
+            "interventions": [
+              "High Carbohydrate Diet",
+              "Reduced Carbohydrate Diet"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06925373",
+            "title": "Housing, Environment, And Living Conditions for Transformed Health",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "460",
+            "start_date": "2025-06-18",
+            "conditions": [
+              "Lung Diseases",
+              "Chronic Disease"
+            ],
+            "interventions": [
+              "Indoor Air Purification",
+              "Neighborhood Improvements",
+              "Housing Improvements"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          }
+        ],
+        "total": 110,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Cancer Institute and Hospital, Chinese Academy of Medical Sciences",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Women's Health",
+          "Vaccines",
+          "Dermatology",
+          "Cardiovascular",
+          "Hematology",
+          "Other",
+          "Renal & Urology"
+        ],
+        "phases": [
+          "Phase 2",
+          "N/A",
+          "Phase 1, Phase 2",
+          "Phase 1",
+          "EARLY/Phase 1",
+          "Phase 2, Phase 3",
+          "NA",
+          "Phase 3"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07063888",
+            "title": "A Prospective Phase II Study of Postoperative Concurrent Chemoradiotherapy in Patients With Intrahepatic Cholangiocarcinoma",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "66",
+            "start_date": "2025-05-16",
+            "conditions": [
+              "Intrahepatic Cholangiocarcinoma (Icc)",
+              "Adjuvant Chemoradiotherapy",
+              "Narrow Margin",
+              "Lymph Node Involvement"
+            ],
+            "interventions": [
+              "Adjuvant Concurrent Chemoradiotherapy with Simultaneous Integrated Boost"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07306390",
+            "title": "Distribution and Analysis of Metastatic Lymph Nodes in Colorectal Cancer Patients (DIAMOND)",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "1200",
+            "start_date": "2026-01-01",
+            "conditions": [
+              "Colon Cancer",
+              "Rectal Cancer"
+            ],
+            "interventions": [],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07429318",
+            "title": "Efficacy and Survival Analysis of Perioperative Treatment of Locally Advanced Gastric or Gastroesophageal Junction Cancer",
+            "phase": "N/A",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "300",
+            "start_date": "2026-01-01",
+            "conditions": [
+              "Locally Advanced Gastric/Gastroesophageal Junction Adenocarcinoma"
+            ],
+            "interventions": [
+              "Chemo only",
+              "Immunochemotherapy"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07435701",
+            "title": "Intraperitoneal SK-NK Cell Injection for Advanced Ovarian Cancer With Massive Ascites",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "29",
+            "start_date": "2026-01-05",
+            "conditions": [
+              "Ovarian Neoplasms Malignant",
+              "Ascites"
+            ],
+            "interventions": [
+              "SK-NK Cell Injection"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07364357",
+            "title": "A Phase I Study of CREPT-618 in Locally Advanced HCC",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "13",
+            "start_date": "2025-09-15",
+            "conditions": [
+              "Hepatocellular Carcinoma (HCC)"
+            ],
+            "interventions": [
+              "gene therapy"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07395479",
+            "title": "A Platform Study of In Vivo CAR-T for Treating Advanced Malignant Tumors Based on Target Screening",
+            "phase": "EARLY/Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "50",
+            "start_date": "2025-11-21",
+            "conditions": [
+              "Advanced Malignant Tumours"
+            ],
+            "interventions": [
+              "V001-BCMA",
+              "V001-GPRC5D",
+              "V001-DLL3"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06910072",
+            "title": "Paclitaxel Polymeric Micelles and Carboplatin in Combination With Iparomilimab and Tuvonralimab Neoadjuvant Therapy for Triple-negative Breast Cancer",
+            "phase": "Phase 2, Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "32",
+            "start_date": "2025-04-02",
+            "conditions": [
+              "Triple-Negative Breast Cancer (TNBC)",
+              "Neoadjuvant Therapy"
+            ],
+            "interventions": [
+              "paclitaxel polymeric micelles + carboplatin + iparomilimab and tuvonralimab"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07317778",
+            "title": "Chemotherapy With or Without Adebrelimab and T-DXh as Neoadjuvant Therapy for HR+/HER2 Low Early Stage Breast Cancer",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "249",
+            "start_date": "2026-02-15",
+            "conditions": [
+              "Breast Cancer Early Stage Breast Cancer (Stage 1-3)",
+              "HR Positive/HER2 Low Breast Cancer"
+            ],
+            "interventions": [
+              "SHR-A1811",
+              "Adebrelimab (PD-L1 inhibitor)",
+              "Taxane Chemotherapy",
+              "Anthracycline & Cyclophosphamide treatment scheme"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07186868",
+            "title": "QL706 + Chemo ± Bevacizumab in Anti-PD-(L)1-Resistant R/M Cervical Cancer",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "25",
+            "start_date": "2025-10-15",
+            "conditions": [
+              "Recurrent Cervical Cancer",
+              "Metastatic Cervical Cancer"
+            ],
+            "interventions": [
+              "Iparomlimab and Tuvonralimab (QL1706) + Nab-Paclitaxelwith or without Bevacizumab"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07080411",
+            "title": "the Efficacy of MR-guided Online Adaptive Radiotherapy for Locally Advanced Rectal Cancer",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "49",
+            "start_date": "2025-08-01",
+            "conditions": [
+              "Rectal Cancer",
+              "Adaptive Radiotherapy"
+            ],
+            "interventions": [
+              "short course radiotherapy using MR-linac"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 85,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Merck Sharp & Dohme LLC",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Other",
+          "Women's Health",
+          "Infectious Disease",
+          "Renal & Urology",
+          "Vaccines",
+          "Cardiovascular",
+          "Dermatology",
+          "Immunology & Inflammation",
+          "Metabolic & Endocrine",
+          "Respiratory",
+          "Neurology",
+          "Hematology",
+          "Psychiatry & Mental Health"
+        ],
+        "phases": [
+          "Phase 1, Phase 2",
+          "Phase 1",
+          "Phase 3",
+          "Phase 2",
+          "NA",
+          "Phase 4",
+          "Phase 2, Phase 3",
+          "N/A",
+          "EARLY/Phase 1"
+        ],
+        "countries": [
+          "China",
+          "United States",
+          "Australia",
+          "New Zealand",
+          "France",
+          "Israel",
+          "South Korea",
+          "Spain",
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Japan",
+          "Malaysia",
+          "Portugal",
+          "Taiwan",
+          "United Kingdom",
+          "Puerto Rico",
+          "Switzerland",
+          "Netherlands",
+          "Chile",
+          "Poland",
+          "Canada",
+          "Georgia",
+          "Moldova",
+          "Hong Kong",
+          "Thailand",
+          "Germany",
+          "Italy",
+          "Mexico",
+          "Sweden",
+          "Denmark",
+          "Norway",
+          "Turkey (Türkiye)",
+          "Ireland",
+          "Colombia",
+          "Czechia",
+          "Hungary",
+          "Singapore",
+          "Austria",
+          "Finland",
+          "Serbia",
+          "South Africa",
+          "Indonesia",
+          "Philippines",
+          "Vietnam",
+          "Greece",
+          "Peru",
+          "Guatemala",
+          "Ukraine",
+          "Slovakia",
+          "Romania",
+          "Sierra Leone",
+          "United Arab Emirates",
+          "Dominican Republic",
+          "Kenya",
+          "Uganda"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07327229",
+            "title": "A Phase Ib/II Study of ATG-022 Plus Pembrolizumab With/Without Chemotherapy in Participants With Claudin (CLDN) 18.2-positive, HER2-negative, Unresectable or Metastatic Gastric or Gastroesophageal Junction AdenocarcinomaUnresectable or Metastatic Gastric or Gastroesophageal Junction Adenocarcinoma",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "132",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Unresectable or Metastatic Gastric or Gastroesophageal Junction Adenocarcinoma"
+            ],
+            "interventions": [
+              "ATG-022",
+              "pembrolizumab/KEYTRUDA®",
+              "CAPOX"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06942741",
+            "title": "A Study to Evaluate the Effect of Formulation and Food on Calderasib (MK-1084) in Healthy Adult Participants (MK-1084-011)",
+            "phase": "Phase 1",
+            "status": "COMPLETED",
+            "enrollment": "52",
+            "start_date": "2025-05-13",
+            "conditions": [
+              "Healthy"
+            ],
+            "interventions": [
+              "Calderasib OCT",
+              "Calderasib FCT"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT06361810",
+            "title": "PSMA Therapy and Immunotherapy in Kidney Cancer",
+            "phase": "Phase 1, Phase 2",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2025-10-01",
+            "conditions": [
+              "Metastatic Renal Cell Carcinoma",
+              "Metastatic Clear Cell Renal Cell Carcinoma"
+            ],
+            "interventions": [
+              "Pembrolizumab",
+              "177Lu-PNT2002",
+              "(F-18)-DCFPyL"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07232589",
+            "title": "A Study of the Effect of Diltiazem on the Plasma Levels of Nemtabrutinib (MK-1026-022)",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "24",
+            "start_date": "2025-12-08",
+            "conditions": [
+              "Healthy"
+            ],
+            "interventions": [
+              "Nemtabrutinib",
+              "Diltiazem"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07262619",
+            "title": "EIK1005-002: A Clinical Research Study Evaluating EIK1005, a Werner Helicase Inhibitor, as Monotherapy and in Combination With Pembrolizumab in Participants With Advanced Solid Tumors Including Microsatellite Instability High (MSI-H) Tumors",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "160",
+            "start_date": "2026-01-22",
+            "conditions": [
+              "Advanced Solid Tumors",
+              "MSI-H or dMMR Advanced Solid Tumors",
+              "MSI-H/dMMR Gastric Cancer",
+              "MSI-H/dMMR Colorectal Cancer",
+              "MSI-H/dMMR Gastroesophageal-junction Cancer",
+              "Endometrial Cancer"
+            ],
+            "interventions": [
+              "EIK1005",
+              "pembrolizumab (KEYTRUDA® )"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07405177",
+            "title": "A Study of MK-7240 in Healthy Participants (MK-7240-009)",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "330",
+            "start_date": "2026-03-05",
+            "conditions": [
+              "Healthy"
+            ],
+            "interventions": [
+              "Tulisokibart Form 1",
+              "Tulisokibart Form 2"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT07232602",
+            "title": "KEYMAKER-U04 Substudy 04D: A Clinical Study of New Treatments Given With Enfortumab Vedotin and Pembrolizumab in People With Urothelial Cancer (MK-3475-04D/KEYMAKER-U04)",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "55",
+            "start_date": "2026-02-09",
+            "conditions": [
+              "Bladder Cancer"
+            ],
+            "interventions": [
+              "MK-3120",
+              "EV",
+              "Pembrolizumab",
+              "Rescue Medication"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06899126",
+            "title": "Study of Trastuzumab Deruxtecan, Pembrolizumab, and Platinum-based Chemotherapy in First-line HER2 Overexpressing Non-small Cell Lung Cancer",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "686",
+            "start_date": "2025-10-24",
+            "conditions": [
+              "Non-small Cell Lung Cancer"
+            ],
+            "interventions": [
+              "Trastuzumab Deruxtecan",
+              "pembrolizumab",
+              "Pemetrexed",
+              "Chemotherapy"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06891066",
+            "title": "A Study of Islatravir (ISL) and Ulonivirine (ULO) Once Weekly (QW) in Virologically Suppressed Adults With Human Immunodeficiency Virus Type 1 (HIV-1) (MK-8591B-060)",
+            "phase": "Phase 2",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "150",
+            "start_date": "2025-04-14",
+            "conditions": [
+              "Human Immunodeficiency Virus Type 1 (HIV-1) Infection"
+            ],
+            "interventions": [
+              "ISL",
+              "ULO",
+              "BIC/FTC/TAF"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07368985",
+            "title": "Pembrolizumab and Lenvatinib in Patients With High Risk Locally Advanced Cervix Cancer",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "87",
+            "start_date": "2026-03",
+            "conditions": [
+              "Cervical Cancer by FIGO Stage 2018",
+              "Squamous Cell Carcinoma FIGO 2018 Stage IIIA, IIIB, IIIC1-IIIC2",
+              "Adenocarcinoma or Adeno-squamous Carcinoma Stage IB3-IIIC2"
+            ],
+            "interventions": [
+              "pembrolizumab and lenvatinib"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Women's Health"
+            ]
+          }
+        ],
+        "total": 138,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Beijing GoBroad Hospital",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Dermatology",
+          "Immunology & Inflammation",
+          "Oncology",
+          "Renal & Urology",
+          "Respiratory",
+          "Vaccines",
+          "Musculoskeletal",
+          "Neurology",
+          "Other"
+        ],
+        "phases": [
+          "Phase 1, Phase 2",
+          "Phase 1",
+          "N/A",
+          "Phase 4",
+          "Phase 2",
+          "EARLY/Phase 1",
+          "NA"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06947460",
+            "title": "CD19-BCMA CART Cell Therapy for Refractory SLE-LN, SSc, and pSS-PAH",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "45",
+            "start_date": "2025-04-18",
+            "conditions": [
+              "Refractory Lupus Nephritis",
+              "Systemic Sclerosis",
+              "Primary Sjogren&#39;s Syndrome Combined With Pulmonary Hypertension"
+            ],
+            "interventions": [
+              "CD19-BCMA CAR-T cells infusion"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology",
+              "Immunology & Inflammation",
+              "Oncology",
+              "Renal & Urology",
+              "Respiratory"
+            ]
+          },
+          {
+            "nct_id": "NCT07329894",
+            "title": "Safety, Tolerance and Preliminary Efficacy of XH001 Injection Combined With Neoantigen Vaccine-induced Tumor-specific T-cell Injection in Advanced Gastrointestinal Cancer",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "18",
+            "start_date": "2026-02",
+            "conditions": [
+              "Gastrointestinal Cancer"
+            ],
+            "interventions": [
+              "XH001 injection",
+              "Tumor vaccine-induced specific T-cell injection"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07198373",
+            "title": "Exploratory Study on the Efficacy of Zebutinib as Maintenance Therapy Following CAR-T Cell Therapy in Patients With Non-Hodgkin B-Cell Lymphoma",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-09-20",
+            "conditions": [
+              "B Cell Lymphoma"
+            ],
+            "interventions": [
+              "Maintenance Therapy Group"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07167537",
+            "title": "A Study of OL-CD19-GDT in Relapsed/ Refractory Autoimmune Diseases",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "44",
+            "start_date": "2025-10",
+            "conditions": [
+              "Systemic Sclerosis (SSc)",
+              "Primary Sjogren&#39;s Syndrome"
+            ],
+            "interventions": [
+              "OL-CD19-GDT"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Immunology & Inflammation"
+            ]
+          },
+          {
+            "nct_id": "NCT07003555",
+            "title": "Dual-target BCMA-CD19 CAR-T Cell Therapy for RR/MM With Extramedullary Infiltration",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "18",
+            "start_date": "2025-05-25",
+            "conditions": [
+              "Relapsed or Refractory Multiple Myeloma (RRMM)"
+            ],
+            "interventions": [
+              "Dual-targeting BCMA-CD19 CAR-T cell infusion"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07014540",
+            "title": "A Irinotecan Liposome Trial of in Advanced Neuroendocrine Carcinoma",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "45",
+            "start_date": "2025-06-20",
+            "conditions": [
+              "Neuroendocrine Carcinomas (NEC)"
+            ],
+            "interventions": [
+              "Irinotecan Hydrochloride Liposome Injection",
+              "5-FU",
+              "LV"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07003568",
+            "title": "Dual-target BCMA-GPRC5D CAR-T Cell Therapy for RR/MM With Extramedullary Infiltration",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "18",
+            "start_date": "2025-05-25",
+            "conditions": [
+              "Relapsed or Refractory Multiple Myeloma (RRMM)"
+            ],
+            "interventions": [
+              "Dual-targeting BCMA-GPRC5D CAR-T cell infusion"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06925464",
+            "title": "CD7 CAR T-Cell Therapy for r/r T-cell Lymphomas",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "36",
+            "start_date": "2025-04-01",
+            "conditions": [
+              "T-Cell Non-Hodgkin Lymphoma",
+              "T-cell Lymphoma (PTCL and CTCL)"
+            ],
+            "interventions": [
+              "CD7 CAR-T cells infusion"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06326008",
+            "title": "Safety, Tolerability, and Pharmacokinetics of Donor-derived CD19 CAR Therapy Bridged Allo-HSCT and Sequential Donor-derived CD22 CAR Therapy for r/r B-ALL: a Clinical Trial",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "48",
+            "start_date": "2026-03-15",
+            "conditions": [
+              "B-cell Acute Lymphoblastic Leukemia",
+              "Acute Lymphoblastic Leukemia, in Relapse"
+            ],
+            "interventions": [
+              "Donor-derived CD19 CAR Therapy Bridged Allo-HSCT and Sequential Donor-derived CD22 CAR Therapy"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06951243",
+            "title": "A Trial of MHB088C in Advanced Extrapulmonary Neuroendocrine Cancer",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-05-06",
+            "conditions": [
+              "Advanced Extrapulmonary Neuroendocrine Cancer"
+            ],
+            "interventions": [
+              "MHB088C for Injection (B7-H3 ADC)"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 21,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Stanford University",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Psychiatry & Mental Health",
+          "Dermatology",
+          "Pain",
+          "Other",
+          "Hematology",
+          "Immunology & Inflammation",
+          "Metabolic & Endocrine",
+          "Neurology",
+          "Women's Health",
+          "Cardiovascular",
+          "Gastroenterology & Hepatology",
+          "Musculoskeletal",
+          "Respiratory",
+          "Renal & Urology",
+          "Vaccines",
+          "Ophthalmology",
+          "Infectious Disease",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "NA",
+          "Phase 3",
+          "Phase 2",
+          "Phase 1",
+          "N/A",
+          "EARLY/Phase 1",
+          "Phase 4",
+          "Phase 2, Phase 3",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United States",
+          "Italy",
+          "Australia",
+          "Taiwan",
+          "Canada",
+          "United States Minor Outlying Islands",
+          "Germany",
+          "Denmark",
+          "South Africa",
+          "Sweden",
+          "Puerto Rico"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07044505",
+            "title": "Molecular and Cellular Profiling of Uterine Lavage Collected During Gynecologic Surgery",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "50",
+            "start_date": "2025-09-19",
+            "conditions": [
+              "Gynecologic Cancer",
+              "Gynecologic Disease",
+              "Gynecological Surgery",
+              "Uterine Cancer"
+            ],
+            "interventions": [
+              "Uterine Lavage"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06949423",
+            "title": "Assessing the Impact of Deep TMS Neuromodulation on Neural Circuits Associated With Alcohol Use Disorder",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "100",
+            "start_date": "2025-07-01",
+            "conditions": [
+              "Alcohol Use Disorder (AUD)",
+              "Transcranial Magnetic Stimilation"
+            ],
+            "interventions": [
+              "Deep Transcranial Magnetic Stimulation (dTMS) H7 coil - Active",
+              "Deep Transcranial Magnetic Stimulation (dTMS) H7 coil - Sham"
+            ],
+            "therapy_areas": [
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06854757",
+            "title": "Families Left Behind",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "340",
+            "start_date": "2025-06-13",
+            "conditions": [
+              "Grief",
+              "Grief Disorder, Prolonged",
+              "Overdose Accidental",
+              "Substance Use Disorders"
+            ],
+            "interventions": [
+              "RIVER",
+              "Enhanced care as usual"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06741579",
+            "title": "Mechanisms of Stimulation for Pain Alleviation",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "148",
+            "start_date": "2025-09-26",
+            "conditions": [
+              "Chronic Neuropathic Pain in the Low Back and Legs",
+              "Peripheral Nerve Stimulation",
+              "Chronic Neuropathic Pain"
+            ],
+            "interventions": [
+              "Peripheral Nerve Stimulation",
+              "Conventional Care Regimen"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Pain"
+            ]
+          },
+          {
+            "nct_id": "NCT06731933",
+            "title": "Impact of COL7A1 Gene Therapy on SCC Recurrence in RDEB Skin",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "16",
+            "start_date": "2025-03-28",
+            "conditions": [
+              "Squamous Cell Carcinoma"
+            ],
+            "interventions": [
+              "BVEC"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07025330",
+            "title": "A Study of Efgartigimod in Patients With IgG4-Related Disease",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "5",
+            "start_date": "2025-11-12",
+            "conditions": [
+              "IgG4-related Disease"
+            ],
+            "interventions": [
+              "Efgartigimod"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT06551584",
+            "title": "Phase I Trial for Patients w/ Advanced Hematologic Malignancies Undergoing Allogeneic HCT",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "24",
+            "start_date": "2025-12-01",
+            "conditions": [
+              "Acute Myeloid Leukemia",
+              "Acute Lymphoid Leukemia",
+              "Mixed Phenotype Acute Leukemia",
+              "Myelodysplastic Syndromes"
+            ],
+            "interventions": [
+              "ORCA-T"
+            ],
+            "therapy_areas": [
+              "Hematology",
+              "Immunology & Inflammation",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07087015",
+            "title": "Efficacy of Cervical Sympathetic Blocks for PTSD",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "20",
+            "start_date": "2025-10",
+            "conditions": [
+              "PTSD"
+            ],
+            "interventions": [
+              "Cervical sympathetic nerve block",
+              "Subcutaneous sham injection",
+              "Ropivacaine",
+              "Normal Saline"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06989164",
+            "title": "Post Prandial Individual Responses to Different Foods",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "100",
+            "start_date": "2025-10-01",
+            "conditions": [
+              "PreDiabetes",
+              "Diabetes Mellitus, Type 2",
+              "Healthy"
+            ],
+            "interventions": [
+              "Post prandial testing"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06143202",
+            "title": "Feasibility of CGM Use in Hospitalized Youth",
+            "phase": "N/A",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "120",
+            "start_date": "2025-07-15",
+            "conditions": [
+              "Hyperglycemia"
+            ],
+            "interventions": [
+              "Freestyle Libre 3 Continuous Glucose Monitor"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine"
+            ]
+          }
+        ],
+        "total": 173,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Pfizer",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Other",
+          "Oncology",
+          "Women's Health",
+          "Dermatology",
+          "Respiratory",
+          "Infectious Disease",
+          "Vaccines",
+          "Immunology & Inflammation",
+          "Cardiovascular",
+          "Metabolic & Endocrine",
+          "Gastroenterology & Hepatology",
+          "Renal & Urology",
+          "Hematology",
+          "Neurology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 1",
+          "N/A",
+          "Phase 3",
+          "Phase 1, Phase 2",
+          "Phase 2",
+          "NA",
+          "Phase 2, Phase 3",
+          "Phase 4",
+          "EARLY/Phase 1"
+        ],
+        "countries": [
+          "Netherlands",
+          "Belgium",
+          "United States",
+          "South Korea",
+          "Canada",
+          "China",
+          "Australia",
+          "Brazil",
+          "Germany",
+          "Italy",
+          "Japan",
+          "Puerto Rico",
+          "Spain",
+          "Hungary",
+          "Mexico",
+          "Poland",
+          "Argentina",
+          "United Kingdom",
+          "Bulgaria",
+          "Czechia",
+          "Denmark",
+          "Finland",
+          "France",
+          "Greece",
+          "India",
+          "Israel",
+          "Slovakia",
+          "Sweden",
+          "Taiwan",
+          "Turkey (Türkiye)",
+          "New Zealand",
+          "Switzerland",
+          "Austria",
+          "Chile",
+          "Romania",
+          "South Africa",
+          "The Gambia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07127770",
+            "title": "A Study to Understand How the Body Processes [14C]PF-07104091 in Healthy Participants",
+            "phase": "Phase 1",
+            "status": "COMPLETED",
+            "enrollment": "9",
+            "start_date": "2025-08-28",
+            "conditions": [
+              "Healthy Adults"
+            ],
+            "interventions": [
+              "PF-07104091"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT06965465",
+            "title": "A Study to Learn How Different Amounts of the Study Medicine Called PF-07999415 Are Tolerated and Act in the Body in Healthy Adults",
+            "phase": "Phase 1",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "32",
+            "start_date": "2025-06-20",
+            "conditions": [
+              "Healthy"
+            ],
+            "interventions": [
+              "PF-07999415",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT04889495",
+            "title": "A Post-marketing Surveillance to Assess the Safety and Effectiveness of Zirabev in Domestic Patients With Various Cancer",
+            "phase": "N/A",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2025-05-16",
+            "conditions": [
+              "Non-small Cell Lung Cancer",
+              "Metastatic Colorectal Cancer",
+              "Metastatic Breast Cancer",
+              "Metastatic Kidney Cancer",
+              "Cervical Cancer",
+              "Epithelial Ovarian Cancer"
+            ],
+            "interventions": [
+              "Zirabev"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07363694",
+            "title": "A Study to Learn About the Study Medicine Called PF-07275315 in People With Moderate to Severe Chronic Obstructive Pulmonary Disease",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "1156",
+            "start_date": "2026-01-26",
+            "conditions": [
+              "Moderate to Severe Chronic Obstructive Pulmonary Disease"
+            ],
+            "interventions": [
+              "PF-07275315 dose 1",
+              "PF-07275315-dose 2",
+              "Placebo",
+              "PF-07275315-dose 3"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology",
+              "Respiratory"
+            ]
+          },
+          {
+            "nct_id": "NCT07421700",
+            "title": "A Study to Learn About PF-08634404 Alone or In Combination With Enfortumab Vedotin in Urothelial Cancer",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "132",
+            "start_date": "2026-02-27",
+            "conditions": [
+              "Urothelial Cancer",
+              "Advanced/Metastatic Urothelial Cancer",
+              "Urothelial Carcinoma"
+            ],
+            "interventions": [
+              "PF-08634404",
+              "Enfortumab Vedotin"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07300839",
+            "title": "A Study to Learn About a COVID-19 Vaccine in Healthy Adults 50 Through 64 Years of Age",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "25500",
+            "start_date": "2025-12-10",
+            "conditions": [
+              "COVID-19",
+              "SARS-COV-2 Infection"
+            ],
+            "interventions": [
+              "BNT162b2 Vaccine",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06864585",
+            "title": "A Study to Learn About the Study Medicine - Zavicefta in Patients With Sepsis or Loss of Kidney Function in Japan",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "59",
+            "start_date": "2026-03-15",
+            "conditions": [
+              "Infectious Diseases"
+            ],
+            "interventions": [
+              "Avibactam sodium/Ceftazidime hydrate"
+            ],
+            "therapy_areas": [
+              "Infectious Disease"
+            ]
+          },
+          {
+            "nct_id": "NCT07152119",
+            "title": "A Study to Learn About Litfulo Capsule in People With Severe Alopecia Areata in Routine Clinical Practice.",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "3000",
+            "start_date": "2025-08-27",
+            "conditions": [
+              "Severe Alopecia Areata"
+            ],
+            "interventions": [
+              "Litfulo"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06421675",
+            "title": "Outpatient and Intermittent Dosing of Elranatamab in Relapsed/Refractory Multiple Myeloma",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-03-28",
+            "conditions": [
+              "Refractory Multiple Myeloma"
+            ],
+            "interventions": [
+              "Elranatamab injection"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07029828",
+            "title": "A Long-Term Study to Learn About The Study Medicine Called Ritlecitinib in Children With Severe Alopecia Areata.",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "140",
+            "start_date": "2025-09-10",
+            "conditions": [
+              "Severe Alopecia Areata"
+            ],
+            "interventions": [
+              "Ritlecitinib higher dose",
+              "Ritlecitinib lower dose"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 134,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "NeoCura",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07329894",
+            "title": "Safety, Tolerance and Preliminary Efficacy of XH001 Injection Combined With Neoantigen Vaccine-induced Tumor-specific T-cell Injection in Advanced Gastrointestinal Cancer",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "18",
+            "start_date": "2026-02",
+            "conditions": [
+              "Gastrointestinal Cancer"
+            ],
+            "interventions": [
+              "XH001 injection",
+              "Tumor vaccine-induced specific T-cell injection"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07298200",
+            "title": "Clinical Trial on the Safety, Tolerance and Preliminary Efficacy of XH001 Injection Combined With Neoantigen Vaccine-induced Tumor-specific T-cell Injection in Advanced Gastric Cancer",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "18",
+            "start_date": "2025-12-26",
+            "conditions": [
+              "Advanced Gastric Cancer"
+            ],
+            "interventions": [
+              "XH001 Injection",
+              "Tumor vaccine-induced specific T-cell injection"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "GlaxoSmithKline",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Neurology",
+          "Oncology",
+          "Vaccines",
+          "Other",
+          "Women's Health",
+          "Infectious Disease",
+          "Hematology",
+          "Metabolic & Endocrine",
+          "Renal & Urology",
+          "Gastroenterology & Hepatology",
+          "Immunology & Inflammation",
+          "Respiratory",
+          "Rare & Genetic Diseases",
+          "Cardiovascular"
+        ],
+        "phases": [
+          "Phase 2",
+          "Phase 1, Phase 2",
+          "Phase 3",
+          "Phase 4",
+          "N/A",
+          "Phase 1",
+          "EARLY/Phase 1",
+          "NA"
+        ],
+        "countries": [
+          "Argentina",
+          "Australia",
+          "Canada",
+          "Finland",
+          "Norway",
+          "South Korea",
+          "Spain",
+          "Sweden",
+          "Taiwan",
+          "United Kingdom",
+          "United States",
+          "Japan",
+          "Dominican Republic",
+          "China",
+          "Italy",
+          "Brazil",
+          "Bulgaria",
+          "France",
+          "Germany",
+          "Greece",
+          "Ireland",
+          "Israel",
+          "Mexico",
+          "Poland",
+          "Portugal",
+          "Romania",
+          "Switzerland",
+          "Turkey (Türkiye)",
+          "Denmark",
+          "Belgium",
+          "Netherlands",
+          "Rwanda"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07105709",
+            "title": "Open-label Extension Study in Participants With Early Alzheimer's Disease",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "220",
+            "start_date": "2025-08-14",
+            "conditions": [
+              "Alzheimer's Disease"
+            ],
+            "interventions": [
+              "GSK4527226"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07213609",
+            "title": "A Study to Investigate the Safety and Preliminary Efficacy of GSK5460025 Alone or in Combination With Other Anti-cancer Agents in Participants With Solid Tumors",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "47",
+            "start_date": "2025-10-20",
+            "conditions": [
+              "Neoplasms, Colorectal",
+              "Neoplasms"
+            ],
+            "interventions": [
+              "GSK5460025"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06806137",
+            "title": "A Study on the Immune Response and Safety of the Second Dose of an Investigational Chickenpox Vaccine When Given to Healthy Children 3 Months After a First Dose at 12 to 15 Months of Age",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "600",
+            "start_date": "2025-05-15",
+            "conditions": [
+              "Chickenpox"
+            ],
+            "interventions": [
+              "Investigational varicella vaccine",
+              "Marketed varicella vaccine",
+              "MMR vaccine",
+              "Hepatitis A vaccine",
+              "PCV (pneumococcal conjugate vaccine) 13",
+              "PCV 20",
+              "Vaxneuvance"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07332455",
+            "title": "First-Time-in-Human Study of GSK5471713 in Adults With mCRPC",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "54",
+            "start_date": "2026-02-10",
+            "conditions": [
+              "Neoplasms, Prostate"
+            ],
+            "interventions": [
+              "GSK5471713"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT06887933",
+            "title": "A Trial to Evaluate the Safety of Niraparib Tablets in Adult Female Participants With Advanced or Relapsed Epithelial Ovarian Cancer",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "67",
+            "start_date": "2025-04-22",
+            "conditions": [
+              "Ovarian Neoplasms"
+            ],
+            "interventions": [
+              "Niraparib"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07220109",
+            "title": "A Study on the Immune Response and Safety of Vaccine Against Respiratory Syncytial Virus Given to Chinese Adults 18 to 59 Years of Age at Increased Risk of Respiratory Syncytial Virus Disease",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "750",
+            "start_date": "2025-10-29",
+            "conditions": [
+              "Respiratory Syncytial Virus Infections"
+            ],
+            "interventions": [
+              "RSVPreF3 OA vaccine",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06847867",
+            "title": "A Study of Momelotinib in Participants With Low-risk Myelodysplastic Syndrome",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "80",
+            "start_date": "2025-06-05",
+            "conditions": [
+              "Myelodysplastic Syndromes"
+            ],
+            "interventions": [
+              "Momelotinib"
+            ],
+            "therapy_areas": [
+              "Hematology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07115927",
+            "title": "pReOperative Dostarlimab and Novel Therapies in EndOmetrial Cancer",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-09-30",
+            "conditions": [
+              "Endometrial Cancer"
+            ],
+            "interventions": [
+              "Dostarlimab"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06995430",
+            "title": "A Phase 3 Study to Assess the Immune Response And Safety Of Rmenb+Omv Nz In Primed Healthy Participants (10 To 20 Years Old)",
+            "phase": "Phase 3",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "226",
+            "start_date": "2025-07-07",
+            "conditions": [
+              "Meningitis"
+            ],
+            "interventions": [
+              "rMenB+OMV NZ vaccine"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07444203",
+            "title": "Transformative Research in Diabetic Nephropathy 2.0",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "200",
+            "start_date": "2025-11-12",
+            "conditions": [
+              "Diabetic Nephropathies",
+              "Kidney Diseases",
+              "Renal Insufficiency, Chronic",
+              "Diabetes Mellitus, Type 2"
+            ],
+            "interventions": [
+              "Sodium-glucose cotransporter 2 inhibitors (SGLT2i)",
+              "Renin-angiotensin-aldosterone system blockade",
+              "Glucagon-like peptide-1 receptor agonists (GLP 1 RA)",
+              "Mineralocorticoid Receptor Antagonists(MRAs)"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Metabolic & Endocrine",
+              "Renal & Urology"
+            ]
+          }
+        ],
+        "total": 60,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Vaxcyte, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Vaccines",
+          "Infectious Disease"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07425392",
+            "title": "Safety, Tolerability, and Immunogenicity of VAX-31 in Adults ≥50 Years With Prior Pneumococcal Vaccination",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "720",
+            "start_date": "2026-02-09",
+            "conditions": [
+              "Pneumococcal Vaccines"
+            ],
+            "interventions": [
+              "31-valent pneumococcal conjugate vaccine",
+              "PCV20"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07284654",
+            "title": "Safety, Tolerability, and Immunogenicity of VAX-31 in Adults ≥50 Years With Immunobridging to Adults 18-49",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "4000",
+            "start_date": "2025-12-01",
+            "conditions": [
+              "Pneumococcal Vaccines"
+            ],
+            "interventions": [
+              "31 valent pneumococcal conjugate vaccine",
+              "PCV20",
+              "PCV21"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07365826",
+            "title": "A Clinical Study to Evaluate the Safety, Tolerability, and Immunogenicity of VAX-31 With Influenza Vaccine in Adults ≥ 50 Years of Age",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "1300",
+            "start_date": "2026-01-12",
+            "conditions": [
+              "Pneumococcal Vaccines"
+            ],
+            "interventions": [
+              "31-valent pneumococcal conjugate vaccine",
+              "Seasonal Influenza Vaccine (SIV) (Flublok)",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 3,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Vaxine Pty Ltd",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Infectious Disease",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT03038802",
+            "title": "A Randomised Controlled Phase 1 Study of Vaccine Therapy for Control or Cure of Chronic Hepatitis B Virus Infection",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Chronic Hepatitis b"
+            ],
+            "interventions": [
+              "Therapeutic hepatitis B vaccine",
+              "Commercial Hepatitis B vaccine"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Australian Respiratory and Sleep Medicine Institute",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Infectious Disease",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT03038802",
+            "title": "A Randomised Controlled Phase 1 Study of Vaccine Therapy for Control or Cure of Chronic Hepatitis B Virus Infection",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Chronic Hepatitis b"
+            ],
+            "interventions": [
+              "Therapeutic hepatitis B vaccine",
+              "Commercial Hepatitis B vaccine"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "BioNTech SE",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Vaccines",
+          "Oncology",
+          "Cardiovascular",
+          "Women's Health",
+          "Dermatology",
+          "Other"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 1, Phase 2",
+          "Phase 2",
+          "Phase 2, Phase 3",
+          "Phase 1"
+        ],
+        "countries": [
+          "United States",
+          "Canada",
+          "China",
+          "France",
+          "Georgia",
+          "Moldova",
+          "Turkey (Türkiye)",
+          "United Kingdom",
+          "Argentina",
+          "Australia",
+          "Belgium",
+          "Brazil",
+          "Denmark",
+          "Netherlands",
+          "South Korea",
+          "Taiwan",
+          "Germany",
+          "Italy",
+          "Spain",
+          "Austria",
+          "Chile",
+          "Czechia",
+          "Hungary",
+          "India",
+          "Japan",
+          "Poland",
+          "Romania",
+          "Singapore",
+          "Sweden",
+          "Democratic Republic of the Congo",
+          "South Africa",
+          "Puerto Rico"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07300839",
+            "title": "A Study to Learn About a COVID-19 Vaccine in Healthy Adults 50 Through 64 Years of Age",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "25500",
+            "start_date": "2025-12-10",
+            "conditions": [
+              "COVID-19",
+              "SARS-COV-2 Infection"
+            ],
+            "interventions": [
+              "BNT162b2 Vaccine",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06827236",
+            "title": "A Clinical Study to Find the Optimal Dose of an Investigational Treatment Called BNT323 When Used in Combination With Another Investigational Treatment, BNT327, and to Test if That Combination Treatment is Safe and Beneficial for Patients With Advanced Breast Cancer",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "380",
+            "start_date": "2025-04-23",
+            "conditions": [
+              "Locally Advanced Breast Cancer",
+              "Unresectable Breast Carcinoma",
+              "Metastatic Breast Cancer"
+            ],
+            "interventions": [
+              "BNT323",
+              "BNT327"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07255404",
+            "title": "A Clinical Trial Testing the Safety of BNT327 (an Investigational Drug) and How Well it Works When Combined With Chemotherapy for People Who Have Not Been Treated Yet for Pancreatic Cancer",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "105",
+            "start_date": "2025-12-04",
+            "conditions": [
+              "Pancreatic Ductal Adenocarcinoma (PDAC)"
+            ],
+            "interventions": [
+              "Pumitamig",
+              "Nab-paclitaxel",
+              "Gemcitabine",
+              "mFOLFIRINOX"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06340568",
+            "title": "A Clinical Study of the Anti-cancer Effects of an Investigational Therapy or Chemotherapy in Patients With Recurring Uterine Cancer",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "480",
+            "start_date": "2025-06-10",
+            "conditions": [
+              "Endometrial Cancer"
+            ],
+            "interventions": [
+              "BNT323/DB-1303",
+              "Doxorubicin",
+              "Paclitaxel",
+              "Docetaxel"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07070232",
+            "title": "A Clinical Study to Test if an Investigational Treatment Called BNT326 is Safe and Potentially Beneficial When Used Alone or in Combination With Other Investigational Treatments Such as BNT327, for People With Advanced Malignant Tumors",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "980",
+            "start_date": "2025-08-12",
+            "conditions": [
+              "Advanced Solid Tumor"
+            ],
+            "interventions": [
+              "BNT326",
+              "Pumitamig",
+              "Itraconazole",
+              "Paroxetine"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07221357",
+            "title": "A Study to Evaluate the Safety and Efficacy of Pumitamig in Combination With Chemotherapy Versus Bevacizumab in Combination With Chemotherapy in Participants With Previously Untreated, Unresectable, or Metastatic Colorectal Cancer",
+            "phase": "Phase 2, Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "990",
+            "start_date": "2025-12-31",
+            "conditions": [
+              "Untreated, Unresectable, or Metastatic Colorectal Cancer"
+            ],
+            "interventions": [
+              "Pumitamig",
+              "FOLFOX",
+              "FOLFIRI",
+              "Bevacizumab",
+              "CAPOX"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07379580",
+            "title": "A Randomized Clinical Trial Investigating the Safety, Reactogenicity, and Immunogenicity After Immunization With an mRNA-based Mpox Vaccine Candidate in Africa",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "310",
+            "start_date": "2026-02-20",
+            "conditions": [
+              "Mpox (Monkeypox)",
+              "Smallpox",
+              "Orthopoxvirus Infection"
+            ],
+            "interventions": [
+              "BNT166a",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07133750",
+            "title": "PM8002 (BNT327) in Combination With Chemotherapy in Patients With Metastatic Colorectal Cancer",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-08",
+            "conditions": [
+              "CRC (Colorectal Cancer)"
+            ],
+            "interventions": [
+              "PM8002",
+              "Chemotherapy Regimen 1",
+              "Chemotherapy Regimen 2"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07069309",
+            "title": "A Study to Learn About COVID-19 RNA-Based Variant-Adapted Vaccine Candidate(s) Against SARS-CoV-2 in Participants Ages 12 Through 64 Years Considered at Higher Risk of Severe COVID-19, and Participants Ages ≥65 Years",
+            "phase": "Phase 3",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "760",
+            "start_date": "2025-07-08",
+            "conditions": [
+              "COVID-19",
+              "SARS-COV-2 Infection"
+            ],
+            "interventions": [
+              "BNT162b2 (2025/2026 recommended SARS-CoV-2 strain)"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07173751",
+            "title": "ROSETTA Breast-01: The Effects and Safety of Pumitamig in Patients With Triple-Negative Breast Cancer",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "558",
+            "start_date": "2025-10-30",
+            "conditions": [
+              "Breast Neoplasms"
+            ],
+            "interventions": [
+              "Pumitamig",
+              "Nab-paclitaxel/Paclitaxel",
+              "Gemcitabine",
+              "Carboplatin",
+              "Eribulin",
+              "Matching placebo"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 22,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Rokote Laboratories Finland Oy",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Finland"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07416539",
+            "title": "Effect of COV2 Vaccine Formulation on the Ability to Generate Antibodies Against Coronavirus That Causes COVID-19",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "20",
+            "start_date": "2026-02-10",
+            "conditions": [
+              "COVID - 19",
+              "SARS CoV-2"
+            ],
+            "interventions": [
+              "COVID-19 Vaccines",
+              "COVID-19 Vaccines"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Oy Medfiles Ltd",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Finland"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07416539",
+            "title": "Effect of COV2 Vaccine Formulation on the Ability to Generate Antibodies Against Coronavirus That Causes COVID-19",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "20",
+            "start_date": "2026-02-10",
+            "conditions": [
+              "COVID - 19",
+              "SARS CoV-2"
+            ],
+            "interventions": [
+              "COVID-19 Vaccines",
+              "COVID-19 Vaccines"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Estimates OY",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Vaccines",
+          "Dermatology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 2"
+        ],
+        "countries": [
+          "Finland"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07416539",
+            "title": "Effect of COV2 Vaccine Formulation on the Ability to Generate Antibodies Against Coronavirus That Causes COVID-19",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "20",
+            "start_date": "2026-02-10",
+            "conditions": [
+              "COVID - 19",
+              "SARS CoV-2"
+            ],
+            "interventions": [
+              "COVID-19 Vaccines",
+              "COVID-19 Vaccines"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07352800",
+            "title": "Safety of Antithrombotic Heparin Proteoglycan Mimetic APAC in Peripheral Arterial Occlusive Disease and Chronic Limb-threatening Ischemia",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "42",
+            "start_date": "2026-01-29",
+            "conditions": [
+              "Peripheral Arterial Occlusive Disease",
+              "Chronic Limb-Threatening Ischemia"
+            ],
+            "interventions": [
+              "APAC - dose level 0.50 mg/kg,",
+              "Unfractionated heparin (UFH)",
+              "APAC dose level 1: 0.25 mg/kg,",
+              "Vehicle (sterile saline, NaCL 0.9%)",
+              "APAC dose level 2: 0.50 mg/kg,",
+              "APAC (single periprocedural dose)",
+              "APAC"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Tor Biering-Sørensen",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Oncology",
+          "Infectious Disease",
+          "Vaccines",
+          "Neurology",
+          "Dermatology",
+          "Musculoskeletal"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 4",
+          "NA"
+        ],
+        "countries": [
+          "Denmark"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06694727",
+            "title": "A Danish Pragmatic Randomized Trial of Nutritional Supplements in Heart Failure",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "4044",
+            "start_date": "2025-09-30",
+            "conditions": [
+              "Heart Failure"
+            ],
+            "interventions": [
+              "Coenzyme Q10 100 Milligrams Oral Capsule",
+              "Selenium 100 Micrograms Oral Tablets"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06506812",
+            "title": "Pooled Analysis of Methodologically Harmonized Pragmatic Randomized Trials of High-Dose vs. Standard-Dose Influenza Vaccine Against Severe Clinical Outcomes",
+            "phase": "Phase 4",
+            "status": "COMPLETED",
+            "enrollment": "466320",
+            "start_date": "2025-05-31",
+            "conditions": [
+              "Influenza"
+            ],
+            "interventions": [
+              "High-Dose Influenza Vaccine",
+              "Standard-Dose Influenza Vaccine"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07485283",
+            "title": "Recombinant Herpes Zoster Vaccine for Prevention of Cardiovascular Events and Dementia",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "162000",
+            "start_date": "2026-03",
+            "conditions": [
+              "Cardiovascular Disease",
+              "Dementia"
+            ],
+            "interventions": [
+              "Recombinant Herpes Zoster Vaccine (Shingrix)"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Neurology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07279766",
+            "title": "Effectiveness of mRNA-1273 Variant-Containing Vaccine Formulation Against Severe Outcomes in Adults Aged 50-64 Years Without Risk Factors for Severe COVID-19",
+            "phase": "Phase 4",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "285000",
+            "start_date": "2025-12-11",
+            "conditions": [
+              "COVID-19"
+            ],
+            "interventions": [
+              "mRNA-1273 (Moderna COVID-19 vaccine)"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06952140",
+            "title": "Hemodynamic Effects of Ketone Esters in Patients With Sepsis Induced Cardiomyopathy",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "12",
+            "start_date": "2026-03-10",
+            "conditions": [
+              "Sepsis Induced Cardiomyopathy"
+            ],
+            "interventions": [
+              "Ketone ester",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology",
+              "Infectious Disease",
+              "Musculoskeletal"
+            ]
+          }
+        ],
+        "total": 5,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Changchun BCHT Biotechnology Co.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Vaccines",
+          "Dermatology",
+          "Infectious Disease",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 1",
+          "Phase 4"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07112144",
+            "title": "Adsorption of Cell-free Diphtheria and Tetanus (Three-component) Combined With Vaccine Phase III Clinical Trial",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "1650",
+            "start_date": "2025-06-13",
+            "conditions": [
+              "Prevent Whooping Cough",
+              "Prevent Diphtheria",
+              "Prevent Tetanus"
+            ],
+            "interventions": [
+              "DTacP",
+              "DTaP",
+              "DTacP-IPV/Hib"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07133802",
+            "title": "Clinical Trial to Evaluate the Protective Efficacy and Safety of a Nasal Spray Live Attenuated Influenza Vaccine (LAIV) in Adults Aged 18-59 Years Post-Vaccination",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "6680",
+            "start_date": "2025-08",
+            "conditions": [
+              "Prevention of Influenza"
+            ],
+            "interventions": [
+              "Placebo Group",
+              "Test Group"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07330440",
+            "title": "A Phase I Study to Evaluate the Safety, Tolerability, and Immunogenicity of an mRNA Vaccine Against Herpes Simplex Virus Type 2 (HSV-2) Post-Vaccination",
+            "phase": "Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "144",
+            "start_date": "2025-10-13",
+            "conditions": [
+              "Genital Herpes"
+            ],
+            "interventions": [
+              "Low-Dose Cohort",
+              "Mid-Dose Cohort",
+              "High-Dose Cohort",
+              "Placebo Group"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07338786",
+            "title": "A Phase I Clinical Trial to Evaluate the Safety of Different Immunization Schedules of a Lyophilized Human Rabies Vaccine (Human Diploid Cell)",
+            "phase": "Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "80",
+            "start_date": "2025-09-13",
+            "conditions": [
+              "RabiesPrevention"
+            ],
+            "interventions": [
+              "Lyophilized Human Rabies Vaccine (Human Diploid Cell)"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07349017",
+            "title": "A Phase I Trial to Evaluate the Safety and Immunogenicity of Influenza Virus Split Vaccine (Adjuvant)",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "160",
+            "start_date": "2026-02-07",
+            "conditions": [
+              "Influenza"
+            ],
+            "interventions": [
+              "influenza vaccine（BK01 adjuvnat）",
+              "approved influenza vaccine",
+              "adjuvant placebo",
+              "placebo"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06961721",
+            "title": "A Multicenter, Randomized, Double-Blind, Placebo-Controlled Phase IV Clinical Trial to Evaluate the Immunogenicity and Safety of a Live Attenuated Herpes Zoster Vaccine in Adults Aged 40 Years and Older",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "600",
+            "start_date": "2025-05",
+            "conditions": [
+              "Prevention of Herpes Zoster"
+            ],
+            "interventions": [
+              "Herpes Zoster Vaccine, Live",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 6,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Shanghai United Cell Biotechnology Co., Ltd",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Infectious Disease",
+          "Oncology",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 4"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07300462",
+            "title": "A Post-marketing Observational Study of Oral Cholera Vaccine",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "6000",
+            "start_date": "2026-03",
+            "conditions": [
+              "Diarrhea"
+            ],
+            "interventions": [
+              "Recombinant subunit B/bacterial cholera vaccine (enteric-coated capsules)",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "ModernaTX, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Vaccines",
+          "Oncology",
+          "Neurology",
+          "Dermatology"
+        ],
+        "phases": [
+          "Phase 4",
+          "Phase 3",
+          "Phase 2",
+          "Phase 1",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United States",
+          "Denmark",
+          "Argentina",
+          "Australia",
+          "Chile",
+          "South Korea",
+          "Taiwan",
+          "Turkey (Türkiye)",
+          "South Africa",
+          "United Kingdom"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07266558",
+            "title": "A Study to Evaluate the Efficacy and Safety of mRNA-1283 and mRNA-1273 in Participants 50 to 64 Years of Age Without High-Risk Conditions for Severe Coronavirus Disease 2019 (COVID-19)",
+            "phase": "Phase 4",
+            "status": "RECRUITING",
+            "enrollment": "30000",
+            "start_date": "2025-11-26",
+            "conditions": [
+              "SARS-CoV-2"
+            ],
+            "interventions": [
+              "mRNA-1273",
+              "mRNA-1283",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07089706",
+            "title": "A Study to Evaluate the Immunogenicity and Safety of mRNA-1283 COVID-19 Variant-containing Formulations",
+            "phase": "Phase 4",
+            "status": "RECRUITING",
+            "enrollment": "832",
+            "start_date": "2025-07-21",
+            "conditions": [
+              "COVID-19"
+            ],
+            "interventions": [
+              "mRNA-1283.251 Variant-containing Formulation"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07117487",
+            "title": "A Study of mRNA-1345 Following a Primary Dose of a Licensed Protein Subunit Respiratory Syncytial Virus (RSV) Vaccine in Adult Participants ≥60 Years of Age",
+            "phase": "Phase 3",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "507",
+            "start_date": "2025-08-05",
+            "conditions": [
+              "Respiratory Syncytial Virus"
+            ],
+            "interventions": [
+              "mRNA-1345"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07279766",
+            "title": "Effectiveness of mRNA-1273 Variant-Containing Vaccine Formulation Against Severe Outcomes in Adults Aged 50-64 Years Without Risk Factors for Severe COVID-19",
+            "phase": "Phase 4",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "285000",
+            "start_date": "2025-12-11",
+            "conditions": [
+              "COVID-19"
+            ],
+            "interventions": [
+              "mRNA-1273 (Moderna COVID-19 vaccine)"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07221474",
+            "title": "A Study of V940/Placebo + Pembrolizumab and Chemotherapy in Metastatic Squamous Non-Small Cell Lung Cancer (V940-013)",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "180",
+            "start_date": "2025-12-12",
+            "conditions": [
+              "Squamous Non-small Cell Lung Cancer"
+            ],
+            "interventions": [
+              "V940",
+              "Pembrolizumab",
+              "Carboplatin",
+              "Paclitaxel",
+              "Nab-paclitaxel",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06694753",
+            "title": "Safety and Immunogenicity Study of Three mRNAs Encoding HIV Immunogens in Adult Participants Without HIV and in Overall Good Health in South Africa.",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "96",
+            "start_date": "2025-12-15",
+            "conditions": [
+              "HIV Infections"
+            ],
+            "interventions": [
+              "mRNA-1645-eODGT8",
+              "mRNA-1645-CoreG28v2",
+              "mRNA-1645-N332GT5",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06735248",
+            "title": "A Study to Investigate Multiple Sclerosis Relapse Prevention With mRNA-1195 Compared With Placebo in Participants Aged 18 to ≤55 Years",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "180",
+            "start_date": "2025-04-16",
+            "conditions": [
+              "Multiple Sclerosis"
+            ],
+            "interventions": [
+              "mRNA-1195",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT06946225",
+            "title": "ACTengine® IMA203 Combined With mRNA-4203",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "15",
+            "start_date": "2025-07-25",
+            "conditions": [
+              "Cutaneous Melanoma",
+              "Synovial Sarcoma"
+            ],
+            "interventions": [
+              "IMA203",
+              "mRNA-4203"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07116616",
+            "title": "A Study of mRNA-2808 in Participants With Relapsed or Refractory Multiple Myeloma",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "166",
+            "start_date": "2025-09-30",
+            "conditions": [
+              "Relapsed or Refractory Multiple Myeloma"
+            ],
+            "interventions": [
+              "mRNA-2808"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06880549",
+            "title": "A Study of mRNA-4106 Administered Alone and in Combination With Immune Checkpoint Blockade in Participants With Solid Tumors",
+            "phase": "Phase 1",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "57",
+            "start_date": "2025-03-25",
+            "conditions": [
+              "Advanced Solid Tumors"
+            ],
+            "interventions": [
+              "mRNA-4106",
+              "Nivolumab/Relatlimab"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 11,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "GC Biopharma Corp",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Vaccines",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "Argentina",
+          "South Korea",
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07054099",
+            "title": "A Study to Evaluate Immunogenicity and Safety After the First and Second Doses of MG1111 (BARYCELA Inj.) in Healthy Children Aged 12 Months to 12 Years",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "474",
+            "start_date": "2026-03",
+            "conditions": [
+              "Varicella (Chickenpox)",
+              "Chickenpox Vaccine"
+            ],
+            "interventions": [
+              "MG1111 (Barycela inj.)",
+              "VARIVAX™"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06858397",
+            "title": "A proof-of Concept Study to Assess Safety and Tolerability of HM15421/GC1134A in Patients With Fabry Disease",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "18",
+            "start_date": "2025-05-14",
+            "conditions": [
+              "Fabry Disesase"
+            ],
+            "interventions": [
+              "HM15421/GC1134A"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT06997627",
+            "title": "A Phase I/II Study to Evaluate the Safety and Immunogenicity of GC3111B in Healthy Adults",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "120",
+            "start_date": "2025-06-05",
+            "conditions": [
+              "Tetanus-diphtheria-acellular Pertussis (Tdap)"
+            ],
+            "interventions": [
+              "GC3111B",
+              "Boostrix®"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 3,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Sinovac Biotech Co., Ltd",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Vaccines",
+          "Infectious Disease",
+          "Oncology",
+          "Dermatology"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 2",
+          "Phase 3",
+          "Phase 1, Phase 2",
+          "Phase 4"
+        ],
+        "countries": [
+          "China",
+          "Pakistan",
+          "Philippines"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07418229",
+            "title": "Study to Evaluate the Safety of a Lyophilized RSV mRNA Vaccine",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "60",
+            "start_date": "2026-03-09",
+            "conditions": [
+              "RSV",
+              "mRNA Vaccine"
+            ],
+            "interventions": [
+              "Low-dose RSV mRNA vaccine",
+              "High-dose RSV mRNA vaccine",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07055880",
+            "title": "Immunogenicity and Safety of Different Dosages of Rabies Vaccine (Serum-free Vero Cell)",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "120",
+            "start_date": "2025-07-28",
+            "conditions": [
+              "Rabies"
+            ],
+            "interventions": [
+              "Rabies Vaccine (Serum-free Vero Cell), Freeze-dried",
+              "Verorab®"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07211152",
+            "title": "Influenza Vaccine (Split Virion), Inactivated, Quadrivalent in Pregnant Women",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "150",
+            "start_date": "2025-10-13",
+            "conditions": [
+              "Influenza"
+            ],
+            "interventions": [
+              "Participants will receive one dose of vaccine (0.5 mL) of Sinovac QIV",
+              "Vaxigrip QIV"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07400003",
+            "title": "Study to Evaluate the Safety and Immunogenicity of a Lyophilized Herpes Zoster Virus mRNA Vaccine",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "519",
+            "start_date": "2026-01-06",
+            "conditions": [
+              "Herpes Zoster",
+              "mRNA Vaccine"
+            ],
+            "interventions": [
+              "Low-dose experimental vaccine",
+              "High-dose experimental vaccine",
+              "Active-controlled vaccine A",
+              "Active-controlled vaccine B",
+              "Placebo group"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07416110",
+            "title": "Phase IIIb Clinical Trial to Evaluate Lot-to-lot Consistency of Sinovac Rabies Vaccine",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "912",
+            "start_date": "2026-03-04",
+            "conditions": [
+              "Rabies (Healthy Volunteers)"
+            ],
+            "interventions": [
+              "Sinovac rabies vaccine"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07354269",
+            "title": "Phase IV Clinical Study of sIPV Administration in Adolescent and Adult Populations",
+            "phase": "Phase 4",
+            "status": "RECRUITING",
+            "enrollment": "180",
+            "start_date": "2025-09-26",
+            "conditions": [
+              "Poliomyelitis"
+            ],
+            "interventions": [
+              "sIPV",
+              "DTaP-IPV-Hib"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07055295",
+            "title": "Immunogenicity and Safety of Rabies Vaccine (Serum-free Vero Cell) in a Pre-exposure Prophylaxis Regimen",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "390",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Rabies"
+            ],
+            "interventions": [
+              "Rabies Vaccine (Serum-free Vero Cell), Freeze-dried",
+              "Verorab®"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07055893",
+            "title": "Immunogenicity and Safety of Rabies Vaccine (Serum-free Vero Cell) in a Simulated Post-exposure Prophylaxis Regimen",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "390",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Rabies (Healthy Volunteers)"
+            ],
+            "interventions": [
+              "Rabies vaccine",
+              "Verorab®"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07457060",
+            "title": "Phase IV Clinical Study of Sequential Vaccination of Sabin Strain and Wild Strain Inactivated Poliovirus Vaccine",
+            "phase": "Phase 4",
+            "status": "RECRUITING",
+            "enrollment": "480",
+            "start_date": "2025-11-27",
+            "conditions": [
+              "Poliomyelitis"
+            ],
+            "interventions": [
+              "2wIPV+1sIPV",
+              "1wIPV+2sIPV",
+              "3wIPV",
+              "3sIPV"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 9,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Neukio Biotherapeutics (Shanghai) Co., Ltd.",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Oncology",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1",
+          "EARLY/Phase 1"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07366658",
+            "title": "Safety, Tolerability and Preliminary Efficacy of NEUK203-13 in Refractory Neuroendocrine Tumor Patients",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "9",
+            "start_date": "2026-02-20",
+            "conditions": [
+              "SCLC, Extensive Stage",
+              "Neuroendocrine Tumors"
+            ],
+            "interventions": [
+              "Biological/Vaccine: NK Cell Therapy Product Derived from Induced Pluripotent Stem Cells (iPSCs) Engineered with Anti-DLL3 CAR Construct, Followed by Differentiation and Expansion"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07144462",
+            "title": "A Study to Evaluate the Safety, Tolerability, and Preliminary Efficacy of NEUK203-215 Injection in Adult Chinese Patients With Relapsed/Refractory Autoimmune Diseases",
+            "phase": "EARLY/Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "8",
+            "start_date": "2025-09-04",
+            "conditions": [
+              "Autoimmune"
+            ],
+            "interventions": [
+              "Fludarabine",
+              "Cyclophosphamide (C)",
+              "NEUK203-215 Injection"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Biogenea Pharmaceuticals Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Oncology",
+          "Respiratory",
+          "Vaccines",
+          "Women's Health",
+          "Dermatology"
+        ],
+        "phases": [
+          "EARLY/Phase 1"
+        ],
+        "countries": [
+          "Greece"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07316361",
+            "title": "GYNORYLAQ™-VLINIVAL™: Ψ-Guided Personalized Neoantigen Peptide Vaccine for High-Risk Endometrial Cancer",
+            "phase": "EARLY/Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "40",
+            "start_date": "2026-02-02",
+            "conditions": [
+              "Endometrial Carcinoma",
+              "Endometrial Carcinoma Stage III"
+            ],
+            "interventions": [
+              "• Biological: GYNORYLAQ-TM Personalized Neoantigenic Peptide Vaccine"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Oncology",
+              "Respiratory",
+              "Vaccines",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07077616",
+            "title": "Clinical Study for the Safety and Therapeutic Efficacy of the AI-QMMM Designed TamavaqTM Personalised Vaccine in Patients With Newly Diagnosed Glioma.",
+            "phase": "EARLY/Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "29",
+            "start_date": "2025-07-01",
+            "conditions": [
+              "Glioma"
+            ],
+            "interventions": [
+              "Biological: personalized vaccine Based on genetic and transcriptional sequencing information, personalized peptide vaccines would be designed and produced;"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07285434",
+            "title": "Clinical Study of the Therapeutic Effectiveness of In-silico-Designed, Machine Learning Inspired, and Quantum-molecularly Coupled Personalized Neoantigenic Vaccines Microlyvaq™ in Patients With Advanced Non-small Cell Lung Cancer",
+            "phase": "EARLY/Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "90",
+            "start_date": "2026-02-02",
+            "conditions": [
+              "NSCLC (Non-small Cell Lung Cancer)",
+              "Squamous Lung Cancer With FGFR1 Amplification",
+              "Non-Squamous Non Small Cell Lung Cancer"
+            ],
+            "interventions": [
+              "Microlyvaq™ (Personalized Multi-Epitope Immunotherapeutic)"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07328087",
+            "title": "COLONYVAQ™, a Quantum-Classical Guided Personalized Neoantigen Vaccine for MSS Stage III Colorectal Cancer",
+            "phase": "EARLY/Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "12",
+            "start_date": "2026-02-02",
+            "conditions": [
+              "Colorectal Cancer Metastatic",
+              "Colorectal Cancer Stage III",
+              "Colorectal Cancer Stage IV"
+            ],
+            "interventions": [
+              "Experimental: COLONYVAQ-CRC + mFOLFOX6 or CAPOX + Nivolumab"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 4,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Coalition for Epidemic Preparedness Innovations",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Oncology",
+          "Vaccines",
+          "Dermatology"
+        ],
+        "phases": [
+          "Phase 2",
+          "N/A"
+        ],
+        "countries": [
+          "Democratic Republic of the Congo",
+          "South Africa",
+          "Brazil"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07379580",
+            "title": "A Randomized Clinical Trial Investigating the Safety, Reactogenicity, and Immunogenicity After Immunization With an mRNA-based Mpox Vaccine Candidate in Africa",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "310",
+            "start_date": "2026-02-20",
+            "conditions": [
+              "Mpox (Monkeypox)",
+              "Smallpox",
+              "Orthopoxvirus Infection"
+            ],
+            "interventions": [
+              "BNT166a",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07163845",
+            "title": "Assessment of Chikungunya Virus Seroprevalence Before VLA1553 Vaccination in the Municipalities Selected for Participation in the VLA1553 Pilot Vaccination Strategy in Brazil",
+            "phase": "N/A",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "5354",
+            "start_date": "2025-09-22",
+            "conditions": [
+              "Chikungunya Virus Infection"
+            ],
+            "interventions": [
+              "Live-attenuated CHIKV vaccine VLA1553"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07347002",
+            "title": "Observational Study to Assess the Effectiveness of VLA1553 Vaccine in Preventing Chikungunya During a Pilot Vaccination Strategy in Brazil",
+            "phase": "N/A",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "1200",
+            "start_date": "2026-02-02",
+            "conditions": [
+              "Chikungunya Virus Infection"
+            ],
+            "interventions": [
+              "Live-attenuated CHIKV vaccine VLA1553"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07254702",
+            "title": "Prospective Safety Cohort Study After VLA1553 Vaccination in Municipalities Selected for Participation in the VLA1553 Pilot Vaccination Strategy in Brazil",
+            "phase": "N/A",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "5000",
+            "start_date": "2026-02-02",
+            "conditions": [
+              "Chikungunya Virus Infection"
+            ],
+            "interventions": [
+              "Live-attenuated CHIKV vaccine VLA1553"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 4,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Leiden University",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Dermatology",
+          "Neurology",
+          "Oncology",
+          "Other",
+          "Infectious Disease",
+          "Vaccines"
+        ],
+        "phases": [
+          "NA",
+          "Phase 1"
+        ],
+        "countries": [
+          "Germany",
+          "Netherlands",
+          "Spain",
+          "United Kingdom",
+          "Italy"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07294794",
+            "title": "Personalised Pharmacometabolomic-guided Strategy Trial to Optimise Treatment for Hypertension",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "400",
+            "start_date": "2026-01-19",
+            "conditions": [
+              "Hypertension"
+            ],
+            "interventions": [
+              "Standard of Care (SOC)",
+              "Pharmacometabolomic approach"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06356961",
+            "title": "Routine Outcome Monitoring and Feedback Informed Therapy in Italy",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "180",
+            "start_date": "2025-03-25",
+            "conditions": [
+              "Feedback, Psychological"
+            ],
+            "interventions": [
+              "(Feedback Informed Therapy) with Clinical Support Tools and ah hoc training",
+              "Feedback and ROM (basic)"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT06862453",
+            "title": "Safety, Tolerability and Efficacy Against Controlled Human Malaria Infection of PfSPZ-LARC2 Vaccine in Malaria-naïve Adults",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "58",
+            "start_date": "2026-03",
+            "conditions": [
+              "Malaria Falciparum"
+            ],
+            "interventions": [
+              "Normal Saline (Placebo)",
+              "PfSPZ-LARC2 Vaccine",
+              "PfSPZ Challenge (NF54)"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07157358",
+            "title": "Online Medical Hypnosis Exercises to Improve Mental Health in Primary School Children and Prevent Future Mental Health Issues",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "345",
+            "start_date": "2025-07-31",
+            "conditions": [
+              "Healty Volunteers"
+            ],
+            "interventions": [
+              "standardized audio hypnosis recordings for healthy children at primary school"
+            ],
+            "therapy_areas": [
+              "Dermatology"
+            ]
+          }
+        ],
+        "total": 4,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Sanaria Inc.",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Infectious Disease",
+          "Oncology",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1, Phase 2",
+          "Phase 1"
+        ],
+        "countries": [
+          "Germany"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT05441410",
+            "title": "Comparing Safety and Protective Efficacy of Vaccine Candidate PfSPZ-CVac and MVA ME-TRAP/ ChAd63 ME-TRAP in Adults",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "30",
+            "start_date": "2025-06-01",
+            "conditions": [
+              "Malaria"
+            ],
+            "interventions": [
+              "Pyronaridine Tetraphosphate, Artesunate Drug Combination",
+              "PfSPZ Challenge (NF54)",
+              "MVA ME-TRAP",
+              "ChAd63 ME-TRAP",
+              "Sodium chloride (NaCl) 0.9%"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06862453",
+            "title": "Safety, Tolerability and Efficacy Against Controlled Human Malaria Infection of PfSPZ-LARC2 Vaccine in Malaria-naïve Adults",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "58",
+            "start_date": "2026-03",
+            "conditions": [
+              "Malaria Falciparum"
+            ],
+            "interventions": [
+              "Normal Saline (Placebo)",
+              "PfSPZ-LARC2 Vaccine",
+              "PfSPZ Challenge (NF54)"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Aramis Biotechnologies Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Infectious Disease",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "Canada"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07291635",
+            "title": "Phase 1/2 Study of a Plant-Based Seasonal Recombinant Trivalent VLP Influenza Vaccine",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "728",
+            "start_date": "2026-02-25",
+            "conditions": [
+              "Influenza"
+            ],
+            "interventions": [
+              "Recombinant Influenza vaccine candidate",
+              "Commercial Influenza vaccine"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Apollo Therapeutics Ltd",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Vaccines",
+          "Cardiovascular",
+          "Dermatology",
+          "Respiratory"
+        ],
+        "phases": [
+          "EARLY/Phase 1",
+          "Phase 2"
+        ],
+        "countries": [
+          "Australia",
+          "United Kingdom"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07399132",
+            "title": "A Study of APL-10456-Vaccine",
+            "phase": "EARLY/Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "144",
+            "start_date": "2026-02-16",
+            "conditions": [
+              "Rhinovirus"
+            ],
+            "interventions": [
+              "APL-10456-Vaccine",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06846554",
+            "title": "A Trial of \"APL-9796'' in Adults With Pulmonary Hypertension",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "48",
+            "start_date": "2025-04-09",
+            "conditions": [
+              "Pulmonary Arterial Hypertension"
+            ],
+            "interventions": [
+              "APL-9796",
+              "APL-9796"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology",
+              "Respiratory"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "https://interonco.gr/en/",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Vaccines"
+        ],
+        "phases": [
+          "EARLY/Phase 1"
+        ],
+        "countries": [
+          "Greece"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07285434",
+            "title": "Clinical Study of the Therapeutic Effectiveness of In-silico-Designed, Machine Learning Inspired, and Quantum-molecularly Coupled Personalized Neoantigenic Vaccines Microlyvaq™ in Patients With Advanced Non-small Cell Lung Cancer",
+            "phase": "EARLY/Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "90",
+            "start_date": "2026-02-02",
+            "conditions": [
+              "NSCLC (Non-small Cell Lung Cancer)",
+              "Squamous Lung Cancer With FGFR1 Amplification",
+              "Non-Squamous Non Small Cell Lung Cancer"
+            ],
+            "interventions": [
+              "Microlyvaq™ (Personalized Multi-Epitope Immunotherapeutic)"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Universitätsklinikum Tübingen, Institut für Tropenmedizin Wilhelmstrasse",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Infectious Disease",
+          "Oncology",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Germany"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06862453",
+            "title": "Safety, Tolerability and Efficacy Against Controlled Human Malaria Infection of PfSPZ-LARC2 Vaccine in Malaria-naïve Adults",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "58",
+            "start_date": "2026-03",
+            "conditions": [
+              "Malaria Falciparum"
+            ],
+            "interventions": [
+              "Normal Saline (Placebo)",
+              "PfSPZ-LARC2 Vaccine",
+              "PfSPZ Challenge (NF54)"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "UCLA David Geffen School of Medicine and Fielding School of Public Health",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Infectious Disease",
+          "Oncology",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Germany"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06862453",
+            "title": "Safety, Tolerability and Efficacy Against Controlled Human Malaria Infection of PfSPZ-LARC2 Vaccine in Malaria-naïve Adults",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "58",
+            "start_date": "2026-03",
+            "conditions": [
+              "Malaria Falciparum"
+            ],
+            "interventions": [
+              "Normal Saline (Placebo)",
+              "PfSPZ-LARC2 Vaccine",
+              "PfSPZ Challenge (NF54)"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Interbalkan Medical Center, Thessaloniki, Greece",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Vaccines"
+        ],
+        "phases": [
+          "EARLY/Phase 1"
+        ],
+        "countries": [
+          "Greece"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07328087",
+            "title": "COLONYVAQ™, a Quantum-Classical Guided Personalized Neoantigen Vaccine for MSS Stage III Colorectal Cancer",
+            "phase": "EARLY/Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "12",
+            "start_date": "2026-02-02",
+            "conditions": [
+              "Colorectal Cancer Metastatic",
+              "Colorectal Cancer Stage III",
+              "Colorectal Cancer Stage IV"
+            ],
+            "interventions": [
+              "Experimental: COLONYVAQ-CRC + mFOLFOX6 or CAPOX + Nivolumab"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Shanghai Yuguan Biotech Co., Ltd.（Delonix Bioworks)",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07395739",
+            "title": "A Phase I Clinical Trial to Assess the Safety and Immunogenicity of DX-104",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "30",
+            "start_date": "2026-02-24",
+            "conditions": [
+              "Neisseria Meningitidis Serogroup B"
+            ],
+            "interventions": [
+              "Bexsero®",
+              "Group B Meningococcal OMV Vaccine"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      }
+    ],
+    "contacts": []
+  },
+  {
     "id": "cmp_1774079653019",
     "name": "Vacinnes_Feb2026",
     "owner": "Parth",
