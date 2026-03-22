@@ -1486,16 +1486,43 @@ function generateAllDrafts() {
 }
 
 // ── Find primary trial (matching campaign focus area) + other programmes ──
+// Company objects from the dashboard have:
+//   { name, therapy_areas: [...], trials: [{nct_id, title, phase, enrollment, conditions, interventions, therapy_areas}, ...] }
+// We pick the best individual TRIAL as the primary, and gather others.
 function findTrialsForContact(campaign, contact) {
   const companies = campaign.companies || [];
-  const allTrials = companies.filter(co => companyMatch(contact.company, coName(co)));
+  const matchedCompanies = companies.filter(co => companyMatch(contact.company, coName(co)));
+  if (matchedCompanies.length === 0) return { primary: {}, others: [] };
+
+  // Flatten all individual trials from matched companies
+  let allTrials = [];
+  matchedCompanies.forEach(co => {
+    const trials = co.trials || [];
+    if (trials.length > 0) {
+      trials.forEach(t => allTrials.push({
+        nct_id: t.nct_id || '', title: t.title || '', phase: t.phase || '',
+        enrollment: t.enrollment || '', conditions: t.conditions || [],
+        interventions: t.interventions || [], therapy_areas: t.therapy_areas || co.therapy_areas || [],
+        _companyName: coName(co), _companyObj: co
+      }));
+    } else {
+      // Legacy: company without trials array — treat the company itself as a single "trial"
+      allTrials.push({
+        nct_id: co.nct_id || '', title: co.title || '', phase: (co.phases || [])[0] || co.phase || '',
+        enrollment: co.enrollment || '', conditions: co.conditions || [],
+        interventions: co.interventions || [], therapy_areas: co.therapy_areas || [],
+        _companyName: coName(co), _companyObj: co
+      });
+    }
+  });
+
   if (allTrials.length === 0) return { primary: {}, others: [] };
   if (allTrials.length === 1) return { primary: allTrials[0], others: [] };
 
   // Determine effective focus area
   let focusArea = (campaign.area || '').toLowerCase().trim();
 
-  // Auto-detect: find most common therapy area among all campaign trials
+  // Auto-detect: most common therapy area across ALL campaign companies
   if (!focusArea) {
     const areaCounts = {};
     companies.forEach(co => {
@@ -1508,19 +1535,19 @@ function findTrialsForContact(campaign, contact) {
     if (sorted.length) focusArea = sorted[0][0];
   }
 
-  // Score each trial: higher = better match to focus area
+  // Score each trial: higher = better match to campaign focus area
   let primary = allTrials[0];
   if (focusArea) {
-    const scored = allTrials.map(co => {
-      const trialAreas = (co.therapy_areas || []).map(a => a.toLowerCase().trim());
+    const scored = allTrials.map(t => {
+      const trialAreas = (t.therapy_areas || []).map(a => a.toLowerCase().trim());
       const match = trialAreas.some(a => a.includes(focusArea) || focusArea.includes(a));
-      return { co, score: match ? 1 : 0 };
+      return { t, score: match ? 1 : 0 };
     });
     scored.sort((a, b) => b.score - a.score);
-    primary = scored[0].co;
+    primary = scored[0].t;
   }
 
-  const others = allTrials.filter(co => co !== primary);
+  const others = allTrials.filter(t => t !== primary);
   return { primary, others };
 }
 
@@ -1550,22 +1577,30 @@ function buildOtherProgrammesLine(others, company) {
 
 function buildDrafts(ct, co, otherTrials, campaignArea) {
   const firstName    = ct.name.split(' ')[0] || ct.name;
-  const company      = ct.company || coName(co) || 'your company';
+  // co is now an individual trial object from findTrialsForContact
+  // co._companyObj has the original company-level data (countries, etc.)
+  const companyObj   = co._companyObj || co;
+  const company      = ct.company || co._companyName || coName(companyObj) || 'your company';
   const nctId        = co.nct_id  || '';
   const trialTitle   = co.title   || '';
   const phase        = co.phase   || '';
-  const areas        = (co.therapy_areas || []).join(', ') || 'your therapeutic area';
+  const areas        = (co.therapy_areas || companyObj.therapy_areas || []).join(', ') || 'your therapeutic area';
   const enrollment   = co.enrollment || '';
   const conditions   = (co.conditions || []).slice(0, 2).join(', ') || '';
   const interventions= (co.interventions || []).slice(0, 2).join(', ') || '';
-  const countries    = (co.countries || []).slice(0, 3).join(', ') || '';
-  const multiNational = (co.countries || []).length > 3;
+  const countries    = (companyObj.countries || []).slice(0, 3).join(', ') || '';
+  const multiNational = (companyObj.countries || []).length > 3;
 
   // Phase-specific angle
   const phaseContext = phaseAngle(phase, conditions, interventions, areas);
 
   // Other programmes one-liner (only in Email 1)
-  const otherLine = buildOtherProgrammesLine(otherTrials || [], company);
+  // Exclude trials in the same therapy area as primary (those are part of the same campaign focus)
+  const primaryAreas = new Set((co.therapy_areas || []).map(a => a.toLowerCase().trim()));
+  const otherAreaTrials = (otherTrials || []).filter(t =>
+    !(t.therapy_areas || []).every(a => primaryAreas.has(a.toLowerCase().trim()))
+  );
+  const otherLine = buildOtherProgrammesLine(otherAreaTrials, company);
 
   // ── Trial description (natural reference, not just stating) ──
   const trialRef = nctId
@@ -1584,7 +1619,7 @@ I came across ${trialRef}, and wanted to reach out.
 ${phaseContext.openingHook(conditions, interventions, areas, enrollment)}
 
 Our team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: ${phaseContext.serviceList}.
-${multiNational ? '\nGiven the ' + (co.countries||[]).length + '-country footprint, you\'ll need PK/PD packages that satisfy each agency\'s expectations — that\'s something we do routinely across multi-regional programmes.\n' : ''}
+${multiNational ? '\nGiven the ' + (companyObj.countries||[]).length + '-country footprint, you\'ll need PK/PD packages that satisfy each agency\'s expectations — that\'s something we do routinely across multi-regional programmes.\n' : ''}
 ${otherLine ? otherLine + '\n\n' : ''}Would a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar ${phase ? phase + ' ' : ''}${areas.split(',')[0].trim()} programme beforehand.`;
 
   // Follow-up 1 — Value add
