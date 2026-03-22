@@ -3617,13 +3617,13 @@
         "drafts": {
           "subject1": "Rokote Laboratories Finland Oy — MIDD & Clinical Pharmacology Support",
           "email1": "Hi Terhi,\n\nI came across your Infectious Disease, Vaccines programme, and wanted to reach out.\n\nModel-Informed Drug Development is increasingly expected by FDA and EMA reviewers — and programmes that build MIDD into their clinical strategy from the start consistently reach decision points faster with fewer surprises.\n\nAt PumasAI, we partner with clinical development teams to deliver model-informed drug development, clinical pharmacology, and regulatory strategy. Our scientists are pharmacometricians and clinical pharmacologists — former Pfizer, FDA, and academia — and we work end-to-end from model development through regulatory submission.\n\n\n\nWould a 20-minute call be worthwhile to see if there's a fit? Happy to share a brief case study relevant to your programme first.",
-          "email1Approved": false,
+          "email1Approved": true,
           "subject2": "Re: Rokote Laboratories Finland Oy — MIDD & Clinical Pharmacology Support",
           "fu1": "Hi Terhi,\n\nWanted to follow up briefly on my previous note.\n\nMany teams we work with find that proactive MIDD strategy reduces overall development time and strengthens regulatory interactions. Happy to share a relevant example for your programme.\n\nWe recently supported a clinical development programme with PK/PD modelling that supported a key regulatory decision, reducing back-and-forth with FDA by several months — I'd be glad to share a short summary if it would be useful context for your team.\n\nNo commitment — just a conversation to see if the timing makes sense for Rokote Laboratories Finland Oy.\n\nStill interested in a quick call?",
-          "fu1Approved": false,
+          "fu1Approved": true,
           "subject3": "Last note — Rokote Laboratories Finland Oy",
           "fu2": "Hi Terhi,\n\nI know inboxes get busy — this will be my last note on this.\n\nIf a pharmacometrics or clinical pharmacology need comes up at any stage, please feel free to reach out.\n\nIf the timing isn't right now, I completely understand. Feel free to reach out whenever it makes sense — we're happy to help at any stage of development.\n\nWishing your team every success with the programme.",
-          "fu2Approved": false,
+          "fu2Approved": true,
           "linkedin": "Hi Terhi, I noticed Rokote Laboratories Finland Oy is running a Infectious Disease, Vaccines trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Happy to share a relevant example if useful."
         },
         "lastContacted": null,
