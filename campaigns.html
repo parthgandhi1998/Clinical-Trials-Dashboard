@@ -1509,37 +1509,37 @@ function buildDrafts(ct, co) {
 
 I came across ${nctId ? nctId + ' — ' : ''}${trialTitle || ('your ' + (phase ? phase + ' ' : '') + areas + ' programme')}${conditions ? ' in ' + conditions : ''}, and wanted to reach out.
 
-${phaseContext.openingHook}
+${phaseContext.openingHook(conditions, interventions, areas)}
 
-At PumasAI, we specialise in ${phaseContext.serviceAngle}. Our team of pharmacometricians and clinical pharmacologists — former FDA, Pfizer, BMS, and leading academic centres — have supported 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada with a 100% acceptance rate. We work end-to-end from model development through regulatory submission, so your team gets a single partner for the entire clinical pharmacology programme.
+Our team at PumasAI — pharmacometricians and clinical pharmacologists, several of whom came from FDA, Pfizer, and BMS — focuses specifically on ${phaseContext.serviceAngle}. We've delivered 40+ regulatory submissions to FDA, EMA, PMDA, and Health Canada, all accepted on first review. Rather than piecemeal consulting, we handle the entire clinical pharmacology programme end-to-end: model development, analysis, regulatory writing, and agency interactions.
 
-${enrollment ? 'With an enrollment target of ' + enrollment + ' patients, ' + phaseContext.enrollmentNote + ' ' : ''}${multiNational ? 'Across your ' + (co.countries||[]).length + '-country footprint, regulatory-ready PK/PD packages tailored to each agency are a recurring need — something we handle routinely.' : ''}
+${enrollment ? 'With ' + enrollment + ' patients enrolled, ' + phaseContext.enrollmentNote(conditions, interventions) + ' ' : ''}${multiNational ? 'Given the ' + (co.countries||[]).length + '-country footprint, you\'ll need PK/PD packages that satisfy each agency\'s expectations — that\'s something we do routinely across multi-regional programmes.' : ''}
 
-${phaseContext.trialSpecificLine ? phaseContext.trialSpecificLine(conditions, interventions, areas) : ''}Would a 20-minute call be worthwhile to explore whether there is a fit? Happy to share a relevant case study for your programme first.`;
+${phaseContext.trialSpecificLine(conditions, interventions, areas)}Would a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar programme beforehand.`;
 
   // Follow-up 1 — Value add
   const subject2 = `Re: ${subject1}`;
   const fu1 = `Hi ${firstName},
 
-Wanted to follow up briefly on my previous note about ${nctId || ('your ' + areas + ' programme')}.
+Wanted to follow up briefly on my earlier note about ${nctId || ('your ' + areas + ' programme')}.
 
-${phaseContext.followUp1Hook}
+${phaseContext.followUp1Hook(conditions, interventions)}
 
-We recently ${phaseContext.recentWork}. With our 100% regulatory acceptance record across 40+ submissions (FDA, EMA, PMDA), we take the clinical pharmacology workstream fully off your plate — I'd be glad to share a brief summary if it would be useful context for your team.
+We recently ${phaseContext.recentWork} — happy to share a short write-up if it'd be useful context for your team. No pitch, just the technical detail.
 
-No commitment — just a conversation to see if the timing makes sense for ${company}.`;
+Would it be worth 15 minutes to see if the timing works for ${company}?`;
 
   // Follow-up 2 — Break-up
   const subject3 = `Last note — ${company}`;
   const fu2 = `Hi ${firstName},
 
-I know inboxes get busy — this will be my last note regarding ${nctId || ('your ' + areas + ' programme')}.
+I know your inbox is full — this will be my last note on ${nctId || ('your ' + areas + ' programme')}.
 
-${phaseContext.breakupLine}
+${phaseContext.breakupLine(conditions, interventions)}
 
-If the timing isn't right now, I completely understand. Feel free to reach out whenever it makes sense — we work with teams at every stage of clinical development.
+If the timing isn't right, completely understood. We work with teams at every stage of development, so feel free to reach out whenever it makes sense.
 
-Wishing ${company} every success with ${nctId ? nctId : 'the programme'}.`;
+Wishing you and the ${company} team every success with ${nctId ? nctId : 'the programme'}.`;
 
   // LinkedIn
   const linkedin = `Hi ${firstName}, I noticed ${company} is running ${nctId ? nctId + ' — ' : ''}a ${phase ? phase + ' ' : ''}${areas} trial. At PumasAI, we help teams like yours with ${phaseContext.linkedInAngle}. Happy to share a relevant example if useful.`;
@@ -1554,54 +1554,125 @@ Wishing ${company} every success with ${nctId ? nctId : 'the programme'}.`;
 
 function phaseAngle(phase, conditions, interventions, areas) {
   const p = (phase || '').toLowerCase();
+  const lo = (s) => (s || '').toLowerCase();
+
+  // ── helpers to detect therapy context from conditions/interventions ──
+  const isOnc = (c,i,a) => [c,i,a].some(s => lo(s).match(/cancer|tumor|tumour|oncol|leukemia|lymphoma|melanoma|carcinoma|sarcoma|myeloma|glioblastoma|nsclc|sclc|breast|lung|prostate|colorectal|hepatocellular|renal|bladder|pancrea|ovar|gastric|head.and.neck|aml|cll|all|dlbcl|nhl/));
+  const isImmuno = (c,i,a) => [c,i,a].some(s => lo(s).match(/immune|autoimmune|rheumatoid|lupus|psoria|crohn|colitis|atopic|asthma|eczema|inflammat|multiple.sclerosis|ankylosing|sjögren|scleroderma/));
+  const isRare = (c,i,a) => [c,i,a].some(s => lo(s).match(/rare|orphan|spinal.muscular|duchenne|huntington|fabry|gaucher|cystic.fibro|hemophilia|sickle.cell|thalassemia|wilson|pompe|niemann|batten|rett/));
+  const isCNS = (c,i,a) => [c,i,a].some(s => lo(s).match(/alzheimer|parkinson|epilepsy|seizure|depression|schizophren|bipolar|anxiety|migraine|neuropath|dementia|adhd|asd|autism|stroke|multiple.sclerosis|amyotroph|als\b/));
+  const isCV = (c,i,a) => [c,i,a].some(s => lo(s).match(/heart.failure|hypertension|atrial.fibril|thrombos|anticoagul|cardiovasc|myocardial|arrhythm|atheroscl|pulmonary.arter|pah/));
+  const isADC = (c,i,a) => [c,i,a].some(s => lo(s).match(/antibody.drug.conjug|adc\b|trastuzumab.deruxtecan|sacituzumab|enfortumab|mirvetuximab|payload|linker/));
+  const isBiologic = (c,i,a) => [c,i,a].some(s => lo(s).match(/biologic|monoclonal|mab\b|antibod|biosimilar|fusion.protein|receptor.agonist|pd-1|pd-l1|ctla-4|cd[0-9]|anti-vegf|anti-tnf|anti-il|jak.inhibit|bispecific/));
+  const isGeneTx = (c,i,a) => [c,i,a].some(s => lo(s).match(/gene.therap|cell.therap|car-t|car.t|aav|lentivir|crispr|sirna|mrna|antisense|oligonucleotide/));
+  const isInfect = (c,i,a) => [c,i,a].some(s => lo(s).match(/hiv|hepatitis|influenza|covid|sars|rsv|tuberculosis|malaria|antibiotic|antifungal|antiviral|bacterial|fungal|sepsis/));
+  const isPediatric = (c,i,a) => [c,i,a].some(s => lo(s).match(/pediatr|paediatr|child|infant|neonat|adolescen|juvenile/));
+
+  // Build a contextual detail string based on what we detect
+  function trialDetail(conds, ints, a) {
+    const c = conds || '', iv = ints || '';
+    if (isADC(c,iv,a)) return `ADCs bring unique PK complexity — the interplay between conjugated antibody, free payload, and DAR dynamics means the standard PopPK approach doesn't always apply. We've built models that capture these multi-analyte relationships and translate them into dosing rationale that reviewers accept.`;
+    if (isGeneTx(c,iv,a)) return `Gene and cell therapies come with non-standard PK/PD — viral vector kinetics, transgene expression, and durability modelling don't fit neatly into traditional compartmental frameworks. We've developed mechanistic models for these programmes that regulators have found compelling.`;
+    if (isOnc(c,iv,a) && isBiologic(c,iv,a)) return `For biologic oncology programmes${c ? ' in ' + c : ''}, the E-R relationship for both efficacy and immune-related safety is what reviewers focus on. Getting the exposure-safety analysis right is often the difference between a clean label and a boxed warning — we've navigated this for several similar assets.`;
+    if (isOnc(c,iv,a)) return `Oncology programmes${c ? ' targeting ' + c : ''} face specific regulatory scrutiny around exposure-response for both efficacy and toxicity.${iv ? ' With ' + iv + ', characterising the therapeutic window early gives your team confidence in dose selection and strengthens the submission narrative.' : ' A well-characterised E-R model here often makes the difference between a smooth review and a clinical hold or information request.'}`;
+    if (isRare(c,iv,a)) return `Rare disease programmes have a unique challenge: small patient populations mean every data point matters. We specialise in model-informed approaches — leveraging Bayesian methods, adaptive designs, and extrapolation strategies — that maximise what you learn from limited data. FDA\'s Office of Orphan Products has been increasingly receptive to these approaches.`;
+    if (isPediatric(c,iv,a)) return `Paediatric extrapolation is one of our core areas — bridging adult PK/PD data to paediatric populations using physiology-based and allometric scaling, combined with simulation-based dose justification. We've supported several paediatric written requests and PIPs with this approach.`;
+    if (isCNS(c,iv,a)) return `CNS programmes${c ? ' in ' + c : ''} bring specific modelling challenges around blood-brain barrier penetration, central vs. peripheral compartment dynamics, and the lag between plasma exposure and clinical effect. We've built PKPD models for CNS assets that account for these complexities and have been well-received in regulatory interactions.`;
+    if (isImmuno(c,iv,a)) return `Immunology programmes${c ? ' in ' + c : ''} often require nuanced PK/PD modelling — particularly around target-mediated drug disposition for biologics, and the E-R relationship for both efficacy endpoints and infection risk. We've supported several programmes through this exact analysis.`;
+    if (isCV(c,iv,a)) return `Cardiovascular programmes${c ? ' in ' + c : ''} carry specific regulatory expectations around QTc analysis, exposure-response for both efficacy and cardiac safety, and often thorough organ impairment assessments. These are well within our wheelhouse.`;
+    if (isInfect(c,iv,a)) return `Infectious disease programmes${c ? ' targeting ' + c : ''} bring a particular focus on PK/PD index-driven dosing — whether it's time-above-MIC, AUC/MIC, or Cmax/MIC. Getting this right for the target pathogen directly informs the dose and supports a differentiated label claim.`;
+    if (isBiologic(c,iv,a)) return `For biologic programmes${iv ? ' with ' + iv : ''}, the PK is inherently more complex — target-mediated disposition, immunogenicity effects on clearance, and nonlinear PK all need to be captured properly. We've modelled these dynamics for multiple biologic assets across therapeutic areas.`;
+    if (c || iv) return `For programmes${c ? ' in ' + c : ''}${iv ? ' studying ' + iv : ''}, we bring deep therapeutic area context to the modelling — not just the technical PK/PD work, but understanding what regulators in this space specifically look for and where submissions typically get challenged.`;
+    return '';
+  }
 
   if (p.includes('1')) return {
     subjectAngle:    'Early-Phase PK & Dose Characterisation',
-    openingHook:     'Early-phase programmes like this are exactly where Model-Informed Drug Development pays the highest dividends — getting the PK characterisation and dose-escalation design right from the start reduces risk and informs every downstream decision.',
-    serviceAngle:    'first-in-human PK modelling, dose escalation design support, and regulatory-ready NCA and PopPK analyses',
-    enrollmentNote:  'a clean, well-powered PK dataset at this size sets up a strong Phase 2 transition.',
-    followUp1Hook:   'One thing I often hear from Phase 1 teams is that PK data interpretation bottlenecks the dose decision timeline. We\'ve built workflows that compress turnaround from weeks to days — worth 15 minutes to walk through?',
-    recentWork:      'supported a Phase 1 FIH programme where our NCA + PopPK package directly informed the dose-escalation decision, getting to RP2D two months ahead of plan',
-    breakupLine:     'If you ever need support with PK analysis, dose escalation modelling, or regulatory submission packages for an early-phase programme, PumasAI is a call away.',
+    openingHook: (conds, ints, a) => {
+      if (isOnc(conds,ints,a)) return `First-in-human oncology studies are where the dose-escalation strategy is everything — and where robust PK modelling early on can mean the difference between finding the right RP2D on the first attempt versus needing costly dose-expansion cohorts.`;
+      if (isRare(conds,ints,a)) return `Early-phase rare disease programmes often have very limited patient numbers to work with. Model-informed dose escalation helps extract the maximum pharmacological insight from every subject, which is critical when recruitment is inherently constrained.`;
+      if (isCNS(conds,ints,a)) return `Phase 1 CNS programmes carry the added complexity of demonstrating target engagement across the blood-brain barrier. Getting the PK characterisation and central compartment modelling right at this stage shapes every decision that follows.`;
+      return `Early-phase programmes are where model-informed drug development pays the highest dividends — getting the PK characterisation and dose-escalation design right from the start reduces risk and directly informs every downstream decision.`;
+    },
+    serviceAngle:    'first-in-human PK modelling, dose escalation design, and regulatory-ready NCA and PopPK analyses',
+    enrollmentNote: (conds, ints) => {
+      if (isOnc(conds,ints,'')) return `a well-designed PopPK model at this size — combined with the right dose-escalation design (BOIN, mTPI, CRM) — gives you a robust path to RP2D.`;
+      return `a clean, well-powered PK dataset at this size sets up a strong foundation for the Phase 2 transition.`;
+    },
+    followUp1Hook: (conds, ints) => {
+      if (isOnc(conds,ints,'')) return `One thing we hear consistently from early-phase oncology teams: the PK data interpretation becomes a bottleneck right when dose-escalation decisions are time-sensitive. Our platform (Pumas) runs these analyses 10x faster than traditional tools like NONMEM, which translates directly into faster dose decisions.`;
+      return `One thing I often hear from Phase 1 teams is that PK data interpretation bottlenecks the dose decision timeline. Our modelling platform compresses turnaround from weeks to days — worth 15 minutes to walk through how?`;
+    },
+    recentWork:      'supported a Phase 1 FIH programme where our NCA + PopPK package directly informed the dose-escalation committee, getting to RP2D two months ahead of the original timeline',
+    breakupLine: (conds, ints) => `If you ever need support with PK analysis, dose escalation modelling, or putting together the early-phase regulatory package${conds ? ' for ' + conds : ''}, we're a call away.`,
     linkedInAngle:   'Phase 1 PK characterisation, NCA, and dose-escalation modelling',
-    trialSpecificLine: (conds, ints, areas) => conds ? `Given the focus on ${conds}, getting the PK/PD characterisation right early is especially critical for informing the dose-finding strategy.\n\n` : ''
+    trialSpecificLine: trialDetail
   };
 
   if (p.includes('2')) return {
-    subjectAngle:    'Exposure-Response Modelling for Phase 2 Dose Decision',
-    openingHook:     'Phase 2 is typically where the exposure-response relationship defines the programme\'s fate — a well-built E-R model at this stage directly supports the Phase 3 dose rationale and significantly reduces regulatory back-and-forth.',
-    serviceAngle:    'population PK/PD modelling, exposure-response analysis, and Phase 2 → Phase 3 transition support',
-    enrollmentNote:  'this is a well-powered dataset for a robust PopPK and exposure-response analysis.',
-    followUp1Hook:   'The difference between a clean Phase 3 package and a prolonged FDA review often comes down to the quality of the E-R analysis done in Phase 2. Happy to share how we\'ve navigated that for similar programmes.',
-    recentWork:      'completed an exposure-response analysis for a Phase 2 oncology asset that directly informed the pivotal trial dose selection — the sponsor credited it with avoiding a costly Phase 3 protocol amendment',
-    breakupLine:     'If a need for population PK, E-R modelling, or Phase 3 dose justification support comes up, please don\'t hesitate to reach out.',
+    subjectAngle:    'Exposure-Response & Phase 3 Dose Rationale',
+    openingHook: (conds, ints, a) => {
+      if (isOnc(conds,ints,a)) return `Phase 2 oncology programmes live or die on the exposure-response analysis — it's what drives the Phase 3 dose selection, and increasingly FDA expects a rigorous E-R package before you even start the pivotal trial. Getting it right here avoids protocol amendments downstream.`;
+      if (isBiologic(conds,ints,a)) return `For biologics in Phase 2, the exposure-response story becomes central — particularly when target-mediated disposition means the PK is nonlinear and dose-proportionality assumptions break down. A well-built PopPK/E-R model at this stage is what makes the Phase 3 dose rationale defensible.`;
+      return `Phase 2 is where the exposure-response relationship defines the programme's trajectory — a robust E-R model at this stage directly supports the Phase 3 dose rationale and significantly reduces regulatory back-and-forth.`;
+    },
+    serviceAngle:    'population PK/PD modelling, exposure-response analysis, and Phase 2 → Phase 3 transition strategy',
+    enrollmentNote: (conds, ints) => `this is a well-powered dataset for a robust PopPK and exposure-response analysis${ints ? ' for ' + ints : ''}.`,
+    followUp1Hook: (conds, ints) => {
+      if (isOnc(conds,ints,'')) return `The difference between a smooth Phase 3 launch and a prolonged FDA review often comes down to the E-R analysis quality in Phase 2.${ints ? ' For ' + ints + ', the therapeutic window characterisation is particularly critical.' : ''} Happy to share how we've navigated that for similar oncology programmes.`;
+      return `The difference between a clean Phase 3 package and a prolonged FDA review often comes down to the quality of the E-R analysis done in Phase 2. Happy to share how we've navigated that for similar programmes.`;
+    },
+    recentWork:      'completed an exposure-response analysis for a Phase 2 oncology asset that directly informed the pivotal trial dose selection — the sponsor said it helped them avoid a Phase 3 protocol amendment',
+    breakupLine: (conds, ints) => `If a need for PopPK, E-R modelling, or Phase 3 dose justification${conds ? ' for ' + conds : ''} comes up down the road, please don't hesitate to reach out.`,
     linkedInAngle:   'Phase 2 exposure-response modelling and Phase 3 dose justification',
-    trialSpecificLine: (conds, ints, areas) => ints ? `For programmes studying ${ints}, a well-characterised E-R relationship is particularly valuable for optimising the benefit-risk profile ahead of Phase 3.\n\n` : ''
+    trialSpecificLine: trialDetail
   };
 
   if (p.includes('3')) return {
-    subjectAngle:    'Regulatory-Ready Clinical Pharmacology Package',
-    openingHook:     'Phase 3 programmes are on the submission runway, and the clinical pharmacology package — PopPK, E-R, DDI, special populations — is typically on the critical path. Delivering these analyses right the first time is our core strength.',
-    serviceAngle:    'NDA/BLA-ready clinical pharmacology packages, population PK, model-based meta-analysis, and multi-agency submission support',
-    enrollmentNote:  'a trial of this size generates the rich dataset that supports a comprehensive regulatory PK/PD package.',
-    followUp1Hook:   'Regulatory reviewers increasingly expect MIDD-supported dose justification in Phase 3 submissions. We\'ve prepared packages that sailed through FDA review with zero clinical pharmacology queries — worth a conversation?',
-    recentWork:      'delivered a complete clinical pharmacology submission package for a Phase 3 oncology programme where our PopPK and E-R analyses directly addressed an FDA information request, keeping the review timeline on track',
-    breakupLine:     'If a need for clinical pharmacology package preparation, regulatory consulting, or submission support arises, PumasAI is here.',
+    subjectAngle:    'Clinical Pharmacology Submission Package',
+    openingHook: (conds, ints, a) => {
+      if (isOnc(conds,ints,a)) return `Phase 3 oncology submissions face rigorous clinical pharmacology scrutiny — PopPK, E-R for efficacy and safety, DDI, hepatic/renal impairment, QTc. Reviewers in the oncology division have specific expectations, and we've seen firsthand where submissions get held up. Delivering these analyses right the first time is what we focus on.`;
+      if (isRare(conds,ints,a)) return `NDA/BLA packages for rare diseases carry unique expectations — FDA's orphan drug reviewers often expect model-based evidence to supplement limited clinical data. The clinical pharmacology package needs to tell a compelling quantitative story, and that's exactly what we build.`;
+      return `Phase 3 programmes are on the submission runway, and the clinical pharmacology package — PopPK, E-R, DDI, special populations — is typically on the critical path. Delivering these right the first time is our core strength.`;
+    },
+    serviceAngle:    'NDA/BLA-ready clinical pharmacology packages, population PK, exposure-response, and multi-agency submission support',
+    enrollmentNote: (conds, ints) => `a trial of this size generates exactly the rich dataset needed for a comprehensive regulatory PK/PD package${conds ? ' in ' + conds : ''}.`,
+    followUp1Hook: (conds, ints) => {
+      return `Regulatory reviewers increasingly expect MIDD-supported dose justification in Phase 3 submissions. We've prepared packages that went through FDA review with zero clinical pharmacology queries${conds ? ' for ' + conds + ' programmes' : ''} — worth a conversation?`;
+    },
+    recentWork:      'delivered a complete clinical pharmacology submission package for a Phase 3 programme where our PopPK and E-R analyses directly addressed an FDA information request, keeping the PDUFA date on track',
+    breakupLine: (conds, ints) => `If a need for the clinical pharmacology submission package${conds ? ' for ' + conds : ''}, regulatory interactions, or agency meeting preparation arises, PumasAI is here.`,
     linkedInAngle:   'Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions',
-    trialSpecificLine: (conds, ints, areas) => conds ? `With ${conds} as the focus, we know the regulatory expectations around clinical pharmacology for this indication well — and can map those directly to your submission strategy.\n\n` : ''
+    trialSpecificLine: trialDetail
   };
 
-  // Generic
+  // Phase 4 / Post-marketing
+  if (p.includes('4')) return {
+    subjectAngle:    'Post-Marketing & Label Extension Support',
+    openingHook: (conds, ints, a) => `Post-marketing commitments and label extensions require the same analytical rigour as the original submission — PMR/PMC analyses, new indication PK bridging, and posology optimisation all benefit from a fresh modelling perspective built on the accumulated clinical dataset.`,
+    serviceAngle:    'post-marketing requirement support, indication extension modelling, and label optimisation',
+    enrollmentNote: (conds, ints) => `the accumulated dataset from this trial, combined with prior phase data, creates a powerful foundation for model-based label optimisation.`,
+    followUp1Hook: (conds, ints) => `Post-marketing PK/PD analyses often uncover dosing optimisations that weren't apparent from the pivotal trials — especially around special populations and real-world adherence patterns. Worth a conversation?`,
+    recentWork:      'supported a post-marketing commitment analysis that leveraged pooled data across trials to justify an optimised dosing regimen, satisfying the FDA PMR ahead of deadline',
+    breakupLine: (conds, ints) => `If PMR/PMC support, label extension modelling, or new indication pharmacology work comes up, please feel free to reach out.`,
+    linkedInAngle:   'post-marketing PK/PD analysis and label optimisation',
+    trialSpecificLine: trialDetail
+  };
+
+  // Generic fallback
   return {
     subjectAngle:    'MIDD & Clinical Pharmacology Support',
-    openingHook:     'Model-Informed Drug Development is increasingly expected by FDA and EMA reviewers — and programmes that build MIDD into their clinical strategy from the start consistently reach decision points faster with fewer surprises.',
-    serviceAngle:    'model-informed drug development, clinical pharmacology, and regulatory strategy across all phases',
-    enrollmentNote:  'this dataset creates a strong foundation for a model-based analysis.',
-    followUp1Hook:   'Many teams we work with find that proactive MIDD strategy reduces overall development time and strengthens regulatory interactions. Happy to share a relevant case study for your programme.',
-    recentWork:      'supported a clinical development programme with PK/PD modelling that supported a key regulatory decision, reducing back-and-forth with FDA by several months',
-    breakupLine:     'If a pharmacometrics or clinical pharmacology need comes up at any stage, please feel free to reach out.',
+    openingHook: (conds, ints, a) => {
+      if (conds) return `I noticed your programme in ${conds} and thought it was worth reaching out. Model-Informed Drug Development is increasingly expected by FDA and EMA reviewers, and building MIDD into clinical strategy from the start consistently leads to faster decisions and fewer surprises at the agency.`;
+      return `Model-Informed Drug Development is increasingly expected by FDA and EMA reviewers — programmes that incorporate MIDD from the start consistently reach decision points faster with fewer regulatory surprises.`;
+    },
+    serviceAngle:    'model-informed drug development, clinical pharmacology, and regulatory strategy across all development phases',
+    enrollmentNote: (conds, ints) => `this dataset creates a strong foundation for model-based analysis and regulatory support.`,
+    followUp1Hook: (conds, ints) => `Many teams find that proactive MIDD strategy reduces overall development time and strengthens regulatory interactions${conds ? ' — especially in ' + conds + ' where the regulatory landscape is evolving' : ''}. Happy to share a relevant case study.`,
+    recentWork:      'supported a clinical development programme with PK/PD modelling that informed a key regulatory decision, reducing back-and-forth with FDA by several months',
+    breakupLine: (conds, ints) => `If a pharmacometrics or clinical pharmacology need comes up at any stage${conds ? ' for ' + conds : ''}, please feel free to reach out.`,
     linkedInAngle:   'pharmacometrics, clinical pharmacology, and MIDD strategy',
-    trialSpecificLine: () => ''
+    trialSpecificLine: trialDetail
   };
 }
 
