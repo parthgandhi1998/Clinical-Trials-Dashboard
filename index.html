@@ -649,7 +649,7 @@ function addToCampaign() {
       r.therapy_areas.forEach(a => e.therapy_areas.add(a));
       if (r.phase) e.phases.add(r.phase);
       r.countries.forEach(c => e.countries.add(c));
-      e.trials.push({ nct_id: r.nct_id, title: r.title, phase: r.phase, status: r.status, enrollment: r.enrollment, start_date: r.start_date });
+      e.trials.push({ nct_id: r.nct_id, title: r.title, phase: r.phase, status: r.status, enrollment: r.enrollment, start_date: r.start_date, conditions: r.conditions || [], interventions: r.interventions || [], therapy_areas: r.therapy_areas || [] });
       e.total++;
     });
   });
