@@ -1734,7 +1734,7 @@ function renderTrackerTab(c) {
         ${STATUS_OPTIONS.map(s => `<option value="${s.val}">${s.label}</option>`).join('')}
       </select>
       <span style="font-size:11px;color:var(--text-muted)" id="tracker-count">${contacts.length} contacts</span>
-      <button class="btn btn-ghost btn-sm" onclick="tkSelectVisible('${c.id}',true)">☑ Select visible</button>
+      <button class="btn btn-ghost btn-sm" onclick="tkSelectAll('${c.id}',true)">☑ Select all</button>
       <button class="btn btn-ghost btn-sm" onclick="clearTrackerSelection()">☐ Clear</button>
     </div>
     <div id="tracker-table-wrap"></div>`;
@@ -1778,8 +1778,10 @@ function needsFollowUp(ct) {
 
 // ── Tracker table rendering (filterable, multi-select, bulk status update) ──
 let _tkSearch = '', _tkStatusFilter = '', _tkPage = 0;
-const TK_PAGE_SIZE = 50;
+const TK_PAGE_THRESHOLD = 500;   // show all on one page below this
+const TK_PAGE_SIZE = 200;        // when paginated, 200 per page
 const _tkSelected = new Set();
+let _tkFilteredIndices = [];      // cached filtered indices for "Select all filtered"
 
 function renderTrackerTable(cid) {
   const c = getCampaign(cid);
@@ -1794,27 +1796,64 @@ function renderTrackerTable(cid) {
   if (_tkStatusFilter) rows = rows.filter(({ ct }) =>
     (ct.status || 'not-started') === _tkStatusFilter);
 
-  // Paginate
   const total = rows.length;
-  const totalPages = Math.max(1, Math.ceil(total / TK_PAGE_SIZE));
-  _tkPage = Math.max(0, Math.min(_tkPage, totalPages - 1));
-  const pageRows = rows.slice(_tkPage * TK_PAGE_SIZE, (_tkPage + 1) * TK_PAGE_SIZE);
+  _tkFilteredIndices = rows.map(r => r.i);   // cache for select-all
+
+  // Smart pagination: no pages when ≤ threshold, paginated above
+  const usePagination = total > TK_PAGE_THRESHOLD;
+  const totalPages = usePagination ? Math.max(1, Math.ceil(total / TK_PAGE_SIZE)) : 1;
+  if (usePagination) _tkPage = Math.max(0, Math.min(_tkPage, totalPages - 1));
+  else _tkPage = 0;
+  const pageRows = usePagination
+    ? rows.slice(_tkPage * TK_PAGE_SIZE, (_tkPage + 1) * TK_PAGE_SIZE)
+    : rows;
+
+  // Selection info across ALL filtered rows (not just current page)
+  const selectedInFilter = _tkFilteredIndices.filter(i => _tkSelected.has(i)).length;
+  const allFilteredSelected = total > 0 && selectedInFilter === total;
 
   // Update count
   const countEl = document.getElementById('tracker-count');
-  if (countEl) countEl.textContent = (q || _tkStatusFilter) ? `${total} of ${contacts.length} contacts` : `${contacts.length} contacts`;
+  if (countEl) {
+    let label = (q || _tkStatusFilter) ? `${total} of ${contacts.length} contacts` : `${contacts.length} contacts`;
+    if (selectedInFilter > 0 && usePagination) label += ` · ${selectedInFilter} selected`;
+    countEl.textContent = label;
+  }
 
   const wrap = document.getElementById('tracker-table-wrap');
   if (!wrap) return;
+
+  // Build pagination bar (only if paginated)
+  let paginationBar = '';
+  if (usePagination) {
+    // Build page number buttons
+    let pageNums = '';
+    const maxButtons = 7;
+    let start = Math.max(0, _tkPage - Math.floor(maxButtons / 2));
+    let end = Math.min(totalPages, start + maxButtons);
+    if (end - start < maxButtons) start = Math.max(0, end - maxButtons);
+    if (start > 0) pageNums += `<button class="btn btn-ghost btn-sm" onclick="_tkPage=0;renderTrackerTable('${cid}')">1</button><span style="color:var(--text-muted)">…</span>`;
+    for (let p = start; p < end; p++) {
+      pageNums += `<button class="btn btn-sm" style="${p === _tkPage ? 'background:var(--accent);color:#fff;' : ''}" onclick="_tkPage=${p};renderTrackerTable('${cid}')">${p + 1}</button>`;
+    }
+    if (end < totalPages) pageNums += `<span style="color:var(--text-muted)">…</span><button class="btn btn-ghost btn-sm" onclick="_tkPage=${totalPages-1};renderTrackerTable('${cid}')">${totalPages}</button>`;
+
+    paginationBar = `<div style="display:flex;justify-content:center;align-items:center;gap:6px;margin-top:10px;flex-wrap:wrap">
+      <button class="btn btn-ghost btn-sm" ${_tkPage===0?'disabled':''} onclick="_tkPage--;renderTrackerTable('${cid}')">← Prev</button>
+      ${pageNums}
+      <button class="btn btn-ghost btn-sm" ${_tkPage>=totalPages-1?'disabled':''} onclick="_tkPage++;renderTrackerTable('${cid}')">Next →</button>
+      <span style="font-size:11px;color:var(--text-muted);margin-left:8px">Showing ${_tkPage * TK_PAGE_SIZE + 1}–${Math.min((_tkPage+1) * TK_PAGE_SIZE, total)} of ${total}</span>
+    </div>`;
+  }
 
   wrap.innerHTML = `
     <div class="pipeline-wrap">
     <table>
       <thead><tr>
         <th style="width:34px;padding:8px 6px 8px 10px">
-          <input type="checkbox" id="tk-check-all" title="Select / deselect all visible"
-            onchange="tkSelectVisible('${cid}',this.checked)"
-            ${pageRows.length > 0 && pageRows.every(({i}) => _tkSelected.has(i)) ? 'checked' : ''}>
+          <input type="checkbox" id="tk-check-all" title="Select / deselect all filtered contacts"
+            onchange="tkSelectAll('${cid}',this.checked)"
+            ${allFilteredSelected ? 'checked' : ''}>
         </th>
         <th>Contact</th><th>Company</th><th>Status</th><th>Last Contact</th><th>Follow-up</th><th>Notes</th>
       </tr></thead>
@@ -1848,11 +1887,7 @@ function renderTrackerTable(cid) {
       </tbody>
     </table>
     </div>
-    ${totalPages > 1 ? `<div style="display:flex;justify-content:center;align-items:center;gap:10px;margin-top:10px">
-      <button class="btn btn-ghost btn-sm" ${_tkPage===0?'disabled':''} onclick="_tkPage--;renderTrackerTable('${cid}')">← Prev</button>
-      <span style="font-size:12px;color:var(--text-muted)">Page ${_tkPage+1} of ${totalPages}</span>
-      <button class="btn btn-ghost btn-sm" ${_tkPage>=totalPages-1?'disabled':''} onclick="_tkPage++;renderTrackerTable('${cid}')">Next →</button>
-    </div>` : ''}`;
+    ${paginationBar}`;
   updateTrackerBulkBar();
 }
 
@@ -1873,6 +1908,26 @@ function tkSelectVisible(cid, checked) {
     row.classList.toggle('ct-sel', checked);
     const cb = row.querySelector('input[type=checkbox]');
     if (cb) cb.checked = checked;
+  });
+  const hdr = document.getElementById('tk-check-all');
+  if (hdr) hdr.checked = checked;
+  updateTrackerBulkBar();
+}
+
+function tkSelectAll(cid, checked) {
+  // Select/deselect ALL filtered contacts across every page
+  _tkFilteredIndices.forEach(i => {
+    if (checked) _tkSelected.add(i);
+    else _tkSelected.delete(i);
+  });
+  // Update DOM for visible rows on current page
+  document.querySelectorAll('#tracker-table-wrap tbody tr[data-contact-idx]').forEach(row => {
+    const idx = parseInt(row.getAttribute('data-contact-idx'));
+    if (isNaN(idx)) return;
+    const isSel = _tkSelected.has(idx);
+    row.classList.toggle('ct-sel', isSel);
+    const cb = row.querySelector('input[type=checkbox]');
+    if (cb) cb.checked = isSel;
   });
   const hdr = document.getElementById('tk-check-all');
   if (hdr) hdr.checked = checked;
