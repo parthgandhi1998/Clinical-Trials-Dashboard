@@ -2094,7 +2094,15 @@ function renderExportTab(c) {
           Checking…
         </div>
       </div>
-      <div id="server-status-detail" style="font-size:12px;color:var(--text-muted);margin-bottom:14px"></div>
+      <div id="server-status-detail" style="font-size:12px;color:var(--text-muted);margin-bottom:10px"></div>
+      <div style="margin-bottom:14px">
+        <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:4px">Server Token</label>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="password" id="server-auth-token" class="form-input" style="flex:1;font-family:monospace;font-size:12px" placeholder="Auto-detected — or paste from server terminal" oninput="_serverAuthToken=this.value.trim()">
+          <button onclick="this.previousElementSibling.type=this.previousElementSibling.type==='password'?'text':'password';this.textContent=this.previousElementSibling.type==='password'?'Show':'Hide'" style="font-size:11px;padding:4px 10px;border:1px solid var(--border);border-radius:4px;background:var(--surface);cursor:pointer;white-space:nowrap">Show</button>
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:3px">Printed in the server terminal when email_server.py starts. Auto-fills when served from localhost.</div>
+      </div>
 
       ${approved.length === 0
         ? '<div style="font-size:12px;color:#92400e;background:var(--amber-light);border:1px solid #fde68a;border-radius:6px;padding:10px">⚠ No drafts yet — go to the Drafts tab first.</div>'
@@ -2420,6 +2428,7 @@ function renderAttachmentChips() {
 const _SERVERS = ['https://localhost:5001', 'http://localhost:5001'];
 let OUTLOOK_SERVER      = 'http://localhost:5001';
 let outlookServerOnline = false;
+let _serverAuthToken    = '';  // Auth token from email_server.py — auto-captured or pasted manually
 
 function _fetchWithTimeout(url, ms) {
   return new Promise((resolve, reject) => {
@@ -2446,6 +2455,17 @@ async function checkOutlookServer() {
       if (r.status < 500) {
         OUTLOOK_SERVER      = base;
         outlookServerOnline = true;
+
+        // Auto-capture auth token from the health response
+        try {
+          const health = await r.json();
+          if (health.token) {
+            _serverAuthToken = health.token;
+            const tokenField = document.getElementById('server-auth-token');
+            if (tokenField) tokenField.value = health.token;
+          }
+        } catch(_) {}
+
         badge.textContent   = '✓ Server online';
         badge.style.cssText = 'font-size:11px;font-weight:700;padding:4px 10px;border-radius:6px;background:#f0fdf4;color:#16a34a;border:1px solid #bbf7d0';
         if (detail) detail.textContent = 'email_server.py is running — bulk send goes directly, individual sends open in Outlook.';
@@ -2559,9 +2579,14 @@ async function doServerSend(rows, label, displayMode) {
   if (sendBtn && !displayMode) { sendBtn.disabled = true; sendBtn.textContent = '⏳ Sending…'; }
 
   try {
+    if (!_serverAuthToken) {
+      showToast('✕ Server token missing — paste the token from the email_server.py terminal into the Server Token field.');
+      if (sendBtn) { sendBtn.disabled = false; sendBtn.textContent = '📤 Send via Outlook'; }
+      return;
+    }
     const r = await fetch(OUTLOOK_SERVER + '/send', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + _serverAuthToken },
       body: JSON.stringify({
         rows,
         display: displayMode,
