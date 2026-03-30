@@ -2095,13 +2095,14 @@ function renderExportTab(c) {
         </div>
       </div>
       <div id="server-status-detail" style="font-size:12px;color:var(--text-muted);margin-bottom:10px"></div>
-      <div style="margin-bottom:14px">
+      <div id="server-token-section" style="margin-bottom:14px">
         <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:4px">Server Token</label>
         <div style="display:flex;gap:8px;align-items:center">
-          <input type="password" id="server-auth-token" class="form-input" style="flex:1;font-family:monospace;font-size:12px" placeholder="Auto-detected — or paste from server terminal" oninput="_serverAuthToken=this.value.trim()">
+          <input type="password" id="server-auth-token" class="form-input" style="flex:1;font-family:monospace;font-size:12px" placeholder="Auto-detected — or paste from server terminal" oninput="_onTokenInput(this.value)">
           <button onclick="this.previousElementSibling.type=this.previousElementSibling.type==='password'?'text':'password';this.textContent=this.previousElementSibling.type==='password'?'Show':'Hide'" style="font-size:11px;padding:4px 10px;border:1px solid var(--border);border-radius:4px;background:var(--surface);cursor:pointer;white-space:nowrap">Show</button>
+          <button onclick="checkOutlookServer()" style="font-size:11px;padding:4px 10px;border:1px solid var(--border);border-radius:4px;background:var(--surface);cursor:pointer;white-space:nowrap">Recheck</button>
         </div>
-        <div style="font-size:11px;color:var(--text-muted);margin-top:3px">Printed in the server terminal when email_server.py starts. Auto-fills when served from localhost.</div>
+        <div id="server-token-status" style="font-size:11px;color:var(--text-muted);margin-top:3px">Printed in the server terminal when email_server.py starts. Auto-fills when served from localhost.</div>
       </div>
 
       ${approved.length === 0
@@ -2430,6 +2431,19 @@ let OUTLOOK_SERVER      = 'http://localhost:5001';
 let outlookServerOnline = false;
 let _serverAuthToken    = '';  // Auth token from email_server.py — auto-captured or pasted manually
 
+function _onTokenInput(val) {
+  _serverAuthToken = val.trim();
+  const statusEl = document.getElementById('server-token-status');
+  if (!statusEl) return;
+  if (_serverAuthToken.length > 10) {
+    statusEl.innerHTML = '<span style="color:#16a34a;font-weight:600">✓ Token set</span> — ready to send.';
+  } else if (_serverAuthToken.length > 0) {
+    statusEl.innerHTML = '<span style="color:#854d0e">⚠ Token looks too short</span> — check you copied the full token from the terminal.';
+  } else {
+    statusEl.textContent = 'Printed in the server terminal when email_server.py starts. Auto-fills when served from localhost.';
+  }
+}
+
 function _fetchWithTimeout(url, ms) {
   return new Promise((resolve, reject) => {
     const controller = new AbortController();
@@ -2463,6 +2477,8 @@ async function checkOutlookServer() {
             _serverAuthToken = health.token;
             const tokenField = document.getElementById('server-auth-token');
             if (tokenField) tokenField.value = health.token;
+            const tokenStatus = document.getElementById('server-token-status');
+            if (tokenStatus) tokenStatus.innerHTML = '<span style="color:#16a34a;font-weight:600">✓ Token auto-detected</span> — ready to send.';
           }
         } catch(_) {}
 
@@ -2482,7 +2498,7 @@ async function checkOutlookServer() {
     '<strong>Windows:</strong> run <code style="background:#f1f5f9;padding:1px 5px;border-radius:3px">python3 email_server.py</code> and keep that terminal open.'
     + '<br><strong>macOS — one-time cert step required:</strong> with the server running, open '
     + '<a href="https://localhost:5001/health" target="_blank" style="color:var(--accent)">https://localhost:5001/health</a>'
-    + ' in your browser, click <em>Advanced → Proceed to localhost</em>, then refresh this page.';
+    + ' in your browser, click <em>Advanced → Proceed to localhost</em>, then click <strong>Recheck</strong>.';
   if (sendBtn) sendBtn.disabled = true;
 }
 
