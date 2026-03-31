@@ -1,5 +1,3777 @@
 [
   {
+    "id": "cmp_1774936237245",
+    "name": "Neurology_Jan2026",
+    "owner": "Parth",
+    "area": "Neurology",
+    "notes": "Used Neurology Filter + removed universities/hospitals/clients",
+    "status": "draft",
+    "created": "2026-03-31T05:50:37.245Z",
+    "companies": [
+      {
+        "name": "National Cancer Institute (NCI)",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Dermatology",
+          "Infectious Disease",
+          "Women's Health",
+          "Vaccines",
+          "Neurology",
+          "Pain",
+          "Hematology",
+          "Psychiatry & Mental Health",
+          "Cardiovascular",
+          "Other",
+          "Gastroenterology & Hepatology",
+          "Immunology & Inflammation",
+          "Metabolic & Endocrine",
+          "Respiratory",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "NA",
+          "Phase 1",
+          "Phase 2",
+          "Phase 3",
+          "N/A",
+          "Phase 1, Phase 2",
+          "EARLY/Phase 1",
+          "Phase 2, Phase 3",
+          "Phase 4"
+        ],
+        "countries": [
+          "United States",
+          "Uganda",
+          "Mozambique",
+          "Kenya",
+          "Rwanda",
+          "Puerto Rico",
+          "United Kingdom",
+          "Nigeria",
+          "Australia",
+          "Canada",
+          "India",
+          "Malawi",
+          "Dominican Republic",
+          "Ghana"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07307664",
+            "title": "Increasing Germline Genetic Testing for Patients With Cancer",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "1000",
+            "start_date": "2026-01-30",
+            "conditions": [
+              "Hereditary Pancreatic Cancer",
+              "Conditions or Focus of Study",
+              "Hereditary Breast Cancer",
+              "Hereditary Colorectal Cancer"
+            ],
+            "interventions": [
+              "Implementation strategies"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06674863",
+            "title": "Addressing Health Literacy With a Tailored Survivorship Care Plan",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "150",
+            "start_date": "2025-11-07",
+            "conditions": [
+              "Localized Prostate Carcinoma",
+              "Oligometastatic Prostate Carcinoma",
+              "Stage IVB Prostate Cancer AJCC v8"
+            ],
+            "interventions": [
+              "Educational Intervention",
+              "Interview",
+              "Questionnaire Administration",
+              "Supportive Care",
+              "Supportive Care"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06532773",
+            "title": "Mindfulness Intervention for Sleep Disturbance and Symptom Management in Hematologic Cancer Patients During and After Inpatient Treatment",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "60",
+            "start_date": "2026-01-06",
+            "conditions": [
+              "Hematologic Malignancy"
+            ],
+            "interventions": [
+              "Nite2Day+"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07428330",
+            "title": "Clinic vs Clinic+Community Outreach HPV Self-Collection to Increase Cervical Screening in Women With HIV",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "1600",
+            "start_date": "2026-02-03",
+            "conditions": [
+              "Cervix Cancer",
+              "HIV Infections",
+              "HPV Infection"
+            ],
+            "interventions": [
+              "Model 1- Screening in Clinic Only",
+              "Model 2 - Screening in Clinic and Community"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06883838",
+            "title": "Project CASCADE: Community and Academic Synergy for Cancer Survivorship Care Delivery Enhancement",
+            "phase": "NA",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "5584",
+            "start_date": "2025-09-01",
+            "conditions": [
+              "Cancer Survivorship"
+            ],
+            "interventions": [
+              "Survivorship care delivery intervention"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07278440",
+            "title": "An Exercise Intervention for Improving Mental and Physical Health in Patients With Primary Brain Tumors and Their Caregivers, ET-NEURO Trial",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "36",
+            "start_date": "2026-02-28",
+            "conditions": [
+              "Primary Brain Neoplasm"
+            ],
+            "interventions": [
+              "Electronic Health Record Review",
+              "Magnetic Resonance Imaging",
+              "Questionnaire Administration",
+              "Resistance Training"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06672224",
+            "title": "Indocyanine Green Fluoroscopy and SPY Angiography for the Assessment of Lymphatic Structure in Breast Cancer Patients at Risk for Breast Cancer-Related Lymphedema",
+            "phase": "NA",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2025-08-14",
+            "conditions": [
+              "Breast Cancer-Related Lymphedema",
+              "Breast Carcinoma"
+            ],
+            "interventions": [
+              "Fluid Therapy",
+              "Indocyanine Green",
+              "Questionnaire Administration",
+              "Research or Clinical Assessment Tool",
+              "SPY Elite Fluorescence Imaging",
+              "Survey Administration"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06904391",
+            "title": "Education & Mentorship of Advanced Practice Providers to Increase Community-based Research Within the NCORP Network, COACH-APP Trial",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "97",
+            "start_date": "2025-09-05",
+            "conditions": [
+              "Other"
+            ],
+            "interventions": [
+              "Educational Intervention",
+              "Behavioral Intervention",
+              "Survey Administration",
+              "Interview"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06931860",
+            "title": "Head to Head Trial of Mailed Cologuard to Mailed FIT",
+            "phase": "NA",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "400",
+            "start_date": "2025-09-05",
+            "conditions": [
+              "Colorectal Cancer Screening",
+              "Fecal Immunochemical Test",
+              "Multi-target Stool DNA",
+              "Colorectal Cancer (CRC)"
+            ],
+            "interventions": [
+              "Cologuard",
+              "Fecal Immunochemical Test"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06831383",
+            "title": "The STOP-HPV Scale Up Study",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "100000",
+            "start_date": "2026-03-23",
+            "conditions": [
+              "Human Papilloma Virus Vaccine"
+            ],
+            "interventions": [
+              "STOP-HPV-Online",
+              "STOP-HPV-LC"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease",
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 356,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Miltenyi Biomedicine GmbH",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Neurology",
+          "Dermatology",
+          "Other"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 2",
+          "Phase 1, Phase 2",
+          "NA"
+        ],
+        "countries": [
+          "Saudi Arabia",
+          "France",
+          "United States",
+          "Japan",
+          "Germany",
+          "Netherlands"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07361029",
+            "title": "CD19 Chimeric Antigen Receptor (CAR) T Cells in Adults With Relapsed/Refractory CD19 Positive Acute Lymphoblastic Leukemia",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "24",
+            "start_date": "2025-07-29",
+            "conditions": [
+              "Relapsed Refractory Acute Lymphoblastic Leukemia"
+            ],
+            "interventions": [
+              "CAR T cells chimeric antigen receptor cells"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06508931",
+            "title": "Safety and Efficacy Study of Zamtocabtagene Autoleucel (MB-CART2019.1) in Pediatric Patients With R/R B-Cell Neoplasms",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "31",
+            "start_date": "2025-08-04",
+            "conditions": [
+              "B-Cell Neoplasm"
+            ],
+            "interventions": [
+              "zamtocabtagene autoleucel (MB-CART2019.1)"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07137494",
+            "title": "A Study of MB-CART19.1 Cellular Therapy for People With Central Nervous System Lymphoma (CNSL)",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "12",
+            "start_date": "2025-08-14",
+            "conditions": [
+              "Primary Central Nervous System (CNS) Lymphoma",
+              "Secondary Central Nervous System Lymphoma"
+            ],
+            "interventions": [
+              "MB-CART19.1 Cellular Therapy"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07288879",
+            "title": "DALY II Japan/MB-CART2019.1 for DLBCL",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "31",
+            "start_date": "2025-12-11",
+            "conditions": [
+              "DLBCL - Diffuse Large B Cell Lymphoma",
+              "CAR T Cell Therapy"
+            ],
+            "interventions": [
+              "MB-CART2019.1"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07178431",
+            "title": "MB-CART2019.1 in Refractory Multiple Sclerosis",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "26",
+            "start_date": "2026-01-30",
+            "conditions": [
+              "Multiple Sclerosis",
+              "CAR T Cell Therapy"
+            ],
+            "interventions": [
+              "MB-CART2019.1"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07020260",
+            "title": "The PACMAN-Hu19 Trial: a Study of the Safety and Feasibility of Locally Produced, CD19-targeted and Human CAR T-cell Therapy in Children and Young Adults With Relapsed or Refractory B-cell Malignancies",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "18",
+            "start_date": "2025-09-01",
+            "conditions": [
+              "Leukemia",
+              "Lymphoma"
+            ],
+            "interventions": [
+              "CAR T-cell and Cellular Therapies"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06225050",
+            "title": "M-2018-334 in Hematological Malignancies",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "18",
+            "start_date": "2026-02-28",
+            "conditions": [
+              "Hematological Malignancies"
+            ],
+            "interventions": [
+              "CliniMACS Prodigy® LP-TCRα/β-19-45RA (Trial Version)"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          }
+        ],
+        "total": 7,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Novotech (Australia) Pty Limited",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Dermatology",
+          "Neurology",
+          "Rare & Genetic Diseases",
+          "Musculoskeletal",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 3",
+          "Phase 2"
+        ],
+        "countries": [
+          "New Zealand",
+          "Australia",
+          "South Korea",
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06429930",
+            "title": "Safety, Tolerability and Pharmacokinetics Study of L608 in Healthy Adults",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "32",
+            "start_date": "2025-04-11",
+            "conditions": [
+              "Pulmonary Arterial Hypertension"
+            ],
+            "interventions": [
+              "L608 Liposomal inhalation suspension",
+              "Placebo Solution"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology"
+            ]
+          },
+          {
+            "nct_id": "NCT06961565",
+            "title": "PAS-004 in Adults Who Have Neurofibromatosis Type 1 With Plexiform Neurofibromas",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "56",
+            "start_date": "2025-05-30",
+            "conditions": [
+              "NF1 Mutation",
+              "Neurofibroma Plexiform",
+              "Neurofibroma, Plexiform",
+              "Neurofibromatosis Type 1 (NF1)-Related Plexiform Neurofibromas (PNs)",
+              "Neurofibromatosis Type 1 (NF1)"
+            ],
+            "interventions": [
+              "PAS-004 Tablets"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT07219771",
+            "title": "A Study to Evaluate the Efficacy and Safey of PTP-001 (MOTYS™) in Knee Osteoarthritis Patients",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "260",
+            "start_date": "2025-10-14",
+            "conditions": [
+              "Knee Osteoarthritis"
+            ],
+            "interventions": [
+              "PTP-01",
+              "Placebo control / saline vehicle"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07235293",
+            "title": "A Study to Test DSP107 in Combination With Atezolizumab in Comparison With Fruquintinib as a New Treatment for Colorectal Cancer.",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "90",
+            "start_date": "2026-01-16",
+            "conditions": [
+              "Colorectal Cancer"
+            ],
+            "interventions": [
+              "DSP107 + Atezolizumab",
+              "Fruquintinib"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07401121",
+            "title": "Safety and Tolerability Study of CTx1000 In Participants With Amyotrophic Lateral Sclerosis",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "15",
+            "start_date": "2026-01-12",
+            "conditions": [
+              "ALS (Amyotrophic Lateral Sclerosis)"
+            ],
+            "interventions": [
+              "AAV9 Gene therapy"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 5,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Shirley Ryan AbilityLab",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Neurology",
+          "Musculoskeletal",
+          "Oncology",
+          "Hematology",
+          "Other"
+        ],
+        "phases": [
+          "EARLY/Phase 1",
+          "NA",
+          "Phase 2",
+          "Phase 1",
+          "N/A",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06999213",
+            "title": "Lower Limb ExoNET: Development and Evaluation for Gait Assistance With Stroke Survivors",
+            "phase": "EARLY/Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "20",
+            "start_date": "2026-01-31",
+            "conditions": [
+              "Healthy"
+            ],
+            "interventions": [
+              "Assist",
+              "Resist",
+              "Slack"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07364773",
+            "title": "Enhancing Rehabilitation Participation in Patients With SCI/D Using Motivational Interviewing",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "180",
+            "start_date": "2025-11-01",
+            "conditions": [
+              "Spinal Cord Injuries (SCI)",
+              "Spinal Cord Disease"
+            ],
+            "interventions": [
+              "Motivational Interviewing"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07433023",
+            "title": "tSCS and 5-Azacitidine for Enhanced Motor Outcomes in Cerebral Palsy",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "80",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Cerebral Palsy"
+            ],
+            "interventions": [
+              "tSCS",
+              "5-Azacitidine",
+              "Mannitol",
+              "Functional Activity Training"
+            ],
+            "therapy_areas": [
+              "Hematology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07434492",
+            "title": "Smart AFO and 5-Azacitidine to Enhance Mobility in Children With Cerebral Palsy",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "60",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Cerebral Palsy"
+            ],
+            "interventions": [
+              "Smart Ankle-Foot Orthosis",
+              "5-Azacitidine",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Hematology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06886152",
+            "title": "Spinal Stimulation and Gait Training to Improve Mobility in TBI",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "30",
+            "start_date": "2025-09-01",
+            "conditions": [
+              "Traumatic Brain Injury",
+              "Traumatic Brain Injury (TBI)",
+              "Hemiplegia and Hemiparesis"
+            ],
+            "interventions": [
+              "Transcutaneous Spinal Cord Stimulation",
+              "Sham"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT06377085",
+            "title": "Repurposing 5-Azacytidine for the Treatment of Muscle Contractures in Children With Cerebral Palsy",
+            "phase": "Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "27",
+            "start_date": "2025-07",
+            "conditions": [
+              "Cerebral Palsy",
+              "Contracture"
+            ],
+            "interventions": [
+              "Placebo for the AZA 10mg/m^2",
+              "Placebo for the AZA 20mg/m^2",
+              "Placebo for the AZA 35mg/m^2",
+              "Placebo for the AZA 75mg/m^2",
+              "5-Azacytidine 10mg/m^2",
+              "5-Azacytidine 20mg/m^2",
+              "5-Azacytidine 35mg/m^2",
+              "5-Azacytidine 75mg/m^2"
+            ],
+            "therapy_areas": [
+              "Dermatology"
+            ]
+          },
+          {
+            "nct_id": "NCT07132775",
+            "title": "Evaluation of the Safety and Efficacy of a Full-Body Electrostimulation Garment for Individuals With Neurological and Neuromuscular Conditions That Cause Spasticity, Hyperreflexia, and Pain",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "15",
+            "start_date": "2025-07-23",
+            "conditions": [
+              "Multiple Sclerosis",
+              "Fibromyalgia",
+              "Neurologic Disorder",
+              "Neuromuscular Disorders"
+            ],
+            "interventions": [
+              "Active full-body stimulation",
+              "Sham full-body stimulation"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07407725",
+            "title": "Clinical Outcome Assessment for AT & BCI",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "60",
+            "start_date": "2026-01-08",
+            "conditions": [
+              "Spinal Cord Injury",
+              "ALS (Amyotrophic Lateral Sclerosis)"
+            ],
+            "interventions": [
+              "Eye Tracker",
+              "Mouth Operated Joystick",
+              "Non-invasive electroencephalogram (EEG) Headset",
+              "Implantable Brain-Computer-Interface",
+              "Personal Assistive Technology"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07113457",
+            "title": "Assessing Upper Extremity Function in Chronic Stroke Survivors Through Acute Intermittent Hypoxia",
+            "phase": "NA",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "20",
+            "start_date": "2025-06-02",
+            "conditions": [
+              "Stroke"
+            ],
+            "interventions": [
+              "Acute Intermittent Hypoxia (AIH)"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT06970522",
+            "title": "Wearable Sensors to Detect Atypical Muscle Activation in Young Infants",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-06-25",
+            "conditions": [
+              "Neuromuscular Disorders",
+              "Motor Development",
+              "Muscle Tone"
+            ],
+            "interventions": [],
+            "therapy_areas": [
+              "Other"
+            ]
+          }
+        ],
+        "total": 19,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Tasly Pharmaceutical Group Co., Ltd",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Neurology",
+          "Cardiovascular",
+          "Musculoskeletal",
+          "Respiratory",
+          "Vaccines",
+          "Oncology",
+          "Ophthalmology"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07389460",
+            "title": "Intravenous rhPro-UK Before Stroke Thrombectomy in the Extended Time Window (BRIDGE-PUK EXTEND)",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "820",
+            "start_date": "2026-01-31",
+            "conditions": [
+              "Acute Ischemic Stroke"
+            ],
+            "interventions": [
+              "Intravenous rhPro-UK",
+              "Intravenous placebo",
+              "Endovascular thrombectomy"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07265349",
+            "title": "A Phase I/II Clinical Trial of Intramyocardial Injection of HucMSCs for the Treatment of Chronic Heart Failure",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "51",
+            "start_date": "2025-12-26",
+            "conditions": [
+              "Coronary Artery Bypass Grafting (CABG)",
+              "Chronic Heart Failure",
+              "Chronic Ischemic Cardiomyopathy"
+            ],
+            "interventions": [
+              "Mesenchymal stem cells(HucMSCs)",
+              "CABG"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Musculoskeletal",
+              "Respiratory",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06773117",
+            "title": "Phase III Trial of Susu Zhike Granules in Children With Cold-cough Syndrome for Acute Cough Treatment",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "360",
+            "start_date": "2025-09-01",
+            "conditions": [
+              "Cough"
+            ],
+            "interventions": [
+              "Susu Xiao'er Zhike Granules",
+              "Extremely-low dose Susu Xiao'er Zhike Granules"
+            ],
+            "therapy_areas": [
+              "Dermatology"
+            ]
+          },
+          {
+            "nct_id": "NCT07318818",
+            "title": "A Clinical Trial of P134 Cells in Recurrent Glioblastoma",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "26",
+            "start_date": "2026-01-05",
+            "conditions": [
+              "Recurrent Glioblastoma IDH Wildtype"
+            ],
+            "interventions": [
+              "P134 cell injection"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07269769",
+            "title": "A Clinical Trial Evaluating the Efficacy and Safety of Sanhuang Jingshiming Pills in the Treatment of nAMD",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "450",
+            "start_date": "2026-01-01",
+            "conditions": [
+              "AMD"
+            ],
+            "interventions": [
+              "Sanhuang Jingshiming/Pills placebo"
+            ],
+            "therapy_areas": [
+              "Ophthalmology"
+            ]
+          },
+          {
+            "nct_id": "NCT07371624",
+            "title": "A Study of the Safety, Tolerability and Preliminary Efficacy of B2065 in Patients With Acute Ischemic Stroke.",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "54",
+            "start_date": "2025-12-31",
+            "conditions": [
+              "Acute Ischemic Stroke"
+            ],
+            "interventions": [
+              "B2065",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 6,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Insmed Gene Therapy LLC",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Musculoskeletal",
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06817382",
+            "title": "A Study to Investigate the Safety and Biodistribution of a Single Intrathecal (IT) Injection of INS1201 in Ambulatory Males With Duchenne Muscular Dystrophy (DMD)",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "12",
+            "start_date": "2025-07-22",
+            "conditions": [
+              "Duchenne Muscular Dystrophy"
+            ],
+            "interventions": [
+              "INS1201"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal"
+            ]
+          },
+          {
+            "nct_id": "NCT07290062",
+            "title": "A Study to Investigate the Safety and Pharmacodynamics of a Single Intrathecal Injection (IT) of INS1202 in Participants With Amyotrophic Lateral Sclerosis (ALS)",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "23",
+            "start_date": "2026-01-09",
+            "conditions": [
+              "Amyotrophic Lateral Sclerosis"
+            ],
+            "interventions": [
+              "INS1202"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "iRegene Therapeutics Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 2"
+        ],
+        "countries": [
+          "China",
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07289477",
+            "title": "A Phase I/III Clinical Study to Evaluate NouvNeu001 Injection for Multiple System Atrophy",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "9",
+            "start_date": "2025-12",
+            "conditions": [
+              "Multiple System Atrophy - Parkinsonian Subtype (MSA-P)"
+            ],
+            "interventions": [
+              "Human Dopaminergic Progenitor Cells"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07028632",
+            "title": "The Safety, Feasibility and Efficacy of NouvNeu001 for Parkinson's Disease",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "30",
+            "start_date": "2025-06-30",
+            "conditions": [
+              "Parkinson Disease (PD)"
+            ],
+            "interventions": [
+              "Human Dopaminergic Progenitor Cells"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT06612710",
+            "title": "The Safety and Efficacy of NouvSoma001 in Ischemic Stroke",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "69",
+            "start_date": "2025-11-30",
+            "conditions": [
+              "Ischemic Stroke"
+            ],
+            "interventions": [
+              "extracellular vesicles derived from human induced neural stem cell for intravenous injection",
+              "a placebo of extracellular vesicles derived from human induced neural stem cell for intravenous injection"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07102342",
+            "title": "This Clinical Trial is Designed to Evaluate the Safety, Tolerability, Feasibility and Preliminary Efficacy of NouvNeu001 (Human Dopaminergic Progenitor Cells Injection) in Patients With Parkinson's Disease.",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "5",
+            "start_date": "2026-01-12",
+            "conditions": [
+              "Parkinson Disease"
+            ],
+            "interventions": [
+              "Human Dopaminergic Progenitor Cells"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 4,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Huashan Hospital",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Infectious Disease",
+          "Neurology",
+          "Oncology",
+          "Other",
+          "Gastroenterology & Hepatology",
+          "Immunology & Inflammation",
+          "Respiratory",
+          "Cardiovascular"
+        ],
+        "phases": [
+          "Phase 4",
+          "NA",
+          "Phase 3",
+          "Phase 2",
+          "Phase 1",
+          "N/A",
+          "EARLY/Phase 1",
+          "Phase 2, Phase 3"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06153069",
+            "title": "Asymptomatic TB With Innovative Modified Short-course Regimens",
+            "phase": "Phase 4",
+            "status": "RECRUITING",
+            "enrollment": "426",
+            "start_date": "2025-11-21",
+            "conditions": [
+              "Tuberculosis"
+            ],
+            "interventions": [
+              "Four-month regimen",
+              "Three-month regimen",
+              "Standard regimen"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease"
+            ]
+          },
+          {
+            "nct_id": "NCT06484374",
+            "title": "A Multicenter, RAndomlzed, coNtrolled, umBrella Trial fOr Minimally Invasive Neurosurgery With Al-assisted Robotic guidanCe for Hemorrhagic Stroke: Large Basal Ganglia Hemorrhage",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "198",
+            "start_date": "2025-12-20",
+            "conditions": [
+              "Hematoma Brain",
+              "Large Basal Ganglia Hemorrhage"
+            ],
+            "interventions": [
+              "Robot-Assisted Endoscopic Minimally Invasive Surgery",
+              "Traditional Surgical Approaches"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06465719",
+            "title": "A Trial for Minimally Invasive Neurosurgery With AI-assisted Robotic Guidance for Moderate Basal Ganglia Hemorrhage (RAINBOW-MBH)",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "330",
+            "start_date": "2025-09-30",
+            "conditions": [
+              "Basal Ganglia Hemorrhage"
+            ],
+            "interventions": [
+              "Minimally invasive basal ganglion hematoma evacuation with Tract-based AI Robot Guiding System",
+              "Patients will be managed with guideline-based medications"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06994975",
+            "title": "CHinese ischEmic Stroke Beyond 4.5 Hours With TeNecteplase Under Optimized Non-Contrast CT Selection",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "890",
+            "start_date": "2025-11-03",
+            "conditions": [
+              "Acute Ischemic Stroke"
+            ],
+            "interventions": [
+              "0.25mg/kg TNK",
+              "Standard medical treatment"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07129629",
+            "title": "Short-Course Regimen With Bedaquiline, Moxifloxacin and Pyrazinamide for Early Bactericidal Activity in Drug-Susceptible Tuberculosis",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "45",
+            "start_date": "2025-08-20",
+            "conditions": [
+              "Tuberculosis, Pulmonary",
+              "Drug-Susceptible Pulmonary Tuberculosis"
+            ],
+            "interventions": [
+              "Bedaquiline (B)",
+              "Moxifloxacin",
+              "Pyrazinamide (PZA)",
+              "Delamanid (D)",
+              "Isoniazid (H)",
+              "Rifampicin (R)",
+              "Ethambutol (E)"
+            ],
+            "therapy_areas": [
+              "Infectious Disease"
+            ]
+          },
+          {
+            "nct_id": "NCT07341828",
+            "title": "A Study of C-CAR168 in the Treatment of Central Nervous System Autoimmune Diseases Refractory to Standard Therapy",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "15",
+            "start_date": "2026-02",
+            "conditions": [
+              "Multiple Sclerosis (MS)",
+              "Neuromyelitis Optica Spectrum Disorders (NMOSD)",
+              "Autoimmune Encephalitis",
+              "Stiff Person Syndrome"
+            ],
+            "interventions": [
+              "CD20/BCMA-directed CAR-T cells"
+            ],
+            "therapy_areas": [
+              "Infectious Disease",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07434518",
+            "title": "A Real-World Study Evaluating the Efficacy and Safety of Adebrelimab in Patients With Advanced SCLC",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "500",
+            "start_date": "2026-01-27",
+            "conditions": [
+              "Small Cell Lung Cancer (SCLC)"
+            ],
+            "interventions": [
+              "Adebrelimab (PD-L1 inhibitor)"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06896279",
+            "title": "Study on the Effectiveness and Safety of Temporal Interference Stimulation in Treating Patients With Severe Consciousness Disorders",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "20",
+            "start_date": "2025-04-21",
+            "conditions": [
+              "Disorder of Consciousness",
+              "Temporal Interference Stimulation"
+            ],
+            "interventions": [
+              "TI Stimulation",
+              "Sham Stimulation"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT07302035",
+            "title": "A First-in-Human Safety and Pharmacokinetic Trial of GenSci142 Administered as Single Ascending Doses in Healthy Chinese Women",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "30",
+            "start_date": "2025-12",
+            "conditions": [
+              "Bacterial Vaginosis"
+            ],
+            "interventions": [
+              "GenSci142",
+              "Placebo GenSci142"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT06991452",
+            "title": "Early Diagnosis and Recurrence Monitoring of Colorectal Cancer",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "1200",
+            "start_date": "2025-05",
+            "conditions": [
+              "Colorectal Cancer"
+            ],
+            "interventions": [
+              "Liquid biopsy"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 36,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Magnes AG",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [
+          "Switzerland"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07308418",
+            "title": "The Influence of Vibrotactile Stimulation on Self-selected Walking Speed in People With Parkinson's Disease",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "16",
+            "start_date": "2026-01-10",
+            "conditions": [
+              "Parkinson's Disease (PD)"
+            ],
+            "interventions": [
+              "Vibrotactile feedback during walking"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Neuralink Corp",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Musculoskeletal",
+          "Neurology",
+          "Oncology",
+          "Dermatology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [
+          "United Arab Emirates",
+          "United Kingdom",
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06992596",
+            "title": "UAE-PRIME: A Feasibility Study of a Precise Robotically Implanted Brain-Computer Interface for the Control of External Devices",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "10",
+            "start_date": "2025-05-09",
+            "conditions": [
+              "Tetraplegia/Tetraparesis",
+              "Quadriplegia",
+              "Quadriplegia/Tetraplegia",
+              "Cervical Spinal Cord Injury",
+              "Amyotrophic Lateral Sclerosis (ALS)",
+              "Spinal Cord Injury (Quadraplegia)"
+            ],
+            "interventions": [
+              "N1 Implant",
+              "R1 Robot"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07127172",
+            "title": "GB-PRIME: An Early Feasibility Study of a Precise Robotically Implanted Brain-Computer Interface for the Control of External Devices",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "7",
+            "start_date": "2025-07-31",
+            "conditions": [
+              "Tetraplegia/Tetraparesis",
+              "Quadriplegia",
+              "Quadriplegia/Tetraplegia",
+              "Cervical Spinal Cord Injury",
+              "Amyotrophic Lateral Sclerosis (ALS)",
+              "Spinal Cord Injury (Quadraplegia)"
+            ],
+            "interventions": [
+              "N1 Implant",
+              "R1 Robot"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07407725",
+            "title": "Clinical Outcome Assessment for AT & BCI",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "60",
+            "start_date": "2026-01-08",
+            "conditions": [
+              "Spinal Cord Injury",
+              "ALS (Amyotrophic Lateral Sclerosis)"
+            ],
+            "interventions": [
+              "Eye Tracker",
+              "Mouth Operated Joystick",
+              "Non-invasive electroencephalogram (EEG) Headset",
+              "Implantable Brain-Computer-Interface",
+              "Personal Assistive Technology"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07224256",
+            "title": "VOICE: An Early Feasibility Study of a Precise Robotically Implanted Brain-Computer Interface for Communication Restoration",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "6",
+            "start_date": "2025-10-03",
+            "conditions": [
+              "Tetraplegia/Tetraparesis",
+              "Quadriplegia",
+              "Cervical Spinal Cord Injury",
+              "Amyotrophic Lateral Sclerosis",
+              "Quadriplegia/Tetraplegia",
+              "Tetraplegic; Paralysis"
+            ],
+            "interventions": [
+              "N1 Implant",
+              "R1 Robot"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Musculoskeletal",
+              "Neurology",
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 4,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Qilu Pharmaceutical (Hainan) Co., Ltd.",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Metabolic & Endocrine",
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 1",
+          "Phase 4"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07258394",
+            "title": "Clinical Study for Dimethyl Fumarate in Preserving Islet β-Cell Function in Type 1 Diabetes Mellitus",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "90",
+            "start_date": "2026-01-27",
+            "conditions": [
+              "Type 1 Diabetes"
+            ],
+            "interventions": [
+              "Dimethyl Fumarate Enteric-coated Capsules",
+              "Matching placebo capsules"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT06925659",
+            "title": "A Study of QLM2011 in Subjects With Advanced Solid Tumors",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "172",
+            "start_date": "2025-05",
+            "conditions": [
+              "Advanced Solid Tumors"
+            ],
+            "interventions": [
+              "QLM2011",
+              "Taxotere®"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07138833",
+            "title": "A Phase IV Study of Dimethyl Fumarate Enteric-coated Capsules for Relapsing Multiple Sclerosis (RMS)",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "50",
+            "start_date": "2025-09",
+            "conditions": [
+              "Relapsing Multiple Sclerosis"
+            ],
+            "interventions": [
+              "Dimethyl Fumarate Enteric-coated Capsules"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 3,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "FH Joanneum Gesellschaft mbH",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Other",
+          "Dermatology",
+          "Neurology",
+          "Metabolic & Endocrine"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [
+          "Austria"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07253545",
+            "title": "IOBBAT - Impact of Basic Body Awareness Therapy on Body Awareness",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "60",
+            "start_date": "2025-11",
+            "conditions": [
+              "Perception, Self",
+              "Body Awareness",
+              "Self-Assessment"
+            ],
+            "interventions": [
+              "Basic Body Awareness Therapy",
+              "Lecture"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT07376135",
+            "title": "LETHE-AT: a Personalized Multidomain Lifestyle Intervention for Individuals at Increased Risk of Memory Impairment.",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "300",
+            "start_date": "2026-01-08",
+            "conditions": [
+              "Mild Cognitive Impairment (MCI)",
+              "Subjective Cognitive Decline (SCD)"
+            ],
+            "interventions": [
+              "A tailored hybrid multidomain lifestyle intervention group",
+              "Self-guided multimodal lifestyle advice group"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07440147",
+            "title": "Effects of Akkermansia Muciniphila and Berberine Supplementation on Insulin Sensitivity in Night-shift Workers",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "200",
+            "start_date": "2026-01-20",
+            "conditions": [
+              "Obesity & Overweight",
+              "Circadian Rhythm Disorders",
+              "Gut Microbiota Modulation",
+              "Prediabetes (Insulin Resistance, Impaired Glucose Tolerance)"
+            ],
+            "interventions": [
+              "Verum (A)",
+              "Placebo (B)"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Metabolic & Endocrine"
+            ]
+          }
+        ],
+        "total": 3,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "ABLE Human Motion S.L.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Musculoskeletal",
+          "Neurology",
+          "Dermatology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [
+          "Netherlands",
+          "Spain"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07062575",
+            "title": "Exoskeleton Training at Home to Assist Participants With Spinal Cord Injuries to Perform Ambulatory Functions.",
+            "phase": "NA",
+            "status": "SUSPENDED",
+            "enrollment": "10",
+            "start_date": "2025-06-19",
+            "conditions": [
+              "Spinal Cord Injury"
+            ],
+            "interventions": [
+              "ABLE Daily"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT06921551",
+            "title": "Exploratory Pilot Study on the Prolonged Use of the ABLE Exoskeleton in Multiple Sclerosis",
+            "phase": "NA",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "19",
+            "start_date": "2025-04-07",
+            "conditions": [
+              "Multiple Sclerosis"
+            ],
+            "interventions": [
+              "ABLE Exoskeleton"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07036107",
+            "title": "A Trial on the Clinical and Socioeconomic Impact of Wearable Exoskeletons for Spinal Cord Injury Rehabilitation in the Spanish Healthcare System",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "80",
+            "start_date": "2026-01-15",
+            "conditions": [
+              "Spinal Cord Injury"
+            ],
+            "interventions": [
+              "ABLE Exoskeleton",
+              "Conventional therapy"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07050875",
+            "title": "Clinical Investigation to Validate the Safety and Performance of the ABLE Exoskeleton Device for Individuals With Acquired Brain Injury in a Clinical Setting",
+            "phase": "NA",
+            "status": "COMPLETED",
+            "enrollment": "14",
+            "start_date": "2025-06-30",
+            "conditions": [
+              "Acquired Brain Injury (Including Stroke)"
+            ],
+            "interventions": [
+              "ABLE Exoskeleton"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 4,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "dsm-firmenich Switzerland AG",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Other",
+          "Dermatology",
+          "Neurology",
+          "Oncology",
+          "Psychiatry & Mental Health",
+          "Cardiovascular"
+        ],
+        "phases": [
+          "NA",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "Canada",
+          "United Kingdom",
+          "France",
+          "Germany"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06937814",
+            "title": "The Effect of Humiome® Post LB on Gut COMFort in healthY Adult Volunteers",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "250",
+            "start_date": "2025-06-16",
+            "conditions": [
+              "GI Issues",
+              "Bowel Movements",
+              "Gastrointestinal Symptoms"
+            ],
+            "interventions": [
+              "Humiome ® Post LB",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT07366931",
+            "title": "The Effect of Daily Supplementation With Humiome® Post LB on Gastrointestinal Symptoms in Female Athletes",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "100",
+            "start_date": "2026-01-01",
+            "conditions": [
+              "Healthy Adult Females",
+              "Gastrointestinal Symptoms"
+            ],
+            "interventions": [
+              "Postbiotic",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07471659",
+            "title": "Effect of Daily Humiome® Post LB Intake on Wellbeing in Older Individuals With Moderate Stress Levels",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "200",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Stress"
+            ],
+            "interventions": [
+              "Humiome Post LB",
+              "Microcrystalline Cellulose"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07110896",
+            "title": "Study Evaluating the Effect of Humiome® Post LB on Stress, Anxiety, and Cognition in Aging Adults",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "236",
+            "start_date": "2025-08-01",
+            "conditions": [
+              "Healthy Aging"
+            ],
+            "interventions": [
+              "Humiome Post LB (Postbiotic)",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07093463",
+            "title": "Colon-delivered Riboflavin and Gut Microbiota Composition",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "90",
+            "start_date": "2025-07-18",
+            "conditions": [
+              "Microbiome Dysbiosis",
+              "Gut Health"
+            ],
+            "interventions": [
+              "Colon-delivered riboflavin",
+              "Conventional riboflavin",
+              "Microcrystalline Cellulose"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 5,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Shenzhen MagicRNA Biotechnology Co., Ltd",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06965309",
+            "title": "Efficacy and Safety of HN2301 in Refractory Myasthenia Gravis(MG)",
+            "phase": "NA",
+            "status": "TERMINATED",
+            "enrollment": "9",
+            "start_date": "2026-01-19",
+            "conditions": [
+              "Refractory Myasthenia Gravis"
+            ],
+            "interventions": [
+              "HN2301 injection"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07413835",
+            "title": "Efficacy and Safety of HN2302 in Refractory Myasthenia Gravis(MG)",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "6",
+            "start_date": "2026-03-17",
+            "conditions": [
+              "Refractory Myasthenia Gravis"
+            ],
+            "interventions": [
+              "HN2302 Injection"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Gemma Biotherapeutics",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Musculoskeletal",
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "Brazil"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07070999",
+            "title": "Study of Safety, Tolerability and Efficacy of GB221 in Infants With Spinal Muscular Atrophy Type 1",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "22",
+            "start_date": "2026-01-06",
+            "conditions": [
+              "Spinal Muscular Atrophy Type I"
+            ],
+            "interventions": [
+              "GB221"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Theranica",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Pain",
+          "Dermatology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 4",
+          "NA"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06976723",
+            "title": "Nerivio Efficacy by Time of Treatment Onset",
+            "phase": "Phase 4",
+            "status": "COMPLETED",
+            "enrollment": "55261",
+            "start_date": "2025-05-07",
+            "conditions": [
+              "Migraine",
+              "Acute Treatment of Migraine"
+            ],
+            "interventions": [
+              "Nerivio"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07249931",
+            "title": "Efficacy and Safety of Nerivio for the Management of Amplified Musculoskeletal Pain Syndrome in Pediatric Patients",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-12-01",
+            "conditions": [
+              "Amplified Musculoskeletal Pain Syndrome (AMPS)"
+            ],
+            "interventions": [
+              "Nerivio(R) Device",
+              "Usual Care"
+            ],
+            "therapy_areas": [
+              "Pain"
+            ]
+          },
+          {
+            "nct_id": "NCT07336420",
+            "title": "Treatment Patterns Among US Veterans Using Remote Electrical Neuromodulation (REN) for Migraine Treatment",
+            "phase": "Phase 4",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "600",
+            "start_date": "2026-01-09",
+            "conditions": [
+              "Migraine",
+              "PTH",
+              "Acute Treatment of Migraine"
+            ],
+            "interventions": [
+              "Nerivio REN device"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07487701",
+            "title": "Migraine Prevention With the Remote Electrical Neuromodulation (REN) Wearable: A Real-world Evidence Study",
+            "phase": "NA",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "150",
+            "start_date": "2026-02-20",
+            "conditions": [
+              "Migraine",
+              "Chronic Migraine Headache"
+            ],
+            "interventions": [
+              "Nerivio REN device"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07336056",
+            "title": "Nerivio Efficacy Under High-Frequency Use",
+            "phase": "Phase 4",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "2000",
+            "start_date": "2026-01-08",
+            "conditions": [
+              "Migraine"
+            ],
+            "interventions": [
+              "Nerivio (REN device)"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 5,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "BioActor B.V.",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [
+          "United Kingdom"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07452562",
+            "title": "Hesperidin RCT in MS",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "60",
+            "start_date": "2026-01-07",
+            "conditions": [
+              "Multiple Sclerosis"
+            ],
+            "interventions": [
+              "Hesperidin",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "MYNERVA AG",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Neurology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT07236515",
+            "title": "Randomized, Sham-Controlled Investigation of the Leia Sensory Prosthesis in Individuals With Peripheral Neuropathy",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "80",
+            "start_date": "2026-01-01",
+            "conditions": [
+              "Peripheral Neuropathy"
+            ],
+            "interventions": [
+              "Active wearable device",
+              "Sham wearable device"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Denali Therapeutics Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "United Kingdom"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07328451",
+            "title": "A Study to Evaluate the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of DNL628 in Participants With Early Alzheimer's Disease",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "68",
+            "start_date": "2026-01-30",
+            "conditions": [
+              "Alzheimer Disease, Early Onset"
+            ],
+            "interventions": [
+              "DNL628",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07354724",
+            "title": "A Study to Evaluate the Safety, Pharmacokinetics, and Pharmacodynamics of DNL952 in Adult Participants With Late-Onset Pompe Disease",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "32",
+            "start_date": "2026-03",
+            "conditions": [
+              "Late-onset Pompe Disease"
+            ],
+            "interventions": [
+              "DNL952"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Neuralert Technologies LLC",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT07362303",
+            "title": "Neuralert Stroke Monitor Trial",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "1200",
+            "start_date": "2026-01-15",
+            "conditions": [
+              "Surgery",
+              "Stroke"
+            ],
+            "interventions": [
+              "Neuralert Monitor"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Libbs Farmacêutica LTDA",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Neurology",
+          "Psychiatry & Mental Health"
+        ],
+        "phases": [
+          "N/A",
+          "Phase 3"
+        ],
+        "countries": [
+          "Brazil"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06808685",
+            "title": "Real World Multicenter National Study to Evaluate the Effectiveness and Safety of Biosimilar Bevacizumab Elovie",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "133",
+            "start_date": "2025-06-01",
+            "conditions": [
+              "Metastatic Colorectal Cancer"
+            ],
+            "interventions": [],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07295587",
+            "title": "Assessment of the Impact of Headache on the Employee Population of Libbs Pharmaceutical Ltd",
+            "phase": "N/A",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "1342",
+            "start_date": "2026-01",
+            "conditions": [
+              "Migraine Headache",
+              "Migraine"
+            ],
+            "interventions": [],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07412132",
+            "title": "Evaluation of the Efficacy, Safety, and Tolerability of Lacosamide in Major Depressive Episodes of Bipolar Disorder Types I and II.",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-01-09",
+            "conditions": [
+              "Bipolar Affective Disorder"
+            ],
+            "interventions": [
+              "Lacosamide",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology",
+              "Psychiatry & Mental Health"
+            ]
+          }
+        ],
+        "total": 3,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Regeneration Biomedical, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 2"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT07373067",
+            "title": "Repeat Intracerebroventricular Injections of RB-ADSC in Subjects Previously Treated in RBI Protocol RB-ADSC-02",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "9",
+            "start_date": "2026-01",
+            "conditions": [
+              "Alzheimer Disease"
+            ],
+            "interventions": [
+              "RB-ADSC"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07205601",
+            "title": "Study of Intracerebroventricular Injections of Autologous Adipose-Derived Stem Cells (RB-ADSCs) in Participants With Mild-Moderate Alzheimer's Disease",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "115",
+            "start_date": "2025-11",
+            "conditions": [
+              "Alzheimer Disease"
+            ],
+            "interventions": [
+              "RB-ADSC",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Austrian Research Promotion Agency",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Neurology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [
+          "Austria"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07376135",
+            "title": "LETHE-AT: a Personalized Multidomain Lifestyle Intervention for Individuals at Increased Risk of Memory Impairment.",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "300",
+            "start_date": "2026-01-08",
+            "conditions": [
+              "Mild Cognitive Impairment (MCI)",
+              "Subjective Cognitive Decline (SCD)"
+            ],
+            "interventions": [
+              "A tailored hybrid multidomain lifestyle intervention group",
+              "Self-guided multimodal lifestyle advice group"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Lifetech Scientific (Shenzhen) Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Cardiovascular",
+          "Neurology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [
+          "China",
+          "Germany",
+          "Hong Kong"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06915545",
+            "title": "Study on the Aortic Arch Single Branch Stent Graft System",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "135",
+            "start_date": "2025-04-30",
+            "conditions": [
+              "Aortic Dissection"
+            ],
+            "interventions": [
+              "Aortic Arch Single Branch Covered Stent System"
+            ],
+            "therapy_areas": [
+              "Dermatology"
+            ]
+          },
+          {
+            "nct_id": "NCT06710938",
+            "title": "Thoracoabdominal Artery Stent Graft System Exploratory Study",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "11",
+            "start_date": "2025-07-24",
+            "conditions": [
+              "Thoracoabdominal Aortic Aneurysms"
+            ],
+            "interventions": [
+              "The system includes the G-Branch™ thoracoabdominal aortic stent graft system, the peripheral vascular stent graft system, and the aortic extension stent graft system"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology"
+            ]
+          },
+          {
+            "nct_id": "NCT07385599",
+            "title": "FIM Study of the LAmbre™ II LAA Occluder in Non-Valvular AF Patients",
+            "phase": "NA",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "10",
+            "start_date": "2026-01-19",
+            "conditions": [
+              "Non-valvular Atrial Fibrillation (NVAF)"
+            ],
+            "interventions": [
+              "LAmbre™ II Left Atrial Appendage Occluder and Occluder Delivery System"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 3,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "RemeGen Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Respiratory",
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 1, Phase 2",
+          "Phase 3",
+          "Phase 2"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07105215",
+            "title": "A I/II Phase Clinical Study to Evaluate the Safety and Efficacy of RC278 in the Treatment of Solid Tumors",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "312",
+            "start_date": "2025-08-11",
+            "conditions": [
+              "Solid Tumors"
+            ],
+            "interventions": [
+              "RC278"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07495033",
+            "title": "Phase III Clinical Trial of Telitacicept Injection in the Treatment of Patients With Connective Tissue Disease-related Interstitial Lung Disease",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "260",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "CTD-ILD"
+            ],
+            "interventions": [
+              "Telitacicept",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Respiratory"
+            ]
+          },
+          {
+            "nct_id": "NCT07249632",
+            "title": "A Study of Telitacicept in Patients With Ocular Myasthenia Gravis (OMG)",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "120",
+            "start_date": "2026-01-13",
+            "conditions": [
+              "Myasthenia Gravis, Ocular"
+            ],
+            "interventions": [
+              "Telitacicept",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07315750",
+            "title": "A Study of Disitamab Vedotin Combined With Trastuzumab and Tislelizumab Versus Chemotherapy Combined With Trastuzumab With or Without Pembrolizumab in HER2-high Expression Advanced Gastric or Gastroesophageal Junction Adenocarcinoma.",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "555",
+            "start_date": "2026-01-01",
+            "conditions": [
+              "Gastric Carcinoma"
+            ],
+            "interventions": [
+              "Disitamab Vedotin",
+              "Tislelizumab",
+              "CAPOX (oxaliplatin/capecitabine)",
+              "Trastuzumab",
+              "Pembrolizumab"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06944496",
+            "title": "A Study of Disitamab Vedotin Combined With Tislelizumab and Chemotherapy Versus Tislelizumab Combined With Chemotherapy in HER2-Low Advanced Gastric or Gastroesophageal Junction Adenocarcinoma",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "616",
+            "start_date": "2025-05-15",
+            "conditions": [
+              "Gastric Carcinoma"
+            ],
+            "interventions": [
+              "Disitamab Vedotin+Tislelizumab+Oxaliplatin+Capecitabine",
+              "Tislelizumab+Oxaliplatin+Capecitabine"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06962865",
+            "title": "A Phase Ⅱ Study of RC108 in Combination With Furmonertinib for the First-line Treatment of EGFR-Mutated Combined MET-Positive Unresectable Locally Advanced or Recurrent Metastatic NSCLC",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "80",
+            "start_date": "2025-06-30",
+            "conditions": [
+              "Non-Small Cell Lung Cancer"
+            ],
+            "interventions": [
+              "RC108",
+              "Furmonertinib Mesilate Tablets Monotherapy"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07100184",
+            "title": "RC48 in Combination With Radiotherapy for HER2-Expressing NMIBC Patients",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "30",
+            "start_date": "2025-09-01",
+            "conditions": [
+              "HER2-expressing High-risk or Very High-risk NMIBC Without Visible Foci of Disease After TURBT"
+            ],
+            "interventions": [
+              "Disitamab Vedotin combined with Radiotherapy"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 7,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Vanda Pharmaceuticals",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Psychiatry & Mental Health",
+          "Other",
+          "Cardiovascular",
+          "Dermatology",
+          "Neurology",
+          "Oncology",
+          "Metabolic & Endocrine"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 2",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06961968",
+            "title": "Randomized Withdrawal Study in Patients With Schizophrenia",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "400",
+            "start_date": "2025-05-14",
+            "conditions": [
+              "Schizophrenia"
+            ],
+            "interventions": [
+              "iloperidone",
+              "placebo"
+            ],
+            "therapy_areas": [
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07179055",
+            "title": "An Eight-Week Study to Evaluate the Safety and Efficacy of VSJ-110 Compared to Placebo in the Treatment of Dry Eye",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "160",
+            "start_date": "2025-10",
+            "conditions": [
+              "Dry Eye"
+            ],
+            "interventions": [
+              "VSJ-110",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT06953869",
+            "title": "Evaluating the Effects of Tasimelteon vs. Placebo in Treating Pediatric Insomnia",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "420",
+            "start_date": "2025-04-21",
+            "conditions": [
+              "Insomnia Disorder"
+            ],
+            "interventions": [
+              "Tasimelteon Oral Suspension",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07090161",
+            "title": "Evaluation of Efficacy and Safety of Iloperidone for the Treatment of Participants With Uncontrolled Hypertension",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "240",
+            "start_date": "2025-09-15",
+            "conditions": [
+              "Hypertension",
+              "Uncontrolled Hypertension"
+            ],
+            "interventions": [
+              "iloperidone",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology"
+            ]
+          },
+          {
+            "nct_id": "NCT07362017",
+            "title": "Open Label Study to Investigate the Safety and Efficacy of Ponesimod in Moderate-to-Severe Chronic Plaque Psoriasis",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "300",
+            "start_date": "2026-01",
+            "conditions": [
+              "Moderate-to-severe Chronic Plaque Psoriasis"
+            ],
+            "interventions": [
+              "Ponesimod"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07221578",
+            "title": "Study to Evaluate the Efficacy and Safety of VQW-765 for the On-Demand Treatment of Social Anxiety Disorder",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "500",
+            "start_date": "2025-09-22",
+            "conditions": [
+              "Social Anxiety Disorder (SAD)"
+            ],
+            "interventions": [
+              "VQW-765",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07065773",
+            "title": "Safety, Tolerability and Efficacy of Trichostatin A in Patients With Mild to Severe Onychomycosis",
+            "phase": "Phase 2",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "50",
+            "start_date": "2025-05-05",
+            "conditions": [
+              "Onychomycosis of Toenail"
+            ],
+            "interventions": [
+              "Trichostatin A"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07223632",
+            "title": "Treatment of Charcot-Marie-Tooth Disease, Axonal, Type 2S (CMT2S) in an Individual Patient",
+            "phase": "Phase 1, Phase 2",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "1",
+            "start_date": "2025-05-13",
+            "conditions": [
+              "Charcot Marie Tooth Disease (CMT)",
+              "Neuromuscular Diseases (NMD)"
+            ],
+            "interventions": [
+              "VCA-894A"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07446439",
+            "title": "A Study to Evaluate Tradipitant on Treating Nausea and Vomiting Induced by GLP-1R Agonist Use",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "280",
+            "start_date": "2026-02-25",
+            "conditions": [
+              "Nausea and Vomiting",
+              "Obesity"
+            ],
+            "interventions": [
+              "Tradipitant",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine"
+            ]
+          }
+        ],
+        "total": 9,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Alpha Biopharma (Jiangsu) Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1",
+          "N/A"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07361705",
+            "title": "Zorifertinib With Osimertinib for NSCLC With Meningeal Progression",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "42",
+            "start_date": "2026-01-31",
+            "conditions": [
+              "Patients With Advanced Non-small Cell Lung Cancer With Meningeal Progression After Osimertinib Treatment"
+            ],
+            "interventions": [
+              "Zorifertinib and Osimertinib Combination Therapy"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07143045",
+            "title": "A Prospective Cohort Study of Zorifertinib as a First-line Treatment in Patients With Epidermal Growth Factor Receptor-mutant Advanced Non-small Cell Lung Cancer With Central Nervous System (CNS) Metastases",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "800",
+            "start_date": "2025-12-29",
+            "conditions": [
+              "EGFR Mutant Advanced Non-small Cell Lung Cancer",
+              "Central Nervous System (CNS) Metastases"
+            ],
+            "interventions": [
+              "zorifertinib"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Duke Clinical Research Institute",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Neurology",
+          "Immunology & Inflammation",
+          "Oncology",
+          "Metabolic & Endocrine"
+        ],
+        "phases": [
+          "NA",
+          "Phase 2, Phase 3",
+          "N/A"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06552637",
+            "title": "Synchronized Diaphragmatic Stimulation in Symptomatic Heart Failure",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "270",
+            "start_date": "2025-10-15",
+            "conditions": [
+              "Heart Failure With Reduced Ejection Fraction"
+            ],
+            "interventions": [
+              "Synchronized Diaphragmatic Stimulation"
+            ],
+            "therapy_areas": [
+              "Cardiovascular"
+            ]
+          },
+          {
+            "nct_id": "NCT07284784",
+            "title": "A Study of Buntanetap in Participants With PD",
+            "phase": "Phase 2, Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "500",
+            "start_date": "2026-01-09",
+            "conditions": [
+              "Parkinson's Disease (PD)",
+              "Deep Brain Stimulation"
+            ],
+            "interventions": [
+              "buntanetap/posiphen"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07198113",
+            "title": "COMPARE - Pediatric Inflammatory Bowel Disease (PIBD)",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "1100",
+            "start_date": "2025-11-01",
+            "conditions": [
+              "Ulcerative Colitis, Pediatric",
+              "Inflammatory Bowel Diseases",
+              "Crohn Disease"
+            ],
+            "interventions": [],
+            "therapy_areas": [
+              "Immunology & Inflammation",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07075341",
+            "title": "Healthy Living BEYOND Weight Study",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "1000000",
+            "start_date": "2025-06-30",
+            "conditions": [
+              "Overweight or Obesity"
+            ],
+            "interventions": [
+              "None - Observational study"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine"
+            ]
+          },
+          {
+            "nct_id": "NCT07224594",
+            "title": "Comparing Optimized Models of Primary And Specialist Services for Palliative Care",
+            "phase": "NA",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "78302",
+            "start_date": "2026-02-16",
+            "conditions": [
+              "Seriously Ill Hospitalized Patients"
+            ],
+            "interventions": [
+              "Default Order",
+              "Accountable Justification",
+              "Standardized Usual Care"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 5,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Changzhou Qianhong Bio-pharma Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 2"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07396337",
+            "title": "Study to Assess the Efficacy and Safety of QHRD106 Injection in Acute Ischemic Stroke.",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "320",
+            "start_date": "2026-01-19",
+            "conditions": [
+              "Acute Ischemic Stroke"
+            ],
+            "interventions": [
+              "QHRD106 Injection (Low-dose group)",
+              "QHRD106 Injection (Middle-dose group)",
+              "QHRD106 Injection (High-dose group)",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Annovis Bio Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 2, Phase 3"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07284784",
+            "title": "A Study of Buntanetap in Participants With PD",
+            "phase": "Phase 2, Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "500",
+            "start_date": "2026-01-09",
+            "conditions": [
+              "Parkinson's Disease (PD)",
+              "Deep Brain Stimulation"
+            ],
+            "interventions": [
+              "buntanetap/posiphen"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Actinium Pharmaceuticals",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Hematology",
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 2, Phase 3",
+          "Phase 1",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07157514",
+            "title": "Radioimmunotherapy Conditioning With 131I- Apamistamab for Allogeneic Transplant in Relapse/Refractory AML",
+            "phase": "Phase 2, Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "306",
+            "start_date": "2026-01",
+            "conditions": [
+              "Acute Leukemia",
+              "Myeloid Leukemia",
+              "Acute Myelogenous Leukemia",
+              "Acute Myeloid Leukemia",
+              "Acute Myeloid Leukemia, in Relapse",
+              "Myelogenous Leukemia"
+            ],
+            "interventions": [
+              "131I-apamistamab",
+              "Fludarabine",
+              "Cyclophosphamide",
+              "Total Body Irradiation (TBI)",
+              "Allogeneic Hematopoietic Stem Cell Transplant (HSCT)"
+            ],
+            "therapy_areas": [
+              "Hematology",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07015684",
+            "title": "131I-apamistamab-based Conditioning for Hematopoietic Stem Cell Transplant (HSCT) in Advanced Sickle Cell Disease (SCD)",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "24",
+            "start_date": "2025-04-28",
+            "conditions": [
+              "Sickling Disorder Due to Hemoglobin S"
+            ],
+            "interventions": [
+              "131I-apamistmab",
+              "Sirolimus",
+              "Campath",
+              "Total Body Irradiation",
+              "Exchange Transfusion",
+              "Planar gamma imaging"
+            ],
+            "therapy_areas": [
+              "Hematology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06768905",
+            "title": "Study of IOMAB-ACT Followed by CAR-T Cell Therapy for Patients Relapsed or Refractory (Diffuse Large B-cell Lymphoma",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "30",
+            "start_date": "2025-04-25",
+            "conditions": [
+              "Non Hodgkin Lymphoma",
+              "Diffuse Large B Cell Lymphoma"
+            ],
+            "interventions": [
+              "Iomab-B",
+              "CAR-T cell"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 3,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Miriam Freimer",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07215949",
+            "title": "Zilucoplan for Severe gMG Exacerbations",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "15",
+            "start_date": "2026-01-20",
+            "conditions": [
+              "Generalized Myasthenia Gravis (gMG)"
+            ],
+            "interventions": [
+              "Zilucoplan®"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Sichuan Purity Pharmaceutical Technology Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Psychiatry & Mental Health",
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 2",
+          "Phase 1"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07193901",
+            "title": "A Study to Evaluate the Efficacy, Safety, and Pharmacokinetic Characteristics of (R)-Ketamine Hydrochloride Nasal Spray in Patients With Depression and Acute Suicidal Ideation or Behavior",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "98",
+            "start_date": "2025-05-27",
+            "conditions": [
+              "Major Depressive Disorder (MDD"
+            ],
+            "interventions": [
+              "Low Dose PRT042 nasal spray",
+              "median Dose PRT042 nasal spray",
+              "high dose PRT042 nasal spray",
+              "placebo"
+            ],
+            "therapy_areas": [
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07016516",
+            "title": "A Study to Learn About PRT-064040 Nasal Spray in Healthy Adult Subjects",
+            "phase": "Phase 1",
+            "status": "COMPLETED",
+            "enrollment": "80",
+            "start_date": "2025-06-07",
+            "conditions": [
+              "Migraine"
+            ],
+            "interventions": [
+              "PRT-064040 nasal spray",
+              "Placebo",
+              "PRT-064040 nasal spray",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07304518",
+            "title": "Phase II Trial of PRT-064040 Nasal Spray for the Treatment of Migraine in Adults",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "456",
+            "start_date": "2026-01-26",
+            "conditions": [
+              "Migraine"
+            ],
+            "interventions": [
+              "PRT-064040 nasal spray",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 3,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Takara Bio Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [
+          "Japan"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07174427",
+            "title": "Multi-center Study of TBI-1301 (INN: Mipetresgene Autoleucel; Mip-cel) in Patients With NY-ESO-1 Positive Synovial Sarcoma",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "5",
+            "start_date": "2026-01-05",
+            "conditions": [
+              "Synovial Sarcomas"
+            ],
+            "interventions": [
+              "TBI-1301",
+              "Cyclophosphamide",
+              "Fludarabine"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Gravity Medical Technology, INC",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT07335185",
+            "title": "Gravity Stroke System for Recanalization of Large Vessel Occlusion Strokes",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "3000",
+            "start_date": "2026-01-01",
+            "conditions": [
+              "Stroke",
+              "Ischemic Stroke",
+              "Cerebrovascular Disorders",
+              "Brain Diseases",
+              "Central Nervous System Diseases",
+              "Nervous System Diseases"
+            ],
+            "interventions": [
+              "Supernova revascularization device"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "U: The Mind Company",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07182058",
+            "title": "Virtual tES Device Treatment for Parkinson's Disease Motor Symptoms",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "30",
+            "start_date": "2026-01-01",
+            "conditions": [
+              "PARKINSON DISEASE (Disorder)"
+            ],
+            "interventions": [
+              "Transcranial Electrical Stimulation Device"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Beijing Inno Medicine Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Vaccines",
+          "Cardiovascular",
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 2"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07190885",
+            "title": "A Pharmacokinetic Study of YN001 in Healthy Participants",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "24",
+            "start_date": "2025-11-18",
+            "conditions": [
+              "Healthy Volunteers"
+            ],
+            "interventions": [
+              "YN001"
+            ],
+            "therapy_areas": [
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT06700720",
+            "title": "YN001-004 in Patients With Coronary Atherosclerosis in Australia",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "24",
+            "start_date": "2026-02",
+            "conditions": [
+              "Coronary Artery Disease",
+              "Coronary Atherosclerotic Disease"
+            ],
+            "interventions": [
+              "Dose 1 YN001",
+              "Dose 2 YN001",
+              "Evolocumab"
+            ],
+            "therapy_areas": [
+              "Cardiovascular"
+            ]
+          },
+          {
+            "nct_id": "NCT07311330",
+            "title": "Phase IIa Clinical Trial of YN001 in Patients With Atherosclerotic Cardiovascular and Cerebrovascular Diseases and Erectile Dysfunction",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-01-31",
+            "conditions": [
+              "Atherosclerotic Cardiovascular Disease (ASCVD)",
+              "Erectile Dysfunction"
+            ],
+            "interventions": [
+              "YN001 20mg Dose + 5% glucose injection",
+              "5% glucose injection"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07309042",
+            "title": "Phase 1 Study of the Safety and Pharmacokinetics of YN001 With Rosuvastatin in Healthy Chinese Subjects",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "24",
+            "start_date": "2025-12",
+            "conditions": [
+              "Atherosclerotic Cardiovascular Diseases",
+              "Cerebrovascular Diseases"
+            ],
+            "interventions": [
+              "YN001, Rosuvastatin calcium Tablets",
+              "YN001, Rosuvastatin calcium Tablets",
+              "YN001, Rosuvastatin calcium Tablets"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 4,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Neonc Technologies, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT06357377",
+            "title": "A Study of the Safety, Dosing, and Delivery of NEO100 in Patients With Pediatric Brain Tumors",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "12",
+            "start_date": "2026-01",
+            "conditions": [
+              "Pediatric Tumor of CNS",
+              "Pediatric Tumor of Brain",
+              "Diffuse Midline Glioma, H3 K27M-Mutant",
+              "Pediatric Tumor of Brain Stem",
+              "Pineocytoma",
+              "Choroid Plexus Carcinoma, Childhood"
+            ],
+            "interventions": [
+              "NEO100"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Celosia Therapeutics Pty Ltd",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07401121",
+            "title": "Safety and Tolerability Study of CTx1000 In Participants With Amyotrophic Lateral Sclerosis",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "15",
+            "start_date": "2026-01-12",
+            "conditions": [
+              "ALS (Amyotrophic Lateral Sclerosis)"
+            ],
+            "interventions": [
+              "AAV9 Gene therapy"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "5 Point App, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06754722",
+            "title": "Decentralized Clinical Trial of Effectiveness of EnergyPoints App in Cancer Survivors",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "180",
+            "start_date": "2026-01-15",
+            "conditions": [
+              "Cancer-related Problem/Condition",
+              "Fatigue in Cancer Survivors",
+              "Sleep Disturbances",
+              "Health-related Quality of Life"
+            ],
+            "interventions": [
+              "App to guide self-acupressure"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "AB Science",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [
+          "Greece"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07174492",
+            "title": "Efficacy and Safety of Masitinib in Combination With SoC Versus Placebo in the Treatment of ALS Patients",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "412",
+            "start_date": "2026-01-01",
+            "conditions": [
+              "Amyotrophic Lateral Sclerosis (ALS)"
+            ],
+            "interventions": [
+              "Masitinib 4.5 mg/kg/day",
+              "Placebo",
+              "Riluzole (100 mg)"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Skyhawk Therapeutics, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 2, Phase 3"
+        ],
+        "countries": [
+          "Georgia",
+          "Australia",
+          "New Zealand"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07378644",
+            "title": "Study to Evaluate the Pharmacodynamics, Safety and Efficacy of SKY-0515 in Participants With Huntington's Disease",
+            "phase": "Phase 2, Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "400",
+            "start_date": "2026-01-06",
+            "conditions": [
+              "Huntington Disease"
+            ],
+            "interventions": [
+              "SKY-0515",
+              "SKY-0515 Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT06873334",
+            "title": "Study of SKY-0515 for Safety, Efficacy, and Pharmacodynamics in Participants With Huntington's Disease",
+            "phase": "Phase 2, Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "120",
+            "start_date": "2025-05-27",
+            "conditions": [
+              "Huntington Disease",
+              "Huntingtons Disease"
+            ],
+            "interventions": [
+              "SKY-0515",
+              "SKY-0515 Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "JYAMS PET Research & Development Limited",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07422857",
+            "title": "Evaluate the Use of [18F]-APN-1607 PET in Subjects With AD-related Cognitive Impairment and Subjects With Normal Cognitive Function",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "316",
+            "start_date": "2026-01-22",
+            "conditions": [
+              "Subjects With Mild Cognitive Impairment (MCI) of AD, Alzheimer's Disease (AD) Dementia"
+            ],
+            "interventions": [
+              "[18F]-APN-1607"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Paradromics",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Musculoskeletal",
+          "Neurology"
+        ],
+        "phases": [
+          "NA"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07357428",
+            "title": "Connect-One: Early Feasibility Study of Connexus® Brain-Computer Interface (BCI)",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "2",
+            "start_date": "2026-01",
+            "conditions": [
+              "Amyotrophic Lateral Sclerosis",
+              "Neuromuscular Disease",
+              "Stroke",
+              "Tetraplegia/Tetraparesis",
+              "Cervical Spinal Cord Injury",
+              "Dysarthria"
+            ],
+            "interventions": [
+              "Connexus Brain-Computer Interface"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Musculoskeletal",
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      }
+    ],
+    "contacts": []
+  },
+  {
     "id": "cmp_1774541677700",
     "name": "Vaccines_Jan2026",
     "owner": "Parth",
