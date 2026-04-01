@@ -22536,19 +22536,6 @@
         "notes": ""
       },
       {
-        "id": "ct_1775047102602_5",
-        "name": "Yunkou",
-        "title": "Senior Director of Pharmacology, Toxicology and Radiopharmaceutical Development",
-        "company": "Brilliant Pharmaceuticals",
-        "email": "yunkou.wu@btyy.com",
-        "linkedin": "https://www.linkedin.com/in/yunkou-wu-45bb9096",
-        "status": "not-started",
-        "drafts": {},
-        "lastContacted": null,
-        "followUpDate": null,
-        "notes": ""
-      },
-      {
         "id": "ct_1775047102602_6",
         "name": "Chengran",
         "title": "Associate Director of 505(b)(2) & NME CMC development",
@@ -28019,6 +28006,17 @@
         "drafts": {},
         "lastContacted": null,
         "followUpDate": null,
+        "notes": ""
+      },
+      {
+        "id": "ct_1775047440547",
+        "name": "Helen Yang",
+        "email": "helen.yang@btyy.com",
+        "title": "Market Access Director",
+        "company": "Sichuan Purity Pharmaceutical",
+        "linkedin": "",
+        "status": "not-started",
+        "drafts": {},
         "notes": ""
       }
     ]
