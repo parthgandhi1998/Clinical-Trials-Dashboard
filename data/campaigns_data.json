@@ -2651,42 +2651,6 @@
         "contactsImported": false
       },
       {
-        "name": "Miriam Freimer",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Neurology"
-        ],
-        "phases": [
-          "Phase 3"
-        ],
-        "countries": [
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07215949",
-            "title": "Zilucoplan for Severe gMG Exacerbations",
-            "phase": "Phase 3",
-            "status": "RECRUITING",
-            "enrollment": "15",
-            "start_date": "2026-01-20",
-            "conditions": [
-              "Generalized Myasthenia Gravis (gMG)"
-            ],
-            "interventions": [
-              "Zilucoplan®"
-            ],
-            "therapy_areas": [
-              "Neurology"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Sichuan Purity Pharmaceutical Technology Co., Ltd.",
         "org_type": "INDUSTRY",
         "funder_types": [],
