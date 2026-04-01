@@ -28007,6 +28007,58 @@
         "lastContacted": null,
         "followUpDate": null,
         "notes": ""
+      },
+      {
+        "id": "ct_1775047535781_1",
+        "name": "Helen",
+        "title": "Market Access Director",
+        "company": "Sichuan Purity Pharmaceutical",
+        "email": "helen.yang@btyy.com",
+        "linkedin": "https://www.linkedin.com/in/é¢–helen-æ¨yang-52aa08218",
+        "status": "not-started",
+        "drafts": {},
+        "lastContacted": null,
+        "followUpDate": null,
+        "notes": ""
+      },
+      {
+        "id": "ct_1775047535781_2",
+        "name": "Jiang",
+        "title": "Director",
+        "company": "Sichuan Purity Pharmaceutical",
+        "email": "jiang.li@btyy.com",
+        "linkedin": "https://www.linkedin.com/in/jiang-li-æŽæ±Ÿåšå£«-4b11653a",
+        "status": "not-started",
+        "drafts": {},
+        "lastContacted": null,
+        "followUpDate": null,
+        "notes": ""
+      },
+      {
+        "id": "ct_1775047535781_3",
+        "name": "Weixuan",
+        "title": "Vice President, Research Institute",
+        "company": "Sichuan Purity Pharmaceutical",
+        "email": "weixuan.he@btyy.com",
+        "linkedin": "https://www.linkedin.com/in/weixuan-he-b7209427",
+        "status": "not-started",
+        "drafts": {},
+        "lastContacted": null,
+        "followUpDate": null,
+        "notes": ""
+      },
+      {
+        "id": "ct_1775047535781_4",
+        "name": "Ethan",
+        "title": "Head, Translational Medicine",
+        "company": "Sichuan Purity Pharmaceutical",
+        "email": "ethan.fan@btyy.com",
+        "linkedin": "https://www.linkedin.com/in/shengjunfan",
+        "status": "not-started",
+        "drafts": {},
+        "lastContacted": null,
+        "followUpDate": null,
+        "notes": ""
       }
     ]
   },
