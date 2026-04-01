@@ -34850,7 +34850,7 @@
         "company": "ZSky Biotech Inc.",
         "email": "xc@skyebioscience.com",
         "linkedin": "https://www.linkedin.com/in/xudong-cheng-828262b5",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07365280 — Exposure-Response & Phase 3 Dose Rationale",
           "email1": "Hi Xudong,\n\nI came across NCT07365280 — your Phase 2 study of Personalized Dendritic Cell Vaccine ZSNeo-DC1.1, Temozolomide (TMZ) in Glioblastoma, and wanted to reach out.\n\nPhase 2 is where the exposure-response relationship becomes the central question — for Personalized Dendritic Cell Vaccine ZSNeo-DC1.1, Temozolomide (TMZ), the E-R for both efficacy and toxicity needs to be well-characterised before committing to a Phase 3 dose. Increasingly, FDA expects a rigorous E-R package before you even start the pivotal trial. With 78 patients, you'll have a dataset that supports a strong PopPK/PD model, and getting that analysis right now is often the difference between a clean Phase 3 dose rationale and a regulatory back-and-forth that delays the pivotal trial.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, dose optimisation, clinical trial simulation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 2 Oncology programme beforehand.",
@@ -34863,8 +34863,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Xudong, I noticed ZSky Biotech Inc. is running NCT07365280 — a Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 2 exposure-response modelling and Phase 3 dose justification. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -34874,7 +34874,7 @@
         "company": "SK Bioscience",
         "email": "hong-kyun.lee@sk.com",
         "linkedin": "https://www.linkedin.com/in/hong-kyun-lee-44986185",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Hong-Kyun,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -34887,8 +34887,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Hong-Kyun, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -34898,7 +34898,7 @@
         "company": "Sinovac Life Sciences Co.",
         "email": "mengweining@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/weining-meng-69a29531",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT06800261 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Weining,\n\nI came across NCT06800261 — your Phase 1 study of Sinovac PCV24, Prevnar® in Pneumococcal Infectious Disease, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 180 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Sinovac Life Sciences has active programmes in Other (Phase 1, Phase 2) and Infectious Disease/Vaccines (Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1 Vaccines programme beforehand.",
@@ -34911,8 +34911,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Weining, I noticed Sinovac Life Sciences Co. is running NCT06800261 — a Phase 1 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -34922,7 +34922,7 @@
         "company": "SK Bioscience",
         "email": "mark.l@sk.com",
         "linkedin": "https://www.linkedin.com/in/mark-sangmok-l-53a10b27",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Mark,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -34935,8 +34935,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Mark, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -34946,7 +34946,7 @@
         "company": "Sinovac Life Sciences Co.",
         "email": "zhuv@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/vincy-zhu-779bb6b",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT06800261 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Vincy,\n\nI came across NCT06800261 — your Phase 1 study of Sinovac PCV24, Prevnar® in Pneumococcal Infectious Disease, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 180 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Sinovac Life Sciences has active programmes in Other (Phase 1, Phase 2) and Infectious Disease/Vaccines (Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1 Vaccines programme beforehand.",
@@ -34959,8 +34959,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Vincy, I noticed Sinovac Life Sciences Co. is running NCT06800261 — a Phase 1 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -34970,7 +34970,7 @@
         "company": "SK Bioscience",
         "email": "jryu@sk.com",
         "linkedin": "https://www.linkedin.com/in/jihwa-ryu-79453520b",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Jihwa,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -34983,8 +34983,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Jihwa, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -34994,7 +34994,7 @@
         "company": "SK Bioscience",
         "email": "seongbeom.park@sk.com",
         "linkedin": "https://www.linkedin.com/in/seongbeom-paul-park-272218215",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi SeongBeom,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35007,8 +35007,8 @@
           "fu2Approved": true,
           "linkedin": "Hi SeongBeom, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35018,7 +35018,7 @@
         "company": "SK Bioscience",
         "email": "ki.kim@sk.com",
         "linkedin": "https://www.linkedin.com/in/ki-hyun-kim-564728144",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Ki,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35031,8 +35031,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Ki, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35042,7 +35042,7 @@
         "company": "SK Bioscience",
         "email": "jaeson.hwang@sk.com",
         "linkedin": "https://www.linkedin.com/in/neovis",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Jaeseon,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35055,8 +35055,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Jaeseon, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35066,7 +35066,7 @@
         "company": "SK Bioscience",
         "email": "seunghee.kim@sk.com",
         "linkedin": "https://www.linkedin.com/in/seunghee-kim-71563b10a",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi SeungHee,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35079,8 +35079,8 @@
           "fu2Approved": true,
           "linkedin": "Hi SeungHee, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35090,7 +35090,7 @@
         "company": "SK Bioscience",
         "email": "kyeongmin.oh@sk.com",
         "linkedin": "https://www.linkedin.com/in/kyeongmin-oh-a70535213",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Kyeongmin,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35103,8 +35103,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Kyeongmin, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35114,7 +35114,7 @@
         "company": "SK Bioscience",
         "email": "hyeeun.lee@sk.com",
         "linkedin": "https://www.linkedin.com/in/hyeeun-lee-221835361",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Hyeeun,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35127,8 +35127,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Hyeeun, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35138,7 +35138,7 @@
         "company": "SK Bioscience",
         "email": "anastasiia.kara@sk.com",
         "linkedin": "https://www.linkedin.com/in/anastasiia-kara-21a9b9221",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Anastasiia,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35151,8 +35151,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Anastasiia, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35162,7 +35162,7 @@
         "company": "SK Bioscience",
         "email": "ann.youn@sk.com",
         "linkedin": "https://www.linkedin.com/in/ann-jin-hee-youn-0ab334132",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Ann,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35175,8 +35175,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Ann, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35186,7 +35186,7 @@
         "company": "SK Bioscience",
         "email": "sungsik.park@sk.com",
         "linkedin": "https://www.linkedin.com/in/sungsik-park-00832a118",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Sungsik,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35199,8 +35199,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Sungsik, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35210,7 +35210,7 @@
         "company": "SK Bioscience",
         "email": "jin.oh@sk.com",
         "linkedin": "https://www.linkedin.com/in/doo-jin-oh-630341121",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Jin,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35223,8 +35223,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Jin, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35234,7 +35234,7 @@
         "company": "SK Bioscience",
         "email": "sangkyun.yoon@sk.com",
         "linkedin": "https://www.linkedin.com/in/sangkyun-yoon-199583146",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Sangkyun,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35247,8 +35247,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Sangkyun, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35258,7 +35258,7 @@
         "company": "SK Bioscience",
         "email": "rkensinger@sk.com",
         "linkedin": "https://www.linkedin.com/in/richard-kensinger-8b513a13",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Richard,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35271,8 +35271,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Richard, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35282,7 +35282,7 @@
         "company": "SK Bioscience",
         "email": "paleun.kim@sk.com",
         "linkedin": "https://www.linkedin.com/in/pa-leun-kim-a975b4135",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Pa-leun,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35295,8 +35295,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Pa-leun, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35306,7 +35306,7 @@
         "company": "SK Bioscience",
         "email": "adele.zhang@sk.com",
         "linkedin": "https://www.linkedin.com/in/adele-zhang-09778a253",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Adele,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35319,8 +35319,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Adele, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35330,7 +35330,7 @@
         "company": "SK Bioscience",
         "email": "jin.park@sk.com",
         "linkedin": "https://www.linkedin.com/in/jin-s-jin-seon-park-35b7bb4b",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Jin,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35343,8 +35343,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Jin, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35354,7 +35354,7 @@
         "company": "SK Bioscience",
         "email": "yong_lee@sk.com",
         "linkedin": "https://www.linkedin.com/in/yong-lee-846a9b111",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Yong,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35367,8 +35367,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Yong, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35378,7 +35378,7 @@
         "company": "SK Bioscience",
         "email": "chhkim@sk.com",
         "linkedin": "https://www.linkedin.com/in/changho-kim-51372092",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Changho,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35391,8 +35391,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Changho, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35402,7 +35402,7 @@
         "company": "SK Bioscience",
         "email": "kennethlee@sk.com",
         "linkedin": "https://www.linkedin.com/in/scholarken",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Kenneth,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35415,8 +35415,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Kenneth, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35426,7 +35426,7 @@
         "company": "SK Bioscience",
         "email": "ikim@sk.com",
         "linkedin": "https://www.linkedin.com/in/ikjung-kim-33a5094b",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Ikjung,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35439,8 +35439,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Ikjung, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35450,7 +35450,7 @@
         "company": "SK Bioscience",
         "email": "jaeyong.ahn@sk.com",
         "linkedin": "https://www.linkedin.com/in/jaeyong-ahn-6503a6234",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Jaeyong,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35463,8 +35463,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Jaeyong, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35474,7 +35474,7 @@
         "company": "SK Bioscience",
         "email": "youngkil.jo@sk.com",
         "linkedin": "https://www.linkedin.com/in/youngkil-jo-98266719a",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Youngkil,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35487,8 +35487,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Youngkil, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35498,7 +35498,7 @@
         "company": "SK Bioscience",
         "email": "jshin308@sk.com",
         "linkedin": "https://www.linkedin.com/in/jinan-shin-545736a3",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Jinan,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35511,8 +35511,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Jinan, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35522,7 +35522,7 @@
         "company": "SK Bioscience",
         "email": "hye-young.kim@sk.com",
         "linkedin": "https://www.linkedin.com/in/hye-young-kim-483875103",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Hye-Young,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35535,8 +35535,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Hye-Young, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35546,7 +35546,7 @@
         "company": "SK Bioscience",
         "email": "hkim@sk.com",
         "linkedin": "https://www.linkedin.com/in/ebolakim1967",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07280858 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Hun,\n\nI came across NCT07280858 — your Phase 1, Phase 2 study of Test Drug 1-1 (GBP511 low dose), Test Drug 1-2 (GBP511 mid dose) in Healthy Participants, Sarbecovirus, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 368 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Vaccines programme beforehand.",
@@ -35559,8 +35559,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Hun, I noticed SK Bioscience is running NCT07280858 — a Phase 1, Phase 2 Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35570,7 +35570,7 @@
         "company": "Cspc Megalith",
         "email": "liy@cspc.com",
         "linkedin": "https://www.linkedin.com/in/yingui-li-97687735",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Yingui,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35583,8 +35583,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Yingui, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35594,7 +35594,7 @@
         "company": "Cspc Megalith",
         "email": "alan.au@gthcap.com",
         "linkedin": "https://www.linkedin.com/in/ckalanau",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Alan,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35607,8 +35607,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Alan, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35618,7 +35618,7 @@
         "company": "Cspc Megalith",
         "email": "liu.刘卫卓george@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/liu-刘卫卓george-b4a88951",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Liu,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35631,8 +35631,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Liu, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35642,7 +35642,7 @@
         "company": "Cspc Megalith",
         "email": "huangw@cspc.com",
         "linkedin": "https://www.linkedin.com/in/wei-huang-921b311b0",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Wei,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35655,8 +35655,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Wei, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35666,7 +35666,7 @@
         "company": "Cspc Megalith",
         "email": "charles.wang@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/charles-qingxi-wang-9a40451b",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Charles,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35679,8 +35679,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Charles, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35690,7 +35690,7 @@
         "company": "Cspc Megalith",
         "email": "xinli.ren@cspcgroup.com",
         "linkedin": "https://www.linkedin.com/in/xinli-tina-ren-49335942",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Xinli,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35703,8 +35703,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Xinli, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35714,7 +35714,7 @@
         "company": "Cspc Megalith",
         "email": "lily.liu@cspcus.com",
         "linkedin": "https://www.linkedin.com/in/lily-liu-2b205928",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Lily,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35727,8 +35727,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Lily, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35738,7 +35738,7 @@
         "company": "Cspc Megalith",
         "email": "sara.ding@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/晓菊-丁-b04204138",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Sara,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35751,8 +35751,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Sara, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35762,7 +35762,7 @@
         "company": "Cspc Megalith",
         "email": "steven@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/steven-wang-3269717b",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Steven,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35775,8 +35775,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Steven, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35786,7 +35786,7 @@
         "company": "Cspc Megalith",
         "email": "bin.kang@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/bin-kang-21a0aa90",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Bin,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35799,8 +35799,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Bin, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35810,7 +35810,7 @@
         "company": "Cspc Megalith",
         "email": "tina.tian@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/tina-tian-727120aa",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Tina,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35823,8 +35823,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Tina, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35834,7 +35834,7 @@
         "company": "Cspc Megalith",
         "email": "zan.gao@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/zan-gao-903109147",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Zan,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35847,8 +35847,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Zan, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35858,7 +35858,7 @@
         "company": "Cspc Megalith",
         "email": "chenglong@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/chenglong-zhao-883894100",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Chenglong,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35871,8 +35871,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Chenglong, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35882,7 +35882,7 @@
         "company": "Cspc Megalith",
         "email": "liu.jacky@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/liu-jacky-4a4105109",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Liu,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35895,8 +35895,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Liu, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35906,7 +35906,7 @@
         "company": "Cspc Megalith",
         "email": "lily.liu@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/lily-liu-81bab5222",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Lily,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35919,8 +35919,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Lily, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35930,7 +35930,7 @@
         "company": "Cspc Megalith",
         "email": "mah@cspc.com",
         "linkedin": "https://www.linkedin.com/in/helen-ma-0074b865",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Helen,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35943,8 +35943,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Helen, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35954,7 +35954,7 @@
         "company": "Cspc Megalith",
         "email": "cheny@cspc.com",
         "linkedin": "https://www.linkedin.com/in/chenyuyuly",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Yuly,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35967,8 +35967,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Yuly, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -35978,7 +35978,7 @@
         "company": "Cspc Megalith",
         "email": "youngy@cspc.com",
         "linkedin": "https://www.linkedin.com/in/yi-young-701960236",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Yi,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -35991,8 +35991,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Yi, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36002,7 +36002,7 @@
         "company": "Cspc Megalith",
         "email": "zhangx@cspc.com",
         "linkedin": "https://www.linkedin.com/in/xinyi-zhang-016067153",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Xinyi,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36015,8 +36015,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Xinyi, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36026,7 +36026,7 @@
         "company": "Cspc Megalith",
         "email": "zpan@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/zhenyu-pan-9aa58514",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Zhenyu,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36039,8 +36039,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Zhenyu, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36050,7 +36050,7 @@
         "company": "Cspc Megalith",
         "email": "hua.l@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/hua-l-2b240255",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Hua,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36063,8 +36063,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Hua, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36074,7 +36074,7 @@
         "company": "Cspc Megalith",
         "email": "zhangl@cspc.com",
         "linkedin": "https://www.linkedin.com/in/li-zhang-7a9724250",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Li,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36087,8 +36087,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Li, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36098,7 +36098,7 @@
         "company": "Cspc Megalith",
         "email": "kev@cspc.com",
         "linkedin": "https://www.linkedin.com/in/vilain-ke-1b6604290",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Vilain,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36111,8 +36111,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Vilain, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36122,7 +36122,7 @@
         "company": "Cspc Megalith",
         "email": "haidan.wang@mail.ecspc.com",
         "linkedin": "https://www.linkedin.com/in/haidan-wang-08b79334",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi HaiDan,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36135,8 +36135,8 @@
           "fu2Approved": true,
           "linkedin": "Hi HaiDan, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36146,7 +36146,7 @@
         "company": "Cspc Megalith",
         "email": "mo.dan@cspc.com",
         "linkedin": "https://www.linkedin.com/in/mo-dan-ph-d-dabt-7b567136",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Mo,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36159,8 +36159,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Mo, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36170,7 +36170,7 @@
         "company": "Cspc Megalith",
         "email": "nawaler@cspc.com",
         "linkedin": "https://www.linkedin.com/in/rajesh-nawale-38b81623",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Rajesh,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36183,8 +36183,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Rajesh, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36194,7 +36194,7 @@
         "company": "Cspc Megalith",
         "email": "songh@cspc.com",
         "linkedin": "https://www.linkedin.com/in/hua-song-423318ab",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Hua,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36207,8 +36207,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Hua, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36218,7 +36218,7 @@
         "company": "Cspc Megalith",
         "email": "abbasn@cspc.com",
         "linkedin": "https://www.linkedin.com/in/naveed-abbas-28b559203",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Naveed,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36231,8 +36231,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Naveed, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36242,7 +36242,7 @@
         "company": "Cspc Megalith",
         "email": "tanw@cspc.com",
         "linkedin": "https://www.linkedin.com/in/wenjie-tan-3b86a830b",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Wenjie,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36255,8 +36255,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Wenjie, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36266,7 +36266,7 @@
         "company": "Cspc Megalith",
         "email": "liuj@cspc.com",
         "linkedin": "https://www.linkedin.com/in/jing-liu-87843a175",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Jing,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36279,8 +36279,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Jing, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36290,7 +36290,7 @@
         "company": "Cspc Megalith",
         "email": "ye@cspc.com",
         "linkedin": "https://www.linkedin.com/in/elena-y-877b6a86",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Elena,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36303,8 +36303,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Elena, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36314,7 +36314,7 @@
         "company": "Cspc Megalith",
         "email": "liuy@cspc.com",
         "linkedin": "https://www.linkedin.com/in/yong-jun-liu-27975997",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Yong,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36327,8 +36327,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Yong, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36338,7 +36338,7 @@
         "company": "Cspc Megalith",
         "email": "heiy@cspc.com",
         "linkedin": "https://www.linkedin.com/in/yonghei",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Yong-jiang,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36351,8 +36351,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Yong-jiang, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36362,7 +36362,7 @@
         "company": "Cspc Megalith",
         "email": "cuil@cspc.com",
         "linkedin": "https://www.linkedin.com/in/lili-cui-69848984",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Lili,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36375,8 +36375,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Lili, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36386,7 +36386,7 @@
         "company": "Cspc Megalith",
         "email": "wangl@cspc.com",
         "linkedin": "https://www.linkedin.com/in/cellcreator",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Lingyu,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36399,8 +36399,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Lingyu, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36410,7 +36410,7 @@
         "company": "Cspc Megalith",
         "email": "liug@cspc.com",
         "linkedin": "https://www.linkedin.com/in/grey-liu-90921b150",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Grey,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36423,8 +36423,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Grey, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36434,7 +36434,7 @@
         "company": "Cspc Megalith",
         "email": "xiaf@cspc.com",
         "linkedin": "https://www.linkedin.com/in/fan-xia-34b490210",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07122063 — Early-Phase PK & Dose Characterisation",
           "email1": "Hi Fan,\n\nI came across NCT07122063 — your Phase 1, Phase 2 study of SYS6045 in Advanced Solid Tumors, and wanted to reach out.\n\nPhase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream. With 266 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure. For a novel agent like SYS6045, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission.\n\nI also noticed Cspc Megalith has active programmes in Cardiovascular/Oncology (Phase 3), Oncology/Women's Health (Phase 3) and Dermatology/Vaccines (Phase 2, Phase 1) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Oncology programme beforehand.",
@@ -36447,8 +36447,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Fan, I noticed Cspc Megalith is running NCT07122063 — a Phase 1, Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterisation, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36458,7 +36458,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "liumengdi@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/mengdi-liu-13b0b981",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Mengdi,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36471,8 +36471,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Mengdi, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36482,7 +36482,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "wubochao@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/bochaowu",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Bochao,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36495,8 +36495,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Bochao, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36506,7 +36506,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "souzalucas@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/lebsouza",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Lucas,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36519,8 +36519,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Lucas, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36530,7 +36530,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "walice@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/alice-w-a1b05b4b",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Alice,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36543,8 +36543,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Alice, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36554,7 +36554,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "weidongyin@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/dr-yin-weidong-02495422",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Yin,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36567,8 +36567,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Yin, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36578,7 +36578,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "baijotmichel@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/michel-baijot-75b1092",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Michel,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36591,8 +36591,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Michel, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36602,7 +36602,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "geweilian@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/weilian",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Weilian,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36615,8 +36615,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Weilian, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36626,7 +36626,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "shuohe@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/shuo-he-7156a240",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Shuo,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36639,8 +36639,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Shuo, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36650,7 +36650,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "igormozolevych@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/mozolevych",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Igor,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36663,8 +36663,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Igor, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36674,7 +36674,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "yang@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/carole-njem-001161113",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Mandy,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36687,8 +36687,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Mandy, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36698,7 +36698,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "borellana@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/bárbara-orellana-602002351",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Bárbara,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36711,8 +36711,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Bárbara, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36722,7 +36722,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "paceg@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/georgepace",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi George,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36735,8 +36735,8 @@
           "fu2Approved": true,
           "linkedin": "Hi George, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36746,7 +36746,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "cheryl@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/cheryl-law-aa800823",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Cheryl,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36759,8 +36759,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Cheryl, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36770,7 +36770,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "yangg@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/helen-yang-0a887318",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Helen,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36783,8 +36783,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Helen, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       },
       {
@@ -36794,7 +36794,7 @@
         "company": "Sinovac Biotech Ltd.",
         "email": "wangn@sinovac.com",
         "linkedin": "https://www.linkedin.com/in/nan-wang-41a4b315",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "NCT07055893 — Clinical Pharmacology Submission Package",
           "email1": "Hi Nan,\n\nI came across NCT07055893 — your Phase 3 study of Rabies vaccine, Verorab® in Rabies (Healthy Volunteers), and wanted to reach out.\n\nPhase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review. With 390 patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.\n\nI also noticed Sinovac Biotech has active programmes in Infectious Disease/Oncology/Vaccines (Phase 3) and Dermatology/Vaccines (Phase 3) — if there's a clinical pharmacology need on any of those fronts, happy to discuss.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 3 Vaccines programme beforehand.",
@@ -36807,8 +36807,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Nan, I noticed Sinovac Biotech Ltd. is running NCT07055893 — a Phase 3 Vaccines trial. At PumasAI, we help teams like yours with Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions. Happy to share a relevant example if useful."
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-04-01",
+        "followUpDate": "2026-04-08",
         "notes": ""
       }
     ],
