@@ -2972,68 +2972,6 @@
         "contactsImported": false
       },
       {
-        "name": "Neurofibromatosis Therapeutic Acceleration Program",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Neurology",
-          "Rare & Genetic Diseases"
-        ],
-        "phases": [
-          "Phase 1"
-        ],
-        "countries": [
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07102394",
-            "title": "Feasibility and Tolerability of IMLYGIC for the Treatment of Cutaneous Neurofibromas in Adults With NF1",
-            "phase": "Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "10",
-            "start_date": "2026-02",
-            "conditions": [
-              "NF1",
-              "Neurofibromatosis",
-              "Cutaneous Neurofibroma",
-              "Neurofibroma",
-              "Von Recklinghausen Disease",
-              "Neurofibromas"
-            ],
-            "interventions": [
-              "Imlygic"
-            ],
-            "therapy_areas": [
-              "Neurology",
-              "Rare & Genetic Diseases"
-            ]
-          },
-          {
-            "nct_id": "NCT06300502",
-            "title": "Assessing the Efficacy of Repeat, Monthly Treatments of Deoxycholate for NF1 Associated Cutaneous Neurofibromas (cNFs)",
-            "phase": "Phase 1",
-            "status": "ENROLLING_BY_INVITATION",
-            "enrollment": "15",
-            "start_date": "2025-04-08",
-            "conditions": [
-              "Neurofibromas, Cutaneous",
-              "Neurofibromatosis 1"
-            ],
-            "interventions": [
-              "Kybella"
-            ],
-            "therapy_areas": [
-              "Neurology",
-              "Rare & Genetic Diseases"
-            ]
-          }
-        ],
-        "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Stoparkinson Healthcare Systems LLC",
         "org_type": "INDUSTRY",
         "funder_types": [],
