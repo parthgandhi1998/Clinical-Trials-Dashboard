@@ -733,49 +733,6 @@
         "contactsImported": false
       },
       {
-        "name": "Shanghai United Cell Biotechnology Co., Ltd",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Dermatology",
-          "Infectious Disease",
-          "Oncology",
-          "Vaccines"
-        ],
-        "phases": [
-          "Phase 4"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07300462",
-            "title": "A Post-marketing Observational Study of Oral Cholera Vaccine",
-            "phase": "Phase 4",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "6000",
-            "start_date": "2026-03",
-            "conditions": [
-              "Diarrhea"
-            ],
-            "interventions": [
-              "Recombinant subunit B/bacterial cholera vaccine (enteric-coated capsules)",
-              "Placebo"
-            ],
-            "therapy_areas": [
-              "Dermatology",
-              "Infectious Disease",
-              "Oncology",
-              "Vaccines"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Vaxine Pty Ltd",
         "org_type": "INDUSTRY",
         "funder_types": [],
