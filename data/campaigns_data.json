@@ -1,5 +1,2956 @@
 [
   {
+    "id": "cmp_1775579644207",
+    "name": "Rare Diseases_Jan-March2026",
+    "owner": "Parth",
+    "area": "Rare & Genetic Diseases",
+    "notes": "",
+    "status": "draft",
+    "created": "2026-04-07T16:34:04.208Z",
+    "companies": [
+      {
+        "name": "Bayer",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Women's Health",
+          "Cardiovascular",
+          "Oncology",
+          "Renal & Urology",
+          "Metabolic & Endocrine",
+          "Infectious Disease",
+          "Respiratory",
+          "Musculoskeletal",
+          "Rare & Genetic Diseases",
+          "Ophthalmology",
+          "Hematology",
+          "Gastroenterology & Hepatology",
+          "Neurology",
+          "Other"
+        ],
+        "phases": [
+          "N/A",
+          "Phase 3",
+          "Phase 1",
+          "NA",
+          "Phase 4",
+          "Phase 2",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United States",
+          "Canada",
+          "South Korea",
+          "Germany",
+          "Tanzania",
+          "Japan",
+          "China",
+          "Philippines",
+          "Argentina",
+          "Austria",
+          "Belgium",
+          "Brazil",
+          "Bulgaria",
+          "Czechia",
+          "Finland",
+          "Greece",
+          "Hungary",
+          "Israel",
+          "Italy",
+          "Mexico",
+          "Poland",
+          "Portugal",
+          "Spain",
+          "Sweden",
+          "Taiwan",
+          "Turkey (Türkiye)",
+          "United Kingdom",
+          "India",
+          "France",
+          "Martinique",
+          "Australia",
+          "Norway",
+          "Lithuania",
+          "Saudi Arabia",
+          "Switzerland"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07490431",
+            "title": "An Observational Study to Learn More About How Elinzanetant is Used and How Well it Works for Women With Menopause Symptoms in United States",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "1500",
+            "start_date": "2026-03-31",
+            "conditions": [
+              "Vasomotor Symptoms (VMS) Associated With Menopause"
+            ],
+            "interventions": [
+              "No intervention"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07270367",
+            "title": "Finerenone and Cardiac Remodeling",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "156",
+            "start_date": "2025-12",
+            "conditions": [
+              "Heart Failure"
+            ],
+            "interventions": [
+              "Finerenone",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Oncology",
+              "Renal & Urology"
+            ]
+          },
+          {
+            "nct_id": "NCT07232537",
+            "title": "An Observational Study Called FINE-REAL Korea to Learn More About the Use of the Drug Finerenone in People With Chronic Kidney Disease and Type 2 Diabetes in a Routine Medical Care Setting in South Korea",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "500",
+            "start_date": "2025-11-20",
+            "conditions": [
+              "Chronic Kidney Disease",
+              "Type 2 Diabetes Mellitus"
+            ],
+            "interventions": [
+              "Kerendia (Finerenone, BAY94-8862)"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Metabolic & Endocrine",
+              "Oncology",
+              "Renal & Urology"
+            ]
+          },
+          {
+            "nct_id": "NCT07395804",
+            "title": "How Darolutamide Plus Hormone Therapy Works for Men With Advanced Prostate Cancer in Everyday Medical Practice in Germany",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "500",
+            "start_date": "2026-02-28",
+            "conditions": [
+              "Metastatic Hormone-sensitive Prostate Cancer (mHSPC)"
+            ],
+            "interventions": [
+              "Darolutamide plus ADT treatment"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06736691",
+            "title": "Efficacy and Safety of Emodepside in Participants With Soil-transmitted Helminth Infections",
+            "phase": "Phase 3",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "315",
+            "start_date": "2025-11-25",
+            "conditions": [
+              "Trichuris Trichiura; Infection",
+              "Hookworm Infection",
+              "Ascaris Lumbricoides Infection"
+            ],
+            "interventions": [
+              "emodepside (BAY 44-4400)",
+              "matching placebo of emodepside",
+              "Mebendazole",
+              "similar placebo to mebendazole"
+            ],
+            "therapy_areas": [
+              "Infectious Disease"
+            ]
+          },
+          {
+            "nct_id": "NCT07244341",
+            "title": "A Study of Valemetostat (DS-3201b) in Combination With Darolutamide in Metastatic Castration Resistant Prostate Cancer (mCRPC)",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "60",
+            "start_date": "2025-12-03",
+            "conditions": [
+              "Metastatic Castration-resistant Prostate Cancer"
+            ],
+            "interventions": [
+              "Valemetostat",
+              "Darolutamide"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07406282",
+            "title": "A Study to Learn About Real-world Utilization and Outcomes of Darolutamide and Other Androgen Receptor Pathway Inhibitors (ARPIs) for Newly Diagnosed Metastatic Hormone-sensitive Prostate Cancer (de Novo mHSPC) in US Urology Clinics",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "1400",
+            "start_date": "2025-07-22",
+            "conditions": [
+              "Prostatic Neoplasms",
+              "Metastatic Hormone-Sensitive Prostate Cancer"
+            ],
+            "interventions": [
+              "Darolutamide",
+              "Abiraterone acetate",
+              "Enzalutamide",
+              "Apalutamide"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Respiratory"
+            ]
+          },
+          {
+            "nct_id": "NCT07235462",
+            "title": "A Study to Learn About the Use of Acoramidis in Patients With a Heart Condition Called Transthyretin Amyloid Cardiomyopathy (ATTR-CM) in a Real-world Setting",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "2000",
+            "start_date": "2025-10-29",
+            "conditions": [
+              "Transthyretin Amyloid Cardiomyopathy (ATTR-CM)"
+            ],
+            "interventions": [
+              "Acoramidis (356 mg film-coated tablets)"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology",
+              "Musculoskeletal",
+              "Oncology",
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT06906627",
+            "title": "Implementation pRogram to Improve Screening and Management for CKD in Diabetes (Program 1) (IRIS-CKD)",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "750",
+            "start_date": "2025-10-28",
+            "conditions": [
+              "Chronic Kidney Disease(CKD)",
+              "Type 2 DM",
+              "Type 2 Diabetes Mellitus (T2DM)"
+            ],
+            "interventions": [
+              "(IRIS-CKD Screening Program): Home Kit",
+              "(IRIS-CKD Screening Program): Standard Lab Order"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine",
+              "Renal & Urology"
+            ]
+          },
+          {
+            "nct_id": "NCT07365371",
+            "title": "A Prospective, Multicenter, Open-label, Randomized Clinical Trial to Evaluate the Efficacy, Durability, and Safety of Aflibercept 8mg in Different Treatment Regimens in Chinese Patients With Polypoidal Choroidal Vasculopathy (PCV)",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "174",
+            "start_date": "2026-01-01",
+            "conditions": [
+              "Polypoidal Choroidal Vasculopathy (PCV)",
+              "Neovascular Age Related Macular Degeneration (AMD)"
+            ],
+            "interventions": [
+              "Aflibercept Intravitreous Injection"
+            ],
+            "therapy_areas": [
+              "Ophthalmology"
+            ]
+          }
+        ],
+        "total": 46,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "HALEON",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Women's Health",
+          "Dermatology",
+          "Rare & Genetic Diseases",
+          "Other",
+          "Oncology"
+        ],
+        "phases": [
+          "NA",
+          "N/A",
+          "Phase 1",
+          "Phase 3"
+        ],
+        "countries": [
+          "Singapore",
+          "United States",
+          "Canada",
+          "China",
+          "United Kingdom",
+          "India"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07433049",
+            "title": "Impact of Supplementation in Improving Metabolic Health Outcomes (ISMOS) Study",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "400",
+            "start_date": "2026-01-20",
+            "conditions": [
+              "Glucose Control",
+              "Mental Health",
+              "Musculoskeletal Health",
+              "Body Composition"
+            ],
+            "interventions": [
+              "Multivitamin/mineral study product"
+            ],
+            "therapy_areas": [
+              "Women's Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07297732",
+            "title": "A Study to Investigate the Tooth Whitening and Dentin Hypersensitivity Effectiveness of Two Experimental Toothpastes",
+            "phase": "NA",
+            "status": "COMPLETED",
+            "enrollment": "254",
+            "start_date": "2025-12-15",
+            "conditions": [
+              "Dentin Hypersensitivity"
+            ],
+            "interventions": [
+              "Test Toothpaste 1",
+              "Test Toothpaste 2",
+              "Reference Toothpaste"
+            ],
+            "therapy_areas": [
+              "Dermatology"
+            ]
+          },
+          {
+            "nct_id": "NCT07169188",
+            "title": "A Clinical Study Investigating the Efficacy of an Experimental Toothpaste Containing Stannous Fluoride in Improving Gingival Health",
+            "phase": "NA",
+            "status": "COMPLETED",
+            "enrollment": "154",
+            "start_date": "2025-09-09",
+            "conditions": [
+              "Dental Plaque",
+              "Gingivitis"
+            ],
+            "interventions": [
+              "Test Fluoride Toothpaste",
+              "Colgate Cavity Protection Toothpaste"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT07337109",
+            "title": "A Study Evaluating Oral-Health-Related Quality of Life and Treatment Patterns Among Dentin Hypersensitivity Sufferers",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "375",
+            "start_date": "2025-12-16",
+            "conditions": [
+              "Dentin Hypersensitivity"
+            ],
+            "interventions": [],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT07195357",
+            "title": "Multi-site Study to Look at Tooth Wear and Tooth Sensitivity and the Risk Factors Associated.",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "2500",
+            "start_date": "2026-02",
+            "conditions": [
+              "Dentin Hypersensitivity",
+              "Erosive Tooth Wear"
+            ],
+            "interventions": [
+              "epidemiological"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT06933368",
+            "title": "A Clinical Study to Evaluate the Efficacy of a Cetylpyridinium Chloride Mouthwash in Improving Gingival Health and Reducing Plaque Accumulation",
+            "phase": "NA",
+            "status": "COMPLETED",
+            "enrollment": "136",
+            "start_date": "2025-04-21",
+            "conditions": [
+              "Dental Plaque",
+              "Gingivitis"
+            ],
+            "interventions": [
+              "Crest Cavity Protection Toothpaste",
+              "Experimental Mouthwash"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT07352956",
+            "title": "A Clinical Study to Evaluate the Effectiveness of an Test Toothpaste for the Relief of Dentin Hypersensitivity in a Chinese Population",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "100",
+            "start_date": "2026-01-16",
+            "conditions": [
+              "Dentin Sensitivity"
+            ],
+            "interventions": [
+              "Test toothpaste",
+              "Sodium fluoride toothpaste"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT07345130",
+            "title": "A Bioequivalence Study of Advil Tablet (Mini) (Ibuprofen 200 mg) Versus Advil Tablet (Ibuprofen 200 mg) in Healthy Adult Subjects Under Fasted Conditions and Bioavailability Assessment of Advil Tablet (Mini) Under Fed Conditions",
+            "phase": "Phase 1",
+            "status": "COMPLETED",
+            "enrollment": "50",
+            "start_date": "2025-12-17",
+            "conditions": [
+              "Bioequivalence",
+              "Bioavailability"
+            ],
+            "interventions": [
+              "Advil Tablet (Mini) (Test Product)",
+              "Advil Tablet (Reference Product)"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT07215767",
+            "title": "Clinical Study to Investigate the Antihypersensitivity Efficacy of a Novel Dentifrice",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "850",
+            "start_date": "2025-09-16",
+            "conditions": [
+              "Dentin Hypersensitivity"
+            ],
+            "interventions": [
+              "Stannous fluoride and Potassium nitrate Dentifrice",
+              "Stannous fluoride Dentifrice",
+              "Potassium nitrate Dentifrice",
+              "Vehicle Dentifrice"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT07496164",
+            "title": "A Clinical Study Assessing the Maximum Maxillary Bite Force When Using Three Denture Adhesives Compared to Using No-Adhesive",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "60",
+            "start_date": "2026-03",
+            "conditions": [
+              "Denture Retention"
+            ],
+            "interventions": [
+              "Experimental Denture Adhesive 1",
+              "Experimental Denture Adhesive 2",
+              "Experimental Denture Adhesive 3",
+              "Poligrip Power Hold + Seal"
+            ],
+            "therapy_areas": [
+              "Dermatology"
+            ]
+          }
+        ],
+        "total": 16,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Amgen",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Dermatology",
+          "Metabolic & Endocrine",
+          "Oncology",
+          "Immunology & Inflammation",
+          "Respiratory",
+          "Musculoskeletal",
+          "Ophthalmology",
+          "Other",
+          "Women's Health",
+          "Neurology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 2",
+          "NA",
+          "Phase 1, Phase 2",
+          "Phase 1",
+          "N/A",
+          "Phase 4",
+          "EARLY/Phase 1"
+        ],
+        "countries": [
+          "Argentina",
+          "Australia",
+          "Austria",
+          "Belgium",
+          "Brazil",
+          "Bulgaria",
+          "Canada",
+          "Chile",
+          "China",
+          "Czechia",
+          "Denmark",
+          "Finland",
+          "France",
+          "Germany",
+          "Greece",
+          "Hong Kong",
+          "Hungary",
+          "Italy",
+          "Japan",
+          "Mexico",
+          "Netherlands",
+          "Poland",
+          "Portugal",
+          "Romania",
+          "Slovakia",
+          "South Korea",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "Taiwan",
+          "Turkey (Türkiye)",
+          "United Kingdom",
+          "United States",
+          "Singapore",
+          "Puerto Rico",
+          "Israel"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07037459",
+            "title": "Maridebart Cafraglutide in Heart Failure With Preserved or Mildly Reduced Ejection Fraction and Obesity",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "5056",
+            "start_date": "2025-06-25",
+            "conditions": [
+              "Heart Failure With Preserved Ejection Fraction",
+              "Heart Failure With Mildly Reduced Ejection Fraction",
+              "Obesity"
+            ],
+            "interventions": [
+              "Maridebart cafraglutide",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology",
+              "Metabolic & Endocrine"
+            ]
+          },
+          {
+            "nct_id": "NCT07301424",
+            "title": "Subcutaneous Blinatumomab Plus Ponatinib for BCR-ABL+ B-ALL",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "80",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Acute Lymphoblastic Leukemia (ALL) Philadelphia Chromosome-positive (Ph+)",
+              "BCR-ABL Positive Acute Lymphoblastic Leukemia"
+            ],
+            "interventions": [
+              "Treatment with blinatumomab given subcutaneously."
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07013578",
+            "title": "TIDHI Mental Health in IBD Patients Study",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "100",
+            "start_date": "2025-07-22",
+            "conditions": [
+              "Crohn Disease (CD)",
+              "Ulcerative Colitis (UC)",
+              "Inflammatory Bowel Disease (IBD)"
+            ],
+            "interventions": [
+              "Healing Circuits™ sessions",
+              "self-directed Healing Circuits™ curriculum"
+            ],
+            "therapy_areas": [
+              "Immunology & Inflammation"
+            ]
+          },
+          {
+            "nct_id": "NCT07134088",
+            "title": "A Study of Subcutaneous Blinatumomab in Children With R/R and and MRD+ B-Cell Precursor Acute Lymphoblastic Leukemia",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "104",
+            "start_date": "2025-12-08",
+            "conditions": [
+              "Relapsed/Refractory B-Cell Precursor Acute Lymphoblastic Leukemia",
+              "Minimal Residual Disease + B-Cell Acute Lymphoblastic Leukemia"
+            ],
+            "interventions": [
+              "Blinatumomab"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07037758",
+            "title": "A Study of Tarlatamab in Combination With AB248 in Participants With Extensive Stage Small Cell Lung Cancer (DeLLphi-311)",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "380",
+            "start_date": "2025-09-16",
+            "conditions": [
+              "Extensive Stage Small Cell Lung Cancer"
+            ],
+            "interventions": [
+              "Tarlatamab",
+              "AB248"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06570798",
+            "title": "A Phase 2 Master Protocol Assessing Inebilizumab and Blinatumomab in Autoimmune Diseases",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "220",
+            "start_date": "2025-07-16",
+            "conditions": [
+              "Systemic Lupus Erythematosus",
+              "Active Refractory Rheumatoid Arthritis"
+            ],
+            "interventions": [
+              "Inebilizumab",
+              "Blinatumomab"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Immunology & Inflammation"
+            ]
+          },
+          {
+            "nct_id": "NCT07226765",
+            "title": "Maridebart Cafraglutide Versus Placebo in Adult Participants With Obstructive Sleep Apnea Not on Positive Airway Pressure (PAP) Therapy",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "250",
+            "start_date": "2025-11-25",
+            "conditions": [
+              "Obstructive Sleep Apnea"
+            ],
+            "interventions": [
+              "Maridebart cafraglutide",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine",
+              "Respiratory"
+            ]
+          },
+          {
+            "nct_id": "NCT07388498",
+            "title": "A Double-blind, Randomized Controlled Trial to Investigate the Efficacy, Safety, and Pharmacokinetics of Pegloticase Administration Via Subcutaneous and Intravenous Routes Both With Methotrexate in Participants With Uncontrolled Gout",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "270",
+            "start_date": "2026-02-09",
+            "conditions": [
+              "Uncontrolled Gout"
+            ],
+            "interventions": [
+              "Pegloticase",
+              "Methotrexate"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal"
+            ]
+          },
+          {
+            "nct_id": "NCT07085117",
+            "title": "Real World Study to Describe the Effectiveness and Safety of Teprotumumab Among Thyroid Eye Disease Patients",
+            "phase": "N/A",
+            "status": "COMPLETED",
+            "enrollment": "5",
+            "start_date": "2025-07-02",
+            "conditions": [
+              "Thyroid Eye Disease"
+            ],
+            "interventions": [
+              "Teprotumumab"
+            ],
+            "therapy_areas": [
+              "Ophthalmology"
+            ]
+          },
+          {
+            "nct_id": "NCT07213674",
+            "title": "A Study of Xaluritamig Plus Abiraterone Versus Investigator's Choice in Participants With Chemotherapy-naïve Metastatic Castration-resistant Prostate Cancer",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "750",
+            "start_date": "2025-11-28",
+            "conditions": [
+              "Metastatic Castration-resistant Prostate Cancer"
+            ],
+            "interventions": [
+              "Xaluritamig",
+              "Abiraterone acetate",
+              "Docetaxel",
+              "Cabazitaxel"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          }
+        ],
+        "total": 52,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Novo Nordisk A/S",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Hematology",
+          "Gastroenterology & Hepatology",
+          "Metabolic & Endocrine",
+          "Oncology",
+          "Respiratory",
+          "Dermatology",
+          "Cardiovascular",
+          "Renal & Urology",
+          "Other",
+          "Neurology",
+          "Vaccines",
+          "Women's Health",
+          "Musculoskeletal",
+          "Rare & Genetic Diseases",
+          "Psychiatry & Mental Health"
+        ],
+        "phases": [
+          "Phase 1",
+          "N/A",
+          "Phase 4",
+          "Phase 3",
+          "Phase 2",
+          "NA"
+        ],
+        "countries": [
+          "United States",
+          "Canada",
+          "France",
+          "Germany",
+          "Japan",
+          "Italy",
+          "China",
+          "Australia",
+          "India",
+          "South Korea",
+          "Thailand",
+          "Argentina",
+          "Norway",
+          "Poland",
+          "United Kingdom",
+          "Austria",
+          "Spain",
+          "Denmark",
+          "Croatia",
+          "Czechia",
+          "Hungary",
+          "Romania",
+          "Slovakia",
+          "Switzerland",
+          "Netherlands",
+          "Puerto Rico",
+          "Belgium",
+          "Brazil",
+          "Ireland",
+          "Sweden",
+          "Bulgaria",
+          "Colombia",
+          "Israel",
+          "Malaysia",
+          "Mexico",
+          "Portugal",
+          "Serbia",
+          "Taiwan",
+          "South Africa"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07023029",
+            "title": "A Study on the Effect of Etavopivat on Heart Rhythm in Healthy Participants",
+            "phase": "Phase 1",
+            "status": "COMPLETED",
+            "enrollment": "33",
+            "start_date": "2025-06-09",
+            "conditions": [
+              "Healthy Volunteers",
+              "Sickle Cell Disease",
+              "Thalassemia"
+            ],
+            "interventions": [
+              "Etavopivat",
+              "Moxifloxacin",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Hematology"
+            ]
+          },
+          {
+            "nct_id": "NCT07201831",
+            "title": "A Multi-country, Cross-sectional Quantitative Study Exploring Awareness, Understanding, and Perceptions of the Relation Between Cardiorenal Metabolic Conditions and MASLD/MASH Among Healthcare Providers, People With MASLD/MASH, and At-risk Population",
+            "phase": "N/A",
+            "status": "COMPLETED",
+            "enrollment": "1330",
+            "start_date": "2025-10-02",
+            "conditions": [
+              "Metabolic Dysfunction-associated Steatohepatitis (MASH)"
+            ],
+            "interventions": [
+              "No treatment given"
+            ],
+            "therapy_areas": [
+              "Gastroenterology & Hepatology",
+              "Metabolic & Endocrine",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07112339",
+            "title": "A Research Study to See How Well Weekly Insulin Icodec Maintains Blood Sugar Levels Compared to Daily Basal Insulins in Adults With Type 2 Diabetes",
+            "phase": "Phase 4",
+            "status": "RECRUITING",
+            "enrollment": "586",
+            "start_date": "2025-08-15",
+            "conditions": [
+              "Diabetes Mellitus, Type 2"
+            ],
+            "interventions": [
+              "Insulin icodec",
+              "Basal insulin analogues"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine",
+              "Respiratory"
+            ]
+          },
+          {
+            "nct_id": "NCT07456774",
+            "title": "A Two-armed Real-world Study of Ozempic (OW Semaglutide) to Evaluate Its Adherence and Persistence Compared With Other Anti-diabetic Drugs Among Adult T2DM Patients in China",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "100000",
+            "start_date": "2026-02-13",
+            "conditions": [
+              "Type 2 Diabetes"
+            ],
+            "interventions": [],
+            "therapy_areas": [
+              "Dermatology",
+              "Metabolic & Endocrine"
+            ]
+          },
+          {
+            "nct_id": "NCT07160829",
+            "title": "Focus on Levels of Awareness and Perceptions Regarding hsCRP in Identifying Systemic Inflammation in ASCVD, CKD and Heart Failure Management",
+            "phase": "N/A",
+            "status": "COMPLETED",
+            "enrollment": "608",
+            "start_date": "2025-09-18",
+            "conditions": [
+              "Atherosclerotic Cardiovascular Disease",
+              "Heart Failure",
+              "Chronic Kidney Disease"
+            ],
+            "interventions": [
+              "No treatment given"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Oncology",
+              "Renal & Urology"
+            ]
+          },
+          {
+            "nct_id": "NCT07404150",
+            "title": "Lifestyle Program Focused on Nourishment, Well-Being, and Health Behaviors in Women With Obesity",
+            "phase": "N/A",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "60",
+            "start_date": "2026-01-12",
+            "conditions": [
+              "Obesity and Cardiovascular Risk"
+            ],
+            "interventions": [
+              "lifestyle change program"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology",
+              "Metabolic & Endocrine"
+            ]
+          },
+          {
+            "nct_id": "NCT07121153",
+            "title": "A Research Study on How NNC0487-0111, a New Medicine, Works in Chinese Participants When Injected Under the Skin.",
+            "phase": "Phase 1",
+            "status": "COMPLETED",
+            "enrollment": "36",
+            "start_date": "2025-08-11",
+            "conditions": [
+              "Overweight",
+              "Obesity"
+            ],
+            "interventions": [
+              "NNC0487-0111 A",
+              "Placebo A"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Metabolic & Endocrine"
+            ]
+          },
+          {
+            "nct_id": "NCT07220642",
+            "title": "Weight Loss in People Living With Overweight or Obesity Following Treatment With Cagrilintide",
+            "phase": "Phase 3",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "300",
+            "start_date": "2025-11-05",
+            "conditions": [
+              "Obesity",
+              "Overweight"
+            ],
+            "interventions": [
+              "Cagrilintide",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07270731",
+            "title": "A Research Study of a New Medicine, NNC9733-0001, in Healthy Participants and Participants With Type 2 Diabetes",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "72",
+            "start_date": "2025-11-25",
+            "conditions": [
+              "Healthy Volunteer",
+              "Type 2 Diabetes"
+            ],
+            "interventions": [
+              "NNC9733-0001",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine"
+            ]
+          },
+          {
+            "nct_id": "NCT07220564",
+            "title": "A Research Study Looking at How Different Doses of Study Medicine (Inno8) Work in the Body of People With Haemophilia A",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "30",
+            "start_date": "2025-10-23",
+            "conditions": [
+              "Haemophilia A"
+            ],
+            "interventions": [
+              "NNC0442-0344 A"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          }
+        ],
+        "total": 66,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Chia Tai Tianqing Pharmaceutical Group Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Hematology",
+          "Respiratory",
+          "Oncology",
+          "Other",
+          "Metabolic & Endocrine",
+          "Cardiovascular",
+          "Immunology & Inflammation",
+          "Infectious Disease",
+          "Neurology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 2",
+          "Phase 1",
+          "Phase 1, Phase 2",
+          "Phase 3",
+          "Phase 4"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07083739",
+            "title": "A Study on the Safety and Efficacy of TQB3473 Tablets in the Treatment of Persistent or Chronic Primary Immune Thrombocytopenia (ITP) in Adults",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "320",
+            "start_date": "2025-08",
+            "conditions": [
+              "Primary Immune Thrombocytopenia"
+            ],
+            "interventions": [
+              "TQB3473 Tablets"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Hematology"
+            ]
+          },
+          {
+            "nct_id": "NCT07252908",
+            "title": "A Phase II Clinical Trial on the Efficacy and Safety of TQC3721 Inhalation Powder",
+            "phase": "Phase 2",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "195",
+            "start_date": "2025-12-22",
+            "conditions": [
+              "Pulmonary Disease, Chronic Obstructive"
+            ],
+            "interventions": [
+              "TQC3721 inhalation powder",
+              "Placebo for TQC3721 inhalation powder"
+            ],
+            "therapy_areas": [
+              "Respiratory"
+            ]
+          },
+          {
+            "nct_id": "NCT07480824",
+            "title": "To Evaluate the Pharmacokinetics and Safety of TQ05105 Tablet in Hepatic Impairment Subjects",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "24",
+            "start_date": "2026-04-01",
+            "conditions": [
+              "Myelofibrosis"
+            ],
+            "interventions": [
+              "TQ05105"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07172126",
+            "title": "Clinical Trial to Evaluate the Tolerance of TQB3201 Tablets",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "291",
+            "start_date": "2025-09",
+            "conditions": [
+              "Metastatic Castration-resistant Prostate Cancer"
+            ],
+            "interventions": [
+              "TQB3201 tablets"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07037238",
+            "title": "An Open-Label, Single-Arm Exploratory Clinical Study of Everolimus for the Treatment of Vascular Malformations",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "10",
+            "start_date": "2025-07-01",
+            "conditions": [
+              "Vascular Malformations"
+            ],
+            "interventions": [
+              "Everolimus 10mg daily"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT07291050",
+            "title": "A Clinical Study to Evaluate the Safety, Tolerability, Pharmacokinetics, and Preliminary Efficacy of TQB3217 Tablets in Subjects With Advanced Malignant Tumors",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-12",
+            "conditions": [
+              "Advanced Cancer"
+            ],
+            "interventions": [
+              "TQB3217Tablets"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07327281",
+            "title": "A Clinical Trial Evaluating TQF3250 Capsules in Healthy Adult Subjects",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "66",
+            "start_date": "2025-12-18",
+            "conditions": [
+              "Hyperglycemia"
+            ],
+            "interventions": [
+              "TQF3250 placebo",
+              "TQF3250 capsule"
+            ],
+            "therapy_areas": [
+              "Metabolic & Endocrine"
+            ]
+          },
+          {
+            "nct_id": "NCT06943677",
+            "title": "A Clinical Trial on the Safety, Tolerability, Pharmacokinetics and Preliminary Efficacy of TQB3019 Capsule in Subjects With Advanced Malignant Tumors",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "80",
+            "start_date": "2025-05-26",
+            "conditions": [
+              "Advanced Malignant Cancer"
+            ],
+            "interventions": [
+              "TQB3019 capsules"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06900920",
+            "title": "A Study of TQB3473 Tablets Compared to Placebo in the Treatment of Adult Primary Immune Thrombocytopenia",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "199",
+            "start_date": "2025-04-30",
+            "conditions": [
+              "Primary Immune Thrombocytopenia"
+            ],
+            "interventions": [
+              "TQB3473 Tablets",
+              "TQB3473 Placebo"
+            ],
+            "therapy_areas": [
+              "Hematology"
+            ]
+          },
+          {
+            "nct_id": "NCT07509892",
+            "title": "A Clinical Trial on the Efficacy and Safety of TQH3906 in the Treatment of Systemic Lupus Erythematosus",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "198",
+            "start_date": "2026-04",
+            "conditions": [
+              "Systemic Lupus Erythematosus"
+            ],
+            "interventions": [
+              "TQH3906 capsule",
+              "TQH3906 placebo"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Immunology & Inflammation"
+            ]
+          }
+        ],
+        "total": 31,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Congressionally Directed Medical Research Programs",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Musculoskeletal",
+          "Neurology",
+          "Pain",
+          "Oncology",
+          "Rare & Genetic Diseases",
+          "Psychiatry & Mental Health",
+          "Renal & Urology",
+          "Cardiovascular",
+          "Infectious Disease"
+        ],
+        "phases": [
+          "Phase 1",
+          "NA",
+          "Phase 2",
+          "N/A",
+          "EARLY/Phase 1"
+        ],
+        "countries": [
+          "United States",
+          "Peru"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06438471",
+            "title": "Novel Soluble Epoxide Hydrolase Inhibitor for Neuropathic Pain in Patients With Spinal Cord Injury",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "36",
+            "start_date": "2026-02-28",
+            "conditions": [
+              "Spinal Cord Injuries",
+              "Neuropathic Pain",
+              "Degenerative Disc Disease",
+              "Spinal Stenosis",
+              "Spondylosis"
+            ],
+            "interventions": [
+              "EC5026 oral tablet",
+              "Placebo oral tablet"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Musculoskeletal",
+              "Neurology",
+              "Pain"
+            ]
+          },
+          {
+            "nct_id": "NCT07363395",
+            "title": "Safety, Tolerability, and Pharmacokinetics of ASCT-83 in Healthy Adults",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "72",
+            "start_date": "2026-01",
+            "conditions": [
+              "Neuropathic Pain"
+            ],
+            "interventions": [
+              "ASCT-83",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Pain"
+            ]
+          },
+          {
+            "nct_id": "NCT07090473",
+            "title": "Safety of Transcutaneous Electrical Stimulation Potentiating Recovery in Acute Spinal Cord Injury Syndromes",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "15",
+            "start_date": "2026-02-20",
+            "conditions": [
+              "Acute Spinal Cord Injury (SCI)",
+              "Acute Spinal Cord Injury of Traumatic Origin (tSCI)"
+            ],
+            "interventions": [
+              "transcutaneous spinal cord stimulation",
+              "sham transcutaneous spinal cord stimulation"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Musculoskeletal",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT06188741",
+            "title": "Selumetinib for the Prevention of Plexiform Neurofibroma Growth in NF Type 1",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "200",
+            "start_date": "2025-08-27",
+            "conditions": [
+              "Neurofibromatosis 1",
+              "Plexiform Neurofibroma"
+            ],
+            "interventions": [
+              "Selumetinib"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Oncology",
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT07280351",
+            "title": "Duraplasty for Acute Traumatic Spinal Cord Injury",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "66",
+            "start_date": "2026-03",
+            "conditions": [
+              "Spinal Cord Injury, Acute",
+              "Spinal Cord Injury (SCI), Initial Encounter",
+              "Spinal Cord Injury Cervical"
+            ],
+            "interventions": [
+              "Expansile duraplasty"
+            ],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT06335407",
+            "title": "Effect of Sublingual Formulation of Dexmedetomidine Hydrochloride (HCl) (BXCL501) - Outpatient Study",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "10",
+            "start_date": "2025-07-28",
+            "conditions": [
+              "Alcohol Use Disorder (AUD)",
+              "Post Traumatic Stress Disorder (PTSD)"
+            ],
+            "interventions": [
+              "Dexmedetomidine (DEX) for sublingual (SL) administration (BXCL501) - 40µg",
+              "Dexmedetomidine (DEX) for sublingual (SL) administration (BXCL501) - 80µg"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology",
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06580444",
+            "title": "Brexanolone to Target Concurrent PTSD and Stress Induced Alcohol Use in Veterans: A Dose Finding Study",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-07-28",
+            "conditions": [
+              "Alcohol Use Disorder (AUD)",
+              "Post Traumatic Stress Disorder (PTSD)"
+            ],
+            "interventions": [
+              "Brexanolone"
+            ],
+            "therapy_areas": [
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06930846",
+            "title": "HOBSCOTCH-CA (HOme-Based Self-management and COgnitive Training CHanges Lives in Brain CAncer)",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "125",
+            "start_date": "2025-11-03",
+            "conditions": [
+              "Brain Cancer",
+              "Brain Tumor",
+              "Brain Neoplasms",
+              "Primary Brain Tumor",
+              "Low-grade Glioma",
+              "Oligodendroglioma"
+            ],
+            "interventions": [
+              "HOBSCOTCH-CA"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07176936",
+            "title": "Improving Speech in Noise Using Noninvasive Stimulation",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "55",
+            "start_date": "2026-03-21",
+            "conditions": [
+              "Traumatic Brain Injury",
+              "Hearing Loss"
+            ],
+            "interventions": [
+              "Cymba Conchae stimulation",
+              "Earlobe stimulation"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT06521723",
+            "title": "Low Oxygen Therapy to Enhance Walking Recovery After SCI.",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "60",
+            "start_date": "2025-06-06",
+            "conditions": [
+              "Spinal Cord Injuries"
+            ],
+            "interventions": [
+              "Daily acute intermittent hypoxia",
+              "Walking + tSTIM"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Musculoskeletal",
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 23,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Sinocelltech Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Vaccines",
+          "Renal & Urology",
+          "Hematology",
+          "Oncology",
+          "Cardiovascular",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 2",
+          "NA",
+          "Phase 3",
+          "Phase 1, Phase 2",
+          "Phase 1"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07244510",
+            "title": "Efficacy and Safety of SCT650C in Participants With Moderate to Severe Hidradenitis Suppurativa",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "60",
+            "start_date": "2025-11-18",
+            "conditions": [
+              "Hidradenitis Suppurativa (HS)"
+            ],
+            "interventions": [
+              "SCT650C"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07388810",
+            "title": "Study of Ripertamab in Children With Frequent Relapses or Steroid-Dependent Nephrotic Syndrome",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "312",
+            "start_date": "2026-02",
+            "conditions": [
+              "FRNS/SDNS",
+              "Ripertamab"
+            ],
+            "interventions": [
+              "ripertamab",
+              "ripertamab"
+            ],
+            "therapy_areas": [
+              "Renal & Urology"
+            ]
+          },
+          {
+            "nct_id": "NCT07297329",
+            "title": "A Study to Evaluate the Safety and Efficacy of SCTC21C in Combination With Bortezomib, Lenalidomide and Dexamethasone in Patients With Newly Diagnosed Multiple Myeloma Not Eligible for Transplant",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "292",
+            "start_date": "2025-12-29",
+            "conditions": [
+              "Multiple Myeloma (MM)"
+            ],
+            "interventions": [
+              "SCTC21C",
+              "Bortezomib",
+              "Lenalidomide",
+              "Dexamethasone"
+            ],
+            "therapy_areas": [
+              "Hematology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07077252",
+            "title": "Phase I/II Study of SCTB39G in Advanced Solid Tumours",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "30",
+            "start_date": "2025-07-28",
+            "conditions": [
+              "Advanced Malignant Solid Tumor"
+            ],
+            "interventions": [
+              "SCTB39G"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ]
+          },
+          {
+            "nct_id": "NCT07388602",
+            "title": "A Study to Evaluate the Safety and Efficacy of SCTC21C in Combination With Bortezomib, Cyclophosphamide, and Dexamethasone in Patients With Newly Diagnosed Systemic Light-Chain Amyloidosis (NDSLCA)",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "90",
+            "start_date": "2026-01-08",
+            "conditions": [
+              "Amyloidosis"
+            ],
+            "interventions": [
+              "SCTC21C",
+              "Bortezomib",
+              "Dexamethasone",
+              "Cyclophosphamide"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Hematology",
+              "Oncology",
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT07362459",
+            "title": "A Study to Evaluate the Safety and Tolerability of SCTB14 as First-Line Therapy in Non-Small Cell Lung Cancer.",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "246",
+            "start_date": "2025-12-30",
+            "conditions": [
+              "Non-Small Cell Lung Carcinoma (NSCLC)"
+            ],
+            "interventions": [
+              "SCTB14",
+              "Pembrolizumab"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07040072",
+            "title": "Finotonlimab Combined With Stapokibart in the Treatment of Recurrent/Metastatic HNSCC",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "10",
+            "start_date": "2025-06",
+            "conditions": [
+              "HNSCC"
+            ],
+            "interventions": [
+              "Stapokibart and Finotonlimab"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07050641",
+            "title": "Phase I/II Study of SCTB39-1 in Advanced Solid Tumours",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "110",
+            "start_date": "2025-06-23",
+            "conditions": [
+              "Advanced Malignant Solid Tumor"
+            ],
+            "interventions": [
+              "SCTB39-1"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ]
+          }
+        ],
+        "total": 8,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "GRIN Therapeutics, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Neurology",
+          "Oncology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 3"
+        ],
+        "countries": [
+          "United States",
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07457229",
+            "title": "Phase 1 Open-Label Study of Radiprodil Pharmacokinetics, Safety, and Tolerability in Hepatically Impaired Participants",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-03-03",
+            "conditions": [
+              "Hepatic Impairment"
+            ],
+            "interventions": [
+              "Radiprodil"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology",
+              "Oncology",
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT07224581",
+            "title": "Beeline: A Phase 3 Study in GRIN-related Neurodevelopmental Disorder",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "100",
+            "start_date": "2026-01-05",
+            "conditions": [
+              "GRIN-related Neurodevelopmental Disorder"
+            ],
+            "interventions": [
+              "Radiprodil",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Dermatology"
+            ]
+          },
+          {
+            "nct_id": "NCT06975605",
+            "title": "Phase 1, Open-label, Drug-drug Interaction Study to Assess Effect Between Radiprodil and the Co-administered Drugs.",
+            "phase": "Phase 1",
+            "status": "COMPLETED",
+            "enrollment": "18",
+            "start_date": "2025-05-20",
+            "conditions": [
+              "Tuberous Sclerosis Complex (TSC)",
+              "Focal Cortical Dysplasia",
+              "Other Neurological Disorders"
+            ],
+            "interventions": [
+              "Radiprodil + co-administered drugs"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology",
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT06965881",
+            "title": "Study to Evaluate the Pharmacokinetics and Safety Effects Following Coadministration of Carbamazepine or Itraconazole With Radiprodil in Healthy Adults",
+            "phase": "Phase 1",
+            "status": "TERMINATED",
+            "enrollment": "30",
+            "start_date": "2025-05-08",
+            "conditions": [
+              "Tuberous Sclerosis Complex (TSC)",
+              "Focal Cortical Dysplasia",
+              "Other Neurological Disorders"
+            ],
+            "interventions": [
+              "Radiprodil with Carbamazepine",
+              "Radiprodil with Itraconazole"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 4,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Spinogenix",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Rare & Genetic Diseases",
+          "Dermatology",
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 2, Phase 3",
+          "Phase 2"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07439510",
+            "title": "A Study to Investigate the Effects and Safety of SPG601 for the Treatment of Fragile X Syndrome in Male Participants",
+            "phase": "Phase 2, Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "248",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Fragile X Syndrome (FXS)"
+            ],
+            "interventions": [
+              "SPG601",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT06903286",
+            "title": "Extension Study of Participants From SPG302-ALS-001",
+            "phase": "Phase 2",
+            "status": "TERMINATED",
+            "enrollment": "16",
+            "start_date": "2025-05-29",
+            "conditions": [
+              "Amyotrophic Lateral Sclerosis (ALS)"
+            ],
+            "interventions": [
+              "SPG302"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07325591",
+            "title": "Efficacy and Safety of Tazbentetol in ALS Participants",
+            "phase": "Phase 2, Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "430",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Amyotrophic Lateral Sclerosis"
+            ],
+            "interventions": [
+              "Tazbentetol",
+              "placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          }
+        ],
+        "total": 3,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Azafaros A.G.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Rare & Genetic Diseases",
+          "Other"
+        ],
+        "phases": [
+          "Phase 2",
+          "Phase 3"
+        ],
+        "countries": [
+          "Brazil",
+          "Argentina",
+          "Australia",
+          "Canada",
+          "France",
+          "Germany",
+          "India",
+          "Italy",
+          "Mexico",
+          "Portugal",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "Turkey (Türkiye)",
+          "United Kingdom",
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07399704",
+            "title": "A Study to Evaluate the Safety and Efficacy of Nizubaglustat (AZ-3102) in Patients With GM2 Gangliosidosis or Niemann-Pick Type C Disease",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "21",
+            "start_date": "2026-02-04",
+            "conditions": [
+              "GM2 Gangliosidosis",
+              "Niemann-Pick Type C Disease"
+            ],
+            "interventions": [
+              "AZ-3102"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT07082543",
+            "title": "A Study to Evaluate the Safety and Efficacy of Oral Nizubaglustat (AZ-3102) in Late-infantile and Juvenile Forms of GM1 Gangliosidosis or GM2 Gangliosidosis",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "75",
+            "start_date": "2025-06-30",
+            "conditions": [
+              "Gangliosidoses, GM2",
+              "Gangliosidosis, GM1"
+            ],
+            "interventions": [
+              "AZ-3102",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT07054515",
+            "title": "A Study to Evaluate the Safety and Efficacy of Oral Nizubaglustat (AZ-3102) in Late-infantile and Juvenile Forms of Niemann-Pick Type C Disease, GM1 Gangliosidosis or GM2 Gangliosidosis",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "147",
+            "start_date": "2025-06-30",
+            "conditions": [
+              "Niemann-Pick Type C Disease",
+              "GM1 Gangliosidosis",
+              "GM2 Gangliosidosis"
+            ],
+            "interventions": [
+              "AZ-3102",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          },
+          {
+            "nct_id": "NCT07082725",
+            "title": "A Study to Evaluate the Safety and Efficacy of Oral Nizubaglustat (AZ-3102) in Late-infantile and Juvenile Forms of Niemann-Pick Type C Disease (NPC)",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "72",
+            "start_date": "2025-06-30",
+            "conditions": [
+              "Niemann-Pick Type C Disease"
+            ],
+            "interventions": [
+              "Nizubaglustat",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Other"
+            ]
+          }
+        ],
+        "total": 4,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "AIRNA Corporation",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Rare & Genetic Diseases",
+          "Respiratory"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Australia",
+          "Georgia",
+          "United Kingdom"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07431112",
+            "title": "A Study of AIR-001 in Adults With Alpha-1 Antitrypsin Deficiency (AATD)",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "54",
+            "start_date": "2026-02-27",
+            "conditions": [
+              "Alpha 1 Antitrypsin Deficiency"
+            ],
+            "interventions": [
+              "AIR-001 SAD dose level 1",
+              "AIR-001 SAD dose level 2",
+              "AIR-001 SAD dose level 3",
+              "AIR-001 SAD dose level 4",
+              "AIR-001 MD dose level 1",
+              "AIR-001 MD dose level 2",
+              "AIR-001 MD dose level 3",
+              "AIR-001 MD dose level 4"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases",
+              "Respiratory"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Polaryx Therapeutics, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT04637282",
+            "title": "Safety, Tolerability, and Efficacy of PLX-200 in Patients With CLN3",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "39",
+            "start_date": "2026-03-01",
+            "conditions": [
+              "Juvenile Neuronal Ceroid Lipofuscinosis"
+            ],
+            "interventions": [
+              "PLX-200",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "St. Antonius Hospital",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Oncology",
+          "Musculoskeletal",
+          "Gastroenterology & Hepatology",
+          "Rare & Genetic Diseases",
+          "Pain"
+        ],
+        "phases": [
+          "NA",
+          "N/A"
+        ],
+        "countries": [
+          "Netherlands"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07157358",
+            "title": "Online Medical Hypnosis Exercises to Improve Mental Health in Primary School Children and Prevent Future Mental Health Issues",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "345",
+            "start_date": "2025-07-31",
+            "conditions": [
+              "Healty Volunteers"
+            ],
+            "interventions": [
+              "standardized audio hypnosis recordings for healthy children at primary school"
+            ],
+            "therapy_areas": [
+              "Dermatology"
+            ]
+          },
+          {
+            "nct_id": "NCT06960174",
+            "title": "Virtual Renality: Assessing the Impact of Virtual Reality on Preoperative Planning in Renal Cancer Surgery",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "70",
+            "start_date": "2025-06-02",
+            "conditions": [
+              "Renal Cell Carcinoma (Kidney Cancer)"
+            ],
+            "interventions": [
+              "Virtual reality"
+            ],
+            "therapy_areas": [
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07309848",
+            "title": "Hip Fracture Surgery Timing and Blood Transfusion Risk in Patients on DOACs",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "374",
+            "start_date": "2025-11-01",
+            "conditions": [
+              "Blood Transfusion",
+              "Hip Fracture Surgeries",
+              "Geriatric",
+              "Bleeding Complications",
+              "Bleeding as Surgical Complication (Treatment)",
+              "Bleeding"
+            ],
+            "interventions": [],
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07180381",
+            "title": "Sequential Imaging of Suspicion of Prostate Cancer Reducing Overdiagnosis and Unnecessary Biopsy With Timely Diagnosis of Significant Cancer",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "503",
+            "start_date": "2025-05-14",
+            "conditions": [
+              "Prostate Cancer"
+            ],
+            "interventions": [
+              "PSA and MRI-monitoring"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07398118",
+            "title": "CRYO-1: Cryoablation in Elderly Patients With Early-Stage Breast Cancer.",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "61",
+            "start_date": "2026-04-01",
+            "conditions": [
+              "Breast Cancer Stage I",
+              "Breast Cancer Early Stage Breast Cancer (Stage 1-3)"
+            ],
+            "interventions": [
+              "Cryoablation / Cryotherapy"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07109180",
+            "title": "Robot-assisted Versus Open Lateral Pancreaticojejunostomy for the Treatment of Symptomatic Chronic Pancreatitis (PANACOTTA)",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "28",
+            "start_date": "2025-04-16",
+            "conditions": [
+              "Chronic Pancreatitis",
+              "Surgery",
+              "Minimally Invasive Surgical Technique",
+              "Robot Surgica",
+              "Robot Surgery",
+              "Minimally Invasive Surgery"
+            ],
+            "interventions": [
+              "Robot-assisted lateral pancreaticojejunostomy",
+              "Open lateral pancreaticojejunostomy"
+            ],
+            "therapy_areas": [
+              "Gastroenterology & Hepatology",
+              "Oncology"
+            ]
+          },
+          {
+            "nct_id": "NCT07414446",
+            "title": "Non-Invasive Detection of Pulmonary Right-to-Left Shunts Using the SONAS Ultrasound Device",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-01-07",
+            "conditions": [
+              "Hereditary Haemorrhagic Telangiectasia",
+              "PFO - Patent Foramen Ovale",
+              "Pulmonary Arteriovenous Malformation"
+            ],
+            "interventions": [
+              "Transcranial Ultrasound Device"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT06861387",
+            "title": "Cryo Nerve Block Trial",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "150",
+            "start_date": "2025-05-01",
+            "conditions": [
+              "Intercostal Nerve Block",
+              "Cryo Analgesia",
+              "Minimally Invasive Lung Surgery"
+            ],
+            "interventions": [
+              "Cryotherapy",
+              "PAiN - multimodal analgesia"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Pain"
+            ]
+          }
+        ],
+        "total": 8,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "AskBio Inc",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Neurology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "N/A",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07081841",
+            "title": "AB-1005 Long-Term Follow-up Study",
+            "phase": "N/A",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "132",
+            "start_date": "2025-09-04",
+            "conditions": [
+              "Parkinson's Disease",
+              "Multiple System Atrophy, Parkinson Variant"
+            ],
+            "interventions": [
+              "Observation"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07282847",
+            "title": "A Study to Evaluate Safety, Tolerability, and Efficacy of AB-1009 Gene Therapy (GAA Gene) in Adult Participants With Late Onset Pompe Disease (PROGRESS-GT LOPD)",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "12",
+            "start_date": "2026-02-10",
+            "conditions": [
+              "Pompe Disease (Late-onset)",
+              "Pompe Disease Late-Onset",
+              "LOPD"
+            ],
+            "interventions": [
+              "AB-1009 (GAA Gene)"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Denali Therapeutics Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "United Kingdom"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07328451",
+            "title": "A Study to Evaluate the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of DNL628 in Participants With Early Alzheimer's Disease",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "68",
+            "start_date": "2026-01-30",
+            "conditions": [
+              "Alzheimer Disease, Early Onset"
+            ],
+            "interventions": [
+              "DNL628",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07354724",
+            "title": "A Study to Evaluate the Safety, Pharmacokinetics, and Pharmacodynamics of DNL952 in Adult Participants With Late-Onset Pompe Disease",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "32",
+            "start_date": "2026-03",
+            "conditions": [
+              "Late-onset Pompe Disease"
+            ],
+            "interventions": [
+              "DNL952"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Azevan Pharmaceuticals",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07328529",
+            "title": "Inhibition of Aggressive Behavior in Participants With Fragile X Syndrome",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "80",
+            "start_date": "2026-03",
+            "conditions": [
+              "Aggressive Behavior in Fragile X Syndome"
+            ],
+            "interventions": [
+              "SRX246",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Worldwide Clinical Trials",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Psychiatry & Mental Health",
+          "Hematology",
+          "Rare & Genetic Diseases",
+          "Dermatology",
+          "Cardiovascular"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 2"
+        ],
+        "countries": [
+          "Australia",
+          "Czechia",
+          "Germany",
+          "Greece",
+          "Ireland",
+          "Poland",
+          "United Kingdom",
+          "United States",
+          "Georgia",
+          "Hungary",
+          "Romania",
+          "Serbia",
+          "Spain"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06793397",
+            "title": "A Study of a Deuterated Psilocin Analog (CYB003) in Humans With Major Depressive Disorder",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "330",
+            "start_date": "2025-12-10",
+            "conditions": [
+              "Major Depressive Disorder (MDD)",
+              "Depression in Adults",
+              "Depression - Major Depressive Disorder",
+              "Depression Disorders",
+              "Depression Disorder",
+              "Depression"
+            ],
+            "interventions": [
+              "CYB003",
+              "Psychological Support"
+            ],
+            "therapy_areas": [
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT07115329",
+            "title": "A Phase 2 Study of Zelquistinel or Placebo for the Reduction of Symptoms of Major Depressive Disorder",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "164",
+            "start_date": "2026-01-05",
+            "conditions": [
+              "Major Depressive Disorder"
+            ],
+            "interventions": [
+              "Zelquistinel"
+            ],
+            "therapy_areas": [
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06963216",
+            "title": "A Study Investigating Coagadex in the Treatment AFXD Associated With AL Amyloidosis",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "15",
+            "start_date": "2026-02",
+            "conditions": [
+              "Acquired Factor X Deficiency"
+            ],
+            "interventions": [
+              "Coagadex(R)"
+            ],
+            "therapy_areas": [
+              "Hematology",
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT06605105",
+            "title": "Phase III Long-term Extension Trial to Assess Safety and Efficacy of CYB003 in MDD (EXTEND)",
+            "phase": "Phase 3",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "468",
+            "start_date": "2025-07-18",
+            "conditions": [
+              "Major Depressive Disorder"
+            ],
+            "interventions": [
+              "CYB003"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Psychiatry & Mental Health"
+            ]
+          },
+          {
+            "nct_id": "NCT06815471",
+            "title": "CRF2 Agonist for the Treatment of Worsening Heart Failure",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "300",
+            "start_date": "2025-08-07",
+            "conditions": [
+              "Worsening Heart Failure"
+            ],
+            "interventions": [
+              "COR-1167",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Cardiovascular"
+            ]
+          }
+        ],
+        "total": 5,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "ConSynance Therapeutics",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07348601",
+            "title": "A Study of CSTI-500 in Patients With Prader-Willi Syndrome",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "12",
+            "start_date": "2026-03",
+            "conditions": [
+              "Prader-Willi Syndrome"
+            ],
+            "interventions": [
+              "CSTI-500"
+            ],
+            "therapy_areas": [
+              "Oncology",
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Amicus Therapeutics",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 3",
+          "N/A"
+        ],
+        "countries": [
+          "Belgium",
+          "Germany",
+          "Spain",
+          "United Kingdom",
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06904261",
+            "title": "A Study of Migalastat in Pediatric Subjects (2 to <12 Yrs) With Fabry Disease and Amenable GLA Variants",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "8",
+            "start_date": "2026-01-08",
+            "conditions": [
+              "Fabry Disease"
+            ],
+            "interventions": [
+              "Migalastat HCl 20 mg"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT06906367",
+            "title": "A Study of Patients With Fabry Disease (US Specific)",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "450",
+            "start_date": "2026-02-13",
+            "conditions": [
+              "Fabry Disease"
+            ],
+            "interventions": [
+              "migalastat HCl",
+              "ERT"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Bright Minds Biosciences Pty Ltd",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Oncology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 2"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07266324",
+            "title": "A 2-Part Study to Assess Efficacy, Safety and Tolerability of BMB-101 for the Treatment of Patients With Prader-Willi Syndrome.",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "16",
+            "start_date": "2026-01",
+            "conditions": [
+              "Prader-Willi Syndrome"
+            ],
+            "interventions": [
+              "BMB-101",
+              "Placebo"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology",
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Burl Concepts, Inc.",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Dermatology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "N/A",
+          "NA"
+        ],
+        "countries": [
+          "United States",
+          "Netherlands"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07420400",
+            "title": "Non-Invasive Detection of Right-to-Left Cardiac Shunts",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "75",
+            "start_date": "2026-01-07",
+            "conditions": [
+              "Patent Foramen Ovale (PFO)"
+            ],
+            "interventions": [
+              "Point-of-care ultrasound"
+            ],
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology"
+            ]
+          },
+          {
+            "nct_id": "NCT07414446",
+            "title": "Non-Invasive Detection of Pulmonary Right-to-Left Shunts Using the SONAS Ultrasound Device",
+            "phase": "NA",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-01-07",
+            "conditions": [
+              "Hereditary Haemorrhagic Telangiectasia",
+              "PFO - Patent Foramen Ovale",
+              "Pulmonary Arteriovenous Malformation"
+            ],
+            "interventions": [
+              "Transcranial Ultrasound Device"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Taysha Gene Therapies, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT07480564",
+            "title": "Safety and Preliminary Efficacy of TSHA-102 Gene Therapy in Pediatric Females Aged >2 to <4 Years With Rett Syndrome",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "3",
+            "start_date": "2026-03",
+            "conditions": [
+              "Rett Syndrome"
+            ],
+            "interventions": [
+              "TSHA-102"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Atlas Molecular Pharma",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07024316",
+            "title": "A Study to Investigate the Improvement of Photosensitivity in Terms of Skin Lesions Associated With CEP Following Administration of Oral ATL-001 (Ciclopirox Oral Solution) in Participants Aged >18 Years of Age With CEP",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "6",
+            "start_date": "2026-01-29",
+            "conditions": [
+              "Congenital Erythropoietic Porphyria (CEP)"
+            ],
+            "interventions": [
+              "ATL-001 (Ciclopirox oral solution)"
+            ],
+            "therapy_areas": [
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Sovargen",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07287202",
+            "title": "Safety, Tolerability, and Pharmacokinetics of SVG103 (Paxalisib) in Focal Cortical Dysplasia Type II (FCD-II), Tuberous Sclerosis Complex (TSC) or Hemimegalencephaly (HME)",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "15",
+            "start_date": "2026-03",
+            "conditions": [
+              "Focal Cortical Dysplasia",
+              "Tuberous Sclerosis Complex (TSC)",
+              "Hemimegalencephaly"
+            ],
+            "interventions": [
+              "SVG103"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 1,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Kedrion S.p.A.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Hematology",
+          "Rare & Genetic Diseases",
+          "Dermatology",
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [
+          "United Kingdom",
+          "United States",
+          "Czechia",
+          "Germany",
+          "Italy",
+          "Romania",
+          "Serbia",
+          "Spain",
+          "Turkey (Türkiye)"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06963216",
+            "title": "A Study Investigating Coagadex in the Treatment AFXD Associated With AL Amyloidosis",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "15",
+            "start_date": "2026-02",
+            "conditions": [
+              "Acquired Factor X Deficiency"
+            ],
+            "interventions": [
+              "Coagadex(R)"
+            ],
+            "therapy_areas": [
+              "Hematology",
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT06752356",
+            "title": "A Study Investigating Intravenous Human Normal Immune Globulin (IGIV) 10% in Subjects With Chronic Inflammatory Demyelinating Polyneuropathy (CIDP)",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "161",
+            "start_date": "2026-04",
+            "conditions": [
+              "Chronic Inflammatory Demyelinating Polyneuropathy"
+            ],
+            "interventions": [
+              "Immune globulin (human) 10% solution for intravenous administration"
+            ],
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ]
+          },
+          {
+            "nct_id": "NCT07059000",
+            "title": "A Study Investigating Intravenous Human Normal Immunoglobulin 10% in Adults With Chronic Immune Thrombocytopenia (ITP)",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-08-13",
+            "conditions": [
+              "Chronic Primary Immune Thrombocytopenia (ITP)"
+            ],
+            "interventions": [
+              "Kedrion IVIG 10%"
+            ],
+            "therapy_areas": [
+              "Hematology"
+            ]
+          }
+        ],
+        "total": 3,
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Neurofibromatosis Therapeutic Acceleration Program",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06300502",
+            "title": "Assessing the Efficacy of Repeat, Monthly Treatments of Deoxycholate for NF1 Associated Cutaneous Neurofibromas (cNFs)",
+            "phase": "Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "15",
+            "start_date": "2025-04-08",
+            "conditions": [
+              "Neurofibromas, Cutaneous",
+              "Neurofibromatosis 1"
+            ],
+            "interventions": [
+              "Kybella"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Rare & Genetic Diseases"
+            ]
+          },
+          {
+            "nct_id": "NCT07102394",
+            "title": "Feasibility and Tolerability of IMLYGIC for the Treatment of Cutaneous Neurofibromas in Adults With NF1",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "10",
+            "start_date": "2026-02",
+            "conditions": [
+              "NF1",
+              "Neurofibromatosis",
+              "Cutaneous Neurofibroma",
+              "Neurofibroma",
+              "Von Recklinghausen Disease",
+              "Neurofibromas"
+            ],
+            "interventions": [
+              "Imlygic"
+            ],
+            "therapy_areas": [
+              "Neurology",
+              "Rare & Genetic Diseases"
+            ]
+          }
+        ],
+        "total": 2,
+        "contacts": [],
+        "contactsImported": false
+      }
+    ],
+    "contacts": []
+  },
+  {
     "id": "cmp_1775211692309",
     "name": "Neurology_Feb2026",
     "owner": "Parth",
