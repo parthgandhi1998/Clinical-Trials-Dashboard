@@ -851,6 +851,10 @@ function switchTab(name, el) {
   if (name === 'export' || name === 'contacts') checkOutlookServer();
   if (name === 'contacts' && activeCampaignId) renderContactsTable(activeCampaignId);
   if (name === 'tracker' && activeCampaignId) renderTrackerTable(activeCampaignId);
+  if (name === 'drafts') {
+    if (_draftView === 'company') renderCompanyDraftForSelected();
+    else renderDraftForSelected();
+  }
 }
 
 // ────────────────────────────────────────────────────────────────────────────
@@ -1243,6 +1247,8 @@ function clearContacts(cid) {
 // ────────────────────────────────────────────────────────────────────────────
 // DRAFTS TAB
 // ────────────────────────────────────────────────────────────────────────────
+let _draftView = 'contact'; // 'contact' | 'company'
+
 function renderDraftsTab(c) {
   const contacts = c.contacts || [];
   if (!contacts.length) {
@@ -1252,18 +1258,56 @@ function renderDraftsTab(c) {
     </div>`;
   }
 
-  const contactSel = `<div style="margin-bottom:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+  // ── View toggle ──
+  const viewToggle = `<div style="display:flex;gap:2px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:2px;width:fit-content">
+    <button class="btn btn-sm" style="font-size:11px;padding:4px 12px;border-radius:4px;border:none;cursor:pointer;${_draftView==='contact'?'background:var(--accent);color:#fff;font-weight:700':'background:transparent;color:var(--text-muted)'}" onclick="_draftView='contact';refreshDraftsTab()">By Contact</button>
+    <button class="btn btn-sm" style="font-size:11px;padding:4px 12px;border-radius:4px;border:none;cursor:pointer;${_draftView==='company'?'background:var(--accent);color:#fff;font-weight:700':'background:transparent;color:var(--text-muted)'}" onclick="_draftView='company';refreshDraftsTab()">By Company</button>
+  </div>`;
+
+  if (_draftView === 'company') {
+    // ── Company view ──
+    const companyMap = {};
+    contacts.forEach((ct, i) => {
+      const key = (ct.company || 'Unknown').trim();
+      if (!companyMap[key]) companyMap[key] = [];
+      companyMap[key].push({ ct, i });
+    });
+    const companyNames = Object.keys(companyMap).sort();
+
+    return `<div style="margin-bottom:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      ${viewToggle}
+      <label style="font-size:12px;font-weight:600;color:var(--text-muted)">Company:</label>
+      <select id="draft-company-sel" class="form-input" style="width:300px" onchange="renderCompanyDraftForSelected()">
+        ${companyNames.map(name => `<option value="${escHtml(name)}">${name} (${companyMap[name].length} contact${companyMap[name].length!==1?'s':''})</option>`).join('')}
+      </select>
+      <button class="btn btn-primary btn-sm" onclick="generateAllDrafts()">⚡ Generate All Drafts</button>
+      <button class="btn btn-ghost btn-sm" onclick="approveAllContacts()" title="Approve all drafts for every contact">✓ Approve All Contacts</button>
+    </div>
+    <div id="draft-content"></div>`;
+  }
+
+  // ── Contact view (original) ──
+  return `<div style="margin-bottom:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+    ${viewToggle}
     <label style="font-size:12px;font-weight:600;color:var(--text-muted)">Contact:</label>
     <select id="draft-contact-sel" class="form-input" style="width:300px" onchange="renderDraftForSelected()">
       ${contacts.map((ct,i) => `<option value="${i}">${ct.name} — ${ct.company||'?'} (${ct.title||'?'})</option>`).join('')}
     </select>
     <button class="btn btn-primary btn-sm" onclick="generateAllDrafts()">⚡ Generate All Drafts</button>
     <button class="btn btn-ghost btn-sm" onclick="approveDraft(getCurrentContactIdx(),'all')" title="Approve all 3 emails for this contact">✓ Approve This Contact</button>
-    <button class="btn btn-ghost btn-sm" onclick="approveAllContacts()" title="Approve all drafts for every contact in this campaign">✓ Approve All Contacts</button>
+    <button class="btn btn-ghost btn-sm" onclick="approveAllContacts()" title="Approve all drafts for every contact">✓ Approve All Contacts</button>
   </div>
   <div id="draft-content"></div>`;
+}
 
-  return contactSel;
+function refreshDraftsTab() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  const panel = document.getElementById('tab-drafts');
+  if (!panel) return;
+  panel.innerHTML = renderDraftsTab(c);
+  if (_draftView === 'company') renderCompanyDraftForSelected();
+  else renderDraftForSelected();
 }
 
 function getCurrentContactIdx() {
@@ -1362,6 +1406,162 @@ function renderDraftForContact(ct, idx) {
         <div style="font-size:11px;color:var(--text-muted);margin-top:6px">Click Copy, then paste directly into LinkedIn.</div>
       </div>
     </div>`;
+}
+
+// ── Company-level draft view ──────────────────────────────────────────────
+function renderCompanyDraftForSelected() {
+  const sel = document.getElementById('draft-company-sel');
+  if (!sel) return;
+  renderCompanyDraft(sel.value);
+}
+
+function renderCompanyDraft(companyName) {
+  const el = document.getElementById('draft-content');
+  if (!el) return;
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+
+  // Find all contacts at this company
+  const contactsAtCo = [];
+  (c.contacts || []).forEach((ct, i) => {
+    if ((ct.company || '').trim() === companyName) contactsAtCo.push({ ct, i });
+  });
+
+  if (!contactsAtCo.length) { el.innerHTML = '<div class="info-box">No contacts found for this company.</div>'; return; }
+
+  // Use the first contact that has drafts as the representative
+  const rep = contactsAtCo.find(x => x.ct.drafts && x.ct.drafts.email1) || contactsAtCo[0];
+  const d = rep.ct.drafts;
+
+  if (!d || !d.email1) {
+    el.innerHTML = `
+      <div class="info-box">
+        <strong>${companyName}</strong> — ${contactsAtCo.length} contact${contactsAtCo.length!==1?'s':''}<br>
+        No drafts generated yet for this company's contacts.
+      </div>
+      <button class="btn btn-primary" onclick="generateAllDrafts()">⚡ Generate All Drafts</button>`;
+    return;
+  }
+
+  // Strip the greeting line ("Hi FirstName,") to show the shared body
+  const stripGreeting = (text) => {
+    if (!text) return '';
+    return text.replace(/^Hi\s+[^,\n]+,?\s*\n*/i, '').trim();
+  };
+  const addGreeting = (text, name) => `Hi ${name},\n\n${text}`;
+
+  const contactList = contactsAtCo.map(x =>
+    `<span style="display:inline-block;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-size:11px;margin:2px">${x.ct.name}${x.ct.title ? ' · '+x.ct.title : ''}</span>`
+  ).join(' ');
+
+  // Count approved
+  const approvedCount = contactsAtCo.filter(x => x.ct.drafts?.email1Approved).length;
+
+  el.innerHTML = `
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px">
+        <div>
+          <strong style="font-size:14px">${escHtml(companyName)}</strong>
+          <span style="font-size:12px;color:var(--text-muted);margin-left:8px">${contactsAtCo.length} contact${contactsAtCo.length!==1?'s':''} · ${approvedCount} approved</span>
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="btn btn-primary btn-sm" onclick="approveCompanyDrafts('${escHtml(companyName)}')">✓ Approve All at ${escHtml(companyName)}</button>
+        </div>
+      </div>
+      <div style="margin-top:6px">${contactList}</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px">Edit the body below, then click <strong>Apply to All Contacts</strong> — each contact's name will be personalised automatically.</div>
+    </div>
+
+    <div class="draft-grid">
+      <div class="draft-card">
+        <div class="draft-card-header">
+          <div><div class="draft-label">Email 1 — Initial Outreach</div><div style="font-size:11px;color:var(--text-muted)">Shared body · greeting personalised per contact</div></div>
+        </div>
+        <input class="draft-subj" id="co_subj1" value="${escHtml(d.subject1||'')}" placeholder="Subject line…">
+        <div class="rich-editor-wrap">
+          <div class="editor-toolbar">
+            <button onmousedown="event.preventDefault();document.execCommand('bold')" title="Bold"><b>B</b></button>
+            <button onmousedown="event.preventDefault();document.execCommand('italic')" title="Italic"><i>I</i></button>
+            <div class="t-sep"></div>
+            <button onmousedown="event.preventDefault();document.execCommand('removeFormat')" title="Clear formatting">✕ Format</button>
+          </div>
+          <div class="rich-editor" id="co_email1" contenteditable="true">${(d.email1||'').includes('<') ? stripGreeting(d.email1) : stripGreeting(d.email1).replace(/\\n/g,'<br>')}</div>
+        </div>
+        <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft('${escHtml(companyName)}','email1','co_email1','subject1','co_subj1')">Apply to All Contacts</button>
+      </div>
+
+      <div class="draft-card">
+        <div class="draft-card-header">
+          <div><div class="draft-label">Follow-up 1</div><div style="font-size:11px;color:var(--text-muted)">Shared body</div></div>
+        </div>
+        <input class="draft-subj" id="co_subj2" value="${escHtml(d.subject2||'')}" placeholder="Subject line…">
+        <div class="rich-editor-wrap">
+          <div class="editor-toolbar">
+            <button onmousedown="event.preventDefault();document.execCommand('bold')" title="Bold"><b>B</b></button>
+            <button onmousedown="event.preventDefault();document.execCommand('italic')" title="Italic"><i>I</i></button>
+            <div class="t-sep"></div>
+            <button onmousedown="event.preventDefault();document.execCommand('removeFormat')" title="Clear formatting">✕ Format</button>
+          </div>
+          <div class="rich-editor" id="co_fu1" contenteditable="true">${(d.fu1||'').includes('<') ? stripGreeting(d.fu1) : stripGreeting(d.fu1).replace(/\\n/g,'<br>')}</div>
+        </div>
+        <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft('${escHtml(companyName)}','fu1','co_fu1','subject2','co_subj2')">Apply to All Contacts</button>
+      </div>
+
+      <div class="draft-card">
+        <div class="draft-card-header">
+          <div><div class="draft-label">Follow-up 2 — Break-up</div><div style="font-size:11px;color:var(--text-muted)">Shared body</div></div>
+        </div>
+        <input class="draft-subj" id="co_subj3" value="${escHtml(d.subject3||'')}" placeholder="Subject line…">
+        <div class="rich-editor-wrap">
+          <div class="editor-toolbar">
+            <button onmousedown="event.preventDefault();document.execCommand('bold')" title="Bold"><b>B</b></button>
+            <button onmousedown="event.preventDefault();document.execCommand('italic')" title="Italic"><i>I</i></button>
+            <div class="t-sep"></div>
+            <button onmousedown="event.preventDefault();document.execCommand('removeFormat')" title="Clear formatting">✕ Format</button>
+          </div>
+          <div class="rich-editor" id="co_fu2" contenteditable="true">${(d.fu2||'').includes('<') ? stripGreeting(d.fu2) : stripGreeting(d.fu2).replace(/\\n/g,'<br>')}</div>
+        </div>
+        <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft('${escHtml(companyName)}','fu2','co_fu2','subject3','co_subj3')">Apply to All Contacts</button>
+      </div>
+    </div>`;
+}
+
+function applyCompanyDraft(companyName, bodyField, editorId, subjField, subjInputId) {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  const editedBody = document.getElementById(editorId)?.innerHTML || '';
+  const editedSubj = document.getElementById(subjInputId)?.value || '';
+  let count = 0;
+  c.contacts.forEach((ct, i) => {
+    if ((ct.company || '').trim() !== companyName) return;
+    if (!ct.drafts) return; // skip contacts without drafts
+    const firstName = ct.name.split(' ')[0] || ct.name;
+    // Prepend personalised greeting to the shared body
+    ct.drafts[bodyField] = `Hi ${firstName},\n\n${editedBody}`;
+    if (editedSubj) ct.drafts[subjField] = editedSubj;
+    count++;
+  });
+  saveCampaigns();
+  renderCompanyDraft(companyName); // refresh view
+  showToast(`Applied to ${count} contact${count !== 1 ? 's' : ''} at ${companyName}`);
+}
+
+function approveCompanyDrafts(companyName) {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  let count = 0;
+  c.contacts.forEach(ct => {
+    if ((ct.company || '').trim() !== companyName) return;
+    if (!ct.drafts || !ct.drafts.email1) return;
+    ct.drafts.email1Approved = true;
+    ct.drafts.fu1Approved = true;
+    ct.drafts.fu2Approved = true;
+    count++;
+  });
+  saveCampaigns();
+  renderCompanyDraft(companyName);
+  updateStatsInPlace();
+  showToast(`Approved drafts for ${count} contact${count !== 1 ? 's' : ''} at ${companyName}`);
 }
 
 function viewDraftForContact(cid, idx) {
@@ -1557,11 +1757,19 @@ function buildOtherProgrammesLine(others, company) {
   // Group by therapy area, noting phase
   const grouped = {};
   others.forEach(co => {
-    const areas = (co.therapy_areas || []).join('/') || 'other areas';
-    const phase = co.phase || '';
+    // Normalise: "Other" → use conditions as a more meaningful label
+    const rawAreas = (co.therapy_areas || []);
+    const isOnlyOther = rawAreas.length === 0
+      || (rawAreas.length === 1 && rawAreas[0].toLowerCase().trim() === 'other');
+    const areaLabel = isOnlyOther
+      ? ((co.conditions || []).slice(0, 2).join(', ') || (co.interventions || []).slice(0, 2).join(', ') || 'other areas')
+      : rawAreas.join('/');
+    // Normalise phase: "NA"/"N/A" → skip
+    const rawPhase = (co.phase || '').trim();
+    const phase = /^(na|n\/a|not.applicable)$/i.test(rawPhase) ? '' : rawPhase;
     const nct = co.nct_id || '';
-    if (!grouped[areas]) grouped[areas] = [];
-    grouped[areas].push({ phase, nct });
+    if (!grouped[areaLabel]) grouped[areaLabel] = [];
+    grouped[areaLabel].push({ phase, nct });
   });
   const parts = Object.entries(grouped).map(([area, trials]) => {
     const phases = trials.map(t => t.phase).filter(Boolean);
@@ -1583,11 +1791,27 @@ function buildDrafts(ct, co, otherTrials, campaignArea) {
   const company      = ct.company || co._companyName || coName(companyObj) || 'your company';
   const nctId        = co.nct_id  || '';
   const trialTitle   = co.title   || '';
-  const phase        = co.phase   || '';
-  const areas        = (co.therapy_areas || companyObj.therapy_areas || []).join(', ') || 'your therapeutic area';
   const enrollment   = co.enrollment || '';
   const conditions   = (co.conditions || []).slice(0, 2).join(', ') || '';
   const interventions= (co.interventions || []).slice(0, 2).join(', ') || '';
+
+  // ── Edge-case normalisation ──────────────────────────────────────────────
+  // Phase "NA" / "N/A" → treat as unknown phase (empty string).
+  // Templates already handle empty phase gracefully by omitting the reference.
+  // phaseAngle() falls through to the generic MIDD fallback, which still
+  // uses conditions/interventions to write a relevant, specific hook.
+  const rawPhase = (co.phase || '').trim();
+  const phase = /^(na|n\/a|not.applicable)$/i.test(rawPhase) ? '' : rawPhase;
+
+  // Therapy area "Other" → use the trial's conditions as a more meaningful
+  // descriptor, or fall back to a neutral phrase.  This avoids sentences
+  // like "your Other programme" which read as meaningless.
+  const rawAreas = (co.therapy_areas || companyObj.therapy_areas || []);
+  const isOnlyOther = rawAreas.length === 0
+    || (rawAreas.length === 1 && rawAreas[0].toLowerCase().trim() === 'other');
+  const areas = isOnlyOther
+    ? (conditions || interventions || 'your therapeutic area')
+    : rawAreas.join(', ');
   const countries    = (companyObj.countries || []).slice(0, 3).join(', ') || '';
   const multiNational = (companyObj.countries || []).length > 3;
 
