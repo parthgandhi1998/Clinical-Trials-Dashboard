@@ -848,8 +848,15 @@ function switchTab(name, el) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   el.classList.add('active');
   document.getElementById('tab-' + name).classList.add('active');
-  if (name === 'export' || name === 'contacts') checkOutlookServer();
-  if (name === 'contacts' && activeCampaignId) renderContactsTable(activeCampaignId);
+  if (name === 'export') {
+    checkOutlookServer();
+    // Refresh Export tab to show updated draft counts after generation
+    if (activeCampaignId) {
+      const c = getCampaign(activeCampaignId);
+      if (c) document.getElementById('tab-export').innerHTML = renderExportTab(c);
+    }
+  }
+  if (name === 'contacts') { checkOutlookServer(); if (activeCampaignId) renderContactsTable(activeCampaignId); }
   if (name === 'tracker' && activeCampaignId) renderTrackerTable(activeCampaignId);
   if (name === 'drafts') {
     if (_draftView === 'company') renderCompanyDraftForSelected();
@@ -1248,6 +1255,7 @@ function clearContacts(cid) {
 // DRAFTS TAB
 // ────────────────────────────────────────────────────────────────────────────
 let _draftView = 'contact'; // 'contact' | 'company'
+let _selectedTrialNct = null; // NCT ID of manually selected trial (for multi-trial companies)
 
 function renderDraftsTab(c) {
   const contacts = c.contacts || [];
@@ -1290,9 +1298,10 @@ function renderDraftsTab(c) {
   return `<div style="margin-bottom:16px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
     ${viewToggle}
     <label style="font-size:12px;font-weight:600;color:var(--text-muted)">Contact:</label>
-    <select id="draft-contact-sel" class="form-input" style="width:300px" onchange="renderDraftForSelected()">
+    <select id="draft-contact-sel" class="form-input" style="width:300px" onchange="onDraftContactChange()">
       ${contacts.map((ct,i) => `<option value="${i}">${ct.name} — ${ct.company||'?'} (${ct.title||'?'})</option>`).join('')}
     </select>
+    <span id="draft-trial-selector-container"></span>
     <button class="btn btn-primary btn-sm" onclick="generateAllDrafts()">⚡ Generate All Drafts</button>
     <button class="btn btn-ghost btn-sm" onclick="approveDraft(getCurrentContactIdx(),'all')" title="Approve all 3 emails for this contact">✓ Approve This Contact</button>
     <button class="btn btn-ghost btn-sm" onclick="approveAllContacts()" title="Approve all drafts for every contact">✓ Approve All Contacts</button>
@@ -1315,13 +1324,51 @@ function getCurrentContactIdx() {
   return sel ? parseInt(sel.value) : 0;
 }
 
+function onDraftContactChange() {
+  _selectedTrialNct = null; // Reset trial selection when contact changes
+  updateTrialSelector();
+  renderDraftForSelected();
+}
+
+function updateTrialSelector() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  const idx = getCurrentContactIdx();
+  const ct = c.contacts[idx];
+  if (!ct) return;
+
+  const { primary, others } = findTrialsForContact(c, ct);
+  const allTrials = [primary, ...others].filter(t => t && t.nct_id);
+  const container = document.getElementById('draft-trial-selector-container');
+  if (!container) return;
+
+  if (allTrials.length <= 1) {
+    container.innerHTML = '';
+    return;
+  }
+
+  const trialsHtml = allTrials.map((t, i) => `<option value="${t.nct_id}" ${_selectedTrialNct === t.nct_id ? 'selected' : ''} ${i === 0 ? 'data-primary="true"' : ''}>${t.nct_id} — ${t.phase || 'Phase'} ${t.title || t.therapy_areas?.[0] || 'Trial'}${i === 0 ? ' (primary)' : ''}</option>`).join('');
+  container.innerHTML = `
+    <label style="font-size:12px;font-weight:600;color:var(--text-muted)">Trial to reference:</label>
+    <select class="form-input" style="width:400px;max-width:100%" onchange="_selectedTrialNct=this.value||null;renderDraftForSelected()">
+      ${trialsHtml}
+    </select>`;
+}
+
 function renderDraftForSelected() {
   const idx = getCurrentContactIdx();
   const c = getCampaign(activeCampaignId);
   if (!c) return;
   const ct = c.contacts[idx];
   if (!ct) return;
+
+  // If trial is manually selected, regenerate drafts with that trial
+  if (_selectedTrialNct) {
+    generateDraftsForContact(idx, _selectedTrialNct);
+  }
+
   renderDraftForContact(ct, idx);
+  updateTrialSelector(); // Update selector to reflect current state
 }
 
 function renderDraftForContact(ct, idx) {
@@ -1661,16 +1708,23 @@ function copyLinkedIn(idx) {
 // ────────────────────────────────────────────────────────────────────────────
 // SMART TEMPLATE ENGINE  (PumasAI-specific, Phase/Area-aware)
 // ────────────────────────────────────────────────────────────────────────────
-function generateDraftsForContact(idx) {
+function generateDraftsForContact(idx, overrideTrialNct) {
   const c = getCampaign(activeCampaignId);
   if (!c || !c.contacts[idx]) return;
   const ct = c.contacts[idx];
   const { primary, others } = findTrialsForContact(c, ct);
-  const drafts = buildDrafts(ct, primary, others, c.area);
+
+  // If user selected a specific trial, use that instead of auto-detected primary
+  let selectedTrial = primary;
+  if (overrideTrialNct) {
+    const allTrials = [primary, ...others];
+    selectedTrial = allTrials.find(t => t.nct_id === overrideTrialNct) || primary;
+  }
+
+  const drafts = buildDrafts(ct, selectedTrial, others, c.area);
   c.contacts[idx].drafts = drafts;
   saveCampaigns();
-  renderDraftForSelected();
-  showToast('Drafts generated for ' + ct.name);
+  showToast(`Drafts generated for ${ct.name}${overrideTrialNct ? ' (with selected trial)' : ''}`);
 }
 
 function generateAllDrafts() {
@@ -1815,8 +1869,8 @@ function buildDrafts(ct, co, otherTrials, campaignArea) {
   const countries    = (companyObj.countries || []).slice(0, 3).join(', ') || '';
   const multiNational = (companyObj.countries || []).length > 3;
 
-  // Phase-specific angle
-  const phaseContext = phaseAngle(phase, conditions, interventions, areas);
+  // Phase-specific angle (pass enrollment for sample size context)
+  const phaseContext = phaseAngle(phase, conditions, interventions, areas, enrollment);
 
   // Other programmes one-liner (only in Email 1)
   // Exclude trials in the same therapy area as primary (those are part of the same campaign focus)
@@ -1881,9 +1935,13 @@ Wishing you and the ${company} team every success with ${nctId ? nctId : 'the pr
   };
 }
 
-function phaseAngle(phase, conditions, interventions, areas) {
+function phaseAngle(phase, conditions, interventions, areas, enrollment) {
   const p = (phase || '').toLowerCase();
   const lo = (s) => (s || '').toLowerCase();
+
+  // Detect sample size context: enrollment < 50 = limited dataset, need ML/Bayesian/data augmentation
+  const enrollNum = parseInt(enrollment, 10) || 0;
+  const isLimitedDataset = enrollNum > 0 && enrollNum < 50;
 
   // ── helpers to detect therapy context from conditions/interventions ──
   const isOnc = (c,i,a) => [c,i,a].some(s => lo(s).match(/cancer|tumor|tumour|oncol|leukemia|lymphoma|melanoma|carcinoma|sarcoma|myeloma|glioblastoma|nsclc|sclc|breast|lung|prostate|colorectal|hepatocellular|renal|bladder|pancrea|ovar|gastric|head.and.neck|aml|cll|all|dlbcl|nhl/));
@@ -1907,7 +1965,9 @@ function phaseAngle(phase, conditions, interventions, areas) {
     subjectAngle:    'Early-Phase PK & Dose Characterisation',
     serviceList:     'NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission',
     openingHook: (conds, ints, a, enroll) => {
-      const enrollStr = enroll ? ` With ${enroll} patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.` : '';
+      const enrollStr = isLimitedDataset
+        ? ` With ${enroll} patients, you have a limited dataset due to small cohort size — but that's where Bayesian approaches, ML-augmented NCA, and adaptive modelling extract maximum signal from fewer subjects and strengthen the dose-escalation narrative.`
+        : enroll ? ` With ${enroll} patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.` : '';
       if (isOnc(conds,ints,a)) return `Phase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream.${enrollStr}${ints ? ` For a novel agent like ${ints}, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.` : ''}`;
       if (isADC(conds,ints,a)) return `First-in-human ADC programmes carry unique PK complexity — the interplay between total antibody, conjugated payload, and free payload means standard dose-escalation approaches need to be informed by multi-analyte PK modelling from day one.${enrollStr}`;
       if (isGeneTx(conds,ints,a)) return `Early-phase gene and cell therapy programmes bring non-standard PK/PD considerations — viral vector kinetics, transgene expression, and durability modelling don't fit traditional compartmental frameworks.${enrollStr}${ints ? ` For ${ints}, establishing the dose-expression relationship early is critical for informing the registrational strategy.` : ''}`;
@@ -1930,7 +1990,9 @@ function phaseAngle(phase, conditions, interventions, areas) {
     subjectAngle:    'Exposure-Response & Phase 3 Dose Rationale',
     serviceList:     'PopPK, exposure-response, dose optimisation, clinical trial simulation, and regulatory writing through submission',
     openingHook: (conds, ints, a, enroll) => {
-      const enrollStr = enroll ? ` With ${enroll} patients, you'll have a dataset that supports a strong PopPK/PD model, and getting that analysis right now is often the difference between a clean Phase 3 dose rationale and a regulatory back-and-forth that delays the pivotal trial.` : '';
+      const enrollStr = isLimitedDataset
+        ? ` With ${enroll} patients, you have a limited dataset due to small cohort size — but Bayesian PopPK/E-R and simulation-based dose optimisation help you build a defensible Phase 3 dose rationale even with sparse data, which is exactly what FDA expects in these scenarios.`
+        : enroll ? ` With ${enroll} patients, you'll have a dataset that supports a strong PopPK/PD model, and getting that analysis right now is often the difference between a clean Phase 3 dose rationale and a regulatory back-and-forth that delays the pivotal trial.` : '';
       if (isOnc(conds,ints,a)) return `Phase 2 is where the exposure-response relationship becomes the central question — ${ints ? `for ${ints}, ` : ''}the E-R for both efficacy and toxicity needs to be well-characterised before committing to a Phase 3 dose. Increasingly, FDA expects a rigorous E-R package before you even start the pivotal trial.${enrollStr}`;
       if (isImmuno(conds,ints,a)) return `Phase 2 is where the exposure-response relationship becomes the central question — particularly for an immunology asset${ints ? ` like ${ints}` : ''}, where the E-R for both efficacy ${conds ? `(e.g., ACR response, DAS28 for ${conds})` : 'endpoints'} and infection risk needs to be well-characterised before you commit to a Phase 3 dose.${enrollStr}`;
       if (isBiologic(conds,ints,a)) return `For biologics in Phase 2, the exposure-response story becomes central — particularly when target-mediated disposition means the PK is nonlinear and dose-proportionality assumptions break down.${ints ? ` For ${ints}, a` : ' A'} well-built PopPK/E-R model at this stage is what makes the Phase 3 dose rationale defensible.${enrollStr}`;
@@ -1952,7 +2014,9 @@ function phaseAngle(phase, conditions, interventions, areas) {
     subjectAngle:    'Clinical Pharmacology Submission Package',
     serviceList:     'PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission',
     openingHook: (conds, ints, a, enroll) => {
-      const enrollStr = enroll ? ` With ${enroll} patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.` : '';
+      const enrollStr = isLimitedDataset
+        ? ` With ${enroll} patients (limited dataset due to small cohort size), a well-designed Bayesian PopPK/E-R analysis and data augmentation strategy is critical — FDA reviewers expect quantitative justification for the submittted dose, and sparse data actually strengthens the case for model-based approaches.`
+        : enroll ? ` With ${enroll} patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.` : '';
       if (isOnc(conds,ints,a)) return `At the Phase 3 stage, the clinical pharmacology submission package — PopPK, E-R for both efficacy and toxicity, DDI, hepatic/renal impairment, QTc — is on the critical path to filing.${ints ? ` For ${ints}` : ' For an oncology asset'}${conds ? ` in ${conds}` : ''}, FDA reviewers in the oncology division have specific expectations around the E-R safety analysis and dose justification.${enrollStr}`;
       if (isRare(conds,ints,a)) return `NDA/BLA packages for rare diseases carry unique expectations — FDA's orphan drug reviewers often expect model-based evidence to supplement limited clinical data.${conds ? ` For ${conds}, the` : ' The'} clinical pharmacology package needs to tell a compelling quantitative story, and that's exactly what we build.${enrollStr}`;
       if (isVaccine(conds,ints,a)) return `Phase 3 vaccine programmes are on the submission runway, and the clinical pharmacology package for BLA — immunogenicity modelling, exposure-response for seroconversion, lot consistency — is typically on the critical path to CBER review.${enrollStr}`;
@@ -1982,7 +2046,9 @@ function phaseAngle(phase, conditions, interventions, areas) {
     subjectAngle:    'MIDD & Clinical Pharmacology Support',
     serviceList:     'NCA, PopPK, exposure-response, dose justification, and regulatory writing through submission',
     openingHook: (conds, ints, a, enroll) => {
-      const enrollStr = enroll ? ` With ${enroll} patients, having a regulatory-ready quantitative package that addresses FDA and EMA expectations upfront avoids the back-and-forth that often delays timelines.` : '';
+      const enrollStr = isLimitedDataset
+        ? ` With ${enroll} patients (limited dataset due to small cohort size), Bayesian approaches, machine learning augmentation, and sparse data modelling help extract maximum signal — particularly effective when regulatory timelines are tight.`
+        : enroll ? ` With ${enroll} patients, having a regulatory-ready quantitative package that addresses FDA and EMA expectations upfront avoids the back-and-forth that often delays timelines.` : '';
       if (conds && ints) return `Programmes like this benefit significantly from building model-informed drug development into the clinical strategy early — whether it's PK/PD characterisation for ${ints}, exposure-response for efficacy endpoints in ${conds}, or simulation-based dose optimisation for special populations.${enrollStr}`;
       if (conds) return `Programmes in ${conds} benefit significantly from building model-informed drug development into the clinical strategy early — PK/PD characterisation, exposure-response analysis, and simulation-based dose optimisation all strengthen the regulatory narrative.${enrollStr}`;
       return `Model-Informed Drug Development is increasingly expected by FDA and EMA reviewers — programmes that build MIDD into their clinical strategy from the start consistently reach decision points faster with fewer surprises.${enrollStr}`;
