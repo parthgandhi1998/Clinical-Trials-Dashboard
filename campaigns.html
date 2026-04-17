@@ -1527,7 +1527,7 @@ function renderCompanyDraft(companyName) {
   const trialsHtml = uniqueTrials.length > 1
     ? `<label style="font-size:12px;font-weight:600;color:var(--text-muted)">Trial (bulk):</label>
        <select style="border:1px solid var(--border);border-radius:6px;padding:5px 10px;font-size:12px;outline:none"
-               onchange="regenerateCompanyDrafts('${escHtml(companyName)}',this.value||null)">
+               onchange="regenerateCompanyDrafts(${JSON.stringify(companyName)},this.value||null)">
          <option value="">Auto-detect (primary for each)</option>
          ${uniqueTrials.map(t => `<option value="${t.nct_id}">${t.nct_id} — ${t.phase || 'Phase'} ${t.title || t.therapy_areas?.[0] || ''}</option>`).join('')}
        </select>`
@@ -1541,7 +1541,7 @@ function renderCompanyDraft(companyName) {
           <span style="font-size:12px;color:var(--text-muted);margin-left:8px">${contactsAtCo.length} contact${contactsAtCo.length!==1?'s':''} · ${approvedCount} approved</span>
         </div>
         <div style="display:flex;gap:6px">
-          <button class="btn btn-primary btn-sm" onclick="approveCompanyDrafts('${escHtml(companyName)}')">✓ Approve All at ${escHtml(companyName)}</button>
+          <button class="btn btn-primary btn-sm" onclick="approveCompanyDrafts(${JSON.stringify(companyName)})">✓ Approve All at ${escHtml(companyName)}</button>
         </div>
       </div>
       <div style="margin-top:6px">${contactList}</div>
@@ -1564,7 +1564,7 @@ function renderCompanyDraft(companyName) {
           </div>
           <div class="rich-editor" id="co_email1" contenteditable="true">${(d.email1||'').includes('<') ? stripGreeting(d.email1) : stripGreeting(d.email1).replace(/\\n/g,'<br>')}</div>
         </div>
-        <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft('${escHtml(companyName)}','email1','co_email1','subject1','co_subj1')">Apply to All Contacts</button>
+        <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft(${JSON.stringify(companyName)},'email1','co_email1','subject1','co_subj1')">Apply to All Contacts</button>
       </div>
 
       <div class="draft-card">
@@ -1581,7 +1581,7 @@ function renderCompanyDraft(companyName) {
           </div>
           <div class="rich-editor" id="co_fu1" contenteditable="true">${(d.fu1||'').includes('<') ? stripGreeting(d.fu1) : stripGreeting(d.fu1).replace(/\\n/g,'<br>')}</div>
         </div>
-        <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft('${escHtml(companyName)}','fu1','co_fu1','subject2','co_subj2')">Apply to All Contacts</button>
+        <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft(${JSON.stringify(companyName)},'fu1','co_fu1','subject2','co_subj2')">Apply to All Contacts</button>
       </div>
 
       <div class="draft-card">
@@ -1598,7 +1598,7 @@ function renderCompanyDraft(companyName) {
           </div>
           <div class="rich-editor" id="co_fu2" contenteditable="true">${(d.fu2||'').includes('<') ? stripGreeting(d.fu2) : stripGreeting(d.fu2).replace(/\\n/g,'<br>')}</div>
         </div>
-        <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft('${escHtml(companyName)}','fu2','co_fu2','subject3','co_subj3')">Apply to All Contacts</button>
+        <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft(${JSON.stringify(companyName)},'fu2','co_fu2','subject3','co_subj3')">Apply to All Contacts</button>
       </div>
     </div>`;
 }
