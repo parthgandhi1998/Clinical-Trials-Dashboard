@@ -188,10 +188,10 @@ tr:hover td{background:#fafbff}
 .upload-zone-sub{font-size:11px;color:var(--text-muted);margin-top:4px}
 
 /* ── STATS ROW ── */
-.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:20px}
-.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;text-align:center;box-shadow:var(--shadow)}
-.stat-value{font-size:22px;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;line-height:1}
-.stat-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-top:3px}
+.stats-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:12px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:8px 10px;text-align:center;box-shadow:var(--shadow)}
+.stat-value{font-size:18px;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;line-height:1}
+.stat-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;color:var(--text-muted);margin-top:2px}
 
 /* ── FOLLOW-UP ALERT ── */
 .followup-banner{background:var(--amber-light);border:1px solid #fde68a;border-radius:var(--radius);padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;gap:10px;font-size:13px}
@@ -827,6 +827,14 @@ function renderMain() {
       <div class="stat-card"><div class="stat-value">${sent > 0 ? Math.round(replied/sent*100) : 0}%</div><div class="stat-label">Reply Rate</div></div>
     </div>
 
+    ${c.notes ? `<div style="background:var(--amber-light);border:1px solid #fde68a;border-radius:var(--radius);padding:12px;margin-bottom:16px">
+      <div style="font-size:11px;font-weight:700;color:#92400e;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">📝 Campaign Notes</div>
+      <div style="font-size:13px;color:#92400e;line-height:1.5">${escHtml(c.notes)}</div>
+      <button class="btn btn-sm" style="margin-top:8px;background:#fcd34d;color:#000;border:1px solid #f59e0b" onclick="editCampaignNotes()">✎ Edit Notes</button>
+    </div>` : `<div style="padding:12px;border:1px dashed var(--border);border-radius:var(--radius);margin-bottom:16px;text-align:center;color:var(--text-muted);font-size:12px">
+      No campaign notes yet. <button class="btn btn-ghost btn-sm" onclick="editCampaignNotes()">Add notes</button>
+    </div>`}
+
     <div class="tab-bar">
       <button class="tab active" onclick="switchTab('companies',this)">Companies <span class="tab-badge">${companyCt}</span></button>
       <button class="tab" onclick="switchTab('contacts',this)">Contacts <span class="tab-badge">${contacts.length}</span></button>
@@ -1255,7 +1263,9 @@ function clearContacts(cid) {
 // DRAFTS TAB
 // ────────────────────────────────────────────────────────────────────────────
 let _draftView = 'contact'; // 'contact' | 'company'
-let _selectedTrialNct = null; // NCT ID of manually selected trial (for multi-trial companies)
+let _selectedTrialNct = null; // NCT ID of manually selected trial (for multi-trial contacts)
+let _selectedCompanyTrialNct = null; // NCT ID for company-level bulk operations
+let _currentCompanyForDraft = null; // Track which company is being edited
 
 function renderDraftsTab(c) {
   const contacts = c.contacts || [];
@@ -1504,6 +1514,25 @@ function renderCompanyDraft(companyName) {
   // Count approved
   const approvedCount = contactsAtCo.filter(x => x.ct.drafts?.email1Approved).length;
 
+  // Get all trials for this company to show in selector
+  const allTrialsForCo = new Set();
+  contactsAtCo.forEach(({ ct }) => {
+    const { primary, others } = findTrialsForContact(c, ct);
+    if (primary?.nct_id) allTrialsForCo.add(JSON.stringify(primary));
+    others.forEach(t => {
+      if (t?.nct_id) allTrialsForCo.add(JSON.stringify(t));
+    });
+  });
+  const uniqueTrials = Array.from(allTrialsForCo).map(t => JSON.parse(t));
+  const trialsHtml = uniqueTrials.length > 1
+    ? `<label style="font-size:12px;font-weight:600;color:var(--text-muted)">Trial (bulk):</label>
+       <select style="border:1px solid var(--border);border-radius:6px;padding:5px 10px;font-size:12px;outline:none"
+               onchange="regenerateCompanyDrafts('${escHtml(companyName)}',this.value||null)">
+         <option value="">Auto-detect (primary for each)</option>
+         ${uniqueTrials.map(t => `<option value="${t.nct_id}">${t.nct_id} — ${t.phase || 'Phase'} ${t.title || t.therapy_areas?.[0] || ''}</option>`).join('')}
+       </select>`
+    : '';
+
   el.innerHTML = `
     <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin-bottom:16px">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:8px">
@@ -1516,6 +1545,7 @@ function renderCompanyDraft(companyName) {
         </div>
       </div>
       <div style="margin-top:6px">${contactList}</div>
+      ${trialsHtml ? `<div style="margin-top:10px;display:flex;gap:12px;align-items:center">${trialsHtml}</div>` : ''}
       <div style="font-size:11px;color:var(--text-muted);margin-top:8px">Edit the body below, then click <strong>Apply to All Contacts</strong> — each contact's name will be personalised automatically.</div>
     </div>
 
@@ -1571,6 +1601,32 @@ function renderCompanyDraft(companyName) {
         <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft('${escHtml(companyName)}','fu2','co_fu2','subject3','co_subj3')">Apply to All Contacts</button>
       </div>
     </div>`;
+}
+
+function editCampaignNotes() {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  const notes = prompt('Campaign Notes:', c.notes || '');
+  if (notes !== null) {
+    c.notes = notes.trim();
+    saveCampaigns();
+    renderMain();
+    showToast('Campaign notes updated');
+  }
+}
+
+function regenerateCompanyDrafts(companyName, trialNct) {
+  const c = getCampaign(activeCampaignId);
+  if (!c) return;
+  let count = 0;
+  c.contacts.forEach((ct, i) => {
+    if ((ct.company || '').trim() !== companyName) return;
+    generateDraftsForContact(i, trialNct || null);
+    count++;
+  });
+  saveCampaigns();
+  renderCompanyDraft(companyName);
+  showToast(`Regenerated ${count} draft${count !== 1 ? 's' : ''} for ${companyName}${trialNct ? ` with trial ${trialNct}` : ''}`);
 }
 
 function applyCompanyDraft(companyName, bodyField, editorId, subjField, subjInputId) {
@@ -2263,8 +2319,8 @@ function renderTrackerTable(cid) {
           <td>
             <input type="date" class="followup-input" value="${ct.followUpDate||''}" style="border:1px solid var(--border);border-radius:5px;padding:4px 6px;font-size:12px;outline:none;${needsFollowUp(ct)?'border-color:#d97706;background:#fffbeb':''}" onchange="updateContactField('${cid}',${idx},'followUpDate',this.value)">
           </td>
-          <td>
-            <input type="text" value="${escHtml(ct.notes||'')}" placeholder="Add note…" style="border:1px solid var(--border);border-radius:5px;padding:4px 8px;font-size:12px;width:180px;outline:none" onchange="updateContactField('${cid}',${idx},'notes',this.value)">
+          <td style="max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer" title="Click to expand notes" onclick="openNotesModal(${idx},'${cid}')">
+            <span style="font-size:12px;color:${ct.notes ? 'var(--text)' : 'var(--text-muted)'}">${ct.notes ? '📝 ' + escHtml(ct.notes).substring(0,40) + (escHtml(ct.notes).length > 40 ? '…' : '') : 'No notes'}</span>
           </td>
         </tr>`;
         }).join('')}
@@ -2273,6 +2329,38 @@ function renderTrackerTable(cid) {
     </div>
     ${paginationBar}`;
   updateTrackerBulkBar();
+}
+
+function openNotesModal(contactIdx, campaignId) {
+  const c = getCampaign(campaignId);
+  if (!c || !c.contacts[contactIdx]) return;
+  const ct = c.contacts[contactIdx];
+  const currentNotes = ct.notes || '';
+
+  // Create simple modal with textarea
+  const modal = document.createElement('div');
+  modal.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.4);display:flex;align-items:center;justify-content:center;z-index:1000';
+  modal.innerHTML = `
+    <div style="background:var(--surface);border-radius:var(--radius);padding:24px;max-width:500px;width:90%;box-shadow:var(--shadow-md)">
+      <div style="font-size:16px;font-weight:700;margin-bottom:12px">${escHtml(ct.name)} — Notes</div>
+      <textarea id="notes-modal-textarea" style="width:100%;height:180px;border:1px solid var(--border);border-radius:6px;padding:10px;font-size:13px;font-family:inherit;resize:vertical;outline:none">${escHtml(currentNotes)}</textarea>
+      <div style="display:flex;gap:8px;margin-top:16px;justify-content:flex-end">
+        <button class="btn btn-ghost btn-sm" onclick="this.closest('div[style*=fixed]').remove()">Cancel</button>
+        <button class="btn btn-primary btn-sm" onclick="saveNotesFromModal(${contactIdx},'${campaignId}');this.closest('div[style*=fixed]').remove()">✓ Save Notes</button>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+  document.getElementById('notes-modal-textarea')?.focus();
+}
+
+function saveNotesFromModal(contactIdx, campaignId) {
+  const c = getCampaign(campaignId);
+  if (!c || !c.contacts[contactIdx]) return;
+  const notes = document.getElementById('notes-modal-textarea')?.value || '';
+  c.contacts[contactIdx].notes = notes.trim();
+  saveCampaigns();
+  renderTrackerTable(campaignId);
+  showToast('Notes updated');
 }
 
 function toggleTrackerSelect(idx, checked) {
@@ -2485,30 +2573,46 @@ function renderExportTab(c) {
     </div>
 
     <div style="margin-top:4px">
-      <div style="font-size:13px;font-weight:700;margin-bottom:10px">CSV Column Reference</div>
-      <div class="pipeline-wrap"><table>
-        <thead><tr><th>Column</th><th>Description</th></tr></thead>
-        <tbody>
-          ${[
-            ['FirstName','Contact first name'],
-            ['FullName','Full name'],
-            ['Email','Email address (recipient)'],
-            ['Title','Job title'],
-            ['Company','Company name'],
-            ['Email1_Subject','Initial email subject'],
-            ['Email1_Body','Initial email body (multi-line)'],
-            ['FU1_Subject','Follow-up 1 subject'],
-            ['FU1_Body','Follow-up 1 body'],
-            ['FU2_Subject','Follow-up 2 subject'],
-            ['FU2_Body','Follow-up 2 body'],
-            ['LinkedIn_Message','LinkedIn DM (copy-paste)'],
-            ['NCT_ID','Trial ID'],
-            ['Phase','Trial phase'],
-            ['Status','Outreach status'],
-          ].map(([col,desc]) => `<tr><td style="font-family:monospace;font-size:12px">${col}</td><td style="font-size:12px">${desc}</td></tr>`).join('')}
-        </tbody>
-      </table></div>
+      <div style="cursor:pointer;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;padding:8px;background:var(--surface2);border-radius:6px;margin-bottom:10px" onclick="toggleCsvReference(this)">
+        <span style="font-size:16px">▶</span> CSV Column Reference
+      </div>
+      <div class="csv-reference-table" style="display:none">
+        <div class="pipeline-wrap"><table>
+          <thead><tr><th>Column</th><th>Description</th></tr></thead>
+          <tbody>
+            ${[
+              ['FirstName','Contact first name'],
+              ['FullName','Full name'],
+              ['Email','Email address (recipient)'],
+              ['Title','Job title'],
+              ['Company','Company name'],
+              ['Email1_Subject','Initial email subject'],
+              ['Email1_Body','Initial email body (multi-line)'],
+              ['FU1_Subject','Follow-up 1 subject'],
+              ['FU1_Body','Follow-up 1 body'],
+              ['FU2_Subject','Follow-up 2 subject'],
+              ['FU2_Body','Follow-up 2 body'],
+              ['LinkedIn_Message','LinkedIn DM (copy-paste)'],
+              ['NCT_ID','Trial ID'],
+              ['Phase','Trial phase'],
+              ['Status','Outreach status'],
+            ].map(([col,desc]) => `<tr><td style="font-family:monospace;font-size:12px">${col}</td><td style="font-size:12px">${desc}</td></tr>`).join('')}
+          </tbody>
+        </table></div>
+      </div>
     </div>`;
+}
+
+function toggleCsvReference(headerEl) {
+  const tableDiv = headerEl.nextElementSibling;
+  const arrow = headerEl.querySelector('span');
+  if (tableDiv.style.display === 'none') {
+    tableDiv.style.display = 'block';
+    arrow.textContent = '▼';
+  } else {
+    tableDiv.style.display = 'none';
+    arrow.textContent = '▶';
+  }
 }
 
 function exportMailMergeCSV() {
