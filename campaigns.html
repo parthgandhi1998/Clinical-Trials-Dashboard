@@ -1263,9 +1263,29 @@ function clearContacts(cid) {
 // DRAFTS TAB
 // ────────────────────────────────────────────────────────────────────────────
 let _draftView = 'contact'; // 'contact' | 'company'
-let _selectedTrialNct = null; // NCT ID of manually selected trial (for multi-trial contacts)
+let _selectedTrialNct = null; // NCT ID of currently selected trial (transient - current view only)
+let _trialSelectionMap = {}; // Persistent: { 'campaignId_contactIdx': 'NCT123', ... }
 let _selectedCompanyTrialNct = null; // NCT ID for company-level bulk operations
 let _currentCompanyForDraft = null; // Track which company is being edited
+
+// Helper to get/set trial selection per contact
+function getTrialSelectionKey(contactIdx) {
+  return `${activeCampaignId}_${contactIdx}`;
+}
+
+function getSavedTrialForContact(contactIdx) {
+  const key = getTrialSelectionKey(contactIdx);
+  return _trialSelectionMap[key] || null;
+}
+
+function saveTrialForContact(contactIdx, trialNct) {
+  const key = getTrialSelectionKey(contactIdx);
+  if (trialNct) {
+    _trialSelectionMap[key] = trialNct;
+  } else {
+    delete _trialSelectionMap[key];
+  }
+}
 
 function renderDraftsTab(c) {
   const contacts = c.contacts || [];
@@ -1335,7 +1355,8 @@ function getCurrentContactIdx() {
 }
 
 function onDraftContactChange() {
-  _selectedTrialNct = null; // Reset trial selection when contact changes
+  const idx = getCurrentContactIdx();
+  _selectedTrialNct = getSavedTrialForContact(idx); // Restore saved trial for this contact
   updateTrialSelector();
   renderDraftForSelected();
 }
@@ -1357,10 +1378,12 @@ function updateTrialSelector() {
     return;
   }
 
-  const trialsHtml = allTrials.map((t, i) => `<option value="${t.nct_id}" ${_selectedTrialNct === t.nct_id ? 'selected' : ''} ${i === 0 ? 'data-primary="true"' : ''}>${t.nct_id} — ${t.phase || 'Phase'} ${t.title || t.therapy_areas?.[0] || 'Trial'}${i === 0 ? ' (primary)' : ''}</option>`).join('');
+  const savedTrial = getSavedTrialForContact(idx);
+  const trialsHtml = allTrials.map((t, i) => `<option value="${t.nct_id}" ${savedTrial === t.nct_id ? 'selected' : ''} ${i === 0 ? 'data-primary="true"' : ''}>${t.nct_id} — ${t.phase || 'Phase'} ${t.title || t.therapy_areas?.[0] || 'Trial'}${i === 0 ? ' (primary)' : ''}</option>`).join('');
   container.innerHTML = `
     <label style="font-size:12px;font-weight:600;color:var(--text-muted)">Trial to reference:</label>
-    <select class="form-input" style="width:400px;max-width:100%" onchange="_selectedTrialNct=this.value||null;renderDraftForSelected()">
+    <select class="form-input" style="width:400px;max-width:100%" onchange="saveTrialForContact(${idx},this.value||null);_selectedTrialNct=this.value||null;renderDraftForSelected()">
+      <option value="">Auto-detect (primary for each)</option>
       ${trialsHtml}
     </select>`;
 }
