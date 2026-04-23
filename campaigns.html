@@ -1029,8 +1029,9 @@ function renderContactsTab(c) {
               ${statusOpts}
             </select>
             <span id="ct-count" style="font-size:12px;color:var(--text-muted)">${contacts.length} contacts</span>
-            <div style="margin-left:auto;display:flex;gap:6px">
-              <button class="btn btn-ghost btn-sm" onclick="ctSelectVisible('${c.id}',true)">☑ Select visible</button>
+            <div style="margin-left:auto;display:flex;gap:6px;flex-wrap:wrap">
+              <button class="btn btn-ghost btn-sm" onclick="ctSelectVisible('${c.id}',true)" title="Select only the contacts visible on this page">☑ Select visible</button>
+              <button class="btn btn-primary btn-sm" onclick="ctSelectAllFiltered('${c.id}',true)" title="Select every contact matching the current search + status filter, across all pages">☑ Select all matching</button>
               <button class="btn btn-ghost btn-sm" onclick="clearContactSelection()">☐ Clear</button>
             </div>
           </div>
@@ -1138,6 +1139,38 @@ function ctSelectVisible(cid, checked) {
   const hdr = document.getElementById('ct-check-all');
   if (hdr) hdr.checked = checked;
   updateSelectionBar();
+}
+
+// Select / deselect every contact that matches the active search+status
+// filter, regardless of which pagination page they live on. This uses the
+// SAME filter logic as renderContactsTable so the user's filter bar is
+// honored exactly.
+function ctSelectAllFiltered(cid, checked) {
+  const c = getCampaign(cid);
+  if (!c) return;
+  const contacts = c.contacts || [];
+  const q = (_ctSearch || '').toLowerCase().trim();
+  const matchedIdx = [];
+  contacts.forEach((ct, i) => {
+    if (q && ![ct.name, ct.company, ct.title, ct.email].some(v => (v || '').toLowerCase().includes(q))) return;
+    if (_ctStatusFilter && (ct.status || 'not-started') !== _ctStatusFilter) return;
+    matchedIdx.push(i);
+  });
+  if (checked) matchedIdx.forEach(i => selectedContactIndices.add(i));
+  else          matchedIdx.forEach(i => selectedContactIndices.delete(i));
+
+  // Sync visible checkboxes + row state for the current page
+  document.querySelectorAll('#ct-table-wrap tbody tr[id^="ct-row-"]').forEach(row => {
+    const idx = parseInt(row.id.replace('ct-row-', ''));
+    const isSel = selectedContactIndices.has(idx);
+    row.classList.toggle('ct-sel', isSel);
+    const cb = row.querySelector('input[type=checkbox]');
+    if (cb) cb.checked = isSel;
+  });
+  const hdr = document.getElementById('ct-check-all');
+  if (hdr) hdr.checked = false; // "check all" header only tracks visible
+  updateSelectionBar();
+  showToast(`${checked ? 'Selected' : 'Deselected'} ${matchedIdx.length} contact${matchedIdx.length !== 1 ? 's' : ''} matching filter`);
 }
 
 function renderContactRow(ct, cid, idx) {
@@ -1584,9 +1617,12 @@ function renderCompanyDraft(companyName) {
             <button onmousedown="event.preventDefault();document.execCommand('bold')" title="Bold"><b>B</b></button>
             <button onmousedown="event.preventDefault();document.execCommand('italic')" title="Italic"><i>I</i></button>
             <div class="t-sep"></div>
+            <button onmousedown="event.preventDefault();insertCompanyEditorLink('co_email1')" title="Insert link">🔗 Link</button>
+            <button onmousedown="event.preventDefault();insertCompanyEditorImage('co_email1')" title="Insert image URL">🖼 Image</button>
+            <div class="t-sep"></div>
             <button onmousedown="event.preventDefault();document.execCommand('removeFormat')" title="Clear formatting">✕ Format</button>
           </div>
-          <div class="rich-editor" id="co_email1" contenteditable="true">${(d.email1||'').includes('<') ? stripGreeting(d.email1) : stripGreeting(d.email1).replace(/\\n/g,'<br>')}</div>
+          <div class="rich-editor" id="co_email1" contenteditable="true" onpaste="handleCompanyEditorPaste(event,'co_email1')">${(d.email1||'').includes('<') ? stripGreeting(d.email1) : stripGreeting(d.email1).replace(/\\n/g,'<br>')}</div>
         </div>
         <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft(${escHtml(JSON.stringify(companyName))},'email1','co_email1','subject1','co_subj1')">Apply to All Contacts</button>
       </div>
@@ -1601,9 +1637,12 @@ function renderCompanyDraft(companyName) {
             <button onmousedown="event.preventDefault();document.execCommand('bold')" title="Bold"><b>B</b></button>
             <button onmousedown="event.preventDefault();document.execCommand('italic')" title="Italic"><i>I</i></button>
             <div class="t-sep"></div>
+            <button onmousedown="event.preventDefault();insertCompanyEditorLink('co_fu1')" title="Insert link">🔗 Link</button>
+            <button onmousedown="event.preventDefault();insertCompanyEditorImage('co_fu1')" title="Insert image URL">🖼 Image</button>
+            <div class="t-sep"></div>
             <button onmousedown="event.preventDefault();document.execCommand('removeFormat')" title="Clear formatting">✕ Format</button>
           </div>
-          <div class="rich-editor" id="co_fu1" contenteditable="true">${(d.fu1||'').includes('<') ? stripGreeting(d.fu1) : stripGreeting(d.fu1).replace(/\\n/g,'<br>')}</div>
+          <div class="rich-editor" id="co_fu1" contenteditable="true" onpaste="handleCompanyEditorPaste(event,'co_fu1')">${(d.fu1||'').includes('<') ? stripGreeting(d.fu1) : stripGreeting(d.fu1).replace(/\\n/g,'<br>')}</div>
         </div>
         <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft(${escHtml(JSON.stringify(companyName))},'fu1','co_fu1','subject2','co_subj2')">Apply to All Contacts</button>
       </div>
@@ -1618,9 +1657,12 @@ function renderCompanyDraft(companyName) {
             <button onmousedown="event.preventDefault();document.execCommand('bold')" title="Bold"><b>B</b></button>
             <button onmousedown="event.preventDefault();document.execCommand('italic')" title="Italic"><i>I</i></button>
             <div class="t-sep"></div>
+            <button onmousedown="event.preventDefault();insertCompanyEditorLink('co_fu2')" title="Insert link">🔗 Link</button>
+            <button onmousedown="event.preventDefault();insertCompanyEditorImage('co_fu2')" title="Insert image URL">🖼 Image</button>
+            <div class="t-sep"></div>
             <button onmousedown="event.preventDefault();document.execCommand('removeFormat')" title="Clear formatting">✕ Format</button>
           </div>
-          <div class="rich-editor" id="co_fu2" contenteditable="true">${(d.fu2||'').includes('<') ? stripGreeting(d.fu2) : stripGreeting(d.fu2).replace(/\\n/g,'<br>')}</div>
+          <div class="rich-editor" id="co_fu2" contenteditable="true" onpaste="handleCompanyEditorPaste(event,'co_fu2')">${(d.fu2||'').includes('<') ? stripGreeting(d.fu2) : stripGreeting(d.fu2).replace(/\\n/g,'<br>')}</div>
         </div>
         <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft(${escHtml(JSON.stringify(companyName))},'fu2','co_fu2','subject3','co_subj3')">Apply to All Contacts</button>
       </div>
@@ -2594,7 +2636,7 @@ function renderExportTab(c) {
           <!-- Send buttons -->
           <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
             <button class="btn btn-ghost btn-sm" onclick="serverPreviewEmails()">👁 Preview 3</button>
-            <button class="btn btn-primary btn-sm" id="btn-send-server" onclick="serverSendEmails()" disabled>⚡ Bulk Send (direct)</button>
+            <button class="btn btn-primary btn-sm" id="btn-send-server" onclick="serverSendEmails()">⚡ Bulk Send (direct)</button>
             <div style="font-size:11px;color:var(--text-muted);flex:1;text-align:right">Bulk = sends immediately · <em>Open in Outlook</em> on each contact card for individual review</div>
           </div>
           <div id="server-send-log" style="margin-top:12px;font-size:12px;font-family:monospace;background:#f8fafc;border:1px solid var(--border);border-radius:6px;padding:10px;display:none;max-height:200px;overflow-y:auto;white-space:pre-wrap"></div>`
@@ -2755,6 +2797,51 @@ function insertEditorImage(editorId) {
     const field = parts.slice(0,-1).join('_');
     const idx   = parseInt(parts[parts.length-1]);
     saveDraftEdit(idx, field, el.innerHTML);
+  }
+}
+
+// ── Company-level rich editor helpers (no per-contact save; edits apply only
+//    when the user clicks "Apply to All Contacts"). These differ from
+//    insertEditorLink/Image which also call saveDraftEdit(ctIdx,field,…).
+function insertCompanyEditorLink(editorId) {
+  const url = prompt('Enter URL:');
+  if (!url) return;
+  const el = document.getElementById(editorId);
+  if (el && !el.contains(document.getSelection()?.anchorNode)) el.focus();
+  const text = window.getSelection()?.toString() || url;
+  document.execCommand('insertHTML', false, `<a href="${escHtml(url)}">${escHtml(text)}</a>`);
+}
+
+function insertCompanyEditorImage(editorId) {
+  const url = prompt('Enter image URL:');
+  if (!url) return;
+  const el = document.getElementById(editorId);
+  if (el && !el.contains(document.getSelection()?.anchorNode)) el.focus();
+  document.execCommand('insertHTML', false, `<img src="${escHtml(url)}" style="max-width:100%">`);
+}
+
+function handleCompanyEditorPaste(event, editorId) {
+  // Mirror per-contact behavior: pasted images → base64 inline; text pastes
+  // are inserted as plain text to avoid style bleed from the source document.
+  const items = event.clipboardData?.items;
+  if (items) {
+    for (const item of items) {
+      if (item.type.startsWith('image/')) {
+        event.preventDefault();
+        const file = item.getAsFile();
+        const reader = new FileReader();
+        reader.onload = e => {
+          document.execCommand('insertHTML', false, `<img src="${e.target.result}" style="max-width:100%">`);
+        };
+        reader.readAsDataURL(file);
+        return;
+      }
+    }
+  }
+  const text = event.clipboardData?.getData('text/plain');
+  if (text) {
+    event.preventDefault();
+    document.execCommand('insertText', false, text);
   }
 }
 
@@ -3001,11 +3088,44 @@ async function serverPreviewEmails() {
 }
 
 async function serverSendEmails() {
-  if (!outlookServerOnline) { showToast('Server not running — start email_server.py first'); return; }
+  // If the server wasn't yet detected, try once more on click — the user may
+  // have just started email_server.py after opening this tab.
+  if (!outlookServerOnline) {
+    showToast('Checking email_server.py…');
+    await checkOutlookServer();
+  }
+  if (!outlookServerOnline) {
+    const log = document.getElementById('server-send-log');
+    if (log) {
+      log.style.display = 'block';
+      log.innerHTML =
+        '✕ <strong>Server offline.</strong> email_server.py must be running locally on port 5001.\n'
+      + '────────────────────────────────────────────────────────\n'
+      + '1. Open a terminal in the campaign-manager folder\n'
+      + '2. Run:   <code>python3 email_server.py</code>\n'
+      + '3. Keep that terminal open\n'
+      + '4. On macOS (first run): open https://localhost:5001/health, click Advanced → Proceed to localhost\n'
+      + '5. Click ⚡ Bulk Send again (or use the Recheck button above)';
+      log.scrollTop = log.scrollHeight;
+    }
+    showToast('✕ Server offline — start email_server.py first');
+    return;
+  }
   const step  = document.getElementById('send-step-sel')?.value  || 'email1';
   const scope = document.getElementById('send-scope-sel')?.value || 'all';
   const rows  = getExportRows(step, scope);
-  if (!rows.length) { showToast('No contacts with drafts for this step/scope'); return; }
+  if (!rows.length) {
+    const log = document.getElementById('server-send-log');
+    if (log) {
+      log.style.display = 'block';
+      log.textContent = `No contacts match step="${step}" scope="${scope}". Check:\n`
+        + ` · Generate drafts first in the Drafts tab\n`
+        + ` · If scope="Selected contacts", make sure you've selected contacts in the Contacts tab\n`
+        + ` · The chosen email step must have an approved/filled body for the selected contacts`;
+    }
+    showToast('No contacts with drafts for this step/scope');
+    return;
+  }
   const stepLabels = { email1: 'Initial Outreach', fu1: 'Follow-up 1', fu2: 'Follow-up 2' };
   await doServerSend(rows, `${stepLabels[step]} (${scope}) — ${rows.length} emails`, false);
 }
