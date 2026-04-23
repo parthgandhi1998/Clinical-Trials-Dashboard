@@ -78410,30 +78410,6 @@
         "notes": ""
       },
       {
-        "id": "ct_1774080627987_51",
-        "name": "Maryse",
-        "title": "Human Resources Director",
-        "company": "Aramis Biotechnologies Inc.",
-        "email": "mgoulet@aramisbiotechnologies.com",
-        "linkedin": "https://www.linkedin.com/in/maryse-goulet-34b60889",
-        "status": "fu1-sent",
-        "drafts": {
-          "subject1": "NCT07291635 — Early-Phase PK & Dose Characterisation",
-          "email1": "Hi Maryse,\n\nI came across NCT07291635 — your Phase 1, Phase 2 study of Phase 1/2 Study of a Plant-Based Seasonal Recombinant Trivalent VLP Influenza Vaccine, and wanted to reach out.\n\nEarly-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design. With 728 patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.\n\nOur team at PumasAI — pharmacometricians and clinical pharmacologists, several from FDA, Pfizer, and BMS — has delivered 40+ regulatory submissions across FDA, EMA, PMDA, and Health Canada, all accepted on first review. We handle the full clinical pharmacology programme end-to-end: NCA, PopPK, dose-escalation modelling, PK/PD characterization, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit? Happy to share a relevant case study from a similar Phase 1, Phase 2 Dermatology programme beforehand.",
-          "email1Approved": true,
-          "subject2": "Re: NCT07291635 — Early-Phase PK & Dose Characterisation",
-          "fu1": "Hi Maryse,\n\nWanted to follow up briefly on my earlier note about NCT07291635.\n\nOne thing I often hear from Phase 1 teams is that PK data interpretation bottlenecks the dose decision timeline. Our modelling platform compresses turnaround from weeks to days — worth 15 minutes to walk through how?\n\nWe recently supported a Phase 1 FIH programme where our NCA + PopPK package directly informed the dose-escalation committee, getting to RP2D two months ahead of the original timeline — happy to share a short write-up if it'd be useful context for your team. No pitch, just the technical detail.\n\nWould it be worth 15 minutes to see if the timing works for Aramis Biotechnologies Inc.?",
-          "fu1Approved": true,
-          "subject3": "Last note — Aramis Biotechnologies Inc.",
-          "fu2": "Hi Maryse,\n\nI know your inbox is full — this will be my last note on NCT07291635.\n\nIf you ever need support with PK analysis, dose escalation modelling, or putting together the early-phase regulatory package, we're a call away.\n\nIf the timing isn't right, completely understood. We work with teams at every stage of development, so feel free to reach out whenever it makes sense.\n\nWishing you and the Aramis Biotechnologies Inc. team every success with NCT07291635.",
-          "fu2Approved": true,
-          "linkedin": "Hi Maryse, I noticed Aramis Biotechnologies Inc. is running NCT07291635 — a Phase 1, Phase 2 Dermatology, Infectious Disease, Vaccines trial. At PumasAI, we help teams like yours with Phase 1 PK characterization, NCA, and dose-escalation modelling. Happy to share a relevant example if useful."
-        },
-        "lastContacted": "2026-03-22",
-        "followUpDate": "2026-04-30",
-        "notes": ""
-      },
-      {
         "id": "ct_1774080627987_52",
         "name": "Sonia",
         "title": "Vice-President Preclinical and Clinical Development",
