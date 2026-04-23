@@ -1510,14 +1510,8 @@ function renderCompanyDraft(companyName) {
 
   if (!contactsAtCo.length) { el.innerHTML = '<div class="info-box">No contacts found for this company.</div>'; return; }
 
-  // Use the contact from _companyDraftContactIdx if set (from recent trial selection), otherwise find first with drafts
-  let rep;
-  if (_companyDraftContactIdx !== null && contactsAtCo.some(x => x.i === _companyDraftContactIdx)) {
-    rep = contactsAtCo.find(x => x.i === _companyDraftContactIdx);
-  } else {
-    rep = contactsAtCo.find(x => x.ct.drafts && x.ct.drafts.email1) || contactsAtCo[0];
-    _companyDraftContactIdx = rep.i;
-  }
+  // Use first contact that has drafts as representative
+  const rep = contactsAtCo.find(x => x.ct.drafts && x.ct.drafts.email1) || contactsAtCo[0];
   const d = rep.ct.drafts;
 
   if (!d || !d.email1) {
@@ -1630,6 +1624,16 @@ function renderCompanyDraft(companyName) {
         </div>
         <button class="btn btn-primary btn-sm" style="margin-top:8px" onclick="applyCompanyDraft(${JSON.stringify(companyName)},'fu2','co_fu2','subject3','co_subj3')">Apply to All Contacts</button>
       </div>
+
+      <div>
+        <div class="linkedin-card">
+          <div class="linkedin-card-header"><span class="linkedin-icon">in</span><span class="linkedin-label">LinkedIn Message</span>
+            <button onclick="navigator.clipboard.writeText(document.getElementById('co_linkedin').innerText);showToast('LinkedIn message copied!')" style="margin-left:auto;background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:5px;padding:3px 8px;font-size:11px;cursor:pointer;font-weight:600">Copy</button>
+          </div>
+          <div class="linkedin-body" contenteditable="true" id="co_linkedin">${d.linkedin||''}</div>
+        </div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:6px">Click Copy, then paste directly into LinkedIn.</div>
+      </div>
     </div>`;
 }
 
@@ -1649,29 +1653,33 @@ function regenerateCompanyDrafts(companyName, trialNct) {
   const c = getCampaign(activeCampaignId);
   if (!c) return;
   let count = 0;
-  let contactWithSelectedTrial = null;
 
-  // Regenerate drafts for all contacts at company
+  // Regenerate drafts for all contacts at company with selected trial
   c.contacts.forEach((ct, i) => {
     if ((ct.company || '').trim() !== companyName) return;
-    generateDraftsForContact(i, trialNct || null);
 
-    // Find a contact that has the selected trial for display
-    if (trialNct && !contactWithSelectedTrial) {
-      const { primary, others } = findTrialsForContact(c, ct);
-      const allTrials = [primary, ...others];
-      if (allTrials.some(t => t.nct_id === trialNct)) {
-        contactWithSelectedTrial = i;
-      }
+    // Get primary and other trials for this contact
+    const { primary, others } = findTrialsForContact(c, ct);
+    let trialToUse = primary;
+
+    // If trial was selected, try to find it; otherwise use primary
+    if (trialNct) {
+      const availableTrials = [primary, ...others];
+      const foundTrial = availableTrials.find(t => t && t.nct_id === trialNct);
+      trialToUse = foundTrial || primary;
     }
+
+    // Build new drafts with the trial
+    c.contacts[i].drafts = buildDrafts(ct, trialToUse, others, c.area);
     count++;
   });
 
+  // Save all changes
   saveCampaigns();
-  _selectedCompanyTrialNct = trialNct || null;
-  _companyDraftContactIdx = contactWithSelectedTrial || 0;
+
+  // Refresh display immediately
   renderCompanyDraft(companyName);
-  showToast(`Regenerated ${count} draft${count !== 1 ? 's' : ''} for ${companyName}${trialNct ? ` with trial ${trialNct}` : ''}`);
+  showToast(`Updated ${count} contact${count !== 1 ? 's' : ''} with trial ${trialNct || 'auto-detected'}`);
 }
 
 function applyCompanyDraft(companyName, bodyField, editorId, subjField, subjInputId) {
