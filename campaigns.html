@@ -374,6 +374,10 @@ select{font-family:inherit}
 // ────────────────────────────────────────────────────────────────────────────
 let campaigns   = JSON.parse(localStorage.getItem('pumas_campaigns') || '[]');
 let activeCampaignId = null;
+// Which tab is currently active within a campaign. Persisted across
+// re-renders so that mutations (remove contact, edit notes, etc.) don't
+// bounce the user back to "Companies".
+let _activeTabName = 'companies';
 let trialsData  = [];
 let selectedContactIndices = new Set();   // indices of checked contacts
 let pendingAttachments     = [];          // [{name, dataB64}] for email sending
@@ -836,25 +840,36 @@ function renderMain() {
     </div>`}
 
     <div class="tab-bar">
-      <button class="tab active" onclick="switchTab('companies',this)">Companies <span class="tab-badge">${companyCt}</span></button>
-      <button class="tab" onclick="switchTab('contacts',this)">Contacts <span class="tab-badge">${contacts.length}</span></button>
-      <button class="tab" onclick="switchTab('drafts',this)">Drafts <span class="tab-badge" id="drafts-badge">${contacts.filter(ct=>ct.drafts&&ct.drafts.email1Approved).length||''}</span></button>
-      <button class="tab" onclick="switchTab('tracker',this)">Tracker <span class="tab-badge" style="${dueContacts.length > 0 ? 'background:#d97706' : ''}" id="tracker-badge">${dueContacts.length > 0 ? dueContacts.length + ' due' : contacts.length}</span></button>
-      <button class="tab" onclick="switchTab('export',this)">Export</button>
+      <button class="tab${_activeTabName==='companies'?' active':''}" onclick="switchTab('companies',this)">Companies <span class="tab-badge">${companyCt}</span></button>
+      <button class="tab${_activeTabName==='contacts' ?' active':''}" onclick="switchTab('contacts',this)">Contacts <span class="tab-badge">${contacts.length}</span></button>
+      <button class="tab${_activeTabName==='drafts'   ?' active':''}" onclick="switchTab('drafts',this)">Drafts <span class="tab-badge" id="drafts-badge">${contacts.filter(ct=>ct.drafts&&ct.drafts.email1Approved).length||''}</span></button>
+      <button class="tab${_activeTabName==='tracker'  ?' active':''}" onclick="switchTab('tracker',this)">Tracker <span class="tab-badge" style="${dueContacts.length > 0 ? 'background:#d97706' : ''}" id="tracker-badge">${dueContacts.length > 0 ? dueContacts.length + ' due' : contacts.length}</span></button>
+      <button class="tab${_activeTabName==='export'   ?' active':''}" onclick="switchTab('export',this)">Export</button>
     </div>
 
-    <div id="tab-companies" class="tab-panel active">${renderCompaniesTab(c)}</div>
-    <div id="tab-contacts"  class="tab-panel">${renderContactsTab(c)}</div>
-    <div id="tab-drafts"    class="tab-panel">${renderDraftsTab(c)}</div>
-    <div id="tab-tracker"   class="tab-panel">${renderTrackerTab(c)}</div>
-    <div id="tab-export"    class="tab-panel">${renderExportTab(c)}</div>
+    <div id="tab-companies" class="tab-panel${_activeTabName==='companies'?' active':''}">${renderCompaniesTab(c)}</div>
+    <div id="tab-contacts"  class="tab-panel${_activeTabName==='contacts' ?' active':''}">${renderContactsTab(c)}</div>
+    <div id="tab-drafts"    class="tab-panel${_activeTabName==='drafts'   ?' active':''}">${renderDraftsTab(c)}</div>
+    <div id="tab-tracker"   class="tab-panel${_activeTabName==='tracker'  ?' active':''}">${renderTrackerTab(c)}</div>
+    <div id="tab-export"    class="tab-panel${_activeTabName==='export'   ?' active':''}">${renderExportTab(c)}</div>
   `;
+
+  // If the active tab has per-tab init work (e.g. Contacts paginated table,
+  // Tracker table, Export server probe), run it after the HTML is in the DOM.
+  if (_activeTabName === 'contacts' && activeCampaignId) renderContactsTable(activeCampaignId);
+  if (_activeTabName === 'tracker'  && activeCampaignId) renderTrackerTable(activeCampaignId);
+  if (_activeTabName === 'drafts') {
+    if (_draftView === 'company') renderCompanyDraftForSelected();
+    else renderDraftForSelected();
+  }
+  if (_activeTabName === 'export' || _activeTabName === 'contacts') checkOutlookServer();
 }
 
 function switchTab(name, el) {
+  _activeTabName = name; // remember so re-renders don't bounce back to Companies
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
+  if (el) el.classList.add('active');
   document.getElementById('tab-' + name).classList.add('active');
   if (name === 'export') {
     checkOutlookServer();
@@ -1043,6 +1058,7 @@ function renderContactsTab(c) {
             <button class="btn-sel" onclick="sendSelectedContacts('email1')">✉ Email 1</button>
             <button class="btn-sel" onclick="sendSelectedContacts('fu1')">✉ FU 1</button>
             <button class="btn-sel" onclick="sendSelectedContacts('fu2')">✉ FU 2</button>
+            <button class="btn-sel" style="background:#b91c1c" onclick="deleteSelectedContacts('${c.id}')" title="Delete all selected contacts from this campaign">🗑 Delete Selected</button>
             <button class="btn-sel" style="background:rgba(255,255,255,.08)" onclick="clearContactSelection()">✕ Clear</button>
           </div>
         </div>`
@@ -1280,8 +1296,36 @@ function removeContact(cid, idx) {
   const c = getCampaign(cid);
   if (!c) return;
   c.contacts.splice(idx, 1);
+  // Remaining contacts shifted down by 1 after index `idx`, so remap the
+  // currently-selected-index set to match the new positions. Without this,
+  // a user's "Select All Matching" selection would silently point at the
+  // wrong rows after a single delete.
+  if (selectedContactIndices.size > 0) {
+    const next = new Set();
+    selectedContactIndices.forEach(i => {
+      if (i === idx) return;              // the deleted row
+      next.add(i > idx ? i - 1 : i);      // shift later rows down
+    });
+    selectedContactIndices = next;
+  }
   saveCampaigns();
   renderMain();
+}
+
+// Bulk delete every currently selected contact. Deletes in descending
+// index order so earlier splices don't shift later indices. Keeps the
+// individual ✕ button per-row intact — this is purely additive.
+function deleteSelectedContacts(cid) {
+  const c = getCampaign(cid);
+  if (!c) return;
+  const idxs = Array.from(selectedContactIndices).filter(i => i >= 0 && i < c.contacts.length);
+  if (!idxs.length) { showToast('No contacts selected'); return; }
+  if (!confirm(`Delete ${idxs.length} selected contact${idxs.length !== 1 ? 's' : ''} from this campaign? This cannot be undone.`)) return;
+  idxs.sort((a, b) => b - a).forEach(i => c.contacts.splice(i, 1));
+  selectedContactIndices.clear();
+  saveCampaigns();
+  renderMain();
+  showToast(`Deleted ${idxs.length} contact${idxs.length !== 1 ? 's' : ''}`);
 }
 
 function clearContacts(cid) {
