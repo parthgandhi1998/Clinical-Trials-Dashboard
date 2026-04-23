@@ -277,7 +277,7 @@ select{font-family:inherit}
     <div class="empty-state">
       <div class="empty-icon">🎯</div>
       <div class="empty-title">Campaign Manager</div>
-      <div class="empty-sub">Create a campaign to manage your outreach pipeline — select target companies, import contacts from SeamlessAI, generate personalised email sequences, and track follow-ups.</div>
+      <div class="empty-sub">Create a campaign to manage your outreach pipeline — select target companies, import contacts from SeamlessAI, generate personalized email sequences, and track follow-ups.</div>
       <button class="btn btn-primary" onclick="openNewCampaignModal()">＋ Create your first campaign</button>
       <div style="font-size:12px;color:var(--text-muted);margin-top:8px">or go to the <a href="index.html">Dashboard</a> to select companies first</div>
     </div>
@@ -1267,6 +1267,7 @@ let _selectedTrialNct = null; // NCT ID of currently selected trial (transient -
 let _trialSelectionMap = {}; // Persistent: { 'campaignId_contactIdx': 'NCT123', ... }
 let _selectedCompanyTrialNct = null; // NCT ID for company-level bulk operations
 let _currentCompanyForDraft = null; // Track which company is being edited
+let _companyDraftContactIdx = null; // Track which contact's drafts we're displaying in company view
 
 // Helper to get/set trial selection per contact
 function getTrialSelectionKey(contactIdx) {
@@ -1292,7 +1293,7 @@ function renderDraftsTab(c) {
   if (!contacts.length) {
     return `<div class="empty-state" style="padding:40px"><div class="empty-icon">✉</div>
       <div class="empty-title">No contacts yet</div>
-      <div class="empty-sub">Import contacts first in the Contacts tab, then generate personalised email sequences here.</div>
+      <div class="empty-sub">Import contacts first in the Contacts tab, then generate personalized email sequences here.</div>
     </div>`;
   }
 
@@ -1509,8 +1510,14 @@ function renderCompanyDraft(companyName) {
 
   if (!contactsAtCo.length) { el.innerHTML = '<div class="info-box">No contacts found for this company.</div>'; return; }
 
-  // Use the first contact that has drafts as the representative
-  const rep = contactsAtCo.find(x => x.ct.drafts && x.ct.drafts.email1) || contactsAtCo[0];
+  // Use the contact from _companyDraftContactIdx if set (from recent trial selection), otherwise find first with drafts
+  let rep;
+  if (_companyDraftContactIdx !== null && contactsAtCo.some(x => x.i === _companyDraftContactIdx)) {
+    rep = contactsAtCo.find(x => x.i === _companyDraftContactIdx);
+  } else {
+    rep = contactsAtCo.find(x => x.ct.drafts && x.ct.drafts.email1) || contactsAtCo[0];
+    _companyDraftContactIdx = rep.i;
+  }
   const d = rep.ct.drafts;
 
   if (!d || !d.email1) {
@@ -1569,13 +1576,13 @@ function renderCompanyDraft(companyName) {
       </div>
       <div style="margin-top:6px">${contactList}</div>
       ${trialsHtml ? `<div style="margin-top:10px;display:flex;gap:12px;align-items:center">${trialsHtml}</div>` : ''}
-      <div style="font-size:11px;color:var(--text-muted);margin-top:8px">Edit the body below, then click <strong>Apply to All Contacts</strong> — each contact's name will be personalised automatically.</div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px">Edit the body below, then click <strong>Apply to All Contacts</strong> — each contact's name will be personalized automatically.</div>
     </div>
 
     <div class="draft-grid">
       <div class="draft-card">
         <div class="draft-card-header">
-          <div><div class="draft-label">Email 1 — Initial Outreach</div><div style="font-size:11px;color:var(--text-muted)">Shared body · greeting personalised per contact</div></div>
+          <div><div class="draft-label">Email 1 — Initial Outreach</div><div style="font-size:11px;color:var(--text-muted)">Shared body · greeting personalized per contact</div></div>
         </div>
         <input class="draft-subj" id="co_subj1" value="${escHtml(d.subject1||'')}" placeholder="Subject line…">
         <div class="rich-editor-wrap">
@@ -1642,12 +1649,27 @@ function regenerateCompanyDrafts(companyName, trialNct) {
   const c = getCampaign(activeCampaignId);
   if (!c) return;
   let count = 0;
+  let contactWithSelectedTrial = null;
+
+  // Regenerate drafts for all contacts at company
   c.contacts.forEach((ct, i) => {
     if ((ct.company || '').trim() !== companyName) return;
     generateDraftsForContact(i, trialNct || null);
+
+    // Find a contact that has the selected trial for display
+    if (trialNct && !contactWithSelectedTrial) {
+      const { primary, others } = findTrialsForContact(c, ct);
+      const allTrials = [primary, ...others];
+      if (allTrials.some(t => t.nct_id === trialNct)) {
+        contactWithSelectedTrial = i;
+      }
+    }
     count++;
   });
+
   saveCampaigns();
+  _selectedCompanyTrialNct = trialNct || null;
+  _companyDraftContactIdx = contactWithSelectedTrial || 0;
   renderCompanyDraft(companyName);
   showToast(`Regenerated ${count} draft${count !== 1 ? 's' : ''} for ${companyName}${trialNct ? ` with trial ${trialNct}` : ''}`);
 }
@@ -1662,7 +1684,7 @@ function applyCompanyDraft(companyName, bodyField, editorId, subjField, subjInpu
     if ((ct.company || '').trim() !== companyName) return;
     if (!ct.drafts) return; // skip contacts without drafts
     const firstName = ct.name.split(' ')[0] || ct.name;
-    // Prepend personalised greeting to the shared body
+    // Prepend personalized greeting to the shared body
     ct.drafts[bodyField] = `Hi ${firstName},\n\n${editedBody}`;
     if (editedSubj) ct.drafts[subjField] = editedSubj;
     count++;
@@ -2042,18 +2064,18 @@ function phaseAngle(phase, conditions, interventions, areas, enrollment) {
   // ── Phase 1 ──
   if (p.includes('1')) return {
     subjectAngle:    'Early-Phase PK & Dose Characterisation',
-    serviceList:     'NCA, PopPK, dose-escalation modelling, PK/PD characterisation, and regulatory writing through submission',
+    serviceList:     'NCA, PopPK, dose-escalation modelling, PK/PD characterization, and regulatory writing through submission',
     openingHook: (conds, ints, a, enroll) => {
       const enrollStr = isLimitedDataset
         ? ` With ${enroll} patients, you have a limited dataset due to small cohort size — but that's where Bayesian approaches, ML-augmented NCA, and adaptive modelling extract maximum signal from fewer subjects and strengthen the dose-escalation narrative.`
         : enroll ? ` With ${enroll} patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection — rather than retrofitting it later under time pressure.` : '';
-      if (isOnc(conds,ints,a)) return `Phase 1 oncology programmes like this one are where the PK characterisation and dose-escalation design shape everything downstream.${enrollStr}${ints ? ` For a novel agent like ${ints}, getting the exposure-safety relationship characterised now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.` : ''}`;
+      if (isOnc(conds,ints,a)) return `Phase 1 oncology programmes like this one are where the PK characterization and dose-escalation design shape everything downstream.${enrollStr}${ints ? ` For a novel agent like ${ints}, getting the exposure-safety relationship characterized now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.` : ''}`;
       if (isADC(conds,ints,a)) return `First-in-human ADC programmes carry unique PK complexity — the interplay between total antibody, conjugated payload, and free payload means standard dose-escalation approaches need to be informed by multi-analyte PK modelling from day one.${enrollStr}`;
       if (isGeneTx(conds,ints,a)) return `Early-phase gene and cell therapy programmes bring non-standard PK/PD considerations — viral vector kinetics, transgene expression, and durability modelling don't fit traditional compartmental frameworks.${enrollStr}${ints ? ` For ${ints}, establishing the dose-expression relationship early is critical for informing the registrational strategy.` : ''}`;
       if (isRare(conds,ints,a)) return `Early-phase rare disease programmes often have very limited patient numbers to work with. Model-informed dose escalation helps extract maximum pharmacological insight from every subject, which is critical when recruitment is inherently constrained.${enrollStr}`;
-      if (isCNS(conds,ints,a)) return `Phase 1 CNS programmes carry the added complexity of demonstrating target engagement across the blood-brain barrier.${enrollStr}${ints ? ` For ${ints}, getting the PK characterisation and central compartment modelling right at this stage shapes every decision that follows.` : ''}`;
+      if (isCNS(conds,ints,a)) return `Phase 1 CNS programmes carry the added complexity of demonstrating target engagement across the blood-brain barrier.${enrollStr}${ints ? ` For ${ints}, getting the PK characterization and central compartment modelling right at this stage shapes every decision that follows.` : ''}`;
       if (isVaccine(conds,ints,a)) return `Early-phase vaccine programmes are where the dose-immunogenicity relationship needs to be established — characterising antibody titres and seroconversion rates across dose levels is what drives the pivotal trial design.${enrollStr}`;
-      return `Early-phase programmes like this one are where model-informed drug development pays the highest dividends — getting the PK characterisation and dose-escalation design right from the start reduces risk and directly informs every downstream decision.${enrollStr}${ints ? ` For ${ints}, building a robust PopPK model now avoids the dose justification questions that often come back from regulators later.` : ''}`;
+      return `Early-phase programmes like this one are where model-informed drug development pays the highest dividends — getting the PK characterization and dose-escalation design right from the start reduces risk and directly informs every downstream decision.${enrollStr}${ints ? ` For ${ints}, building a robust PopPK model now avoids the dose justification questions that often come back from regulators later.` : ''}`;
     },
     followUp1Hook: (conds, ints) => {
       if (isOnc(conds,ints,'')) return `One thing we hear consistently from early-phase oncology teams: the PK data interpretation becomes a bottleneck right when dose-escalation decisions are time-sensitive. Our modelling platform (Pumas) runs these analyses 10x faster than traditional tools like NONMEM, which translates directly into faster dose decisions.`;
@@ -2061,26 +2083,26 @@ function phaseAngle(phase, conditions, interventions, areas, enrollment) {
     },
     recentWork:      'supported a Phase 1 FIH programme where our NCA + PopPK package directly informed the dose-escalation committee, getting to RP2D two months ahead of the original timeline',
     breakupLine: (conds, ints) => `If you ever need support with PK analysis, dose escalation modelling, or putting together the early-phase regulatory package${conds ? ' for ' + conds : ''}, we're a call away.`,
-    linkedInAngle:   'Phase 1 PK characterisation, NCA, and dose-escalation modelling'
+    linkedInAngle:   'Phase 1 PK characterization, NCA, and dose-escalation modelling'
   };
 
   // ── Phase 2 ──
   if (p.includes('2')) return {
     subjectAngle:    'Exposure-Response & Phase 3 Dose Rationale',
-    serviceList:     'PopPK, exposure-response, dose optimisation, clinical trial simulation, and regulatory writing through submission',
+    serviceList:     'PopPK, exposure-response, dose optimization, clinical trial simulation, and regulatory writing through submission',
     openingHook: (conds, ints, a, enroll) => {
       const enrollStr = isLimitedDataset
-        ? ` With ${enroll} patients, you have a limited dataset due to small cohort size — but Bayesian PopPK/E-R and simulation-based dose optimisation help you build a defensible Phase 3 dose rationale even with sparse data, which is exactly what FDA expects in these scenarios.`
+        ? ` With ${enroll} patients, you have a limited dataset due to small cohort size — but Bayesian PopPK/E-R and simulation-based dose optimization help you build a defensible Phase 3 dose rationale even with sparse data, which is exactly what FDA expects in these scenarios.`
         : enroll ? ` With ${enroll} patients, you'll have a dataset that supports a strong PopPK/PD model, and getting that analysis right now is often the difference between a clean Phase 3 dose rationale and a regulatory back-and-forth that delays the pivotal trial.` : '';
-      if (isOnc(conds,ints,a)) return `Phase 2 is where the exposure-response relationship becomes the central question — ${ints ? `for ${ints}, ` : ''}the E-R for both efficacy and toxicity needs to be well-characterised before committing to a Phase 3 dose. Increasingly, FDA expects a rigorous E-R package before you even start the pivotal trial.${enrollStr}`;
-      if (isImmuno(conds,ints,a)) return `Phase 2 is where the exposure-response relationship becomes the central question — particularly for an immunology asset${ints ? ` like ${ints}` : ''}, where the E-R for both efficacy ${conds ? `(e.g., ACR response, DAS28 for ${conds})` : 'endpoints'} and infection risk needs to be well-characterised before you commit to a Phase 3 dose.${enrollStr}`;
+      if (isOnc(conds,ints,a)) return `Phase 2 is where the exposure-response relationship becomes the central question — ${ints ? `for ${ints}, ` : ''}the E-R for both efficacy and toxicity needs to be well-characterized before committing to a Phase 3 dose. Increasingly, FDA expects a rigorous E-R package before you even start the pivotal trial.${enrollStr}`;
+      if (isImmuno(conds,ints,a)) return `Phase 2 is where the exposure-response relationship becomes the central question — particularly for an immunology asset${ints ? ` like ${ints}` : ''}, where the E-R for both efficacy ${conds ? `(e.g., ACR response, DAS28 for ${conds})` : 'endpoints'} and infection risk needs to be well-characterized before you commit to a Phase 3 dose.${enrollStr}`;
       if (isBiologic(conds,ints,a)) return `For biologics in Phase 2, the exposure-response story becomes central — particularly when target-mediated disposition means the PK is nonlinear and dose-proportionality assumptions break down.${ints ? ` For ${ints}, a` : ' A'} well-built PopPK/E-R model at this stage is what makes the Phase 3 dose rationale defensible.${enrollStr}`;
       if (isVaccine(conds,ints,a)) return `Phase 2 vaccine programmes are where the immunogenicity-dose relationship becomes the central question — characterising the exposure-response for antibody titres and seroconversion rates at this stage is what drives the Phase 3 dose selection and directly shapes the regulatory filing strategy.${enrollStr}`;
       if (isMetabolic(conds,ints,a)) return `Phase 2 is where the exposure-response relationship defines the programme's trajectory${conds ? ` — for ${conds}, characterising the E-R for glycaemic endpoints and safety signals` : ''} at this stage directly supports the Phase 3 dose rationale.${enrollStr}`;
       return `Phase 2 is where the exposure-response relationship defines the programme's trajectory — a robust E-R model at this stage directly supports the Phase 3 dose rationale and significantly reduces regulatory back-and-forth.${enrollStr}${ints ? ` For ${ints}, getting this analysis right now avoids costly protocol amendments downstream.` : ''}`;
     },
     followUp1Hook: (conds, ints) => {
-      if (isOnc(conds,ints,'')) return `The difference between a smooth Phase 3 launch and a prolonged FDA review often comes down to the E-R analysis quality in Phase 2.${ints ? ` For ${ints}, the therapeutic window characterisation is particularly critical.` : ''} Happy to share how we've navigated that for similar oncology programmes.`;
+      if (isOnc(conds,ints,'')) return `The difference between a smooth Phase 3 launch and a prolonged FDA review often comes down to the E-R analysis quality in Phase 2.${ints ? ` For ${ints}, the therapeutic window characterization is particularly critical.` : ''} Happy to share how we've navigated that for similar oncology programmes.`;
       return `The difference between a clean Phase 3 package and a prolonged FDA review often comes down to the quality of the E-R analysis done in Phase 2. Happy to share how we've navigated that for similar programmes.`;
     },
     recentWork:      'completed an exposure-response analysis for a Phase 2 asset that directly informed the pivotal trial dose selection — the sponsor said it helped them avoid a Phase 3 protocol amendment',
@@ -2112,12 +2134,12 @@ function phaseAngle(phase, conditions, interventions, areas, enrollment) {
   // ── Phase 4 / Post-marketing ──
   if (p.includes('4')) return {
     subjectAngle:    'Post-Marketing & Label Extension Support',
-    serviceList:     'PMR/PMC analyses, indication extension modelling, posology optimisation, and regulatory writing',
-    openingHook: (conds, ints, a, enroll) => `Post-marketing commitments and label extensions require the same analytical rigour as the original submission — PMR/PMC analyses, new indication PK bridging, and posology optimisation all benefit from a fresh modelling perspective built on the accumulated clinical dataset.${ints ? ` For ${ints}, the accumulated data across trials creates a powerful foundation for model-based label optimisation.` : ''}`,
-    followUp1Hook: (conds, ints) => `Post-marketing PK/PD analyses often uncover dosing optimisations that weren't apparent from the pivotal trials — especially around special populations and real-world adherence patterns. Worth a conversation?`,
+    serviceList:     'PMR/PMC analyses, indication extension modelling, posology optimization, and regulatory writing',
+    openingHook: (conds, ints, a, enroll) => `Post-marketing commitments and label extensions require the same analytical rigour as the original submission — PMR/PMC analyses, new indication PK bridging, and posology optimization all benefit from a fresh modelling perspective built on the accumulated clinical dataset.${ints ? ` For ${ints}, the accumulated data across trials creates a powerful foundation for model-based label optimization.` : ''}`,
+    followUp1Hook: (conds, ints) => `Post-marketing PK/PD analyses often uncover dosing optimizations that weren't apparent from the pivotal trials — especially around special populations and real-world adherence patterns. Worth a conversation?`,
     recentWork:      'supported a post-marketing commitment analysis that leveraged pooled data across trials to justify an optimised dosing regimen, satisfying the FDA PMR ahead of deadline',
     breakupLine: (conds, ints) => `If PMR/PMC support, label extension modelling, or new indication pharmacology work comes up, please feel free to reach out.`,
-    linkedInAngle:   'post-marketing PK/PD analysis and label optimisation'
+    linkedInAngle:   'post-marketing PK/PD analysis and label optimization'
   };
 
   // ── Generic fallback (phase-driven, still uses conditions/interventions) ──
@@ -2128,8 +2150,8 @@ function phaseAngle(phase, conditions, interventions, areas, enrollment) {
       const enrollStr = isLimitedDataset
         ? ` With ${enroll} patients (limited dataset due to small cohort size), Bayesian approaches, machine learning augmentation, and sparse data modelling help extract maximum signal — particularly effective when regulatory timelines are tight.`
         : enroll ? ` With ${enroll} patients, having a regulatory-ready quantitative package that addresses FDA and EMA expectations upfront avoids the back-and-forth that often delays timelines.` : '';
-      if (conds && ints) return `Programmes like this benefit significantly from building model-informed drug development into the clinical strategy early — whether it's PK/PD characterisation for ${ints}, exposure-response for efficacy endpoints in ${conds}, or simulation-based dose optimisation for special populations.${enrollStr}`;
-      if (conds) return `Programmes in ${conds} benefit significantly from building model-informed drug development into the clinical strategy early — PK/PD characterisation, exposure-response analysis, and simulation-based dose optimisation all strengthen the regulatory narrative.${enrollStr}`;
+      if (conds && ints) return `Programmes like this benefit significantly from building model-informed drug development into the clinical strategy early — whether it's PK/PD characterization for ${ints}, exposure-response for efficacy endpoints in ${conds}, or simulation-based dose optimization for special populations.${enrollStr}`;
+      if (conds) return `Programmes in ${conds} benefit significantly from building model-informed drug development into the clinical strategy early — PK/PD characterization, exposure-response analysis, and simulation-based dose optimization all strengthen the regulatory narrative.${enrollStr}`;
       return `Model-Informed Drug Development is increasingly expected by FDA and EMA reviewers — programmes that build MIDD into their clinical strategy from the start consistently reach decision points faster with fewer surprises.${enrollStr}`;
     },
     followUp1Hook: (conds, ints) => `Many teams find that proactive MIDD strategy reduces overall development time and strengthens regulatory interactions${conds ? ' — especially in ' + conds + ' where the regulatory landscape is evolving' : ''}. Happy to share a relevant case study.`,
