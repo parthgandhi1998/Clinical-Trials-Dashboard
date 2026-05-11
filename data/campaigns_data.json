@@ -15316,44 +15316,6 @@
         "contactsImported": false
       },
       {
-        "name": "Fariba Donovan",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Infectious Disease",
-          "Neurology"
-        ],
-        "phases": [
-          "Phase 2"
-        ],
-        "countries": [
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07385638",
-            "title": "Olorofim in Early Coccidioidal Meningitis",
-            "phase": "Phase 2",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "12",
-            "start_date": "2026-03-15",
-            "conditions": [
-              "Coccidioidal Meningitis"
-            ],
-            "interventions": [
-              "olorofim"
-            ],
-            "therapy_areas": [
-              "Infectious Disease",
-              "Neurology"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "F2G Biotech GmbH",
         "org_type": "OTHER",
         "funder_types": [],
@@ -15589,48 +15551,6 @@
           }
         ],
         "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
-        "name": "Everest Medicines (China) Co.,Ltd.",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Immunology & Inflammation",
-          "Neurology",
-          "Vaccines"
-        ],
-        "phases": [
-          "NA"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07470151",
-            "title": "Clinical Study of EVM18001 in the Treatment of Refractory Autoimmune Diseases",
-            "phase": "NA",
-            "status": "RECRUITING",
-            "enrollment": "12",
-            "start_date": "2026-03-12",
-            "conditions": [
-              "System Lupus Erythematosus(SLE)",
-              "Scleroderma",
-              "Myasthenia Gravis (MG)"
-            ],
-            "interventions": [
-              "EVM18001 Injection"
-            ],
-            "therapy_areas": [
-              "Immunology & Inflammation",
-              "Neurology",
-              "Vaccines"
-            ]
-          }
-        ],
-        "total": 1,
         "contacts": [],
         "contactsImported": false
       },
