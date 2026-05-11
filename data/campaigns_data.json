@@ -531,65 +531,6 @@
         "contactsImported": false
       },
       {
-        "name": "Westlake Therapeutics",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology",
-          "Vaccines"
-        ],
-        "phases": [
-          "EARLY/Phase 1",
-          "Phase 1"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07556653",
-            "title": "Allogeneic WTX-212C in Advanced Solid Tumors",
-            "phase": "EARLY/Phase 1",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "24",
-            "start_date": "2026-04-10",
-            "conditions": [
-              "Advanced Solid Tumors"
-            ],
-            "interventions": [
-              "allogeneic WTX-212C"
-            ],
-            "therapy_areas": [
-              "Oncology",
-              "Vaccines"
-            ]
-          },
-          {
-            "nct_id": "NCT07269899",
-            "title": "A Phase I Study of WTX212A Monotherapy or in Combination With Radiotherapy in Patients With Advanced Solid Tumors",
-            "phase": "Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "12",
-            "start_date": "2025-11-25",
-            "conditions": [
-              "Solid Tumor Cancer",
-              "Cancer"
-            ],
-            "interventions": [
-              "WTX212A injection",
-              "radiotherapy"
-            ],
-            "therapy_areas": [
-              "Oncology",
-              "Vaccines"
-            ]
-          }
-        ],
-        "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Sanaria Inc.",
         "org_type": "INDUSTRY",
         "funder_types": [],
