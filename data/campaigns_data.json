@@ -743,45 +743,6 @@
         "contactsImported": false
       },
       {
-        "name": "TrueLab Biopharmaceutical Co., Ltd",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Immunology & Inflammation",
-          "Vaccines"
-        ],
-        "phases": [
-          "Phase 1"
-        ],
-        "countries": [
-          "Australia"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07526519",
-            "title": "A Safety and Pharmacokinetics Study of TL-001 in Healthy Adults and Open-label Assessments in Participants With Ulcerative Colitis",
-            "phase": "Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "48",
-            "start_date": "2026-04",
-            "conditions": [
-              "Healthy Volunteer"
-            ],
-            "interventions": [
-              "TL-003",
-              "Placebo"
-            ],
-            "therapy_areas": [
-              "Immunology & Inflammation",
-              "Vaccines"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "SAPRO Consulting Pty Ltd",
         "org_type": "OTHER",
         "funder_types": [],
