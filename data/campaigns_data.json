@@ -14522,40 +14522,6 @@
         "contactsImported": false
       },
       {
-        "name": "Taiwan Mitochondrion Applied Technology Co., Ltd.",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Neurology"
-        ],
-        "phases": [
-          "Phase 1"
-        ],
-        "countries": [],
-        "trials": [
-          {
-            "nct_id": "NCT05094011",
-            "title": "Evaluating Safety, Tolerability, and Efficacy of Autologous MitoCell Transplantation in Subjects With Idiopathic Parkinson's Disease",
-            "phase": "Phase 1",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "9",
-            "start_date": "2026-03-01",
-            "conditions": [
-              "Idiopathic Parkinson's Disease"
-            ],
-            "interventions": [
-              "Aadipose-Derived Mesenchymal Stem Cells"
-            ],
-            "therapy_areas": [
-              "Neurology"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "GRIN Therapeutics, Inc.",
         "org_type": "INDUSTRY",
         "funder_types": [],
