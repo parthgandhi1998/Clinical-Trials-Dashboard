@@ -14823,45 +14823,6 @@
         "contactsImported": false
       },
       {
-        "name": "Longwood Pharmaceuticals (Hangzhou) Co., Ltd.",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Dermatology",
-          "Neurology"
-        ],
-        "phases": [
-          "Phase 1"
-        ],
-        "countries": [
-          "Australia"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07371455",
-            "title": "A Study to Evaluate the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of LWP779 in Healthy Participants",
-            "phase": "Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "76",
-            "start_date": "2026-03-13",
-            "conditions": [
-              "Ischemic Stroke"
-            ],
-            "interventions": [
-              "LWP779",
-              "Placebo of LWP779"
-            ],
-            "therapy_areas": [
-              "Dermatology",
-              "Neurology"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Sovargen",
         "org_type": "INDUSTRY",
         "funder_types": [],
