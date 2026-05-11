@@ -14542,65 +14542,6 @@
         "contactsImported": false
       },
       {
-        "name": "YangPan",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Neurology"
-        ],
-        "phases": [
-          "NA",
-          "Phase 4"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07384442",
-            "title": "Effects of Targeted Temporal Interference Stimulation of Cerebellar Nuclei on Tremor and Gait Disturbance in Parkinson's Disease Patients",
-            "phase": "NA",
-            "status": "RECRUITING",
-            "enrollment": "50",
-            "start_date": "2026-03-19",
-            "conditions": [
-              "Parkinson's Disease",
-              "Movement Disorders"
-            ],
-            "interventions": [
-              "Sham Temporal Interference Stimulation",
-              "Real Temporal Interference Stimulation"
-            ],
-            "therapy_areas": [
-              "Neurology"
-            ]
-          },
-          {
-            "nct_id": "NCT07384429",
-            "title": "Effects of Lemborexant on Motor-sleep Comorbidity in Parkinson's Disease",
-            "phase": "Phase 4",
-            "status": "RECRUITING",
-            "enrollment": "44",
-            "start_date": "2026-03-19",
-            "conditions": [
-              "Parkinson's Disease",
-              "Insomnia",
-              "Motor Disorder"
-            ],
-            "interventions": [
-              "Lemborexant",
-              "placebo"
-            ],
-            "therapy_areas": [
-              "Neurology"
-            ]
-          }
-        ],
-        "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Dexa Medica Group",
         "org_type": "OTHER",
         "funder_types": [],
