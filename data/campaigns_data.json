@@ -16065,45 +16065,6 @@
         "contactsImported": false
       },
       {
-        "name": "Eisai China Inc.",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Neurology"
-        ],
-        "phases": [
-          "Phase 4"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07384429",
-            "title": "Effects of Lemborexant on Motor-sleep Comorbidity in Parkinson's Disease",
-            "phase": "Phase 4",
-            "status": "RECRUITING",
-            "enrollment": "44",
-            "start_date": "2026-03-19",
-            "conditions": [
-              "Parkinson's Disease",
-              "Insomnia",
-              "Motor Disorder"
-            ],
-            "interventions": [
-              "Lemborexant",
-              "placebo"
-            ],
-            "therapy_areas": [
-              "Neurology"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Shanghai Vitalgen BioPharma Co., Ltd.",
         "org_type": "INDUSTRY",
         "funder_types": [],
@@ -16229,59 +16190,6 @@
             "therapy_areas": [
               "Neurology",
               "Oncology"
-            ]
-          }
-        ],
-        "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
-        "name": "Shenzhen MagicRNA Biotechnology Co., Ltd",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Neurology"
-        ],
-        "phases": [
-          "NA"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07413835",
-            "title": "Efficacy and Safety of HN2302 in Refractory Myasthenia Gravis(MG)",
-            "phase": "NA",
-            "status": "RECRUITING",
-            "enrollment": "6",
-            "start_date": "2026-03-17",
-            "conditions": [
-              "Refractory Myasthenia Gravis"
-            ],
-            "interventions": [
-              "HN2302 Injection"
-            ],
-            "therapy_areas": [
-              "Neurology"
-            ]
-          },
-          {
-            "nct_id": "NCT06965309",
-            "title": "Efficacy and Safety of HN2301 in Refractory Myasthenia Gravis(MG)",
-            "phase": "NA",
-            "status": "TERMINATED",
-            "enrollment": "9",
-            "start_date": "2026-01-19",
-            "conditions": [
-              "Refractory Myasthenia Gravis"
-            ],
-            "interventions": [
-              "HN2301 injection"
-            ],
-            "therapy_areas": [
-              "Neurology"
             ]
           }
         ],
