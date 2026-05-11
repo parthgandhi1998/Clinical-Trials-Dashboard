@@ -13881,69 +13881,6 @@
     "created": "2026-04-20T14:23:49.396Z",
     "companies": [
       {
-        "name": "SetPoint Medical Corporation",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Immunology & Inflammation",
-          "Oncology",
-          "Dermatology",
-          "Neurology"
-        ],
-        "phases": [
-          "N/A",
-          "NA"
-        ],
-        "countries": [
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07489326",
-            "title": "The SetPoint System Safety & Performance Post-Approval Study",
-            "phase": "N/A",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "150",
-            "start_date": "2026-04-15",
-            "conditions": [
-              "Rheumatoid Arthritis"
-            ],
-            "interventions": [
-              "SetPoint System"
-            ],
-            "therapy_areas": [
-              "Immunology & Inflammation",
-              "Oncology"
-            ]
-          },
-          {
-            "nct_id": "NCT06796504",
-            "title": "The SetPoint System as a Pro-Remyelination Therapy for Relapsing-Remitting Multiple Sclerosis: A Pilot Study",
-            "phase": "NA",
-            "status": "RECRUITING",
-            "enrollment": "60",
-            "start_date": "2026-03-31",
-            "conditions": [
-              "Relapsing Remitting Multiple Sclerosis"
-            ],
-            "interventions": [
-              "Procedure/Surgery: Implant Procedure",
-              "Disease-Modifying Therapies (DMTs)",
-              "Device: Active stimulation",
-              "Device: Non-active stimulation"
-            ],
-            "therapy_areas": [
-              "Dermatology",
-              "Neurology",
-              "Oncology"
-            ]
-          }
-        ],
-        "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Spinogenix",
         "org_type": "INDUSTRY",
         "funder_types": [],
