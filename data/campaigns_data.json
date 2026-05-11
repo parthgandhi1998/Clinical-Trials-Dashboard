@@ -743,68 +743,6 @@
         "contactsImported": false
       },
       {
-        "name": "Kexing Biopharm Co., Ltd.",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Dermatology",
-          "Oncology",
-          "Vaccines",
-          "Metabolic & Endocrine"
-        ],
-        "phases": [
-          "Phase 1",
-          "Phase 3"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07519564",
-            "title": "A Phase I Clinical Study to Evaluate the PK, PD, Efficacy, and Safety of GB18 Injection in Patients With Tumor Cachexia",
-            "phase": "Phase 1",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "18",
-            "start_date": "2026-04-30",
-            "conditions": [
-              "Cachexia; Cancer"
-            ],
-            "interventions": [
-              "GB18"
-            ],
-            "therapy_areas": [
-              "Dermatology",
-              "Oncology",
-              "Vaccines"
-            ]
-          },
-          {
-            "nct_id": "NCT07553351",
-            "title": "GB06 Phase III Trial for Pediatric Growth Hormone Deficiency",
-            "phase": "Phase 3",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "192",
-            "start_date": "2026-05-01",
-            "conditions": [
-              "Growth Hormone Deficiency (GHD)",
-              "Growth Hormone Deficiency in Children",
-              "Growth Hormone Deficiency, Pediatric"
-            ],
-            "interventions": [
-              "GB06",
-              "Norditropin®FlexProTM"
-            ],
-            "therapy_areas": [
-              "Metabolic & Endocrine"
-            ]
-          }
-        ],
-        "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "TrueLab Biopharmaceutical Co., Ltd",
         "org_type": "INDUSTRY",
         "funder_types": [],
