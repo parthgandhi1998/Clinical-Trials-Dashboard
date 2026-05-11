@@ -18421,47 +18421,6 @@
     "created": "2026-04-20T14:21:55.287Z",
     "companies": [
       {
-        "name": "Immuno Cure Holding (HK) Limited",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Infectious Disease",
-          "Vaccines"
-        ],
-        "phases": [
-          "Phase 1"
-        ],
-        "countries": [
-          "Hong Kong"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07530198",
-            "title": "HIV Therapeutic DNA Vaccine (ICVAX) Phase I Clinical Trial in Hong Kong",
-            "phase": "Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "22",
-            "start_date": "2026-03-30",
-            "conditions": [
-              "Human Immunodeficiency Virus",
-              "Human Immunodeficiency Virus I Infection"
-            ],
-            "interventions": [
-              "ICVAX (TERESA-EPT I device)",
-              "ICVAX (PharmaJet Tropis device)",
-              "ICVAX (TriGrid device)"
-            ],
-            "therapy_areas": [
-              "Infectious Disease",
-              "Vaccines"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Immuno Cure 1 Limited",
         "org_type": "OTHER",
         "funder_types": [],
