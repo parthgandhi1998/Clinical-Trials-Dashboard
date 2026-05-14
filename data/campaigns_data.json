@@ -5518,44 +5518,6 @@
         "contactsImported": false
       },
       {
-        "name": "Ayu, Inc.",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology"
-        ],
-        "phases": [
-          "Phase 1"
-        ],
-        "countries": [
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07498218",
-            "title": "Phase 1 Study of VELGRAFT, a Living Cellular Construct, in the Management of Chronic Diabetic Foot Ulcers Which Have Attained Granulation Tissue",
-            "phase": "Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "24",
-            "start_date": "2026-03-11",
-            "conditions": [
-              "Diabetic Foot Ulcer (DFU)",
-              "Granulation of Chronic Diabetic Wounds"
-            ],
-            "interventions": [
-              "an allogenic cell-based product, containing living human bone marrow-derived mesenchymal stem cells (MSCs) and MSCs differentiated into adipocytes on a porous chitosan-gelatin matrix",
-              "Standard of Care of Diabetic Foot Ulcers"
-            ],
-            "therapy_areas": [
-              "Oncology"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "HealthPartners Institute",
         "org_type": "OTHER",
         "funder_types": [],
