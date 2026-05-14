@@ -1015,8 +1015,18 @@ document.querySelectorAll("th[data-col]").forEach(th => {
 });
 
 // ── GENERIC MULTI-SELECT DROPDOWN FACTORY ────────────────────────────────────
+// IDEMPOTENT: makeMultiDD may be called more than once for the same button
+// (e.g. when data is reloaded). Each call clones the button to strip any
+// previously-attached click listeners. Without this, two listeners would
+// both call panel.classList.toggle("open"), cancelling each other out and
+// the panel would never visibly open.
 function makeMultiDD({btnId, panelId, cbClass, stateKey, allLabel, btnLabelId,
                        selectAllId, clearAllId, searchId=null}) {
+  // Replace the button with a fresh clone so any prior listeners are gone.
+  const oldBtn = document.getElementById(btnId);
+  if (oldBtn && oldBtn.parentNode) {
+    oldBtn.parentNode.replaceChild(oldBtn.cloneNode(true), oldBtn);
+  }
   const btn   = document.getElementById(btnId);
   const panel = document.getElementById(panelId);
 
@@ -1070,14 +1080,13 @@ function makeMultiDD({btnId, panelId, cbClass, stateKey, allLabel, btnLabelId,
   } };
 }
 
-// Wire up all four multi-select dropdowns
-const areaDD      = makeMultiDD({ btnId:"area-btn",       panelId:"area-panel",       cbClass:"area-cb",       stateKey:"areas",      allLabel:"All Areas",      btnLabelId:"area-btn-label",       selectAllId:"area-select-all",       clearAllId:"area-clear-all" });
-const phaseDD     = makeMultiDD({ btnId:"phase-btn",      panelId:"phase-panel",      cbClass:"phase-cb",      stateKey:"phases",     allLabel:"All Phases",     btnLabelId:"phase-btn-label",      selectAllId:"phase-select-all",      clearAllId:"phase-clear-all" });
-const statusDD    = makeMultiDD({ btnId:"status-btn",     panelId:"status-panel",     cbClass:"status-cb",     stateKey:"statuses",   allLabel:"All Statuses",   btnLabelId:"status-btn-label",     selectAllId:"status-select-all",     clearAllId:"status-clear-all" });
-const countryDD   = makeMultiDD({ btnId:"country-btn",    panelId:"country-panel",    cbClass:"country-cb",    stateKey:"countries",  allLabel:"All Countries",  btnLabelId:"country-btn-label",    selectAllId:"country-select-all",    clearAllId:"country-clear-all",  searchId:"country-search" });
-const intvTypeDD  = makeMultiDD({ btnId:"intv-type-btn", panelId:"intv-type-panel", cbClass:"intv-type-cb", stateKey:"intTypes", allLabel:"All Types", btnLabelId:"intv-type-btn-label", selectAllId:"intv-type-select-all", clearAllId:"intv-type-clear-all" });
-const funderDD    = makeMultiDD({ btnId:"funder-btn",     panelId:"funder-panel",     cbClass:"funder-cb",     stateKey:"funders",    allLabel:"All Funders",    btnLabelId:"funder-btn-label",     selectAllId:"funder-select-all",     clearAllId:"funder-clear-all" });
-const studyTypeDD = makeMultiDD({ btnId:"study-type-btn", panelId:"study-type-panel", cbClass:"study-type-cb", stateKey:"studyTypes", allLabel:"All Types",      btnLabelId:"study-type-btn-label", selectAllId:"study-type-select-all", clearAllId:"study-type-clear-all" });
+// NOTE: Dropdown filters are wired by `rewireDropdowns()`, which runs from
+// `bootstrapDashboard()` AFTER `buildFilterPanels()` injects the checkbox
+// content. We intentionally do NOT wire them here at script-eval time —
+// doing so would (a) attach listeners that get orphaned when inject()
+// replaces panel innerHTML, and (b) cause `rewireDropdowns()`'s later call
+// to double-bind the button click handler, making the two toggle("open")
+// calls cancel each other so the panel never visibly opens.
 
 // Close all panels when clicking outside
 document.addEventListener("click", () => document.querySelectorAll(".multi-panel.open").forEach(p => p.classList.remove("open")));
@@ -1093,15 +1102,10 @@ document.getElementById("search-input").addEventListener("input", e => {
 document.getElementById("date-from").addEventListener("change", e => { state.dateFrom = e.target.value; applyFilters(); });
 document.getElementById("date-to").addEventListener("change",   e => { state.dateTo   = e.target.value; applyFilters(); });
 
-// ── CLEAR ALL ─────────────────────────────────────────────────────────────────
-document.getElementById("btn-clear").addEventListener("click", () => {
-  document.getElementById("search-input").value = "";
-  document.getElementById("date-from").value    = "";
-  document.getElementById("date-to").value      = "";
-  state.search = ""; state.dateFrom = ""; state.dateTo = "";
-  areaDD.reset(); phaseDD.reset(); statusDD.reset(); countryDD.reset(); intvTypeDD.reset(); funderDD.reset(); studyTypeDD.reset();
-  applyFilters();
-});
+// NOTE: The "Clear all" button handler is wired by `rewireDropdowns()`
+// after `buildFilterPanels()` runs. Wiring it here would either run before
+// the DDs exist (TypeError on .reset()) or double-bind alongside the
+// rewireDropdowns version.
 
 // ── CSV EXPORT ────────────────────────────────────────────────────────────────
 document.getElementById("btn-export").addEventListener("click", () => {
