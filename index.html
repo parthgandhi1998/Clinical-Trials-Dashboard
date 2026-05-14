@@ -67,20 +67,6 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .summary-stat-value{font-size:20px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
 .summary-stat-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-top:2px}
 
-/* ── ANALYTICS DRILL-DOWN ── */
-.an-filter-bar{display:none;flex-wrap:wrap;align-items:center;gap:6px;background:var(--accent-light);border:1px solid #c7d2fe;border-radius:8px;padding:8px 12px;margin-bottom:12px}
-.an-filter-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--accent);white-space:nowrap;margin-right:2px}
-.an-chip{display:inline-flex;align-items:center;gap:3px;background:#fff;border:1px solid #c7d2fe;border-radius:999px;font-size:11px;padding:3px 8px 3px 10px;color:var(--text-mid);white-space:nowrap}
-.an-chip strong{color:var(--accent)}
-.an-chip-x{cursor:pointer;color:var(--text-muted);margin-left:3px;font-weight:700;font-size:10px;line-height:1;padding:0 1px}
-.an-chip-x:hover{color:var(--red)}
-.an-count{font-size:11px;color:var(--accent);font-weight:700;margin-left:2px;white-space:nowrap}
-.an-clear-btn{border:1px solid #c7d2fe;background:transparent;font-size:11px;font-weight:700;color:var(--accent);cursor:pointer;padding:3px 10px;border-radius:999px;margin-left:auto;white-space:nowrap;transition:background .12s}
-.an-clear-btn:hover{background:#e0e7ff}
-.an-hint{font-size:11px;color:var(--text-muted);background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px 12px;margin-bottom:12px;text-align:center}
-.chart-card .chart-title .an-interact{font-size:10px;font-weight:500;text-transform:none;letter-spacing:0;color:var(--accent);opacity:.7;margin-left:6px}
-.chart-card.an-active{border-color:#c7d2fe;box-shadow:0 0 0 2px rgba(79,70,229,.15),var(--shadow)}
-
 /* TAB BAR */
 .tab-bar{display:flex;gap:4px;padding:14px 28px 0;border-bottom:1px solid var(--border);background:var(--surface);position:sticky;top:49px;z-index:90}
 .tab{background:none;border:none;padding:8px 16px;font-size:13px;font-weight:600;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;display:flex;align-items:center;gap:6px;transition:all .15s}
@@ -101,8 +87,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .sponsor-card:hover{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.08);transform:translateY(-1px)}
 .sponsor-card.selected{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,70,229,.18);background:var(--accent-light)}
 .sponsor-card.selected .sponsor-card-name{color:var(--accent)}
-/* Checkbox top-right, trial count to its immediate left — no overlap */
-.sp-select-cb{position:absolute;top:11px;right:10px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent);z-index:2}
+.sp-select-cb{position:absolute;top:10px;right:10px;width:16px;height:16px;cursor:pointer;accent-color:var(--accent);z-index:2}
 /* Floating campaign action bar */
 #campaign-action-bar{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1e1b4b;color:#fff;border-radius:14px;padding:12px 20px;display:none;align-items:center;gap:14px;box-shadow:0 8px 32px rgba(0,0,0,.35);z-index:400;min-width:360px;max-width:600px;animation:slideUp .2s ease}
 #campaign-action-bar.visible{display:flex}
@@ -116,8 +101,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .sponsor-card-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;line-height:1.3}
 .sponsor-card-meta{font-size:11px;color:var(--text-muted);margin-bottom:8px}
 .sponsor-card-areas{display:flex;flex-wrap:wrap;gap:3px}
-/* Trial count sits clearly to the LEFT of the checkbox — distinct, not overlapping */
-.sponsor-trial-count{position:absolute;top:8px;right:34px;font-size:13px;font-weight:800;color:var(--accent);background:var(--accent-light);border:1px solid rgba(79,70,229,.2);border-radius:5px;padding:1px 6px;line-height:1.6;font-variant-numeric:tabular-nums;white-space:nowrap}
+.sponsor-trial-count{position:absolute;top:12px;right:14px;font-size:22px;font-weight:800;color:var(--accent);opacity:.18;font-variant-numeric:tabular-nums;line-height:1}
 
 /* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(2px)}
@@ -279,30 +263,30 @@ tr:hover td{background:#fafbff}
 <div class="kpi-grid">
   <div class="kpi-card" style="--kpi-color:#4f46e5">
     <div class="kpi-card-body">
-      <div class="kpi-label">Total Trials</div>
+      <div class="kpi-label">Active Trials</div>
       <div class="kpi-value" id="kpi-trials">0</div>
-      <div class="kpi-sub" id="kpi-trials-sub">Matches current filters</div>
+      <div class="kpi-sub">Start date: 2025-03-17 – 2026-03-17</div>
     </div>
   </div>
   <div class="kpi-card" style="--kpi-color:#0ea5e9">
     <div class="kpi-card-body">
-      <div class="kpi-label">Lead Sponsors</div>
+      <div class="kpi-label">Unique Sponsors</div>
       <div class="kpi-value" id="kpi-sponsors">0</div>
-      <div class="kpi-sub" id="kpi-sponsors-sub">Loading…</div>
+      <div class="kpi-sub">Target companies</div>
     </div>
   </div>
   <div class="kpi-card" style="--kpi-color:#10b981">
     <div class="kpi-card-body">
       <div class="kpi-label">Countries</div>
       <div class="kpi-value" id="kpi-countries">0</div>
-      <div class="kpi-sub" id="kpi-countries-sub">Unique trial locations</div>
+      <div class="kpi-sub">Trial locations</div>
     </div>
   </div>
   <div class="kpi-card" style="--kpi-color:#f59e0b">
     <div class="kpi-card-body">
-      <div class="kpi-label">Actively Recruiting</div>
+      <div class="kpi-label">Therapy Areas</div>
       <div class="kpi-value" id="kpi-recruiting">0</div>
-      <div class="kpi-sub" id="kpi-recruiting-sub">of total trials</div>
+      <div class="kpi-sub" id="kpi-recruiting-sub">Loading…</div>
     </div>
   </div>
 </div>
@@ -469,11 +453,6 @@ tr:hover td{background:#fafbff}
     <div class="summary-stat"><div class="summary-stat-value" id="an-enrollment">–</div><div class="summary-stat-label">Total Enrollment</div></div>
   </div>
 
-  <!-- Drill-down filter bar (shown when selections are active) -->
-  <div id="an-filter-bar" class="an-filter-bar"></div>
-  <!-- Hint text (shown when no drill-down active) -->
-  <div id="an-hint" class="an-hint">🎯 Click any bar or chart segment to drill down — selections cross-filter all charts simultaneously</div>
-
   <!-- Charts grid -->
   <div class="analytics-grid">
 
@@ -533,14 +512,13 @@ tr:hover td{background:#fafbff}
     <div class="sponsors-toolbar">
       <input id="sponsor-search" type="text" placeholder="Search sponsors…" oninput="renderSponsors()">
       <div class="filter-group" style="flex-direction:row;align-items:center;gap:6px">
-        <label style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)">Filter by area:</label>
-        <div class="multi-dd">
-          <div class="multi-dd-btn" id="sp-area-btn" style="width:160px"><span class="label" id="sp-area-label">All Areas</span><span>▾</span></div>
-          <div class="multi-panel wide" id="sp-area-panel">
-            
-            <div class="panel-actions"><a id="sp-area-all">All</a><a id="sp-area-clear">Clear</a></div>
-          </div>
-        </div>
+        <label style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted)">Type:</label>
+        <select id="sp-type-filter" style="border:1px solid var(--border);border-radius:6px;padding:5px 10px;font-size:12px;outline:none;background:var(--bg);color:var(--text)" onchange="renderSponsors()">
+          <option value="">All Types</option>
+          <option value="sponsor">Sponsors Only</option>
+          <option value="collaborator">Collaborators Only</option>
+          <option value="both">Both Sponsors & Collaborators</option>
+        </select>
       </div>
       <div class="sponsors-count"><span id="sponsors-showing">–</span> sponsors</div>
       <button class="btn btn-export" style="font-size:11px;padding:5px 10px" onclick="selectAllVisible()">☑ Select All</button>
@@ -629,7 +607,26 @@ function selectAllVisible() {
 
 function addToCampaign() {
   if (!selectedSponsors.size) return;
-  // Build company objects with trial context from ALL_DATA
+
+  // ── Capture the user's filter intent ─────────────────────────────────
+  // `filtered` is the post-filter row set the user is currently looking at.
+  // For each selected sponsor, the NCTs in `filtered` are the trials the user
+  // actually filtered FOR — these become the "preferred" primary candidates
+  // when the campaign manager auto-selects which trial each email references.
+  // We still enrich with ALL trials so the dropdown has full context, but the
+  // preferred set drives the default selection.
+  const preferredBySponsor = {};
+  (filtered || []).forEach(r => {
+    [r.sponsor, ...(r.collaborators||[])].filter(Boolean).forEach(compName => {
+      if (!selectedSponsors.has(compName)) return;
+      if (!preferredBySponsor[compName]) preferredBySponsor[compName] = new Set();
+      if (r.nct_id) preferredBySponsor[compName].add(r.nct_id);
+    });
+  });
+
+  // Build company objects with FULL trial context from ALL_DATA (so the
+  // "other programs" line and the trial dropdown still show everything the
+  // sponsor is running).
   const map = {};
   ALL_DATA.forEach(r => {
     [r.sponsor, ...(r.collaborators||[])].filter(Boolean).forEach(compName => {
@@ -649,21 +646,38 @@ function addToCampaign() {
       r.therapy_areas.forEach(a => e.therapy_areas.add(a));
       if (r.phase) e.phases.add(r.phase);
       r.countries.forEach(c => e.countries.add(c));
-      e.trials.push({ nct_id: r.nct_id, title: r.title, phase: r.phase, status: r.status, enrollment: r.enrollment, start_date: r.start_date, conditions: r.conditions || [], interventions: r.interventions || [], therapy_areas: r.therapy_areas || [] });
+      e.trials.push({
+        nct_id: r.nct_id, title: r.title, phase: r.phase, status: r.status,
+        enrollment: r.enrollment, start_date: r.start_date,
+        // Trial-level therapy_areas + conditions/interventions so per-trial
+        // primary scoring in campaigns.html has everything it needs.
+        therapy_areas: r.therapy_areas || [],
+        conditions: r.conditions || [], interventions: r.interventions || []
+      });
       e.total++;
     });
   });
 
-  const companies = Object.values(map).map(e => ({
-    name: e.name,
-    org_type: e.org_type || "OTHER",
-    funder_types: [...e.funder_types],
-    therapy_areas: [...e.therapy_areas],
-    phases: [...e.phases],
-    countries: [...e.countries],
-    trials: e.trials.slice(0, 10),  // cap at 10 representative trials
-    total: e.total
-  }));
+  const companies = Object.values(map).map(e => {
+    const trials = e.trials.slice(0, 10);  // cap at 10 representative trials for the dropdown
+    // Build preferredTrialNcts as the intersection of (preferred from filter)
+    // ∩ (trials that survived the 10-trial cap). Order: prefer trials that
+    // are EARLIER in the original filter result (most relevant to the user).
+    const prefSet = preferredBySponsor[e.name] || new Set();
+    const trialNcts = new Set(trials.map(t => t.nct_id).filter(Boolean));
+    const preferredTrialNcts = [...prefSet].filter(n => trialNcts.has(n));
+    return {
+      name: e.name,
+      org_type: e.org_type || "OTHER",
+      funder_types: [...e.funder_types],
+      therapy_areas: [...e.therapy_areas],
+      phases: [...e.phases],
+      countries: [...e.countries],
+      trials,
+      total: e.total,
+      preferredTrialNcts                  // ← new field, consumed by campaigns.html
+    };
+  });
 
   // Store in localStorage for campaigns.html to pick up
   localStorage.setItem("pumas_pending_companies", JSON.stringify(companies));
@@ -735,50 +749,19 @@ function applyFilters() {
   renderTable();
   renderPagination();
   if (document.getElementById("tab-analytics").classList.contains("active")) renderAnalytics();
-  // Keep Sponsors tab in sync — re-render whenever it's visible so its cards
-  // always reflect the same filtered trial set as the Trials tab.
-  if (document.getElementById("tab-sponsors").classList.contains("active")) renderSponsors();
 }
 
 // ── RENDER KPIs (dynamic — reflect current filtered set) ─────────────────────
 function updateKPIs() {
-  const total = filtered.length;
-
-  // Tile 1 — Total Trials (all statuses, reflects active filters)
-  document.getElementById("kpi-trials").textContent = total.toLocaleString();
-  const isFiltered = total < ALL_DATA.length;
-  document.getElementById("kpi-trials-sub").textContent =
-    isFiltered ? `of ${ALL_DATA.length.toLocaleString()} total` : "All statuses";
-
-  // Tile 2 — Lead Sponsors (unique lead sponsors only) + collaborators in sub
-  const leadSponsors = new Set(filtered.map(r => r.sponsor).filter(Boolean));
-  const allCompanies = new Set([
-    ...filtered.map(r => r.sponsor),
-    ...filtered.flatMap(r => r.collaborators || [])
-  ].filter(Boolean));
-  const collabOnly = allCompanies.size - leadSponsors.size;
-  document.getElementById("kpi-sponsors").textContent = leadSponsors.size.toLocaleString();
-  document.getElementById("kpi-sponsors-sub").textContent =
-    collabOnly > 0
-      ? `+ ${collabOnly.toLocaleString()} collaborator${collabOnly !== 1 ? "s" : ""}`
-      : "Lead sponsors only";
-
-  // Tile 3 — Countries (unique across all filtered trials)
-  const countries = new Set(filtered.flatMap(r => r.countries));
-  document.getElementById("kpi-countries").textContent = countries.size.toLocaleString();
-  document.getElementById("kpi-countries-sub").textContent = "Unique trial locations";
-
-  // Tile 4 — Actively Recruiting (most actionable status for outreach)
-  const recruiting = filtered.filter(r => r.status === "RECRUITING").length;
-  const pct = total > 0 ? Math.round(recruiting / total * 100) : 0;
-  document.getElementById("kpi-recruiting").textContent = recruiting.toLocaleString();
-  document.getElementById("kpi-recruiting-sub").textContent =
-    total > 0 ? `${pct}% of trials in view` : "of total trials";
-
-  // Results bar + tab badge
-  document.getElementById("showing-count").textContent = total.toLocaleString();
+  document.getElementById("kpi-trials").textContent    = filtered.length.toLocaleString();
+  document.getElementById("kpi-sponsors").textContent  = new Set(filtered.map(r=>r.sponsor)).size.toLocaleString();
+  document.getElementById("kpi-countries").textContent = new Set(filtered.flatMap(r=>r.countries)).size.toLocaleString();
+  document.getElementById("showing-count").textContent = filtered.length.toLocaleString();
   document.getElementById("total-count").textContent   = ALL_DATA.length.toLocaleString();
-  document.getElementById("tab-trials-badge").textContent = total.toLocaleString();
+  document.getElementById("tab-trials-badge").textContent = filtered.length.toLocaleString();
+  const recruiting = filtered.filter(r => r.status === "RECRUITING").length;
+  document.getElementById("kpi-recruiting").textContent = recruiting.toLocaleString();
+  document.getElementById("kpi-recruiting-sub").textContent = "Actively recruiting";
 }
 
 // ── BADGE HELPERS ─────────────────────────────────────────────────────────────
@@ -1221,9 +1204,6 @@ document.getElementById("btn-export-sponsors").addEventListener("click", () => {
 function updateSponsorsBadge() {
   const n = new Set(filtered.filter(r => r.sponsor).map(r => r.sponsor)).size;
   document.getElementById("sponsors-export-badge").textContent = n.toLocaleString();
-  // Also keep the Sponsors tab badge in sync — applyFilters() calls this on every update
-  // so the badge is accurate from the moment data loads, before the tab is ever clicked.
-  document.getElementById("tab-sponsors-badge").textContent = n.toLocaleString();
 }
 
 // ── TAB SWITCHING ─────────────────────────────────────────────────────────────
@@ -1301,187 +1281,43 @@ const _INTV_TYPE_BORDER_A = {
   COMBINATION_PRODUCT:"#9d174d", DIAGNOSTIC_TEST:"#475569", OTHER:"#6b7280",
 };
 
-// ── ANALYTICS DRILL-DOWN STATE ─────────────────────────────────────────────
-// Each Set holds the raw keys currently selected for that dimension.
-// Selections are independent of the main filter dropdowns.
-const _AN = {
-  area: new Set(), phase: new Set(), status: new Set(),
-  funder: new Set(), intvType: new Set(), studyType: new Set(),
-  country: new Set(), sponsor: new Set(), trend: new Set()
-};
-
-// Parallel raw-key arrays for each chart (set during renderAnalytics)
-const _chartRawKeys = {};
-
-// Human-readable labels for each dimension (used in filter chips)
-const _AN_DIM_LABELS = {
-  area:"Area", phase:"Phase", status:"Status", funder:"Funder",
-  intvType:"Intervention", studyType:"Study Type",
-  country:"Country", sponsor:"Sponsor", trend:"Month"
-};
-
-function _anHasAny() {
-  return Object.values(_AN).some(s => s.size > 0);
-}
-
-// Return `filtered` narrowed by all active AN selections, optionally skipping one dimension.
-// Skipping a dimension lets that chart show its full distribution while other dims are applied.
-function _getAnSrc(excludeDim) {
-  let src = filtered;
-  if (_AN.area.size     && excludeDim !== 'area')     src = src.filter(r => r.therapy_areas.some(a => _AN.area.has(a)));
-  if (_AN.phase.size    && excludeDim !== 'phase')    src = src.filter(r => _AN.phase.has(r.phase || 'N/A'));
-  if (_AN.status.size   && excludeDim !== 'status')   src = src.filter(r => _AN.status.has(r.status));
-  if (_AN.funder.size   && excludeDim !== 'funder')   src = src.filter(r => (r.funder_types||[]).some(f => _AN.funder.has(f)));
-  if (_AN.intvType.size && excludeDim !== 'intvType') src = src.filter(r => (r.intervention_types||[]).some(t => _AN.intvType.has(t)));
-  if (_AN.studyType.size&& excludeDim !== 'studyType')src = src.filter(r => _AN.studyType.has(r.study_type ? r.study_type.replace(/_/g,' ') : 'Unknown'));
-  if (_AN.country.size  && excludeDim !== 'country')  src = src.filter(r => (r.countries||[]).some(c => _AN.country.has(c)));
-  if (_AN.sponsor.size  && excludeDim !== 'sponsor')  src = src.filter(r => _AN.sponsor.has(r.sponsor));
-  if (_AN.trend.size    && excludeDim !== 'trend')    src = src.filter(r => r.start_date && _AN.trend.has(r.start_date.slice(0,7)));
-  return src;
-}
-
-// Toggle a key in an AN dimension and re-render analytics
-function _anToggle(dim, key) {
-  if (_AN[dim].has(key)) _AN[dim].delete(key);
-  else _AN[dim].add(key);
-  renderAnalytics();
-}
-
-// Toggle by chip index (avoids special-char issues in onclick strings)
-window._anChipData = [];
-function _anToggleChip(i) {
-  const d = window._anChipData[i];
-  if (d) _anToggle(d.dim, d.key);
-}
-
-function _anClearAll() {
-  Object.values(_AN).forEach(s => s.clear());
-  renderAnalytics();
-}
-
-// Per-bar background arrays for bar charts ─────────────────────────────────
-// If nothing selected: all bars get `fullColor`; else selected=full, others=faded
-function _anBarBg(rawKeys, anSet, fullColor, fadedColor) {
-  if (anSet.size === 0) return rawKeys.map(() => fullColor);
-  return rawKeys.map(k => anSet.has(k) ? fullColor : fadedColor);
-}
-
-// Multi-color bar bg (therapy area chart — each bar has its own color)
-function _anBarBgMulti(rawKeys, anSet, hexColors) {
-  if (anSet.size === 0) return hexColors.map(c => c.slice(0,7) + 'cc');
-  return rawKeys.map((k, i) => {
-    const base = (hexColors[i] || '#94a3b8').slice(0,7);
-    return anSet.has(k) ? base + 'dd' : base + '30';
-  });
-}
-
-// Donut segment backgrounds ────────────────────────────────────────────────
-function _anDonutBg(rawKeys, anSet, colorArr) {
-  if (anSet.size === 0) return colorArr.map(c => c.slice(0,7) + 'cc');
-  return rawKeys.map((k, i) => {
-    const base = (colorArr[i] || '#94a3b8').slice(0,7);
-    return anSet.has(k) ? base + 'ee' : base + '28';
-  });
-}
-
-// Render the active-filter bar above the charts ────────────────────────────
-function _renderAnFilterBar() {
-  const bar  = document.getElementById('an-filter-bar');
-  const hint = document.getElementById('an-hint');
-  if (!bar) return;
-
-  if (!_anHasAny()) {
-    bar.style.display  = 'none';
-    if (hint) hint.style.display = '';
-    return;
-  }
-
-  if (hint) hint.style.display = 'none';
-  bar.style.display = 'flex';
-
-  // Build chip data array (avoid inline escaping of arbitrary strings)
-  window._anChipData = [];
-  const chips = [];
-  Object.entries(_AN).forEach(([dim, set]) => {
-    set.forEach(key => {
-      let display = key;
-      if      (dim === 'trend')    { const [y,mo]=key.split('-'); display=new Date(+y,+mo-1).toLocaleString('default',{month:'short',year:'2-digit'}); }
-      else if (dim === 'funder')   display = _FUNDER_LABELS_A[key] || key;
-      else if (dim === 'intvType') display = _INTV_TYPE_LABELS_A[key] || key;
-      else if (dim === 'status')   display = key.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-      const idx = window._anChipData.length;
-      window._anChipData.push({ dim, key });
-      chips.push(`<span class="an-chip"><span style="color:var(--text-muted);font-size:10px">${_AN_DIM_LABELS[dim]}:</span>&nbsp;<strong>${display}</strong><span class="an-chip-x" onclick="_anToggleChip(${idx})">✕</span></span>`);
-    });
-  });
-
-  const total = _getAnSrc(null).length;
-  bar.innerHTML = `
-    <span class="an-filter-label">Drilled into</span>
-    ${chips.join('')}
-    <span class="an-count">→ ${total.toLocaleString()} trials</span>
-    <button class="an-clear-btn" onclick="_anClearAll()">Clear all ✕</button>
-  `;
-}
-
-// Chart onClick factory — returns a Chart.js onClick handler for a given dimension
-function _anOnClick(dim) {
-  return (e, elements) => {
-    if (!elements.length) return;
-    const key = (_chartRawKeys[dim] || [])[elements[0].index];
-    if (key !== undefined && key !== null) _anToggle(dim, key);
-  };
-}
-
-// Shared onHover — pointer cursor when hovering a clickable element
-const _anOnHover = (e, elements) => {
-  if (e.native) e.native.target.style.cursor = elements.length ? 'pointer' : 'default';
-};
-
 function renderAnalytics() {
-  if (!filtered.length) return;
+  const src = filtered;
+  if (!src.length) return;
 
-  // Summary stats always use the FULL cross-filtered intersection
-  const anFull      = _getAnSrc(null);
-  const totalEnroll = anFull.reduce((s,r) => s + (parseInt(r.enrollment)||0), 0);
-  document.getElementById("an-total").textContent      = anFull.length.toLocaleString();
-  document.getElementById("an-recruiting").textContent = anFull.filter(r=>r.status==="RECRUITING").length.toLocaleString();
-  document.getElementById("an-sponsors").textContent   = new Set(anFull.map(r=>r.sponsor).filter(Boolean)).size.toLocaleString();
-  document.getElementById("an-countries").textContent  = new Set(anFull.flatMap(r=>r.countries)).size.toLocaleString();
-  document.getElementById("an-enrollment").textContent = totalEnroll > 0 ? totalEnroll.toLocaleString() : "\u2013";
+  // ── Summary stats ──────────────────────────────────────────────────────────
+  const totalEnroll = src.reduce((s,r) => s + (parseInt(r.enrollment)||0), 0);
+  document.getElementById("an-total").textContent      = src.length.toLocaleString();
+  document.getElementById("an-recruiting").textContent = src.filter(r=>r.status==="RECRUITING").length.toLocaleString();
+  document.getElementById("an-sponsors").textContent   = new Set(src.map(r=>r.sponsor).filter(Boolean)).size.toLocaleString();
+  document.getElementById("an-countries").textContent  = new Set(src.flatMap(r=>r.countries)).size.toLocaleString();
+  document.getElementById("an-enrollment").textContent = totalEnroll > 0 ? totalEnroll.toLocaleString() : "–";
 
-  // Update filter bar
-  _renderAnFilterBar();
-
-  // Shared chart options (faster animation during drill-down)
-  const _FAST = { ..._CHART_DEFAULTS, animation:{ duration: _anHasAny() ? 250 : 400 } };
-
-  // 1. Monthly trend
+  // ── 1. Monthly trend ───────────────────────────────────────────────────────
   (function() {
-    const src = _getAnSrc('trend');
     const m = {};
     src.forEach(r => {
       if (!r.start_date) return;
       const ym = r.start_date.slice(0,7);
       if (/^\d{4}-\d{2}$/.test(ym)) m[ym] = (m[ym]||0) + 1;
     });
-    const rawKeys = Object.keys(m).sort();
-    _chartRawKeys['trend'] = rawKeys;
-    const values = rawKeys.map(l => m[l]);
-    const pretty = rawKeys.map(l => {
+    const labels = Object.keys(m).sort();
+    const values = labels.map(l => m[l]);
+    const pretty = labels.map(l => {
       const [y,mo] = l.split("-");
       return new Date(+y, +mo-1).toLocaleString("default",{month:"short",year:"2-digit"});
     });
-    const bg     = _anBarBg(rawKeys, _AN.trend, "rgba(79,70,229,.85)", "rgba(79,70,229,.18)");
-    const border = _anBarBg(rawKeys, _AN.trend, "#4f46e5", "rgba(79,70,229,.3)");
     _destroyChart("trend");
     _chartInstances["trend"] = new Chart(document.getElementById("ch-trend"), {
       type: "bar",
-      data: { labels: pretty, datasets:[{ label:"Trials Started", data:values,
-        backgroundColor:bg, borderColor:border, borderWidth:1, borderRadius:3 }] },
-      options: { ..._FAST,
-        onClick: _anOnClick('trend'), onHover: _anOnHover,
-        plugins: { ..._FAST.plugins, legend:{display:false} },
+      data: {
+        labels: pretty,
+        datasets: [{ label:"Trials Started", data: values,
+          backgroundColor: "rgba(79,70,229,.75)", borderColor:"#4f46e5",
+          borderWidth:1, borderRadius:3 }]
+      },
+      options: { ..._CHART_DEFAULTS,
+        plugins: { ..._CHART_DEFAULTS.plugins, legend:{display:false} },
         scales: {
           x: { grid:{display:false}, ticks:{font:{size:11},maxRotation:45} },
           y: { grid:{color:"#f1f5f9"}, ticks:{font:{size:11},precision:0} },
@@ -1490,26 +1326,22 @@ function renderAnalytics() {
     });
   })();
 
-  // 2. Therapy area horizontal bar
+  // ── 2. Therapy area horizontal bar ────────────────────────────────────────
   (function() {
-    const src    = _getAnSrc('area');
-    const m      = _countBy(src, r => r.therapy_areas);
-    const top    = _topN(m, 15).reverse();
-    const rawKeys= top.map(([k]) => k);
-    _chartRawKeys['area'] = rawKeys;
+    const m = _countBy(src, r => r.therapy_areas);
+    const top = _topN(m, 15).reverse();
+    const labels = top.map(([k]) => k);
     const values = top.map(([,v]) => v);
-    const hexColors = rawKeys.map(l => AREA_COLORS[l] || "#78909c");
-    const bg     = _anBarBgMulti(rawKeys, _AN.area, hexColors);
-    const border = hexColors;
+    const colors = labels.map(l => (AREA_COLORS[l] || "#78909c") + "cc");
     _destroyChart("area");
     _chartInstances["area"] = new Chart(document.getElementById("ch-area"), {
       type: "bar",
-      data: { labels:rawKeys, datasets:[{ label:"Trials", data:values,
-        backgroundColor:bg, borderColor:border, borderWidth:1, borderRadius:3 }] },
-      options: { ..._FAST,
-        onClick: _anOnClick('area'), onHover: _anOnHover,
+      data: { labels, datasets:[{ label:"Trials", data:values,
+        backgroundColor:colors, borderColor:colors.map(c=>c.slice(0,7)),
+        borderWidth:1, borderRadius:3 }] },
+      options: { ..._CHART_DEFAULTS,
         indexAxis:"y",
-        plugins:{ ..._FAST.plugins, legend:{display:false} },
+        plugins:{ ..._CHART_DEFAULTS.plugins, legend:{display:false} },
         scales:{
           x:{ grid:{color:"#f1f5f9"}, ticks:{font:{size:11},precision:0} },
           y:{ grid:{display:false}, ticks:{font:{size:11}} },
@@ -1518,112 +1350,95 @@ function renderAnalytics() {
     });
   })();
 
-  // 3. Phase doughnut
+  // ── 3. Phase doughnut ─────────────────────────────────────────────────────
   (function() {
-    const src = _getAnSrc('phase');
-    const m   = _countBy(src, r => r.phase || "N/A");
+    const m = _countBy(src, r => r.phase || "N/A");
     const phaseOrder = ["Phase 1","Phase 1/Phase 2","Phase 2","Phase 2/Phase 3","Phase 3","Phase 3/Phase 4","Phase 4","N/A","Early Phase 1"];
     const entries = Object.entries(m).sort((a,b) => {
       const ia = phaseOrder.indexOf(a[0]), ib = phaseOrder.indexOf(b[0]);
       return (ia<0?99:ia) - (ib<0?99:ib);
     });
-    const rawKeys    = entries.map(([k])=>k);
-    _chartRawKeys['phase'] = rawKeys;
-    const values     = entries.map(([,v])=>v);
-    const baseColors = ["#42a5f5","#64b5f6","#1976d2","#1565c0","#0d47a1","#0a3470","#082a5e","#90a4ae","#90caf9"];
-    const bg = _anDonutBg(rawKeys, _AN.phase, rawKeys.map((_,i)=>baseColors[i%baseColors.length]));
+    const labels = entries.map(([k])=>k);
+    const values = entries.map(([,v])=>v);
+    const phaseColors = ["#42a5f5","#64b5f6","#1976d2","#1565c0","#0d47a1","#0a3470","#082a5e","#90a4ae","#90caf9"];
     _destroyChart("phase");
     _chartInstances["phase"] = new Chart(document.getElementById("ch-phase"), {
       type: "doughnut",
-      data: { labels:rawKeys, datasets:[{ data:values,
-        backgroundColor:bg, borderWidth:2, borderColor:"#fff" }] },
-      options: { ..._FAST,
-        onClick: _anOnClick('phase'), onHover: _anOnHover,
+      data: { labels, datasets:[{ data:values,
+        backgroundColor: labels.map((_,i) => phaseColors[i % phaseColors.length]),
+        borderWidth:2, borderColor:"#fff" }] },
+      options: { ..._CHART_DEFAULTS,
         cutout:"55%",
-        plugins:{ ..._FAST.plugins,
+        plugins:{ ..._CHART_DEFAULTS.plugins,
           legend:{ position:"right", labels:{font:{size:11},boxWidth:12,padding:10} } },
       },
     });
   })();
 
-  // 4. Status doughnut
+  // ── 4. Status doughnut ────────────────────────────────────────────────────
   (function() {
-    const src    = _getAnSrc('status');
-    const m      = _countBy(src, r => r.status);
-    const entries= _topN(m, 10);
-    const rawKeys= entries.map(([k]) => k);
-    _chartRawKeys['status'] = rawKeys;
-    const labels = rawKeys.map(k => k.replace(/_/g," ").replace(/\b\w/g,x=>x.toUpperCase()));
+    const m = _countBy(src, r => r.status);
+    const entries = _topN(m, 10);
+    const labels = entries.map(([k]) => k.replace(/_/g," ").replace(/\w/g,x=>x.toUpperCase()));
     const values = entries.map(([,v]) => v);
-    const colors = rawKeys.map(k => STATUS_COLORS[k] || "#94a3b8");
-    const bg     = _anDonutBg(rawKeys, _AN.status, colors);
+    const rawKeys = entries.map(([k]) => k);
+    const colors  = rawKeys.map(k => STATUS_COLORS[k] || "#94a3b8");
     _destroyChart("status");
     _chartInstances["status"] = new Chart(document.getElementById("ch-status"), {
       type: "doughnut",
       data: { labels, datasets:[{ data:values,
-        backgroundColor:bg, borderColor:colors, borderWidth:2 }] },
-      options: { ..._FAST,
-        onClick: _anOnClick('status'), onHover: _anOnHover,
+        backgroundColor: colors.map(c => c+"cc"),
+        borderColor: colors, borderWidth:2 }] },
+      options: { ..._CHART_DEFAULTS,
         cutout:"52%",
-        plugins:{ ..._FAST.plugins,
+        plugins:{ ..._CHART_DEFAULTS.plugins,
           legend:{ position:"right", labels:{font:{size:11},boxWidth:12,padding:8} } },
       },
     });
   })();
 
-  // 5. Funder type doughnut
+  // ── 5. Funder type doughnut ───────────────────────────────────────────────
   (function() {
-    const src    = _getAnSrc('funder');
-    const m      = _countBy(src, r => r.funder_types||[]);
-    const entries= _topN(m, 8);
-    const rawKeys= entries.map(([k]) => k);
-    _chartRawKeys['funder'] = rawKeys;
-    const labels = rawKeys.map(k => _FUNDER_LABELS_A[k] || k);
+    const m = _countBy(src, r => r.funder_types||[]);
+    const entries = _topN(m, 8);
+    const labels = entries.map(([k]) => _FUNDER_LABELS_A[k] || k);
     const values = entries.map(([,v]) => v);
-    const fColors= ["#4f46e5","#0ea5e9","#10b981","#f59e0b","#ef4444","#8b5cf6","#06b6d4","#94a3b8"];
-    const bg     = _anDonutBg(rawKeys, _AN.funder, rawKeys.map((_,i)=>fColors[i%fColors.length]));
+    const fColors = ["#4f46e5","#0ea5e9","#10b981","#f59e0b","#ef4444","#8b5cf6","#06b6d4","#94a3b8"];
     _destroyChart("funder");
     _chartInstances["funder"] = new Chart(document.getElementById("ch-funder"), {
       type: "doughnut",
       data: { labels, datasets:[{ data:values,
-        backgroundColor:bg, borderColor:rawKeys.map((_,i)=>fColors[i%fColors.length]), borderWidth:2 }] },
-      options: { ..._FAST,
-        onClick: _anOnClick('funder'), onHover: _anOnHover,
+        backgroundColor: fColors.map(c=>c+"cc"),
+        borderColor: fColors, borderWidth:2 }] },
+      options: { ..._CHART_DEFAULTS,
         cutout:"52%",
-        plugins:{ ..._FAST.plugins,
+        plugins:{ ..._CHART_DEFAULTS.plugins,
           legend:{ position:"right", labels:{font:{size:11},boxWidth:12,padding:8} } },
       },
     });
   })();
 
-  // 6. Intervention type horizontal bar
+  // ── 6. Intervention type horizontal bar ───────────────────────────────────
   (function() {
-    const src   = _getAnSrc('intvType');
-    const m     = _countBy(src, r => r.intervention_types||[]);
+    const m = _countBy(src, r => r.intervention_types||[]);
     const order = ["DRUG","BIOLOGICAL","DEVICE","PROCEDURE","BEHAVIORAL","RADIATION","DIETARY_SUPPLEMENT","GENETIC","COMBINATION_PRODUCT","DIAGNOSTIC_TEST","OTHER"];
     const entries = Object.entries(m).sort((a,b) => {
       const ia=order.indexOf(a[0]), ib=order.indexOf(b[0]);
       return (ia<0?99:ia)-(ib<0?99:ib);
     }).reverse();
-    const rawKeys= entries.map(([k]) => k);
-    _chartRawKeys['intvType'] = rawKeys;
-    const labels = rawKeys.map(k => _INTV_TYPE_LABELS_A[k]||k);
+    const labels = entries.map(([k]) => _INTV_TYPE_LABELS_A[k]||k);
     const values = entries.map(([,v]) => v);
-    const bgBase = rawKeys.map(k => _INTV_TYPE_COLORS_A[k]||"#f1f5f9");
-    const bg     = _AN.intvType.size === 0 ? bgBase
-      : rawKeys.map((k,i) => _AN.intvType.has(k) ? bgBase[i] : 'rgba(200,200,200,.2)');
-    const brdrBase = rawKeys.map(k => _INTV_TYPE_BORDER_A[k]||"#94a3b8");
-    const border = _AN.intvType.size === 0 ? brdrBase
-      : rawKeys.map((k,i) => _AN.intvType.has(k) ? brdrBase[i] : 'rgba(150,150,150,.3)');
+    const rawKeys = entries.map(([k]) => k);
     _destroyChart("intv-type");
     _chartInstances["intv-type"] = new Chart(document.getElementById("ch-intv-type"), {
       type: "bar",
       data: { labels, datasets:[{ label:"Trials", data:values,
-        backgroundColor:bg, borderColor:border, borderWidth:1, borderRadius:4 }] },
-      options: { ..._FAST,
-        onClick: _anOnClick('intvType'), onHover: _anOnHover,
+        backgroundColor: rawKeys.map(k=>_INTV_TYPE_COLORS_A[k]||"#f1f5f9"),
+        borderColor:     rawKeys.map(k=>_INTV_TYPE_BORDER_A[k]||"#94a3b8"),
+        borderWidth:1, borderRadius:4 }] },
+      options: { ..._CHART_DEFAULTS,
         indexAxis:"y",
-        plugins:{ ..._FAST.plugins, legend:{display:false} },
+        plugins:{ ..._CHART_DEFAULTS.plugins, legend:{display:false} },
         scales:{
           x:{ grid:{color:"#f1f5f9"}, ticks:{font:{size:11},precision:0} },
           y:{ grid:{display:false}, ticks:{font:{size:11}} },
@@ -1632,50 +1447,42 @@ function renderAnalytics() {
     });
   })();
 
-  // 7. Study type doughnut
+  // ── 7. Study type doughnut ────────────────────────────────────────────────
   (function() {
-    const src    = _getAnSrc('studyType');
-    const m      = _countBy(src, r => r.study_type ? r.study_type.replace(/_/g," ") : "Unknown");
-    const entries= _topN(m, 8);
-    const rawKeys= entries.map(([k])=>k);
-    _chartRawKeys['studyType'] = rawKeys;
+    const m = _countBy(src, r => r.study_type ? r.study_type.replace(/_/g," ") : "Unknown");
+    const entries = _topN(m, 8);
+    const labels = entries.map(([k])=>k);
     const values = entries.map(([,v])=>v);
-    const stColors=["#4f46e5","#10b981","#f59e0b","#ef4444","#8b5cf6","#0ea5e9","#94a3b8","#06b6d4"];
-    const bg     = _anDonutBg(rawKeys, _AN.studyType, rawKeys.map((_,i)=>stColors[i%stColors.length]));
+    const stColors = ["#4f46e5","#10b981","#f59e0b","#ef4444","#8b5cf6","#0ea5e9","#94a3b8","#06b6d4"];
     _destroyChart("study-type");
     _chartInstances["study-type"] = new Chart(document.getElementById("ch-study-type"), {
       type: "doughnut",
-      data: { labels:rawKeys, datasets:[{ data:values,
-        backgroundColor:bg,
-        borderColor:rawKeys.map((_,i)=>stColors[i%stColors.length]), borderWidth:2 }] },
-      options: { ..._FAST,
-        onClick: _anOnClick('studyType'), onHover: _anOnHover,
+      data: { labels, datasets:[{ data:values,
+        backgroundColor: stColors.map(c=>c+"cc"),
+        borderColor: stColors, borderWidth:2 }] },
+      options: { ..._CHART_DEFAULTS,
         cutout:"52%",
-        plugins:{ ..._FAST.plugins,
+        plugins:{ ..._CHART_DEFAULTS.plugins,
           legend:{ position:"right", labels:{font:{size:11},boxWidth:12,padding:8} } },
       },
     });
   })();
 
-  // 8. Top countries horizontal bar
+  // ── 8. Top countries horizontal bar ───────────────────────────────────────
   (function() {
-    const src    = _getAnSrc('country');
-    const m      = _countBy(src, r => r.countries||[]);
-    const top    = _topN(m, 15).reverse();
-    const rawKeys= top.map(([k])=>k);
-    _chartRawKeys['country'] = rawKeys;
+    const m = _countBy(src, r => r.countries||[]);
+    const top = _topN(m, 15).reverse();
+    const labels = top.map(([k])=>k);
     const values = top.map(([,v])=>v);
-    const bg     = _anBarBg(rawKeys, _AN.country, "rgba(14,165,233,.85)", "rgba(14,165,233,.18)");
-    const border = _anBarBg(rawKeys, _AN.country, "#0ea5e9", "rgba(14,165,233,.3)");
     _destroyChart("country");
     _chartInstances["country"] = new Chart(document.getElementById("ch-country"), {
       type: "bar",
-      data: { labels:rawKeys, datasets:[{ label:"Trials", data:values,
-        backgroundColor:bg, borderColor:border, borderWidth:1, borderRadius:3 }] },
-      options: { ..._FAST,
-        onClick: _anOnClick('country'), onHover: _anOnHover,
+      data: { labels, datasets:[{ label:"Trials", data:values,
+        backgroundColor:"rgba(14,165,233,.75)", borderColor:"#0ea5e9",
+        borderWidth:1, borderRadius:3 }] },
+      options: { ..._CHART_DEFAULTS,
         indexAxis:"y",
-        plugins:{ ..._FAST.plugins, legend:{display:false} },
+        plugins:{ ..._CHART_DEFAULTS.plugins, legend:{display:false} },
         scales:{
           x:{ grid:{color:"#f1f5f9"}, ticks:{font:{size:11},precision:0} },
           y:{ grid:{display:false}, ticks:{font:{size:11}} },
@@ -1684,26 +1491,21 @@ function renderAnalytics() {
     });
   })();
 
-  // 9. Top sponsors horizontal bar
+  // ── 9. Top sponsors horizontal bar ────────────────────────────────────────
   (function() {
-    const src    = _getAnSrc('sponsor');
-    const m      = _countBy(src, r => r.sponsor);
-    const top    = _topN(m, 15).reverse();
-    const rawKeys= top.map(([k])=>k);
-    _chartRawKeys['sponsor'] = rawKeys;
-    const labels = rawKeys.map(k => k.length>30 ? k.slice(0,30)+"\u2026" : k);
+    const m = _countBy(src, r => r.sponsor);
+    const top = _topN(m, 15).reverse();
+    const labels = top.map(([k])=>k.length>30?k.slice(0,30)+"…":k);
     const values = top.map(([,v])=>v);
-    const bg     = _anBarBg(rawKeys, _AN.sponsor, "rgba(16,185,129,.85)", "rgba(16,185,129,.18)");
-    const border = _anBarBg(rawKeys, _AN.sponsor, "#10b981", "rgba(16,185,129,.3)");
     _destroyChart("sponsor");
     _chartInstances["sponsor"] = new Chart(document.getElementById("ch-sponsor"), {
       type: "bar",
       data: { labels, datasets:[{ label:"Trials", data:values,
-        backgroundColor:bg, borderColor:border, borderWidth:1, borderRadius:3 }] },
-      options: { ..._FAST,
-        onClick: _anOnClick('sponsor'), onHover: _anOnHover,
+        backgroundColor:"rgba(16,185,129,.75)", borderColor:"#10b981",
+        borderWidth:1, borderRadius:3 }] },
+      options: { ..._CHART_DEFAULTS,
         indexAxis:"y",
-        plugins:{ ..._FAST.plugins, legend:{display:false} },
+        plugins:{ ..._CHART_DEFAULTS.plugins, legend:{display:false} },
         scales:{
           x:{ grid:{color:"#f1f5f9"}, ticks:{font:{size:11},precision:0} },
           y:{ grid:{display:false}, ticks:{font:{size:11}} },
@@ -1713,35 +1515,18 @@ function renderAnalytics() {
   })();
 }
 
-
 // ── SPONSORS PANEL ────────────────────────────────────────────────────────────
-const spAreas     = new Set();
-// spAreaBtn/spAreaPanel references are kept for updateSpAreaLabel()
-// Full wiring happens in buildFilterPanels() after the panel is populated with real data
-const spAreaPanel = document.getElementById("sp-area-panel");
-// Panel click stop-propagation (panel open/close) — safe to bind now, persists
-spAreaPanel.addEventListener("click", e => e.stopPropagation());
-function updateSpAreaLabel() {
-  const n   = spAreas.size;
-  const btn = document.getElementById("sp-area-btn");
-  document.getElementById("sp-area-label").textContent = n === 0 ? "All Areas" : n === 1 ? [...spAreas][0] : `${n} areas`;
-  if (btn) btn.classList.toggle("active", n > 0);
-}
 
 function renderSponsors() {
   const q   = (document.getElementById("sponsor-search")?.value || "").toLowerCase();
-  // Always start from `filtered` (the globally-filtered trial set from applyFilters),
-  // then additionally apply the Sponsors-tab-specific area sub-filter (spAreas).
-  const src = spAreas.size > 0
-    ? filtered.filter(r => r.therapy_areas.some(a => spAreas.has(a)))
-    : filtered;
+  const typeFilter = (document.getElementById("sp-type-filter")?.value || "").toLowerCase();
 
   // Build unified company map — track lead sponsorships AND collaborations separately
   const map = {};
   function ensureEntry(name, org) {
     if (!map[name]) map[name] = { lead:0, collab:0, areas:new Set(), countries:new Set(), org: org||"OTHER" };
   }
-  src.forEach(r => {
+  ALL_DATA.forEach(r => {
     if (r.sponsor) {
       ensureEntry(r.sponsor, r.org_type);
       map[r.sponsor].lead++;
@@ -1760,6 +1545,18 @@ function renderSponsors() {
   let sorted = Object.entries(map)
     .map(([name, info]) => [name, {...info, total: info.lead + info.collab}])
     .sort((a,b) => b[1].total - a[1].total);
+
+  // Apply type filter
+  if (typeFilter) {
+    sorted = sorted.filter(([name, info]) => {
+      if (typeFilter === "sponsor") return info.lead > 0 && info.collab === 0;
+      if (typeFilter === "collaborator") return info.lead === 0 && info.collab > 0;
+      if (typeFilter === "both") return info.lead > 0 && info.collab > 0;
+      return true;
+    });
+  }
+
+  // Apply search filter
   if (q) sorted = sorted.filter(([name]) => name.toLowerCase().includes(q));
 
   document.getElementById("sponsors-showing").textContent = sorted.length.toLocaleString();
@@ -1815,10 +1612,18 @@ function filterBySponsor(name) {
   si.focus();
 }
 
+// ── KPI: RECRUITING COUNT ─────────────────────────────────────────────────────
+function updateRecruitingKPI() {
+  const n = filtered.filter(r => r.status === "RECRUITING").length;
+  document.getElementById("kpi-recruiting").textContent = n.toLocaleString();
+  document.getElementById("kpi-recruiting-sub").textContent = "Actively recruiting";
+}
+
 // ── INITIAL RENDER ────────────────────────────────────────────────────────────
 // Default sort: newest start date first
 document.querySelector('th[data-col="start_date"]').classList.add("sort-desc");
-applyFilters(); // updateKPIs() is called inside applyFilters → all 4 tiles populated
+applyFilters();
+updateRecruitingKPI();
 
 </script>
 
@@ -1894,61 +1699,9 @@ function buildFilterPanels(records) {
   inject("funder-panel",     cbs(funders,    "funder-cb",     f=>_FUNDER_LABELS_V[f]||f),                                     "funder-select-all",     "funder-clear-all");
   inject("study-type-panel", cbs(studyTypes, "study-type-cb", s=>s.replace(/_/g," ").replace(/\w/g,x=>x.toUpperCase())),    "study-type-select-all", "study-type-clear-all");
   inject("intv-type-panel",  cbs(intvTypes,  "intv-type-cb",  t=>_INTV_LABELS_V[t]||t),                                       "intv-type-select-all",  "intv-type-clear-all");
-
-  // Sponsors area filter — populate panel then fully rewire all its controls
-  const spPanel = document.getElementById("sp-area-panel");
-  if (spPanel) {
-    spPanel.innerHTML = areas.map(a =>
-      `<label class="cb-label"><input type="checkbox" class="sp-area-cb" value="${a}"> ${a}</label>`
-    ).join("\n") + `<div class="panel-actions"><a id="sp-area-all">All</a><a id="sp-area-clear">Clear</a></div>`;
-
-    // Clone+replace the button to clear the old click listener bound at page-load
-    const oldBtn = document.getElementById("sp-area-btn");
-    if (oldBtn) {
-      const newBtn = oldBtn.cloneNode(true);
-      oldBtn.replaceWith(newBtn);
-      newBtn.addEventListener("click", e => {
-        e.stopPropagation();
-        document.querySelectorAll(".multi-panel.open").forEach(p => p !== spPanel && p.classList.remove("open"));
-        spPanel.classList.toggle("open");
-      });
-    }
-
-    // "All" and "Clear" — these are fresh elements inside the new innerHTML
-    document.getElementById("sp-area-all").addEventListener("click", () => {
-      spPanel.querySelectorAll(".sp-area-cb").forEach(cb => cb.checked = true);
-      spAreas.clear();
-      spPanel.querySelectorAll(".sp-area-cb").forEach(cb => spAreas.add(cb.value));
-      updateSpAreaLabel(); renderSponsors();
-    });
-    document.getElementById("sp-area-clear").addEventListener("click", () => {
-      spPanel.querySelectorAll(".sp-area-cb").forEach(cb => cb.checked = false);
-      spAreas.clear(); updateSpAreaLabel(); renderSponsors();
-    });
-
-    // Checkbox changes — use event delegation on the panel so this survives
-    // any future innerHTML replacement without needing another rewire
-    spPanel.addEventListener("change", e => {
-      if (!e.target.classList.contains("sp-area-cb")) return;
-      if (e.target.checked) spAreas.add(e.target.value);
-      else spAreas.delete(e.target.value);
-      updateSpAreaLabel(); renderSponsors();
-    });
-  }
 }
 
 function rewireDropdowns() {
-  // The initial makeMultiDD() calls at page-load already attached click handlers
-  // to these buttons. buildFilterPanels() then replaced the panel innerHTML with
-  // data-driven checkboxes, destroying the checkbox listeners but leaving the
-  // button click handlers in place. Calling makeMultiDD() again would double-bind
-  // each button: one click → open, same event → close (net: nothing visible).
-  // Fix: clone+replace each button to strip the old listeners before re-wiring.
-  ['area-btn','phase-btn','status-btn','country-btn','intv-type-btn','funder-btn','study-type-btn'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.replaceWith(el.cloneNode(true));
-  });
-
   // Re-initialise all makeMultiDD instances after checkboxes are in the DOM
   window._areaDD     = makeMultiDD({ btnId:"area-btn",       panelId:"area-panel",       cbClass:"area-cb",       stateKey:"areas",      allLabel:"All Areas",      btnLabelId:"area-btn-label",       selectAllId:"area-select-all",       clearAllId:"area-clear-all" });
   window._phaseDD    = makeMultiDD({ btnId:"phase-btn",      panelId:"phase-panel",      cbClass:"phase-cb",      stateKey:"phases",     allLabel:"All Phases",     btnLabelId:"phase-btn-label",      selectAllId:"phase-select-all",      clearAllId:"phase-clear-all" });
@@ -1957,21 +1710,6 @@ function rewireDropdowns() {
   window._intvTypeDD = makeMultiDD({ btnId:"intv-type-btn",  panelId:"intv-type-panel",  cbClass:"intv-type-cb",  stateKey:"intTypes",   allLabel:"All Types",      btnLabelId:"intv-type-btn-label",  selectAllId:"intv-type-select-all",  clearAllId:"intv-type-clear-all" });
   window._funderDD   = makeMultiDD({ btnId:"funder-btn",     panelId:"funder-panel",     cbClass:"funder-cb",     stateKey:"funders",    allLabel:"All Funders",    btnLabelId:"funder-btn-label",     selectAllId:"funder-select-all",     clearAllId:"funder-clear-all" });
   window._studyTypeDD= makeMultiDD({ btnId:"study-type-btn", panelId:"study-type-panel", cbClass:"study-type-cb", stateKey:"studyTypes", allLabel:"All Types",      btnLabelId:"study-type-btn-label", selectAllId:"study-type-select-all", clearAllId:"study-type-clear-all" });
-
-  // Rewire Sponsors area DD
-  const spBtn  = document.getElementById("sp-area-btn");
-  const spPanl = document.getElementById("sp-area-panel");
-  if (spBtn && spPanl) {
-    spBtn.addEventListener("click", e => {
-      e.stopPropagation();
-      document.querySelectorAll(".multi-panel.open").forEach(p => p !== spPanl && p.classList.remove("open"));
-      spPanl.classList.toggle("open");
-    });
-    spPanl.addEventListener("click", e => e.stopPropagation());
-    document.getElementById("sp-area-all")?.addEventListener("click",   () => { spPanl.querySelectorAll(".sp-area-cb").forEach(c=>c.checked=true);  spAreas.clear(); [...spPanl.querySelectorAll(".sp-area-cb")].forEach(c=>spAreas.add(c.value)); updateSpAreaLabel(); renderSponsors(); });
-    document.getElementById("sp-area-clear")?.addEventListener("click", () => { spPanl.querySelectorAll(".sp-area-cb").forEach(c=>c.checked=false); spAreas.clear(); updateSpAreaLabel(); renderSponsors(); });
-    spPanl.querySelectorAll(".sp-area-cb").forEach(cb => cb.addEventListener("change", () => { if(cb.checked) spAreas.add(cb.value); else spAreas.delete(cb.value); updateSpAreaLabel(); renderSponsors(); }));
-  }
 
   // Rewire Clear-All button to use new DD references
   document.getElementById("btn-clear").replaceWith(document.getElementById("btn-clear").cloneNode(true));
@@ -2018,7 +1756,8 @@ function bootstrapDashboard(data) {
   rewireDropdowns();
   document.getElementById("load-overlay").style.display = "none";
   sortCol = "start_date"; sortDir = "desc";
-  applyFilters(); // updateKPIs() called inside — all tiles refresh
+  applyFilters();
+  updateRecruitingKPI();
 }
 </script>
 
