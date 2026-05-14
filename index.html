@@ -615,14 +615,26 @@ function addToCampaign() {
   // when the campaign manager auto-selects which trial each email references.
   // We still enrich with ALL trials so the dropdown has full context, but the
   // preferred set drives the default selection.
+  //
+  // CRITICAL: only do this when a filter is genuinely active. If the user
+  // hasn't applied any filter, `filtered === ALL_DATA` and marking every
+  // trial as "preferred" would override the campaign-area heuristic for
+  // selecting the primary trial — a silent regression versus prior behavior.
+  const hasActiveFilter = !!(
+    state.search || state.dateFrom || state.dateTo ||
+    state.areas.size || state.phases.size || state.statuses.size ||
+    state.countries.size || state.funders.size || state.studyTypes.size || state.intTypes.size
+  );
   const preferredBySponsor = {};
-  (filtered || []).forEach(r => {
-    [r.sponsor, ...(r.collaborators||[])].filter(Boolean).forEach(compName => {
-      if (!selectedSponsors.has(compName)) return;
-      if (!preferredBySponsor[compName]) preferredBySponsor[compName] = new Set();
-      if (r.nct_id) preferredBySponsor[compName].add(r.nct_id);
+  if (hasActiveFilter) {
+    (filtered || []).forEach(r => {
+      [r.sponsor, ...(r.collaborators||[])].filter(Boolean).forEach(compName => {
+        if (!selectedSponsors.has(compName)) return;
+        if (!preferredBySponsor[compName]) preferredBySponsor[compName] = new Set();
+        if (r.nct_id) preferredBySponsor[compName].add(r.nct_id);
+      });
     });
-  });
+  }
 
   // Build company objects with FULL trial context from ALL_DATA (so the
   // "other programs" line and the trial dropdown still show everything the
