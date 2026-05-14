@@ -1463,10 +1463,22 @@ function updateTrialSelector() {
   // ("") only happens if neither is set, in which case Auto-detect rules.
   const savedTrial = getSavedTrialForContact(idx);
   const defaultTrial = savedTrial || (primary && primary.nct_id) || '';
-  const trialsHtml = allTrials.map((t, i) => `<option value="${t.nct_id}" ${defaultTrial === t.nct_id ? 'selected' : ''} ${i === 0 ? 'data-primary="true"' : ''}>${t.nct_id} — ${t.phase || 'Phase'} ${t.title || t.therapy_areas?.[0] || 'Trial'}${i === 0 ? ' (primary)' : ''}</option>`).join('');
+
+  // Display order: primary first (so the auto-selected default is at the
+  // top), then the rest sorted by start_date descending so the most recent
+  // trials are easy to spot.
+  const orderedTrials = primary && primary.nct_id
+    ? [primary, ...sortTrialsByStartDateDesc(allTrials.filter(t => t !== primary))]
+    : sortTrialsByStartDateDesc(allTrials);
+
+  const trialsHtml = orderedTrials.map((t, i) => {
+    const isPrimary = i === 0 && primary && t === primary;
+    const label = formatTrialOptionLabel(t, { suffix: isPrimary ? '(primary)' : '' });
+    return `<option value="${t.nct_id}" ${defaultTrial === t.nct_id ? 'selected' : ''} ${isPrimary ? 'data-primary="true"' : ''}>${escHtml(label)}</option>`;
+  }).join('');
   container.innerHTML = `
     <label style="font-size:12px;font-weight:600;color:var(--text-muted)">Trial to reference:</label>
-    <select class="form-input" style="width:400px;max-width:100%" onchange="saveTrialForContact(${idx},this.value||null);_selectedTrialNct=this.value||null;renderDraftForSelected()">
+    <select class="form-input" style="width:480px;max-width:100%" onchange="saveTrialForContact(${idx},this.value||null);_selectedTrialNct=this.value||null;renderDraftForSelected()">
       <option value="" ${defaultTrial ? '' : 'selected'}>Auto-detect (primary for each)</option>
       ${trialsHtml}
     </select>`;
@@ -1630,13 +1642,17 @@ function renderCompanyDraft(companyName) {
       if (t?.nct_id) allTrialsForCo.add(JSON.stringify(t));
     });
   });
-  const uniqueTrials = Array.from(allTrialsForCo).map(t => JSON.parse(t));
+  // Sort by start_date desc so the most recent trial is at the top for
+  // quick selection. Trials without a start_date sink to the bottom.
+  const uniqueTrials = sortTrialsByStartDateDesc(
+    Array.from(allTrialsForCo).map(t => JSON.parse(t))
+  );
   const trialsHtml = uniqueTrials.length > 1
     ? `<label style="font-size:12px;font-weight:600;color:var(--text-muted)">Trial (bulk):</label>
-       <select style="border:1px solid var(--border);border-radius:6px;padding:5px 10px;font-size:12px;outline:none"
+       <select style="border:1px solid var(--border);border-radius:6px;padding:5px 10px;font-size:12px;outline:none;min-width:420px;max-width:100%"
                onchange="regenerateCompanyDrafts(${escHtml(JSON.stringify(companyName))},this.value||null)">
          <option value="">Auto-detect (primary for each)</option>
-         ${uniqueTrials.map(t => `<option value="${t.nct_id}">${t.nct_id} — ${t.phase || 'Phase'} ${t.title || t.therapy_areas?.[0] || ''}</option>`).join('')}
+         ${uniqueTrials.map(t => `<option value="${t.nct_id}">${escHtml(formatTrialOptionLabel(t))}</option>`).join('')}
        </select>`
     : '';
 
@@ -2804,6 +2820,43 @@ function exportMailMergeCSV() {
 // ────────────────────────────────────────────────────────────────────────────
 function escHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Build a human-readable label for a trial dropdown option.
+// Format: "NCT_ID · 2025-03 · Phase 3 · Title" (gracefully degrades when
+// any field is missing). Used by both the By Contact and By Company trial
+// selectors so the user can pick the right trial at a glance — especially
+// when the same sponsor has multiple trials and the start date is the
+// disambiguator.
+function formatTrialOptionLabel(t, opts = {}) {
+  if (!t) return '';
+  const parts = [];
+  if (t.nct_id) parts.push(t.nct_id);
+  // Show start_date if present. Render as YYYY-MM-DD when full date is
+  // available; some records have YYYY-MM or YYYY only, so just trust the
+  // string after a basic shape check.
+  if (t.start_date && /^\d{4}/.test(t.start_date)) parts.push(t.start_date);
+  if (t.phase) parts.push(t.phase);
+  const tail = t.title || (t.therapy_areas && t.therapy_areas[0]) || (opts.fallback || 'Trial');
+  if (tail) parts.push(tail);
+  let label = parts.join(' · ');
+  if (opts.suffix) label += ' ' + opts.suffix;
+  return label;
+}
+
+// Sort trials by start_date descending (newest first). Trials with no
+// start_date sink to the bottom. Stable: preserves input order for equal
+// dates.
+function sortTrialsByStartDateDesc(trials) {
+  return trials
+    .map((t, i) => ({ t, i, d: (t && t.start_date) || '' }))
+    .sort((a, b) => {
+      if (a.d && b.d) return a.d < b.d ? 1 : a.d > b.d ? -1 : a.i - b.i;
+      if (a.d) return -1;
+      if (b.d) return 1;
+      return a.i - b.i;
+    })
+    .map(x => x.t);
 }
 
 // Build rich editor — contenteditable with toolbar for links + images
