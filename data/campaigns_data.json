@@ -5830,47 +5830,6 @@
         "contactsImported": false
       },
       {
-        "name": "Catalyst Pharmaceutical Research",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology",
-          "Women's Health"
-        ],
-        "phases": [
-          "Phase 1"
-        ],
-        "countries": [
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07470853",
-            "title": "A Study of MUC16-Directed Antibody Drug Conjugate HWK-016 in Participants With Advanced Solid Tumors.",
-            "phase": "Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "265",
-            "start_date": "2026-03-15",
-            "conditions": [
-              "PROC",
-              "Platinum Resistant Ovarian Cancer",
-              "Endometrial Cancer"
-            ],
-            "interventions": [
-              "HWK-016, MUCIN-16-targeted ADC",
-              "Bevacizumab"
-            ],
-            "therapy_areas": [
-              "Oncology",
-              "Women's Health"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Ono Pharmaceutical Co., Ltd.",
         "org_type": "INDUSTRY",
         "funder_types": [],
