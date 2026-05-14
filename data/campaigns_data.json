@@ -5480,68 +5480,6 @@
         "contactsImported": false
       },
       {
-        "name": "WestVac Biopharma Co., Ltd.",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Infectious Disease",
-          "Oncology",
-          "Women's Health"
-        ],
-        "phases": [
-          "Phase 2",
-          "Phase 1"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07170800",
-            "title": "A Phase 2b Clinical Study of JDB0131 Benzenesulfonate Tablets",
-            "phase": "Phase 2",
-            "status": "RECRUITING",
-            "enrollment": "60",
-            "start_date": "2025-09-19",
-            "conditions": [
-              "Tuberculosis",
-              "Multidrug Resistant Pulmonary Tuberculosis",
-              "Rifampicin-resistant Tuberculosis"
-            ],
-            "interventions": [
-              "JDB0131 100mg",
-              "JDB0131 200mg",
-              "Delamanid (D)"
-            ],
-            "therapy_areas": [
-              "Infectious Disease"
-            ]
-          },
-          {
-            "nct_id": "NCT07462468",
-            "title": "A Phase 1 Clinical Study to Evaluate the Safety and Efficacy of WSK-IM02 in Patients With Platinum-resistant Recurrent Ovarian Cancer.",
-            "phase": "Phase 1",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "36",
-            "start_date": "2026-03-10",
-            "conditions": [
-              "Platinum-resistant Recurrent Ovarian Cancer (PROC)"
-            ],
-            "interventions": [
-              "WSK-IM02",
-              "WSK-IM02"
-            ],
-            "therapy_areas": [
-              "Oncology",
-              "Women's Health"
-            ]
-          }
-        ],
-        "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Tetragon Biosciences Ltd",
         "org_type": "INDUSTRY",
         "funder_types": [],
