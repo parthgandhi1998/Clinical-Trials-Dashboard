@@ -1958,6 +1958,7 @@ function findTrialsForContact(campaign, contact) {
         nct_id: t.nct_id || '', title: t.title || '', phase: t.phase || '',
         enrollment: t.enrollment || '', conditions: t.conditions || [],
         interventions: t.interventions || [], therapy_areas: t.therapy_areas || co.therapy_areas || [],
+        start_date: t.start_date || '', status: t.status || '',
         _companyName: coName(co), _companyObj: co
       }));
     } else {
@@ -1966,6 +1967,7 @@ function findTrialsForContact(campaign, contact) {
         nct_id: co.nct_id || '', title: co.title || '', phase: (co.phases || [])[0] || co.phase || '',
         enrollment: co.enrollment || '', conditions: co.conditions || [],
         interventions: co.interventions || [], therapy_areas: co.therapy_areas || [],
+        start_date: co.start_date || '', status: co.status || '',
         _companyName: coName(co), _companyObj: co
       });
     }
