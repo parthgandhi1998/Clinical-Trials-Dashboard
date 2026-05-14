@@ -5596,46 +5596,6 @@
         "contactsImported": false
       },
       {
-        "name": "Eigen",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology"
-        ],
-        "phases": [
-          "Phase 3"
-        ],
-        "countries": [
-          "Netherlands",
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT06024772",
-            "title": "Multiparametric Ultrasound for the Diagnosis of Clinically Significant Prostate Cancer",
-            "phase": "Phase 3",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "300",
-            "start_date": "2026-03-15",
-            "conditions": [
-              "Prostate Carcinoma"
-            ],
-            "interventions": [
-              "ultiparametric Magnetic Resonance Imaging",
-              "Perflutren lipid microsphere",
-              "Transrectal Ultrasound",
-              "Biopsy of Prostate"
-            ],
-            "therapy_areas": [
-              "Oncology"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Callio Therapeutics",
         "org_type": "INDUSTRY",
         "funder_types": [],
