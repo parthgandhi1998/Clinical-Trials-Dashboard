@@ -9828,64 +9828,6 @@
         "contactsImported": false
       },
       {
-        "name": "Biotheus (Hengqin) Co., Ltd.",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology",
-          "Vaccines"
-        ],
-        "phases": [
-          "Phase 1, Phase 2"
-        ],
-        "countries": [
-          "Australia",
-          "China",
-          "Taiwan"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07455734",
-            "title": "Early-phase Trial to Assess the Safety and Preliminary Efficacy of BNT3214 in Adults With Advanced Solid Tumors",
-            "phase": "Phase 1, Phase 2",
-            "status": "RECRUITING",
-            "enrollment": "533",
-            "start_date": "2026-03-30",
-            "conditions": [
-              "Advanced Solid Tumor Cancer"
-            ],
-            "interventions": [
-              "BNT3214"
-            ],
-            "therapy_areas": [
-              "Oncology"
-            ]
-          },
-          {
-            "nct_id": "NCT07147348",
-            "title": "A First-in-human, Dose Escalation and Indication Expansion Study of BNT3212 as Monotherapy or in Combination With BNT327 in Adults With Advanced Solid Tumors",
-            "phase": "Phase 1, Phase 2",
-            "status": "RECRUITING",
-            "enrollment": "375",
-            "start_date": "2025-08-27",
-            "conditions": [
-              "Advanced Solid Tumor"
-            ],
-            "interventions": [
-              "BNT3212",
-              "Pumitamig"
-            ],
-            "therapy_areas": [
-              "Oncology",
-              "Vaccines"
-            ]
-          }
-        ],
-        "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Medpace, Inc.",
         "org_type": "OTHER",
         "funder_types": [],
