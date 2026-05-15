@@ -10090,6 +10090,52 @@
         "total": 1,
         "contacts": [],
         "contactsImported": false
+      },
+      {
+        "name": "BeiGene",
+        "org_type": "INDUSTRY",
+        "therapy_areas": [
+          "Hematology",
+          "Oncology",
+          "Other",
+          "Immunology & Inflammation",
+          "Respiratory"
+        ],
+        "phases": [
+          "Phase 4",
+          "Phase 1",
+          "Phase 2"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07169331",
+            "title": "A Study to Evaluate the Efficacy and Safety of Zanubrutinib in Chinese Adults With Treatment-Naive Waldenström Macroglobulinemia",
+            "phase": "Phase 4",
+            "status": "RECRUITING",
+            "enrollment": "18",
+            "start_date": "2025-10-17"
+          },
+          {
+            "nct_id": "NCT07005713",
+            "title": "A Study to Evaluate the Safety, Tolerability, Pharmacokinetics, and Pharmacodynamics of Multiple-Ascending Doses of BGB-16673 in Adults With Chronic Spontaneous Urticaria",
+            "phase": "Phase 1",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "34",
+            "start_date": "2025-07-19"
+          },
+          {
+            "nct_id": "NCT07100938",
+            "title": "A Study Investigating the Efficacy and Safety of BGB-45035 Versus Placebo in Adults With Moderate to Severe Active Rheumatoid Arthritis",
+            "phase": "Phase 2",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "49",
+            "start_date": "2025-08-21"
+          }
+        ],
+        "total": 3
       }
     ],
     "contacts": []
