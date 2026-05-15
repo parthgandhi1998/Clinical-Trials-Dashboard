@@ -9195,67 +9195,6 @@
         "contactsImported": false
       },
       {
-        "name": "FindCure Biosciences (ZhongShan) Co., Ltd.",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology"
-        ],
-        "phases": [
-          "EARLY/Phase 1"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07468708",
-            "title": "The Dosimetry, Safety and Diagnostic Efficacy of ⁶⁸Ga-FC516 in Healthy Subjects and Patients With Prostate Cancer",
-            "phase": "EARLY/Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "30",
-            "start_date": "2026-03-09",
-            "conditions": [
-              "Healthy Adult",
-              "Prostate Cancer"
-            ],
-            "interventions": [
-              "⁶⁸Ga-FC516",
-              "⁶⁸Ga-FC516 and ⁶⁸Ga-labeled PSMA-targeting tracer",
-              "⁶⁸Ga-FC516 and ⁶⁸Ga-labeled ACP3-targeting tracer"
-            ],
-            "therapy_areas": [
-              "Oncology"
-            ]
-          },
-          {
-            "nct_id": "NCT07459283",
-            "title": "The Safety, Dosimetry and Efficacy of 177Lu-INN805 in Patients With Malignant Solid Tumors",
-            "phase": "EARLY/Phase 1",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "10",
-            "start_date": "2026-04",
-            "conditions": [
-              "Maligant Solid Tumor",
-              "Head & Neck Cancer",
-              "Thyroid Cancer",
-              "Lung Cancer - Non Small Cell Squamous",
-              "Breast Cancer",
-              "Sarcoma"
-            ],
-            "interventions": [
-              "INN805"
-            ],
-            "therapy_areas": [
-              "Oncology"
-            ]
-          }
-        ],
-        "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Avistone Biotechnology Co., Ltd.",
         "org_type": "INDUSTRY",
         "funder_types": [],
