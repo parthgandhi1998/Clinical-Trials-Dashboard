@@ -7288,61 +7288,6 @@
         "contactsImported": false
       },
       {
-        "name": "D3 Bio (Wuxi) Co., Ltd",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Dermatology",
-          "Oncology"
-        ],
-        "phases": [
-          "Phase 1"
-        ],
-        "countries": [
-          "Australia",
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07093398",
-            "title": "A Phase 1 Study to Assess Food Effect on the Pharmacokinetics of D3S-001 in Healthy Adult Participants",
-            "phase": "Phase 1",
-            "status": "COMPLETED",
-            "enrollment": "26",
-            "start_date": "2025-07-11",
-            "conditions": [
-              "Healthy Adult Volunteers"
-            ],
-            "interventions": [
-              "D3S-001"
-            ],
-            "therapy_areas": [
-              "Dermatology"
-            ]
-          },
-          {
-            "nct_id": "NCT07456046",
-            "title": "A Phase 1 Study of D3S-003 as Monotherapy in Participants With Advanced Solid Tumors With a KRAS p.G12D Mutation.",
-            "phase": "Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "42",
-            "start_date": "2026-03-31",
-            "conditions": [
-              "KRAS P.G12D"
-            ],
-            "interventions": [
-              "D3S-003"
-            ],
-            "therapy_areas": [
-              "Oncology"
-            ]
-          }
-        ],
-        "total": 2,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Pharmacosmos A/S",
         "org_type": "INDUSTRY",
         "funder_types": [],
