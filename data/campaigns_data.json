@@ -9638,47 +9638,6 @@
         "contactsImported": false
       },
       {
-        "name": "Onchilles Pharma Pty Ltd",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology"
-        ],
-        "phases": [
-          "Phase 1, Phase 2"
-        ],
-        "countries": [
-          "Australia"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07339176",
-            "title": "Intratumoral N17350 in Advanced Solid Tumors",
-            "phase": "Phase 1, Phase 2",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "275",
-            "start_date": "2026-03",
-            "conditions": [
-              "Neoplasms, Solid Tumor",
-              "Breast Neoplasms, Triple-Negative",
-              "Squamous Cell Carcinoma of Skin",
-              "Melanoma",
-              "Head and Neck Neoplasms",
-              "Carcinoma, Squamous Cell"
-            ],
-            "interventions": [
-              "N17350"
-            ],
-            "therapy_areas": [
-              "Oncology"
-            ]
-          }
-        ],
-        "total": 1,
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "VSPharmTech Co.,Ltd.",
         "org_type": "INDUSTRY",
         "funder_types": [],
