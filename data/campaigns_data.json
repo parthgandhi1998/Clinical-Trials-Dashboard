@@ -1,5 +1,842 @@
 [
   {
+    "id": "cmp_1779102564495",
+    "name": "Neurology_April2026",
+    "owner": "Parth",
+    "area": "Neurology",
+    "notes": "",
+    "status": "draft",
+    "created": "2026-05-18T11:09:24.495Z",
+    "companies": [
+      {
+        "name": "Grifols Therapeutics LLC",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Rare & Genetic Diseases",
+          "Respiratory",
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [
+          "Denmark",
+          "Ireland",
+          "Netherlands",
+          "Poland",
+          "Portugal",
+          "Spain",
+          "Sweden",
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07555483",
+            "title": "A Non-inferiority Pharmacokinetic and Safety/Tolerability Study of Two Different Doses of Weekly SC Alpha1-PI 15% Compared With Corresponding Standard IV Alpha1-PI in Participants With Alpha1-Antitrypsin Deficiency (AATD)",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-04-21",
+            "therapy_areas": [
+              "Oncology",
+              "Rare & Genetic Diseases",
+              "Respiratory"
+            ],
+            "conditions": [
+              "Alpha 1 Antitrypsin Deficiency"
+            ],
+            "interventions": [
+              "Alpha-1 15%",
+              "Liquid Alpha1-PI"
+            ]
+          },
+          {
+            "nct_id": "NCT07540221",
+            "title": "A Study to Evaluate the Pharmacokinetics and Safety of XEMBIFY Versus Gamunex-C in Participants With Chronic Inflammatory Demyelinating Polyradiculoneuropathy",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-04-02",
+            "therapy_areas": [
+              "Neurology"
+            ],
+            "conditions": [
+              "CIDP (Chronic Inflammatory Demyelinating Polyradiculoneuropathy)"
+            ],
+            "interventions": [
+              "Gamunex-C",
+              "Xembify"
+            ]
+          }
+        ],
+        "total": 2,
+        "preferredTrialNcts": [
+          "NCT07540221"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Eurofarma Laboratorios S.A.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Metabolic & Endocrine",
+          "Oncology",
+          "Neurology",
+          "Dermatology",
+          "Cardiovascular",
+          "Respiratory"
+        ],
+        "phases": [
+          "Phase 3",
+          "NA",
+          "Phase 4"
+        ],
+        "countries": [
+          "Brazil"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT05209984",
+            "title": "A Phase 3, Double-blind/Double-dummy, Safety/Efficacy/Superiority of Sibutramine/Topiramate XR in Adults With Overweight",
+            "phase": "Phase 3",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Metabolic & Endocrine",
+              "Oncology"
+            ],
+            "conditions": [
+              "Overweight",
+              "Obesity"
+            ],
+            "interventions": [
+              "ADF1 Group Eurofarma drug association of Sibutramine IR 15mg / Topiramate XR 75mg",
+              "ADF2 Group Eurofarma drug association of Sibutramine IR 15mg / Topiramate XR 100mg",
+              "SIB Group Sibus (Sibutramine) 15mg",
+              "Placebo Group"
+            ]
+          },
+          {
+            "nct_id": "NCT06715462",
+            "title": "Efficacy and Safety of the N0750 Compared to Monotherapies in the Treatment of Painful Diabetic Peripheral Neuropathy",
+            "phase": "Phase 3",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ],
+            "conditions": [
+              "Painful Diabetic Peripheral Neuropathy (PDPN)"
+            ],
+            "interventions": [
+              "N0750",
+              "Cymbalta®",
+              "Lyrica®"
+            ]
+          },
+          {
+            "nct_id": "NCT06752460",
+            "title": "Evaluation of the EF192B Protection Versus No Treatment",
+            "phase": "NA",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "72",
+            "start_date": "2025-08-31",
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ],
+            "conditions": [
+              "Skin Lesions",
+              "Skin Care"
+            ],
+            "interventions": [
+              "EF192B"
+            ]
+          },
+          {
+            "nct_id": "NCT07018557",
+            "title": "Impact of Eszopiclone on Blood Pressure in Patients With Insomnia and Hypertension (PRYSMA-HTN)",
+            "phase": "Phase 4",
+            "status": "RECRUITING",
+            "enrollment": "150",
+            "start_date": "2025-06-04",
+            "therapy_areas": [
+              "Cardiovascular",
+              "Dermatology",
+              "Oncology"
+            ],
+            "conditions": [
+              "Insomnia",
+              "Hypertension"
+            ],
+            "interventions": [
+              "Eszopiclone 3 mg",
+              "Placebo"
+            ]
+          },
+          {
+            "nct_id": "NCT05637710",
+            "title": "Parallel, Double-dummy, Superiority Study Levocetirizine/Pseudoephedrine x Zina for Allergic Rhinitis in Brazil",
+            "phase": "Phase 3",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2026-03",
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology",
+              "Respiratory"
+            ],
+            "conditions": [
+              "Allergic Rhinitis"
+            ],
+            "interventions": [
+              "Administration of investigation of Eurofarma drug",
+              "Administration of Comparator"
+            ]
+          },
+          {
+            "nct_id": "NCT06905210",
+            "title": "Study of New Antiandrogenic Progestogen + Low-dose Estrogen for Moderate Acne Vulgaris",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "526",
+            "start_date": "2026-03",
+            "therapy_areas": [
+              "Dermatology"
+            ],
+            "conditions": [
+              "Acne Vulgaris",
+              "Acne Vulgaris on the Face"
+            ],
+            "interventions": [
+              "Placebo of the experimental drug",
+              "Experimental drug"
+            ]
+          }
+        ],
+        "total": 6,
+        "preferredTrialNcts": [
+          "NCT06715462"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Luye Pharma Group Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Psychiatry & Mental Health",
+          "Neurology",
+          "Dermatology"
+        ],
+        "phases": [
+          "Phase 2",
+          "Phase 1",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07396870",
+            "title": "A Phase 2 Study to Evaluate the Efficacy and Safety of LY03020 in Acutely Psychotic Participants With Schizophrenia",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "160",
+            "start_date": "2026-03-31",
+            "therapy_areas": [
+              "Oncology",
+              "Psychiatry & Mental Health"
+            ],
+            "conditions": [
+              "Schizophrenia"
+            ],
+            "interventions": [
+              "LY03020",
+              "Placebo"
+            ]
+          },
+          {
+            "nct_id": "NCT07292233",
+            "title": "A Food Effect Study of LY03020 in Healthy Subjects",
+            "phase": "Phase 1",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "16",
+            "start_date": "2025-07-30",
+            "therapy_areas": [
+              "Neurology",
+              "Psychiatry & Mental Health"
+            ],
+            "conditions": [
+              "Schizophrenia",
+              "Alzheimer's Disease Psychosis"
+            ],
+            "interventions": [
+              "LY03020"
+            ]
+          },
+          {
+            "nct_id": "NCT07230652",
+            "title": "A Phase 1 MAD Study to Evaluate the Safety and Tolerability of LY03020",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-08-20",
+            "therapy_areas": [
+              "Neurology",
+              "Psychiatry & Mental Health"
+            ],
+            "conditions": [
+              "Schizophrenia",
+              "Alzheimer's Disease Psychosis"
+            ],
+            "interventions": [
+              "LY03020",
+              "Placebo"
+            ]
+          },
+          {
+            "nct_id": "NCT07516899",
+            "title": "Mass Balance Study of [14C] LPM3770164 in Healthy Participants",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "8",
+            "start_date": "2026-04-30",
+            "therapy_areas": [
+              "Neurology"
+            ],
+            "conditions": [
+              "Huntington Disease"
+            ],
+            "interventions": [
+              "[14C] LPM3770164"
+            ]
+          },
+          {
+            "nct_id": "NCT07391566",
+            "title": "LPM6690176 in Combination With Chemotherapy and Bevacizumab in Metastatic Colorectal Cancer Patients With RAS Mutation",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "99",
+            "start_date": "2026-03-31",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "Metastatic Colorectal Cancer (mCRC)"
+            ],
+            "interventions": [
+              "LPM6690176",
+              "Bevacizumab",
+              "FOLFIRI (5-Fluorouracil, Folinic acid, Irinotecan)"
+            ]
+          },
+          {
+            "nct_id": "NCT07371065",
+            "title": "To Evaluate the Safety, Tolerability, Pharmacokinetic Characteristics and Food Effects of LY03021 in Healthy Chinese Subjects",
+            "phase": "Phase 1",
+            "status": "ENROLLING_BY_INVITATION",
+            "enrollment": "98",
+            "start_date": "2025-10-28",
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology",
+              "Psychiatry & Mental Health"
+            ],
+            "conditions": [
+              "Major Depressive Disorder"
+            ],
+            "interventions": [
+              "LY03021",
+              "placebo"
+            ]
+          }
+        ],
+        "total": 6,
+        "preferredTrialNcts": [
+          "NCT07516899"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Alkermes, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Psychiatry & Mental Health"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 2"
+        ],
+        "countries": [
+          "United States",
+          "Australia",
+          "Belgium",
+          "Czechia",
+          "France",
+          "Italy",
+          "Netherlands",
+          "Spain"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07455383",
+            "title": "A Study to Evaluate the Efficacy and Safety of ALKS 2680 in Adults With Narcolepsy Type 1",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "150",
+            "start_date": "2026-04-06",
+            "therapy_areas": [
+              "Neurology",
+              "Psychiatry & Mental Health"
+            ],
+            "conditions": [
+              "Narcolepsy Type 1"
+            ],
+            "interventions": [
+              "ALKS 2680 Dose 1",
+              "ALKS 2680 Dose 2",
+              "Placebo"
+            ]
+          },
+          {
+            "nct_id": "NCT06843590",
+            "title": "A Study to Evaluate the Safety and Effectiveness of ALKS 2680 in Subjects With Idiopathic Hypersomnia",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "96",
+            "start_date": "2025-05-22",
+            "therapy_areas": [
+              "Psychiatry & Mental Health"
+            ],
+            "conditions": [
+              "Idiopathic Hypersomnia"
+            ],
+            "interventions": [
+              "ALKS 2680",
+              "Placebo"
+            ]
+          },
+          {
+            "nct_id": "NCT07502443",
+            "title": "A Study to Evaluate the Efficacy and Safety of ALKS 2680 in Adults With Narcolepsy Type 2",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "176",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Neurology"
+            ],
+            "conditions": [
+              "Narcolepsy Type 2"
+            ],
+            "interventions": [
+              "ALKS 2680 Dose 1",
+              "ALKS 2680 Dose 2",
+              "ALKS 2680 Dose 3",
+              "Placebo"
+            ]
+          },
+          {
+            "nct_id": "NCT07540897",
+            "title": "A Study to Evaluate the Efficacy, Safety and Tolerability of ALKS 2680 in Adults With Narcolepsy Type 1 (Brilliance NT1 - 304)",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "150",
+            "start_date": "2026-05",
+            "therapy_areas": [
+              "Neurology",
+              "Psychiatry & Mental Health"
+            ],
+            "conditions": [
+              "Narcolepsy Type 1"
+            ],
+            "interventions": [
+              "ALKS 2680 Dose 1",
+              "ALKS 2680 Dose 2",
+              "Placebo"
+            ]
+          }
+        ],
+        "total": 4,
+        "preferredTrialNcts": [
+          "NCT07455383",
+          "NCT07502443"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Abrexa Pharmaceuticals, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07430917",
+            "title": "Safety and Efficacy of J147 in Acute Ischemic Stroke",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "196",
+            "start_date": "2026-04-20",
+            "therapy_areas": [
+              "Neurology"
+            ],
+            "conditions": [
+              "Acute Ischemic Stroke"
+            ],
+            "interventions": [
+              "J147 Emulsion for Injection",
+              "Placebo"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07430917"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Halia Therapeutics, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Metabolic & Endocrine",
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 2"
+        ],
+        "countries": [
+          "United Arab Emirates"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07172867",
+            "title": "A Ph2 Study to Evaluate the Safety, Efficacy and Tolerability of HT-6184 and Semaglutide in Obese Participants With T2DM",
+            "phase": "Phase 2",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2026-01-06",
+            "therapy_areas": [
+              "Metabolic & Endocrine"
+            ],
+            "conditions": [
+              "Diabetes Mellitus, Type 2",
+              "Obesity"
+            ],
+            "interventions": [
+              "HT-6184",
+              "HT-6184 Matching Placebo",
+              "Semaglutide 1 mg"
+            ]
+          },
+          {
+            "nct_id": "NCT07399171",
+            "title": "Study to Evaluate the Effect of HT-4253 for the Prevention of Alzheimer's Disease in APOE4 Carriers",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "112",
+            "start_date": "2026-04-03",
+            "therapy_areas": [
+              "Neurology"
+            ],
+            "conditions": [
+              "Alzheimers Disease"
+            ],
+            "interventions": [
+              "HT-4253",
+              "Placebo"
+            ]
+          }
+        ],
+        "total": 2,
+        "preferredTrialNcts": [
+          "NCT07399171"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Innervate Radiopharmaceuticals LLC (Formerly: Illumina Radiopharmaceuticals LLC)",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Neurology",
+          "Musculoskeletal",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07176286",
+            "title": "18F-mFBG Cardiac Uptake With Lewy Body Dementia",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "20",
+            "start_date": "2026-04-15",
+            "therapy_areas": [
+              "Cardiovascular",
+              "Neurology"
+            ],
+            "conditions": [
+              "Parkinson Disease (PD)",
+              "Lewy Body Dementia (LBD)"
+            ],
+            "interventions": [
+              "18F-MFBG"
+            ]
+          },
+          {
+            "nct_id": "NCT06965621",
+            "title": "18F-mFBG Imaging for Myocardial Sympathetic Innervation",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "20",
+            "start_date": "2026-04-28",
+            "therapy_areas": [
+              "Cardiovascular",
+              "Musculoskeletal",
+              "Oncology"
+            ],
+            "conditions": [
+              "Heart Failure",
+              "Ischemic Cardiomyopathy",
+              "ICD Patients"
+            ],
+            "interventions": [
+              "18F-metaFluorobenzylguanidine",
+              "Rubidium-82"
+            ]
+          }
+        ],
+        "total": 2,
+        "preferredTrialNcts": [
+          "NCT07176286"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Cristália Produtos Químicos Farmacêuticos Ltda.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Musculoskeletal",
+          "Neurology"
+        ],
+        "phases": [
+          "EARLY/Phase 1"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT05739734",
+            "title": "Safety of CRIS100 on Treatment Spinal Cord Injury",
+            "phase": "EARLY/Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "5",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Musculoskeletal",
+              "Neurology"
+            ],
+            "conditions": [
+              "Thoracic Spinal Cord Injury"
+            ],
+            "interventions": [
+              "CRIS100"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT05739734"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Eli Radiopharma",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07580703",
+            "title": "A Phase I Study of [18F]Flortaucipir PET Imaging in Chinese Subjects: Safety, Pharmacokinetics, Biodistribution, Radiation Dosimetry, and Preliminary Diagnostic Efficacy",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "18",
+            "start_date": "2026-04-23",
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ],
+            "conditions": [
+              "AD - Alzheimer's Disease",
+              "MCI"
+            ],
+            "interventions": [
+              "[18F]Flortaucipir Injection"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07580703"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Kedrion S.p.A.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Neurology",
+          "Hematology"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [
+          "United States",
+          "Czechia",
+          "Germany",
+          "Italy",
+          "Romania",
+          "Serbia",
+          "Spain",
+          "Turkey (Türkiye)"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT06752356",
+            "title": "A Study Investigating Intravenous Human Normal Immune Globulin (IGIV) 10% in Subjects With Chronic Inflammatory Demyelinating Polyneuropathy (CIDP)",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "161",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ],
+            "conditions": [
+              "Chronic Inflammatory Demyelinating Polyneuropathy"
+            ],
+            "interventions": [
+              "Immune globulin (human) 10% solution for intravenous administration"
+            ]
+          },
+          {
+            "nct_id": "NCT07059000",
+            "title": "A Study Investigating Intravenous Human Normal Immunoglobulin 10% in Adults With Chronic Immune Thrombocytopenia (ITP)",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-08-13",
+            "therapy_areas": [
+              "Hematology"
+            ],
+            "conditions": [
+              "Chronic Primary Immune Thrombocytopenia (ITP)"
+            ],
+            "interventions": [
+              "Kedrion IVIG 10%"
+            ]
+          }
+        ],
+        "total": 2,
+        "preferredTrialNcts": [
+          "NCT06752356"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "PLL TX AUSTRALIA PTY LTD",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Neurology"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT06513546",
+            "title": "A Study to Evaluate the Safety, Efficacy, and Pharmacodynamics of PLL001 in ALS Patients",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "153",
+            "start_date": "2026-04-08",
+            "therapy_areas": [
+              "Dermatology",
+              "Neurology"
+            ],
+            "conditions": [
+              "Amyotrophic Lateral Sclerosis",
+              "ALS"
+            ],
+            "interventions": [
+              "PLL001 or placebo daily subcutaneous injections"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT06513546"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      }
+    ],
+    "contacts": []
+  },
+  {
     "id": "cmp_1778497195109",
     "name": "Vaccines_April2026",
     "owner": "Parth",
