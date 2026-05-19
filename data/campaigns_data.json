@@ -1,5 +1,656 @@
 [
   {
+    "id": "cmp_1779218894399",
+    "name": "Immunology_April2026",
+    "owner": "Parth",
+    "area": "Immunology & Inflammation",
+    "notes": "",
+    "status": "draft",
+    "created": "2026-05-19T19:28:14.399Z",
+    "companies": [
+      {
+        "name": "Kunming Pharmaceuticals, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Immunology & Inflammation",
+          "Neurology",
+          "Oncology",
+          "Other"
+        ],
+        "phases": [
+          "Phase 2",
+          "Phase 1"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07557927",
+            "title": "A Multicentre, Randomised, Double-blind, Positive-control Clinical Trial Evaluating Dihydroartemisinin Tablets for the Treatment of Discoid Lupus Erythematosus",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "100",
+            "start_date": "2026-04-30",
+            "therapy_areas": [
+              "Immunology & Inflammation"
+            ],
+            "conditions": [
+              "Discoid Lupus Erythematosus"
+            ],
+            "interventions": [
+              "Dihydroartemisinin tablets",
+              "Dihydroartemisinin tablets",
+              "Hydroxychloroquine tablets"
+            ]
+          },
+          {
+            "nct_id": "NCT07279493",
+            "title": "Efficacy and Safety of the KPCXM18 Injection in Patients With Acute Ischemic Stroke",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "300",
+            "start_date": "2025-11-22",
+            "therapy_areas": [
+              "Neurology",
+              "Oncology"
+            ],
+            "conditions": [
+              "Acute Ischemic Stroke"
+            ],
+            "interventions": [
+              "The KPCXM18 injection",
+              "Placebo",
+              "The KPCXM18 injection"
+            ]
+          },
+          {
+            "nct_id": "NCT07422142",
+            "title": "A Phase I Clinical Study to Evaluate the Safety, Tolerability, and Pharmacokinetic Profile of Gastrodin Injection in Healthy Chinese Subjects",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "54",
+            "start_date": "2026-03-01",
+            "therapy_areas": [
+              "Other"
+            ],
+            "conditions": [
+              "Delirium"
+            ],
+            "interventions": [
+              "gastrodin injection；placebo",
+              "gastrodin injection；placebo"
+            ]
+          }
+        ],
+        "total": 3,
+        "preferredTrialNcts": [
+          "NCT07557927"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "iCell Gene Therapeutics",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Immunology & Inflammation",
+          "Renal & Urology"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07328581",
+            "title": "BCMA-CD19 cCAR T for the Treatment of Refractory Lupus",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "20",
+            "start_date": "2026-01",
+            "therapy_areas": [
+              "Cardiovascular",
+              "Immunology & Inflammation",
+              "Renal & Urology"
+            ],
+            "conditions": [
+              "Systemic Lupus Erythematosus (SLE)",
+              "Lupus Nephritis (LN)"
+            ],
+            "interventions": [
+              "ICG318, BCMA-CD19-IL-15/IL-15 sushi Compound CAR T following cyclophosphamide-only lymphodepletion"
+            ]
+          },
+          {
+            "nct_id": "NCT07544160",
+            "title": "BCMA-CD19 cCAR T for the Treatment of Refractory Inflammatory Bowel Disease (IBD)",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "18",
+            "start_date": "2026-04-07",
+            "therapy_areas": [
+              "Immunology & Inflammation"
+            ],
+            "conditions": [
+              "Inflammatory Bowel Diseases (IBD)"
+            ],
+            "interventions": [
+              "ICG318, BCMA-CD19-IL-15/IL-15 sushi Compound CAR T"
+            ]
+          }
+        ],
+        "total": 2,
+        "preferredTrialNcts": [
+          "NCT07544160"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Mage Biologics",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Dermatology",
+          "Immunology & Inflammation"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "Moldova"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07374471",
+            "title": "A Study of MB-001 in Moderately to Severely Active Ulcerative Colitis",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "100",
+            "start_date": "2026-04-01",
+            "therapy_areas": [
+              "Dermatology",
+              "Immunology & Inflammation"
+            ],
+            "conditions": [
+              "Ulcerative Colitis (UC)"
+            ],
+            "interventions": [
+              "MB-001",
+              "Matching placebo to MB-001"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07374471"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Cartesian Therapeutics",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Immunology & Inflammation",
+          "Neurology",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1, Phase 2",
+          "Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07089121",
+            "title": "Descartes-08 for Children, Adolescents, and Young Adults With Autoimmune Disorders",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "50",
+            "start_date": "2026-01-14",
+            "therapy_areas": [
+              "Cardiovascular",
+              "Immunology & Inflammation",
+              "Neurology"
+            ],
+            "conditions": [
+              "Childhood-onset Systemic Lupus Erythematous",
+              "ANCA-Associated Vasculitis (AAV)",
+              "Juvenile Myasthenia Gravis",
+              "Juvenile Dermatomyositis"
+            ],
+            "interventions": [
+              "Descartes-08"
+            ]
+          },
+          {
+            "nct_id": "NCT07391605",
+            "title": "Descartes-08 in Autoantibody Myositis",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "60",
+            "start_date": "2026-04-28",
+            "therapy_areas": [
+              "Immunology & Inflammation",
+              "Oncology"
+            ],
+            "conditions": [
+              "Antisynthetase Syndrome"
+            ],
+            "interventions": [
+              "Descartes-08",
+              "Placebo"
+            ]
+          }
+        ],
+        "total": 2,
+        "preferredTrialNcts": [
+          "NCT07391605"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "TrueLab Biopharmaceutical Co., Ltd",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Immunology & Inflammation",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07526519",
+            "title": "A Safety and Pharmacokinetics Study of TL-003 in Healthy Adults and Open-label Assessments in Participants With Ulcerative Colitis",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "48",
+            "start_date": "2026-04-08",
+            "therapy_areas": [
+              "Immunology & Inflammation",
+              "Vaccines"
+            ],
+            "conditions": [
+              "Healthy Volunteer"
+            ],
+            "interventions": [
+              "TL-003",
+              "Placebo"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07526519"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Alfasigma S.p.A.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Immunology & Inflammation",
+          "Musculoskeletal",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 3"
+        ],
+        "countries": [
+          "France",
+          "Germany",
+          "United Kingdom",
+          "Belgium",
+          "Croatia",
+          "Greece",
+          "Ireland",
+          "Italy",
+          "Norway",
+          "Poland",
+          "Portugal",
+          "Romania",
+          "Spain"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07553182",
+            "title": "OLE Study With Filgotinib in JIA",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "80",
+            "start_date": "2026-04-20",
+            "therapy_areas": [
+              "Cardiovascular",
+              "Immunology & Inflammation",
+              "Musculoskeletal"
+            ],
+            "conditions": [
+              "Juvenile Idiopathic Arthritis (JIA)"
+            ],
+            "interventions": [
+              "Filgotinib"
+            ]
+          },
+          {
+            "nct_id": "NCT06865417",
+            "title": "A Study Evaluating the Effects of Filgotinib in Children and Teenagers With Ulcerative Colitis",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "80",
+            "start_date": "2025-09-29",
+            "therapy_areas": [
+              "Immunology & Inflammation",
+              "Oncology"
+            ],
+            "conditions": [
+              "Ulcerative Colitis"
+            ],
+            "interventions": [
+              "Filgotinib"
+            ]
+          },
+          {
+            "nct_id": "NCT07554495",
+            "title": "Safety, Tolerability, Pharmacokinetics, and Efficacy of Filgotinib for the Treatment of Polyarticular-course Juvenile Idiopathic Arthritis in Children and Adolescents",
+            "phase": "Phase 3",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "65",
+            "start_date": "2026-05",
+            "therapy_areas": [
+              "Immunology & Inflammation",
+              "Musculoskeletal",
+              "Oncology"
+            ],
+            "conditions": [
+              "Polyarticular Course Juvenile Idiopathic Arthritis"
+            ],
+            "interventions": [
+              "Filgotinib"
+            ]
+          }
+        ],
+        "total": 3,
+        "preferredTrialNcts": [
+          "NCT07553182"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Parvus Therapeutics, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Immunology & Inflammation"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07423000",
+            "title": "A Phase 1 Study of PVT401 in Healthy Subjects",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "36",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Immunology & Inflammation"
+            ],
+            "conditions": [
+              "Inflammatory Bowel Disease (IBD)"
+            ],
+            "interventions": [
+              "PVT401",
+              "Normal Saline (0.9% NaCl)"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07423000"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "SciRhom GmbH",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Immunology & Inflammation",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "Georgia",
+          "Moldova",
+          "Romania"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07433335",
+            "title": "A Study to Assess the Safety and Tolerability of SR-878 in Patients With Rheumatoid Arthritis",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "27",
+            "start_date": "2026-04-07",
+            "therapy_areas": [
+              "Immunology & Inflammation",
+              "Oncology"
+            ],
+            "conditions": [
+              "Rheumatoid Arthritis"
+            ],
+            "interventions": [
+              "SR-878"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07433335"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Fresenius AG",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Immunology & Inflammation",
+          "Musculoskeletal"
+        ],
+        "phases": [
+          "Phase 2"
+        ],
+        "countries": [
+          "France"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07254637",
+            "title": "Tocilizumab in Chronic Inflammatory CPPD Disease",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "80",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Immunology & Inflammation",
+              "Musculoskeletal"
+            ],
+            "conditions": [
+              "Calcium Pyrophosphate Deposition Disease"
+            ],
+            "interventions": [
+              "Tocilizumab",
+              "Placebo"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07254637"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Quell Therapeutics Limited",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Immunology & Inflammation",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United Kingdom"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07473154",
+            "title": "Controlling Hyperactive Immunity With Long-lived Lymphocytes",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "16",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Cardiovascular",
+              "Immunology & Inflammation",
+              "Oncology"
+            ],
+            "conditions": [
+              "Diffuse Cutaneous Systemic Sclerosis",
+              "Rheumatoid Arthritis (RA)",
+              "Systemic Sclerosis (SSc)",
+              "Autoimmune Rheumatologic Disease"
+            ],
+            "interventions": [
+              "QEL-005"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07473154"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "iCAR Bio Therapeutics Ltd.",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Immunology & Inflammation"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07544160",
+            "title": "BCMA-CD19 cCAR T for the Treatment of Refractory Inflammatory Bowel Disease (IBD)",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "18",
+            "start_date": "2026-04-07",
+            "therapy_areas": [
+              "Immunology & Inflammation"
+            ],
+            "conditions": [
+              "Inflammatory Bowel Diseases (IBD)"
+            ],
+            "interventions": [
+              "ICG318, BCMA-CD19-IL-15/IL-15 sushi Compound CAR T"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07544160"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "MRM Health NV",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Immunology & Inflammation"
+        ],
+        "phases": [
+          "Phase 2"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07296315",
+            "title": "Confirmatory Clinical Study in Active Ulcerative Colitis",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "204",
+            "start_date": "2026-04-03",
+            "therapy_areas": [
+              "Immunology & Inflammation"
+            ],
+            "conditions": [
+              "Colitis, Ulcerative"
+            ],
+            "interventions": [
+              "Low-dose MH002",
+              "High-dose MH002",
+              "Placebo"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07296315"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      }
+    ],
+    "contacts": []
+  },
+  {
     "id": "cmp_1779102564495",
     "name": "Neurology_April2026",
     "owner": "Parth",
