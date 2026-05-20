@@ -443,45 +443,6 @@
         "contactsImported": false
       },
       {
-        "name": "iCAR Bio Therapeutics Ltd.",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Immunology & Inflammation"
-        ],
-        "phases": [
-          "Phase 1, Phase 2"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07544160",
-            "title": "BCMA-CD19 cCAR T for the Treatment of Refractory Inflammatory Bowel Disease (IBD)",
-            "phase": "Phase 1, Phase 2",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "18",
-            "start_date": "2026-04-07",
-            "therapy_areas": [
-              "Immunology & Inflammation"
-            ],
-            "conditions": [
-              "Inflammatory Bowel Diseases (IBD)"
-            ],
-            "interventions": [
-              "ICG318, BCMA-CD19-IL-15/IL-15 sushi Compound CAR T"
-            ]
-          }
-        ],
-        "total": 1,
-        "preferredTrialNcts": [
-          "NCT07544160"
-        ],
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "MRM Health NV",
         "org_type": "INDUSTRY",
         "funder_types": [],
