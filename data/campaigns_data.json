@@ -1,5 +1,889 @@
 [
   {
+    "id": "cmp_1779343553765",
+    "name": "Infectious Disease_April2026",
+    "owner": "Parth",
+    "area": "Infectious Disease",
+    "notes": "",
+    "status": "draft",
+    "created": "2026-05-21T06:05:53.765Z",
+    "companies": [
+      {
+        "name": "Ausper Biopharma Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Vaccines"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 1",
+          "N/A",
+          "Phase 2"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07246889",
+            "title": "Study of AHB-137 in Participants With Chronic Hepatitis B (CHB) Treated With Nucleos(t)Ide Analogues (NAs)(AUSHINE)",
+            "phase": "Phase 3",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "577",
+            "start_date": "2025-08-12",
+            "therapy_areas": [
+              "Infectious Disease"
+            ],
+            "conditions": [
+              "Chronic Hepatitis B"
+            ],
+            "interventions": [
+              "AHB-137",
+              "Placebo",
+              "NA therapy"
+            ]
+          },
+          {
+            "nct_id": "NCT07511218",
+            "title": "A Phase I Clinical Study of AHB - 171 in Healthy Participants(HP) and Chronic Hepatitis B (CHB) Participants",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "110",
+            "start_date": "2026-04-15",
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ],
+            "conditions": [
+              "Chronic Hepatitis B Infection"
+            ],
+            "interventions": [
+              "AHB-171 Injection",
+              "Placebo",
+              "Nucleos(t)ide Analogue (NA)"
+            ]
+          },
+          {
+            "nct_id": "NCT07146100",
+            "title": "Long-term Follow-up Study to Evaluate Participants With Chronic Hepatitis B (CHB) Previously Treated With AHB-137 Injection",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "200",
+            "start_date": "2025-08-28",
+            "therapy_areas": [
+              "Infectious Disease"
+            ],
+            "conditions": [
+              "Chronic Hepatitis B"
+            ],
+            "interventions": []
+          },
+          {
+            "nct_id": "NCT07137910",
+            "title": "A Study to Evaluate the Efficacy and Safety of AHB-137 Injection in Participants With Chronic Hepatitis B (CHB)",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "60",
+            "start_date": "2025-09-04",
+            "therapy_areas": [
+              "Infectious Disease"
+            ],
+            "conditions": [
+              "Chronic Hepatitis B"
+            ],
+            "interventions": [
+              "AHB-137"
+            ]
+          },
+          {
+            "nct_id": "NCT07069569",
+            "title": "A Multicenter Study of AHB-137 Injection Combined With Other Hepatitis B Drugs",
+            "phase": "Phase 2",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "127",
+            "start_date": "2025-05-30",
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ],
+            "conditions": [
+              "Chronic Hepatitis B"
+            ],
+            "interventions": [
+              "AHB-137",
+              "Peg-IFN",
+              "Hepatitis B Vaccine"
+            ]
+          },
+          {
+            "nct_id": "NCT06993480",
+            "title": "A Study to Evaluate the Antiviral Activity and Immune Response of AHB-137 Injection in Participants With Chronic Hepatitis B (CHB)",
+            "phase": "Phase 2",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "20",
+            "start_date": "2025-07-15",
+            "therapy_areas": [
+              "Infectious Disease"
+            ],
+            "conditions": [
+              "Chronic Hepatitis B"
+            ],
+            "interventions": [
+              "AHB-137"
+            ]
+          }
+        ],
+        "total": 6,
+        "preferredTrialNcts": [
+          "NCT07511218"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Amplexd Therapeutics, Inc.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease"
+        ],
+        "phases": [
+          "Phase 2"
+        ],
+        "countries": [
+          "Hong Kong"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07572396",
+            "title": "Phase II Study of Dysplasix™ Intravaginal Suppositories in Patients Patients With High-Risk HPV and Mild Cervical Cytologic Abnormalities",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "45",
+            "start_date": "2026-04-30",
+            "therapy_areas": [
+              "Infectious Disease"
+            ],
+            "conditions": [
+              "High-risk HPV (Any Strain)",
+              "LSIL, Low Grade Squamous Intraepithelial Lesion",
+              "ASC-US",
+              "HPV Infection",
+              "Cervical Abnormalities",
+              "Uterine Cervical Dysplasia"
+            ],
+            "interventions": [
+              "EGCG and Quinine Sulfate Vaginal Suppository",
+              "Placebo"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07572396"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Jecho Biopharmaceuticals Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1, Phase 2",
+          "Phase 1"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07579741",
+            "title": "A Study to Evaluate JL18008 in Subject With HIV Immunological Non-Responders",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "30",
+            "start_date": "2026-04-30",
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology"
+            ],
+            "conditions": [
+              "HIV Infections"
+            ],
+            "interventions": [
+              "JL18008 20 μg/kg",
+              "Placebo (for 20 μg/kg Group)",
+              "JL18008 40 μg/kg",
+              "Placebo (for 40 μg/kg Group)",
+              "JL18008 70 μg/kg",
+              "Placebo (for 70 μg/kg Group)"
+            ]
+          },
+          {
+            "nct_id": "NCT07501559",
+            "title": "A Phase Ib/II Clinical Trial to Evaluate the Safety and Efficacy of JL15003 Injection in Patients With Recurrent Glioblastoma (rGBM)",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "Recurrent Glioblastoma Multiforme(GBM)"
+            ],
+            "interventions": [
+              "JL15003Injection"
+            ]
+          },
+          {
+            "nct_id": "NCT07483970",
+            "title": "A Phase I/II Study of JL19001 Injection Alone or in Combination With BCG in Subjects With High Risk Non-Muscle Invasive Bladder Cancer.",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "18",
+            "start_date": "2026-03-30",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "High Risk Non-muscle Invasive Bladder Cancer"
+            ],
+            "interventions": [
+              "JL19001 Injection"
+            ]
+          }
+        ],
+        "total": 3,
+        "preferredTrialNcts": [
+          "NCT07579741"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "MAXVAX Biotechnology Limited Liability Company",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Vaccines",
+          "Infectious Disease"
+        ],
+        "phases": [
+          "Phase 3",
+          "Phase 1"
+        ],
+        "countries": [
+          "China",
+          "Australia"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07293065",
+            "title": "A Phase III Clinical Trial to Evaluate Long-Term Protective Efficacy of Recombinant Zoster Vaccine (CHO Cell)",
+            "phase": "Phase 3",
+            "status": "ACTIVE_NOT_RECRUITING",
+            "enrollment": "12000",
+            "start_date": "2025-12-15",
+            "therapy_areas": [
+              "Vaccines"
+            ],
+            "conditions": [
+              "Herpes Zoster"
+            ],
+            "interventions": [
+              "Recombinant Zoster Vaccine (CHO Cell)",
+              "NaCl solution Placebo"
+            ]
+          },
+          {
+            "nct_id": "NCT07272434",
+            "title": "Phase III Clinical Trial of the Recombinant Respiratory Syncytial Virus Vaccine ( CHO Cell)",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "25000",
+            "start_date": "2025-10-22",
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ],
+            "conditions": [
+              "Respiratory Syncytial Virus (RSV)"
+            ],
+            "interventions": [
+              "Recombinant Respiratory Syncytial Virus Vaccine (CHO Cell)",
+              "Placebo (Saline solution)"
+            ]
+          },
+          {
+            "nct_id": "NCT07492706",
+            "title": "Safety, Tolerability and Immunogenicity of a Maternal Respiratory Syncytial Virus (RSV) Vaccine (MKK900) in Healthy Adult Women",
+            "phase": "Phase 1",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "120",
+            "start_date": "2026-04-01",
+            "therapy_areas": [
+              "Infectious Disease",
+              "Vaccines"
+            ],
+            "conditions": [
+              "Respiratory Syncytial Virus (RSV)"
+            ],
+            "interventions": [
+              "MKK900 60 µg",
+              "MKK900 120 µg",
+              "ABRYSVO®"
+            ]
+          }
+        ],
+        "total": 3,
+        "preferredTrialNcts": [
+          "NCT07492706"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "ImmunityBio, Inc.",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Infectious Disease",
+          "Dermatology",
+          "Respiratory"
+        ],
+        "phases": [
+          "Phase 1",
+          "Phase 2",
+          "Phase 3",
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United States",
+          "South Africa"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07217496",
+            "title": "N-803 in Combination With Pembrolizumab and Enfortumab Vedotin for Treatment of Urothelial Cancer",
+            "phase": "Phase 1",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2026-02-15",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "Metastatic Urothelial Carcinoma",
+              "Urothelial Carcinoma",
+              "Locally Advanced Urothelial Carcinoma",
+              "Urothelial Cancer"
+            ],
+            "interventions": [
+              "Nogapendekin Alfa Inbakicept (N803)",
+              "Enfortumab Vedotin (EV)",
+              "Pembrolizumab",
+              "Research Biospecimen Collection",
+              "Radiographic Imaging",
+              "Tumor Biopsy"
+            ]
+          },
+          {
+            "nct_id": "NCT07108036",
+            "title": "A Study to Assess Anktiva in Patients With Long Covid-19.",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "20",
+            "start_date": "2025-11-14",
+            "therapy_areas": [
+              "Infectious Disease"
+            ],
+            "conditions": [
+              "Long COVID"
+            ],
+            "interventions": [
+              "N-803 (IL-15 Superagonist)"
+            ]
+          },
+          {
+            "nct_id": "NCT07123727",
+            "title": "A Study to Examine Anktiva for the Treatment of COVID-19.",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-09-04",
+            "therapy_areas": [
+              "Dermatology",
+              "Infectious Disease"
+            ],
+            "conditions": [
+              "Long COVID",
+              "Long COVID Syndrome",
+              "Long Covid 19"
+            ],
+            "interventions": [
+              "Anktiva"
+            ]
+          },
+          {
+            "nct_id": "NCT07355205",
+            "title": "First-Line Ipilimumab Plus Nivolumab and Nogapendekin Alfa Inbakicept (N-803) in Patients With Stage IV or Recurrent Non-Small Cell Lung Cancer",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "26",
+            "start_date": "2026-03-31",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "Non-small Cell Lung Cancer Stage IV",
+              "Non-small Cell Lung Cancer Recurrent"
+            ],
+            "interventions": [
+              "Ipilimumab",
+              "Nivolumab",
+              "Nogapendekin alfa inbakicept"
+            ]
+          },
+          {
+            "nct_id": "NCT06745908",
+            "title": "Clinical Trial of N-803 Plus Tislelizumab or Prior Failed Immune Checkpoint Inhibitor and Docetaxel Versus Docetaxel Monotherapy in Participants With Advanced or Metastatic Non-Small Cell Lung Cancer Who Have Acquired Resistance to Immune Checkpoint In",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "507",
+            "start_date": "2025-10-01",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "NSCLC Stage IV"
+            ],
+            "interventions": [
+              "N-803",
+              "Tislelizumab",
+              "Docetaxel",
+              "Prior failed checkpoint inhibitor"
+            ]
+          },
+          {
+            "nct_id": "NCT06800963",
+            "title": "ResQ133A-NMIBC: Intravesical Recombinant Mycobacterium (rMBCG) in Participants With NMIBC Eligible to Receive Intravesical Tice BCG",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "40",
+            "start_date": "2025-10-15",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "NMIBC"
+            ],
+            "interventions": [
+              "Intravesical Recombinant Mycobacterium (rMBCG)"
+            ]
+          },
+          {
+            "nct_id": "NCT07492888",
+            "title": "Nogapendekin Alfa-Inbakicept and iNKT Cells for Critically Ill Adults With Severe Community-Acquired Pneumonia (With or Without Sepsis/ARDS)",
+            "phase": "Phase 2",
+            "status": "WITHDRAWN",
+            "enrollment": "",
+            "start_date": "2026-04-15",
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology",
+              "Respiratory"
+            ],
+            "conditions": [
+              "Acute Respiratory Distress Syndrome",
+              "Severe Community-Acquired Pneum",
+              "Sepsis",
+              "Lymphopenia / Immunoparalysis in Critically Ill Adults"
+            ],
+            "interventions": [
+              "Nogapendekin Alfa-Inbakicept (NAI)",
+              "Allogeneic invariant Natural Killer T (iNKT) Cells (AgenT-797)"
+            ]
+          },
+          {
+            "nct_id": "NCT07477366",
+            "title": "Study of CD19 t-haNK and NAI With Rituximab in Participants With Indolent Non-Hodgkin Lymphoma",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "20",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "Relapsed B-Cell Non-Hodgkin Lymphoma"
+            ],
+            "interventions": [
+              "CD19 t-haNK- IV Administration",
+              "N-803",
+              "rituximab"
+            ]
+          },
+          {
+            "nct_id": "NCT05618925",
+            "title": "Study for Subjects With Relapsed/Refractory Non- Hodgkin Lymphoma",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "20",
+            "start_date": "2025-08-22",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "Non Hodgkin's Lymphoma Refractory/Relapsed"
+            ],
+            "interventions": [
+              "N803",
+              "CD19t-haNK suspension",
+              "Cyclophosphamide",
+              "Fludarabine",
+              "Rituximab"
+            ]
+          },
+          {
+            "nct_id": "NCT07125872",
+            "title": "Study of Relapsed/ Refractory B-cell Non- Hodgkin Lymphoma",
+            "phase": "Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "20",
+            "start_date": "2025-11-11",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "Relapsed B-Cell Non Hodgkin Lymphoma"
+            ],
+            "interventions": [
+              "CD19 t-haNK- IV Administration"
+            ]
+          }
+        ],
+        "total": 16,
+        "preferredTrialNcts": [
+          "NCT07492888"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Hyundai Bioscience Co., Ltd.",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease"
+        ],
+        "phases": [
+          "Phase 2, Phase 3"
+        ],
+        "countries": [
+          "Vietnam"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07576868",
+            "title": "A Study of CP-COV03 Compared With Placebo in Participants With Dengue (Part 1) and Dengue-like Illness (Part 2)",
+            "phase": "Phase 2, Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "210",
+            "start_date": "2026-04-09",
+            "therapy_areas": [
+              "Infectious Disease"
+            ],
+            "conditions": [
+              "Dengue"
+            ],
+            "interventions": [
+              "CP-COV03",
+              "Placebo"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07576868"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Trogenix ltd",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Oncology"
+        ],
+        "phases": [
+          "Phase 1, Phase 2"
+        ],
+        "countries": [
+          "United Kingdom",
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07346144",
+            "title": "Study of an AAV Mediated Dual-Payload Gene Therapy in Patients With High Grade Glioma",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "68",
+            "start_date": "2026-04-21",
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology"
+            ],
+            "conditions": [
+              "Glioblastoma (GBM)",
+              "High Grade Gliomas",
+              "Recurrent Glioblastoma",
+              "Newly Diagnosed Glioblastoma"
+            ],
+            "interventions": [
+              "TGX-007",
+              "Valaciclovir"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07346144"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Iterum Therapeutics, International Limited",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease"
+        ],
+        "phases": [
+          "Phase 1"
+        ],
+        "countries": [
+          "United States"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07092813",
+            "title": "Pharmacokinetics of Sulopenem Etzadroxil Plus Probenecid in Adolescents",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "12",
+            "start_date": "2026-04",
+            "therapy_areas": [
+              "Infectious Disease"
+            ],
+            "conditions": [
+              "Pharmacokinetics After Oral Intake"
+            ],
+            "interventions": [
+              "sulopenem etzadroxil and probenecid"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT07092813"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Huahui Health",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Oncology",
+          "Vaccines",
+          "Other",
+          "Infectious Disease"
+        ],
+        "phases": [
+          "Phase 1, Phase 2",
+          "Phase 3",
+          "Phase 2"
+        ],
+        "countries": [
+          "China"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07547553",
+            "title": "A Phase Ib/II Trial to Evaluate the Efficacy and Safety of HH-009 for the Treatment of FGF19-positive Advanced or Unresectable HCC",
+            "phase": "Phase 1, Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "30",
+            "start_date": "2026-04-10",
+            "therapy_areas": [
+              "Oncology",
+              "Vaccines"
+            ],
+            "conditions": [
+              "Advanced or Unresectable Hepatocellular Carcinoma (HCC)"
+            ],
+            "interventions": [
+              "Will receive HH-009 injection 20 mg/kg, Q3W",
+              "Will receive HH-009 injection 30 mg/kg, Q3W"
+            ]
+          },
+          {
+            "nct_id": "NCT07499544",
+            "title": "A Phase III Study to Evaluate the Efficacy and Safety of Libevitug in Participants With Chronic HDV Infection (D-clear Study)",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "160",
+            "start_date": "2026-04-22",
+            "therapy_areas": [
+              "Other"
+            ],
+            "conditions": [
+              "Chronic Hepatitis D Infection"
+            ],
+            "interventions": [
+              "Libevitug 20 mg/kg",
+              "Libevitug 10 mg/kg",
+              "Delayed treatment with libevitug"
+            ]
+          },
+          {
+            "nct_id": "NCT07519330",
+            "title": "Clinical Study to Evaluate the Efficacy and Safety of HH-006 in Patients With Chronic Hepatitis B Virus Infection",
+            "phase": "Phase 2",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "45",
+            "start_date": "2026-04-29",
+            "therapy_areas": [
+              "Infectious Disease",
+              "Oncology"
+            ],
+            "conditions": [
+              "Chronic Hepatitis B Virus Infection"
+            ],
+            "interventions": [
+              "HH-006"
+            ]
+          }
+        ],
+        "total": 3,
+        "preferredTrialNcts": [
+          "NCT07519330"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Exeltis",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Musculoskeletal",
+          "Oncology",
+          "Women's Health"
+        ],
+        "phases": [
+          "Phase 4"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT06856174",
+            "title": "Menopausal HT for Women Living With HIV (HoT)",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "105",
+            "start_date": "2026-04-30",
+            "therapy_areas": [
+              "Infectious Disease",
+              "Musculoskeletal",
+              "Oncology",
+              "Women's Health"
+            ],
+            "conditions": [
+              "HIV Infection",
+              "Menopause"
+            ],
+            "interventions": [
+              "Transdermal estradiol gel",
+              "Micronized Progesterone",
+              "Placebo for estradiol gel",
+              "Placebo for micronized progesterone"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT06856174"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      },
+      {
+        "name": "Xiromed LLC",
+        "org_type": "OTHER",
+        "funder_types": [],
+        "therapy_areas": [
+          "Infectious Disease",
+          "Musculoskeletal",
+          "Oncology",
+          "Women's Health"
+        ],
+        "phases": [
+          "Phase 4"
+        ],
+        "countries": [],
+        "trials": [
+          {
+            "nct_id": "NCT06856174",
+            "title": "Menopausal HT for Women Living With HIV (HoT)",
+            "phase": "Phase 4",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "105",
+            "start_date": "2026-04-30",
+            "therapy_areas": [
+              "Infectious Disease",
+              "Musculoskeletal",
+              "Oncology",
+              "Women's Health"
+            ],
+            "conditions": [
+              "HIV Infection",
+              "Menopause"
+            ],
+            "interventions": [
+              "Transdermal estradiol gel",
+              "Micronized Progesterone",
+              "Placebo for estradiol gel",
+              "Placebo for micronized progesterone"
+            ]
+          }
+        ],
+        "total": 1,
+        "preferredTrialNcts": [
+          "NCT06856174"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      }
+    ],
+    "contacts": []
+  },
+  {
     "id": "cmp_1779218894399",
     "name": "Immunology_April2026",
     "owner": "Parth",
