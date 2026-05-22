@@ -418,6 +418,27 @@ function initGitHubSync() {
   renderSyncStatus('offline');
 }
 
+// If the user navigates away while a debounced push is pending, flush it
+// synchronously so the latest local changes are pushed before the page
+// unloads. The localStorage cache is the source of truth even if the
+// push doesn't complete — the pumas_campaigns_pending_push flag ensures
+// the NEXT load won't overwrite local with stale remote.
+window.addEventListener('beforeunload', () => {
+  if (GH.configured && GH.saveTimer) {
+    clearTimeout(GH.saveTimer);
+    // Fire-and-forget; the browser may or may not finish the request,
+    // but the pending flag in localStorage handles the case where it
+    // doesn't.
+    try { saveToGitHub(); } catch(_) {}
+  }
+});
+
+// Decode base64 content using the same UTF-8-safe idiom used by saveToGitHub
+// so the round-trip is byte-exact. Returns the decoded UTF-8 text.
+function _ghDecodeBase64(b64) {
+  return decodeURIComponent(escape(atob((b64 || '').replace(/\s/g, ''))));
+}
+
 async function fetchFromGitHub(silent = false) {
   if (!GH.configured) return;
   if (!silent) renderSyncStatus('syncing');
@@ -434,12 +455,63 @@ async function fetchFromGitHub(silent = false) {
     if (!r.ok) throw new Error('GitHub API ' + r.status);
     const data = await r.json();
     const remoteSha = data.sha;
-    // Only update local data if remote has changed
-    if (remoteSha !== GH.sha) {
-      GH.sha = remoteSha;
-      const decoded = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\s/g, '')))));
-      const remoteJson = JSON.stringify(decoded);
-      if (remoteJson !== JSON.stringify(campaigns)) {
+
+    // Same SHA → remote unchanged, fast path.
+    if (remoteSha === GH.sha) {
+      GH.lastSync = new Date();
+      renderSyncStatus('synced');
+      return;
+    }
+
+    // Decode remote content. For files >1MB, the Contents API returns
+    // `content: ""` with `encoding: "none"` and points to the actual blob
+    // via `git_url`. We must fetch the blob in that case. This was the
+    // root cause of the "Unexpected end of JSON input" failure: the old
+    // code blindly base64-decoded the empty content and JSON.parse('')
+    // threw — and then GH.sha was already bumped, so subsequent polls
+    // also failed because the same bad path repeated.
+    let rawText = '';
+    const inline = (data.content || '').replace(/\s/g, '');
+    if (inline && data.encoding === 'base64') {
+      rawText = _ghDecodeBase64(inline);
+    } else if (data.git_url) {
+      // Large-file path: fetch the blob via Git Database API. Works for
+      // private repos with the same PAT used above.
+      const blobR = await fetch(data.git_url, {
+        headers: { Authorization: `token ${GH.pat}`, Accept: 'application/vnd.github.v3+json' }
+      });
+      if (!blobR.ok) throw new Error('Blob fetch failed: ' + blobR.status);
+      const blob = await blobR.json();
+      if (!blob || !blob.content) throw new Error('Blob returned no content');
+      rawText = _ghDecodeBase64(blob.content);
+    } else if (data.download_url) {
+      // Public-repo fallback: raw URL (no auth header needed for public)
+      const dl = await fetch(data.download_url);
+      if (!dl.ok) throw new Error('Raw fetch failed: ' + dl.status);
+      rawText = await dl.text();
+    } else {
+      throw new Error('Remote has no content and no blob URL (file may be empty)');
+    }
+
+    if (!rawText) throw new Error('Remote content is empty after decode');
+
+    let decoded;
+    try { decoded = JSON.parse(rawText); }
+    catch (e) { throw new Error('Failed to parse remote JSON: ' + e.message); }
+
+    const remoteJson = JSON.stringify(decoded);
+
+    // Only update local data if remote actually differs
+    if (remoteJson !== JSON.stringify(campaigns)) {
+      // CRITICAL: if local has unpushed changes (e.g., the user refreshed
+      // during the debounced push window), do NOT overwrite local with the
+      // remote — push local up instead.
+      const localPending = localStorage.getItem('pumas_campaigns_pending_push') === '1';
+      if (localPending) {
+        if (!silent) showToast('Local changes pending — pushing to GitHub instead of pulling');
+        clearTimeout(GH.saveTimer);
+        GH.saveTimer = setTimeout(saveToGitHub, 50);
+      } else {
         campaigns = decoded;
         localStorage.setItem('pumas_campaigns', remoteJson);
         renderSidebar();
@@ -450,14 +522,22 @@ async function fetchFromGitHub(silent = false) {
         }
       }
     }
+
+    // Only bump GH.sha after successful decode + handling. If we updated
+    // it earlier (as the previous code did) a transient decode failure
+    // would lock us out of all future fetches because remoteSha would
+    // then equal GH.sha and we'd skip the retry path.
+    GH.sha = remoteSha;
     GH.lastSync = new Date();
     renderSyncStatus('synced');
   } catch(e) {
+    // Local data is the source of truth on fetch failure. Don't touch
+    // localStorage or campaigns. The next poll (60s) or save will retry.
     renderSyncStatus('error', e.message);
   }
 }
 
-async function saveToGitHub() {
+async function saveToGitHub(retryCount = 0) {
   if (!GH.configured || GH.syncing) return;
   GH.syncing = true;
   renderSyncStatus('syncing');
@@ -474,19 +554,30 @@ async function saveToGitHub() {
         headers: { Authorization: `token ${GH.pat}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
         body: JSON.stringify(body) }
     );
-    if (r.status === 409) {
-      // Conflict: someone else saved first — re-fetch then retry
+    // 409 Conflict OR 422 Unprocessable (stale or missing sha) → resync
+    // the remote sha and retry once. Bounded to prevent infinite loops
+    // when fetch itself is failing (e.g. file >1MB AND blob URL also
+    // refuses — keep local as source of truth).
+    if (r.status === 409 || r.status === 422) {
       GH.syncing = false;
+      if (retryCount >= 2) {
+        throw new Error('GitHub save failed after retries: ' + r.status);
+      }
       await fetchFromGitHub(true);
-      await saveToGitHub();
+      await saveToGitHub(retryCount + 1);
       return;
     }
     if (!r.ok) throw new Error('GitHub save failed: ' + r.status);
     const data = await r.json();
     GH.sha = data.content.sha;
     GH.lastSync = new Date();
+    // Push succeeded — local now matches remote, clear the pending flag.
+    try { localStorage.removeItem('pumas_campaigns_pending_push'); } catch(_){}
     renderSyncStatus('synced');
   } catch(e) {
+    // Push failed: leave pumas_campaigns_pending_push set so a future
+    // fetchFromGitHub won't overwrite local with stale remote, and the
+    // next saveCampaigns will trigger another push attempt.
     renderSyncStatus('error', e.message);
   } finally {
     GH.syncing = false;
@@ -568,9 +659,15 @@ function saveGitHubSettings() {
 // ────────────────────────────────────────────────────────────────────────────
 function saveCampaigns() {
   localStorage.setItem('pumas_campaigns', JSON.stringify(campaigns)); // instant local cache
+  // Mark that local has unpushed changes. Persisted across page reloads so
+  // that if the user refreshes before the debounced GitHub push fires, the
+  // next session knows local is ahead of remote and must NOT be overwritten
+  // by a stale fetchFromGitHub. (Without this flag, refreshing within the
+  // debounce window silently lost drafts, edits, approvals, and contacts.)
   if (GH.configured) {
+    try { localStorage.setItem('pumas_campaigns_pending_push', '1'); } catch(_){}
     clearTimeout(GH.saveTimer);
-    GH.saveTimer = setTimeout(saveToGitHub, 1500); // debounce: wait 1.5s before pushing to GitHub
+    GH.saveTimer = setTimeout(saveToGitHub, 600); // debounce: wait 600ms before pushing to GitHub
   }
 }
 
