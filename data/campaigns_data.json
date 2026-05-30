@@ -6874,46 +6874,6 @@
         "contactsImported": false
       },
       {
-        "name": "AnHeart Therapeutics Inc.",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology"
-        ],
-        "phases": [
-          "Phase 2"
-        ],
-        "countries": [
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT06214793",
-            "title": "Taletrectinib in Previously Treated Metastatic CDH1-mutated Invasive Lobular Cancer (ILC)",
-            "phase": "Phase 2",
-            "status": "SUSPENDED",
-            "enrollment": "61",
-            "start_date": "2026-04",
-            "therapy_areas": [
-              "Oncology"
-            ],
-            "conditions": [
-              "Breast Cancer",
-              "Metastatic Breast Cancer"
-            ],
-            "interventions": [
-              "Taletrectinib"
-            ]
-          }
-        ],
-        "total": 1,
-        "preferredTrialNcts": [
-          "NCT06214793"
-        ],
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Aspera Biomedicines, Inc.",
         "org_type": "INDUSTRY",
         "funder_types": [],
