@@ -6151,52 +6151,6 @@
         "contactsImported": false
       },
       {
-        "name": "Regor Pharmaceuticals Inc.",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology",
-          "Women's Health"
-        ],
-        "phases": [
-          "Phase 1"
-        ],
-        "countries": [
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07524322",
-            "title": "Study of RGT-490 in Patients With PIK3CA-Mutated Advanced Solid Tumors",
-            "phase": "Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "63",
-            "start_date": "2026-04",
-            "therapy_areas": [
-              "Oncology",
-              "Women's Health"
-            ],
-            "conditions": [
-              "Breast Cancer",
-              "Ovarian Cancer",
-              "Endometrial Cancer",
-              "PIK3CA Mutation",
-              "HER2- Negative Breast Cancer",
-              "Advanced Breast Cancer"
-            ],
-            "interventions": [
-              "RGT-490"
-            ]
-          }
-        ],
-        "total": 1,
-        "preferredTrialNcts": [
-          "NCT07524322"
-        ],
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Cartesian Therapeutics",
         "org_type": "INDUSTRY",
         "funder_types": [],
