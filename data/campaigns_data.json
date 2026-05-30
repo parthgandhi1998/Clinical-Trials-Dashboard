@@ -3632,47 +3632,6 @@
         "contactsImported": false
       },
       {
-        "name": "CARsgen Life Sciences Co.,Ltd.",
-        "org_type": "OTHER",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology"
-        ],
-        "phases": [
-          "EARLY/Phase 1"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07548697",
-            "title": "A Clinical Study Exploring the Safety, Efficacy and Metabolic Kinetics of CT1182 Injection in Patients With Relapsed / Refractory Non Hodgkin Lymphoma",
-            "phase": "EARLY/Phase 1",
-            "status": "RECRUITING",
-            "enrollment": "24",
-            "start_date": "2026-04-30",
-            "therapy_areas": [
-              "Oncology"
-            ],
-            "conditions": [
-              "B-cell Non Hodgkin Lymphoma (NHL)",
-              "DLBCL - Diffuse Large B Cell Lymphoma",
-              "Follicular Lymphoma (FL)"
-            ],
-            "interventions": [
-              "CT1182 injection"
-            ]
-          }
-        ],
-        "total": 1,
-        "preferredTrialNcts": [
-          "NCT07548697"
-        ],
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Janux Therapeutics",
         "org_type": "INDUSTRY",
         "funder_types": [],
