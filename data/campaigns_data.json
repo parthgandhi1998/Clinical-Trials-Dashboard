@@ -5683,53 +5683,6 @@
         "contactsImported": false
       },
       {
-        "name": "Dartsbio Pharmaceuticals Ltd.",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Oncology"
-        ],
-        "phases": [
-          "Phase 1, Phase 2"
-        ],
-        "countries": [
-          "China"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT07530666",
-            "title": "Study of the Safety and Efficacy of DS010 in Patients With Cancer Cachexia",
-            "phase": "Phase 1, Phase 2",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "58",
-            "start_date": "2026-04-30",
-            "therapy_areas": [
-              "Oncology"
-            ],
-            "conditions": [
-              "Cancer",
-              "Cachexia"
-            ],
-            "interventions": [
-              "DS010 injection",
-              "DS010 injection",
-              "DS010 injection",
-              "DS010 injection",
-              "DS010 injection",
-              "DS010 injection",
-              "DS010 injection",
-              "DS010 injection"
-            ]
-          }
-        ],
-        "total": 1,
-        "preferredTrialNcts": [
-          "NCT07530666"
-        ],
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Exscientia AI Ltd., a wholly owned subsidiary of Recursion Pharmaceuticals, Inc.",
         "org_type": "INDUSTRY",
         "funder_types": [],
