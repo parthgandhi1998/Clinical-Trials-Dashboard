@@ -3533,72 +3533,6 @@
         "contactsImported": false
       },
       {
-        "name": "SetPoint Medical Corporation",
-        "org_type": "INDUSTRY",
-        "funder_types": [],
-        "therapy_areas": [
-          "Dermatology",
-          "Neurology",
-          "Oncology",
-          "Immunology & Inflammation"
-        ],
-        "phases": [
-          "NA",
-          "N/A"
-        ],
-        "countries": [
-          "United States"
-        ],
-        "trials": [
-          {
-            "nct_id": "NCT06796504",
-            "title": "The SetPoint System as a Pro-Remyelination Therapy for Relapsing-Remitting Multiple Sclerosis: A Pilot Study",
-            "phase": "NA",
-            "status": "RECRUITING",
-            "enrollment": "60",
-            "start_date": "2026-04-17",
-            "therapy_areas": [
-              "Dermatology",
-              "Neurology",
-              "Oncology"
-            ],
-            "conditions": [
-              "Relapsing Remitting Multiple Sclerosis"
-            ],
-            "interventions": [
-              "Procedure/Surgery: Implant Procedure",
-              "Disease-Modifying Therapies (DMTs)",
-              "Device: Active stimulation",
-              "Device: Non-active stimulation"
-            ]
-          },
-          {
-            "nct_id": "NCT07489326",
-            "title": "The SetPoint System Safety & Performance Post-Approval Study",
-            "phase": "N/A",
-            "status": "NOT_YET_RECRUITING",
-            "enrollment": "150",
-            "start_date": "2026-04-15",
-            "therapy_areas": [
-              "Immunology & Inflammation",
-              "Oncology"
-            ],
-            "conditions": [
-              "Rheumatoid Arthritis"
-            ],
-            "interventions": [
-              "SetPoint System"
-            ]
-          }
-        ],
-        "total": 2,
-        "preferredTrialNcts": [
-          "NCT06796504"
-        ],
-        "contacts": [],
-        "contactsImported": false
-      },
-      {
         "name": "Bausch Health Americas, Inc.",
         "org_type": "INDUSTRY",
         "funder_types": [],
@@ -14675,13 +14609,13 @@
         "drafts": {
           "subject1": "NCT07433335: Early-Phase PK & Dose Characterization",
           "email1": "Hi Juergen,\n\nI came across NCT07433335, your Phase 1 study of SR-878 in Rheumatoid Arthritis, and wanted to reach out.\n\nPhase 1 oncology programs like this one are where the PK characterization and dose-escalation design shape everything downstream. With 27 patients, you have a limited dataset due to small cohort size. That is exactly where Bayesian approaches, ML-augmented methods, and adaptive modeling extract maximum signal from fewer subjects and strengthen the dose-escalation narrative. For a novel agent like SR-878, getting the exposure-safety relationship characterized now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: NCA, PopPK, dose-escalation modeling, PK/PD characterization, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit?",
-          "email1Approved": false,
+          "email1Approved": true,
           "subject2": "Re: NCT07433335: Early-Phase PK & Dose Characterization",
           "fu1": "Hi Juergen,\n\nWanted to follow up briefly on my earlier note about NCT07433335.\n\nOne thing I often hear from Phase 1 teams is that PK data interpretation bottlenecks the dose decision timeline. Our modeling platform compresses turnaround from weeks to days. Worth 15 minutes to walk through how?\n\nWe recently supported a Phase 1 FIH program where our NCA + PopPK package directly informed the dose-escalation committee, getting to RP2D two months ahead of the original timeline. Would it be worth 15 minutes to see if the timing works for SciRhom GmbH?",
-          "fu1Approved": false,
+          "fu1Approved": true,
           "subject3": "Last note for SciRhom GmbH",
           "fu2": "Hi Juergen,\n\nI know your inbox is full, so this will be my last note on NCT07433335.\n\nIf you ever need support with PK analysis, dose escalation modeling, or putting together the early-phase regulatory package for Rheumatoid Arthritis, we're a call away.\n\nIf the timing isn't right, completely understood. We work with teams at every stage of development, so feel free to reach out whenever it makes sense.\n\nWishing you and the SciRhom GmbH team every success with NCT07433335.",
-          "fu2Approved": false,
+          "fu2Approved": true,
           "linkedin": "Hi Juergen, I noticed SciRhom GmbH is running NCT07433335, a Phase 1 Immunology & Inflammation, Oncology trial. At PumasAI, we help teams like yours with Phase 1 PK characterization, NCA, and dose-escalation modeling. Would a quick chat be useful?"
         },
         "lastContacted": null,
@@ -14699,13 +14633,13 @@
         "drafts": {
           "subject1": "NCT07433335: Early-Phase PK & Dose Characterization",
           "email1": "Hi Matthias,\n\nI came across NCT07433335, your Phase 1 study of SR-878 in Rheumatoid Arthritis, and wanted to reach out.\n\nPhase 1 oncology programs like this one are where the PK characterization and dose-escalation design shape everything downstream. With 27 patients, you have a limited dataset due to small cohort size. That is exactly where Bayesian approaches, ML-augmented methods, and adaptive modeling extract maximum signal from fewer subjects and strengthen the dose-escalation narrative. For a novel agent like SR-878, getting the exposure-safety relationship characterized now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: NCA, PopPK, dose-escalation modeling, PK/PD characterization, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit?",
-          "email1Approved": false,
+          "email1Approved": true,
           "subject2": "Re: NCT07433335: Early-Phase PK & Dose Characterization",
           "fu1": "Hi Matthias,\n\nWanted to follow up briefly on my earlier note about NCT07433335.\n\nOne thing I often hear from Phase 1 teams is that PK data interpretation bottlenecks the dose decision timeline. Our modeling platform compresses turnaround from weeks to days. Worth 15 minutes to walk through how?\n\nWe recently supported a Phase 1 FIH program where our NCA + PopPK package directly informed the dose-escalation committee, getting to RP2D two months ahead of the original timeline. Would it be worth 15 minutes to see if the timing works for SciRhom GmbH?",
-          "fu1Approved": false,
+          "fu1Approved": true,
           "subject3": "Last note for SciRhom GmbH",
           "fu2": "Hi Matthias,\n\nI know your inbox is full, so this will be my last note on NCT07433335.\n\nIf you ever need support with PK analysis, dose escalation modeling, or putting together the early-phase regulatory package for Rheumatoid Arthritis, we're a call away.\n\nIf the timing isn't right, completely understood. We work with teams at every stage of development, so feel free to reach out whenever it makes sense.\n\nWishing you and the SciRhom GmbH team every success with NCT07433335.",
-          "fu2Approved": false,
+          "fu2Approved": true,
           "linkedin": "Hi Matthias, I noticed SciRhom GmbH is running NCT07433335, a Phase 1 Immunology & Inflammation, Oncology trial. At PumasAI, we help teams like yours with Phase 1 PK characterization, NCA, and dose-escalation modeling. Would a quick chat be useful?"
         },
         "lastContacted": null,
@@ -14723,13 +14657,13 @@
         "drafts": {
           "subject1": "NCT07433335: Early-Phase PK & Dose Characterization",
           "email1": "Hi Jan,\n\nI came across NCT07433335, your Phase 1 study of SR-878 in Rheumatoid Arthritis, and wanted to reach out.\n\nPhase 1 oncology programs like this one are where the PK characterization and dose-escalation design shape everything downstream. With 27 patients, you have a limited dataset due to small cohort size. That is exactly where Bayesian approaches, ML-augmented methods, and adaptive modeling extract maximum signal from fewer subjects and strengthen the dose-escalation narrative. For a novel agent like SR-878, getting the exposure-safety relationship characterized now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.\n\nOur team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: NCA, PopPK, dose-escalation modeling, PK/PD characterization, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit?",
-          "email1Approved": false,
+          "email1Approved": true,
           "subject2": "Re: NCT07433335: Early-Phase PK & Dose Characterization",
           "fu1": "Hi Jan,\n\nWanted to follow up briefly on my earlier note about NCT07433335.\n\nOne thing I often hear from Phase 1 teams is that PK data interpretation bottlenecks the dose decision timeline. Our modeling platform compresses turnaround from weeks to days. Worth 15 minutes to walk through how?\n\nWe recently supported a Phase 1 FIH program where our NCA + PopPK package directly informed the dose-escalation committee, getting to RP2D two months ahead of the original timeline. Would it be worth 15 minutes to see if the timing works for SciRhom GmbH?",
-          "fu1Approved": false,
+          "fu1Approved": true,
           "subject3": "Last note for SciRhom GmbH",
           "fu2": "Hi Jan,\n\nI know your inbox is full, so this will be my last note on NCT07433335.\n\nIf you ever need support with PK analysis, dose escalation modeling, or putting together the early-phase regulatory package for Rheumatoid Arthritis, we're a call away.\n\nIf the timing isn't right, completely understood. We work with teams at every stage of development, so feel free to reach out whenever it makes sense.\n\nWishing you and the SciRhom GmbH team every success with NCT07433335.",
-          "fu2Approved": false,
+          "fu2Approved": true,
           "linkedin": "Hi Jan, I noticed SciRhom GmbH is running NCT07433335, a Phase 1 Immunology & Inflammation, Oncology trial. At PumasAI, we help teams like yours with Phase 1 PK characterization, NCA, and dose-escalation modeling. Would a quick chat be useful?"
         },
         "lastContacted": null,
