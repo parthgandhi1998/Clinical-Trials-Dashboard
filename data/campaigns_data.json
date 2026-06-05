@@ -13115,13 +13115,13 @@
         "drafts": {
           "subject1": "NCT07474727: Exposure-Response & Phase 3 Dose Rationale",
           "email1": "Hi Shu-Hui,\n\nI came across NCT07474727, your Phase 2 study to evaluate the safety, tolerability and efficacy of AMT-676 combined with 5-fluorouracil, leucovorin, bevacizumab (or cetuximab) in participants with advanced colorectal cancer.<div>\nPhase 2 is where the exposure-response relationship becomes the central question. For AMT-676, the E-R for both efficacy and toxicity needs to be well-characterized before committing to a Phase 3 dose. Increasingly, FDA expects a rigorous E-R package before you even start the pivotal trial. With 180 patients, you'll have a dataset that supports a strong PopPK/PD model. Getting that analysis right now is often the difference between a clean Phase 3 dose rationale and a regulatory back-and-forth that delays the pivotal trial.\n\nOur team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: PopPK, exposure-response, dose optimization, clinical trial simulation, and regulatory writing through submission.\n\nWould a short call make sense to see if there's a fit?</div>",
-          "email1Approved": false,
+          "email1Approved": true,
           "subject2": "Re: NCT07474727: Exposure-Response & Phase 3 Dose Rationale",
           "fu1": "Hi Shu-Hui,\n\nWanted to follow up briefly on my earlier note about NCT07474727.\n\nThe difference between a smooth Phase 3 launch and a prolonged FDA review often comes down to the E-R analysis quality in Phase 2. For AMT-676, 5-FU, the therapeutic window characterization is particularly critical. Worth a short conversation to see if it lines up with where your team is right now?\n\nWe recently completed an exposure-response analysis for a Phase 2 asset that directly informed the pivotal trial dose selection, which the sponsor said helped them avoid a Phase 3 protocol amendment. Would it be worth 15 minutes to see if the timing works for Multitude Therapeutics Inc.?",
-          "fu1Approved": false,
+          "fu1Approved": true,
           "subject3": "Last note for Multitude Therapeutics Inc.",
           "fu2": "Hi Shu-Hui,\n\nI know your inbox is full, so this will be my last note on NCT07474727.\n\nIf a need for PopPK, E-R modeling, or Phase 3 dose justification for Colorectal Cancer comes up down the road, please don't hesitate to reach out.\n\nIf the timing isn't right, completely understood. We work with teams at every stage of development, so feel free to reach out whenever it makes sense.\n\nWishing you and the Multitude Therapeutics Inc. team every success with NCT07474727.",
-          "fu2Approved": false,
+          "fu2Approved": true,
           "linkedin": "Hi Shu-Hui, I noticed Multitude Therapeutics Inc. is running NCT07474727, a Phase 2 Oncology, Vaccines trial. At PumasAI, we help teams like yours with Phase 2 exposure-response modeling and Phase 3 dose justification. Would a quick chat be useful?"
         },
         "lastContacted": null,
