@@ -16,7 +16,7 @@
         "company": "Canget Biotekpharma LLC",
         "email": "fengzhi.li@canget-biotek.com",
         "linkedin": "https://www.linkedin.com/in/fengzhi-li-2318a7401",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Canget Biotekpharma LLC: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Fengzhi,\n\nCongratulations on the Orphan Drug and Rare Pediatric Disease designations for FL118 in osteosarcoma! <div><br></div><div>Rare and pediatric oncology programs lean heavily on modeling — small populations mean extrapolation, pediatric dose projection, and exposure-response analysis often have to do the work that large trials would otherwise.</div><div><br><div>PumasAI supports orphan and pediatric programs with the popPK, pediatric extrapolation, and exposure-response modeling that regulators expect when patient numbers are limited. As a Roswell Park spinout moving FL118 forward, this is a natural function to bring in rather than build.</div><div><br></div><div>A practical first step: a modeling and pediatric extrapolation strategy to support FL118's development and regulatory interactions.\n\nWould a short call make sense to see how we can support?</div></div>",
@@ -29,8 +29,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Fengzhi, I noticed Canget Biotekpharma LLC is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
