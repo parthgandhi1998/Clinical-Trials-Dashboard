@@ -184,7 +184,7 @@
         "company": "Formycon",
         "email": "michael.trieb@formycon.com",
         "linkedin": "https://www.linkedin.com/in/michael-trieb-8a685718",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Formycon: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Michael,\n\nCongratulations on the FYB206 Dahlia readout showing PK equivalence to the reference product — and on aligning a streamlined program with FDA! <div><br></div><div>As the agency leans further into PK-based biosimilar approvals, the rigor of the similarity statistics carries even more weight in the review.</div><div><br><div>PumasAI does PK similarity assessment and biosimilar bridging analysis, including the equivalence-margin work and population PK modeling that support a streamlined, Phase-3-light filing. We've supported biosimilar and generic developers on this kind of package.</div><div><br></div><div>Would a short call make sense to see how we can support?</div></div>",
@@ -197,8 +197,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Michael, I noticed Formycon is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
