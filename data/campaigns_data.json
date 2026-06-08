@@ -400,7 +400,7 @@
         "company": "Atrogi",
         "email": "paul@atrogi.com",
         "linkedin": "https://www.linkedin.com/in/paulbrianlittle",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Atrogi: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Paul,\n\nCongratulations on dosing the first subjects in the ATR-258 Phase 1! <div><br></div><div>A biased β2-agonist in the metabolic space is exactly the kind of asset where early popPK/PD and exposure-response work pays off — defining the dose for your next study while the Phase 1 data are still coming in.</div><div><br><div>PumasAI runs population PK/PD and exposure-response analyses for metabolic and obesity programs, working as your extended clin-pharm team so smaller biotechs don't have to build the function internally. We can model your emerging Phase 1 data to inform Phase 2 dose selection.</div><div><br></div><div>A useful first step: a popPK/PD plan tied to your Phase 1 readout and Phase 2 dose rationale. Would a brief call be helpful to see how we can partner to enable your clinical development program?</div></div>",
@@ -413,8 +413,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Paul, I noticed Atrogi is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -424,7 +424,7 @@
         "company": "Artbio",
         "email": "conrad.wueller@artbio.com",
         "linkedin": "https://www.linkedin.com/in/conrad-wueller",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Artbio: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Conrad,\n\nCongratulations on the AB001 IND clearance. Radioligand therapy carries a distinctive clin-pharm burden — biodistribution, dosimetry, and PK have to be modeled together to set a safe, effective activity level, and that's rarely a function early teams staff internally.\n<div>\n</div><div>PumasAI supports radiopharmaceutical programs with the PK/dosimetry modeling and Phase 1 design work that underpins dose decisions for alpha emitters. We can help turn your biodistribution data into a defensible escalation scheme and the clin-pharm package FDA will expect.\n</div><div>\n</div><div>A concrete first step: a Phase 1 dosimetry-informed PK modeling and dose-escalation plan for AB001.\n</div><div>\n</div><div>Could we grab 30-45 minutes to talk through your biodistribution, dosimetry, and PK approach?</div>",
@@ -437,8 +437,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Conrad, I noticed Artbio is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -448,7 +448,7 @@
         "company": "ARTbio",
         "email": "francis.payumo@artbio.fr",
         "linkedin": "https://www.linkedin.com/in/fpayumo",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "ARTbio: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Francis,\n\nCongratulations on the AB001 IND clearance. Radioligand therapy carries a distinctive clin-pharm burden — biodistribution, dosimetry, and PK have to be modeled together to set a safe, effective activity level, and that's rarely a function early teams staff internally.<div><br><div>PumasAI supports radiopharmaceutical programs with the PK/dosimetry modeling and Phase 1 design work that underpins dose decisions for alpha emitters. We can help turn your biodistribution data into a defensible escalation scheme and the clin-pharm package FDA will expect.</div><div><br></div><div>A concrete first step: a Phase 1 dosimetry-informed PK modeling and dose-escalation plan for AB001.</div><div><br></div><div>Could we grab 30-45 minutes to talk through your biodistribution, dosimetry, and PK approach?</div></div>",
@@ -461,8 +461,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Francis, I noticed ARTbio is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -472,7 +472,7 @@
         "company": "QuantX Biosciences",
         "email": "peter.greensmith@quantxbio.com",
         "linkedin": "https://www.linkedin.com/in/peter-greensmith-6141b23b",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "QuantX Biosciences: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Peter,\n\nCongratulations on the $85M round! With the STAT6 inhibitor heading into the clinic late this year and the IL-17 asset following in early 2027, you have two first-in-human dose decisions coming in quick succession.<div><br><div>Our team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.</div><div><br></div><div>A sensible first step: a FIH dose and popPK plan for the STAT6 and IL-17 program. Would a short call make sense to see how we can support your clinical pharmacology and MIDD needs?</div></div>",
@@ -485,8 +485,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Peter, I noticed QuantX Biosciences is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -496,7 +496,7 @@
         "company": "QuantX Biosciences",
         "email": "haifeng.tang@quantxbio.com",
         "linkedin": "https://www.linkedin.com/in/haifeng-tang-9248382a",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "QuantX Biosciences: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Haifeng,\n\nCongratulations on the $85M round! With the STAT6 inhibitor heading into the clinic late this year and the IL-17 asset following in early 2027, you have two first-in-human dose decisions coming in quick succession.<div><br><div>Our team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.</div><div><br></div><div>A sensible first step: a FIH dose and popPK plan for the STAT6 and IL-17 program. Would a short call make sense to see how we can support your clinical pharmacology and MIDD needs?</div></div>",
@@ -509,8 +509,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Haifeng, I noticed QuantX Biosciences is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -520,7 +520,7 @@
         "company": "QuantX Biosciences",
         "email": "vijay.reddy@quantxbio.com",
         "linkedin": "https://www.linkedin.com/in/vijay-gangula",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "QuantX Biosciences: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Vijay,\n\nCongratulations on the $85M round! With the STAT6 inhibitor heading into the clinic late this year and the IL-17 asset following in early 2027, you have two first-in-human dose decisions coming in quick succession.<div><br><div>Our team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.</div><div><br></div><div>A sensible first step: a FIH dose and popPK plan for the STAT6 and IL-17 program. Would a short call make sense to see how we can support your clinical pharmacology and MIDD needs?</div></div>",
@@ -533,8 +533,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Vijay, I noticed QuantX Biosciences is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -544,7 +544,7 @@
         "company": "QuantX Biosciences",
         "email": "victor.azevedo@quantxbio.com",
         "linkedin": "https://www.linkedin.com/in/victor-azevedo-b1404a69",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "QuantX Biosciences: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Victor,\n\nCongratulations on the $85M round! With the STAT6 inhibitor heading into the clinic late this year and the IL-17 asset following in early 2027, you have two first-in-human dose decisions coming in quick succession.<div><br><div>Our team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.</div><div><br></div><div>A sensible first step: a FIH dose and popPK plan for the STAT6 and IL-17 program. Would a short call make sense to see how we can support your clinical pharmacology and MIDD needs?</div></div>",
@@ -557,8 +557,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Victor, I noticed QuantX Biosciences is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -568,7 +568,7 @@
         "company": "QuantX Biosciences",
         "email": "fang.shen@quantxbio.com",
         "linkedin": "https://www.linkedin.com/in/fangshen",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "QuantX Biosciences: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Fang,\n\nCongratulations on the $85M round! With the STAT6 inhibitor heading into the clinic late this year and the IL-17 asset following in early 2027, you have two first-in-human dose decisions coming in quick succession.<div><br><div>Our team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.</div><div><br></div><div>A sensible first step: a FIH dose and popPK plan for the STAT6 and IL-17 program. Would a short call make sense to see how we can support your clinical pharmacology and MIDD needs?</div></div>",
@@ -581,8 +581,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Fang, I noticed QuantX Biosciences is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -592,7 +592,7 @@
         "company": "QuantX Biosciences",
         "email": "xiangming.li@quantxbio.com",
         "linkedin": "https://www.linkedin.com/in/xiangming-li-19a13b6b",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "QuantX Biosciences: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Xiangming,\n\nCongratulations on the $85M round! With the STAT6 inhibitor heading into the clinic late this year and the IL-17 asset following in early 2027, you have two first-in-human dose decisions coming in quick succession.<div><br><div>Our team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.</div><div><br></div><div>A sensible first step: a FIH dose and popPK plan for the STAT6 and IL-17 program. Would a short call make sense to see how we can support your clinical pharmacology and MIDD needs?</div></div>",
@@ -605,8 +605,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Xiangming, I noticed QuantX Biosciences is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -616,7 +616,7 @@
         "company": "QuantX Biosciences",
         "email": "stuart.chaffee@quantxbio.com",
         "linkedin": "https://www.linkedin.com/in/stuart-chaffee-96b3281",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "QuantX Biosciences: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Stuart,\n\nCongratulations on the $85M round! With the STAT6 inhibitor heading into the clinic late this year and the IL-17 asset following in early 2027, you have two first-in-human dose decisions coming in quick succession.<div><br><div>Our team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission.</div><div><br></div><div>A sensible first step: a FIH dose and popPK plan for the STAT6 and IL-17 program. Would a short call make sense to see how we can support your clinical pharmacology and MIDD needs?</div></div>",
@@ -629,8 +629,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Stuart, I noticed QuantX Biosciences is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -640,7 +640,7 @@
         "company": "Slate Medicines",
         "email": "kmakowski@slatemedicines.com",
         "linkedin": "https://www.linkedin.com/in/kara-makowski",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Slate Medicines: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Kara,\n\nI wanted to congratulate Slate Medicines on closing the $130M round and moving SLTE-1009 toward a mid-2026 first-in-human start. <div><div><div>\n</div><div>Getting the starting dose and escalation scheme right for an anti-PACAP antibody is where a lot of migraine programs either save months or lose them.</div><div>\n</div><div>At PumasAI we build the FIH dose rationale and population PK framework that supports those decisions. These would support translating your preclinical and target-binding data into a defensible Phase 1 design and a real-time model you can update as data reads out. We've done this work for biologics across multiple therapeutic areas.</div><div>\n</div><div>One concrete thing we could do now: a popPK and FIH dose-selection package to anchor your Phase 1 protocol and Pre-IND/IND clin-pharm narrative.</div><div><br></div><div>Would a 30-45 minute call make sense to walk through how we'd approach SLTE-1009's dose escalation?\n</div><div><br></div></div></div>",
@@ -653,8 +653,8 @@
           "fu2Approved": false,
           "linkedin": "Hi Kara, I noticed Slate Medicines is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -664,7 +664,7 @@
         "company": "Charm Therapeutics",
         "email": "beverley@charmtx.com",
         "linkedin": "https://www.linkedin.com/in/beverley-carr-2576165",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Charm Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Beverley,\n\nCongratulations on the $80M Series B and the push toward clinical entry this year. <div><br></div><div>The handoff from IND-enabling studies to a first-in-human protocol is where preclinical PK has to become a credible human dose rationale, and it's often the part lean teams outsource.<div><br><div>PumasAI does exactly that translation: allometric and PBPK-informed FIH dose projection, popPK strategy, and the clin-pharm sections that anchor an IND. Your structure-led discovery engine is a real strength; we can make sure the clinical pharmacology story keeps pace with it.</div><div><br></div><div>A practical first step would be an FIH dose-selection and IND clin-pharm package for your lead program.</div><div>\nWould a short call make sense to see where we could plug in ahead of your IND?</div></div></div>",
@@ -677,8 +677,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Beverley, I noticed Charm Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -688,7 +688,7 @@
         "company": "Charm Therapeutics",
         "email": "archita@charmtx.com",
         "linkedin": "https://www.linkedin.com/in/archita-shrivastava-84b07ab",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Charm Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Archita,\n\nCongratulations on the $80M Series B and the push toward clinical entry this year. <div><br></div><div>The handoff from IND-enabling studies to a first-in-human protocol is where preclinical PK has to become a credible human dose rationale, and it's often the part lean teams outsource.<div><br><div>PumasAI does exactly that translation: allometric and PBPK-informed FIH dose projection, popPK strategy, and the clin-pharm sections that anchor an IND. Your structure-led discovery engine is a real strength; we can make sure the clinical pharmacology story keeps pace with it.</div><div><br></div><div>A practical first step would be an FIH dose-selection and IND clin-pharm package for your lead program.</div><div>\nWould a short call make sense to see where we could plug in ahead of your IND?</div></div></div>",
@@ -701,8 +701,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Archita, I noticed Charm Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -712,7 +712,7 @@
         "company": "Charm Therapeutics",
         "email": "amanda@charmtx.com",
         "linkedin": "https://www.linkedin.com/in/mandak789",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Charm Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Amanda,\n\nCongratulations on the $80M Series B and the push toward clinical entry this year. <div><br></div><div>The handoff from IND-enabling studies to a first-in-human protocol is where preclinical PK has to become a credible human dose rationale, and it's often the part lean teams outsource.<div><br><div>PumasAI does exactly that translation: allometric and PBPK-informed FIH dose projection, popPK strategy, and the clin-pharm sections that anchor an IND. Your structure-led discovery engine is a real strength; we can make sure the clinical pharmacology story keeps pace with it.</div><div><br></div><div>A practical first step would be an FIH dose-selection and IND clin-pharm package for your lead program.</div><div>\nWould a short call make sense to see where we could plug in ahead of your IND?</div></div></div>",
@@ -725,8 +725,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Amanda, I noticed Charm Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -736,7 +736,7 @@
         "company": "Charm Therapeutics",
         "email": "nick@charmtx.com",
         "linkedin": "https://www.linkedin.com/in/nick-edmunds-3213625",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Charm Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Nick,\n\nCongratulations on the $80M Series B and the push toward clinical entry this year. <div><br></div><div>The handoff from IND-enabling studies to a first-in-human protocol is where preclinical PK has to become a credible human dose rationale, and it's often the part lean teams outsource.<div><br><div>PumasAI does exactly that translation: allometric and PBPK-informed FIH dose projection, popPK strategy, and the clin-pharm sections that anchor an IND. Your structure-led discovery engine is a real strength; we can make sure the clinical pharmacology story keeps pace with it.</div><div><br></div><div>A practical first step would be an FIH dose-selection and IND clin-pharm package for your lead program.</div><div>\nWould a short call make sense to see where we could plug in ahead of your IND?</div></div></div>",
@@ -749,8 +749,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Nick, I noticed Charm Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -760,7 +760,7 @@
         "company": "Charm Therapeutics",
         "email": "laura@charmtx.com",
         "linkedin": "https://www.linkedin.com/in/laura-hare-a52392a",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Charm Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Laura,\n\nCongratulations on the $80M Series B and the push toward clinical entry this year. <div><br></div><div>The handoff from IND-enabling studies to a first-in-human protocol is where preclinical PK has to become a credible human dose rationale, and it's often the part lean teams outsource.<div><br><div>PumasAI does exactly that translation: allometric and PBPK-informed FIH dose projection, popPK strategy, and the clin-pharm sections that anchor an IND. Your structure-led discovery engine is a real strength; we can make sure the clinical pharmacology story keeps pace with it.</div><div><br></div><div>A practical first step would be an FIH dose-selection and IND clin-pharm package for your lead program.</div><div>\nWould a short call make sense to see where we could plug in ahead of your IND?</div></div></div>",
@@ -773,8 +773,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Laura, I noticed Charm Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -784,7 +784,7 @@
         "company": "Charm Therapeutics",
         "email": "yaara@charmtx.com",
         "linkedin": "https://www.linkedin.com/in/yaara-ofir-rosenfeld-b98125b7",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Charm Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Yaara,\n\nCongratulations on the $80M Series B and the push toward clinical entry this year. <div><br></div><div>The handoff from IND-enabling studies to a first-in-human protocol is where preclinical PK has to become a credible human dose rationale, and it's often the part lean teams outsource.<div><br><div>PumasAI does exactly that translation: allometric and PBPK-informed FIH dose projection, popPK strategy, and the clin-pharm sections that anchor an IND. Your structure-led discovery engine is a real strength; we can make sure the clinical pharmacology story keeps pace with it.</div><div><br></div><div>A practical first step would be an FIH dose-selection and IND clin-pharm package for your lead program.</div><div>\nWould a short call make sense to see where we could plug in ahead of your IND?</div></div></div>",
@@ -797,8 +797,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Yaara, I noticed Charm Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -808,7 +808,7 @@
         "company": "Charm Therapeutics",
         "email": "robert@charmtx.com",
         "linkedin": "https://www.linkedin.com/in/robert-willis-6283592a",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Charm Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Robert,\n\nCongratulations on the $80M Series B and the push toward clinical entry this year. <div><br></div><div>The handoff from IND-enabling studies to a first-in-human protocol is where preclinical PK has to become a credible human dose rationale, and it's often the part lean teams outsource.<div><br><div>PumasAI does exactly that translation: allometric and PBPK-informed FIH dose projection, popPK strategy, and the clin-pharm sections that anchor an IND. Your structure-led discovery engine is a real strength; we can make sure the clinical pharmacology story keeps pace with it.</div><div><br></div><div>A practical first step would be an FIH dose-selection and IND clin-pharm package for your lead program.</div><div>\nWould a short call make sense to see where we could plug in ahead of your IND?</div></div></div>",
@@ -821,8 +821,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Robert, I noticed Charm Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -832,7 +832,7 @@
         "company": "Charm Therapeutics",
         "email": "laksh@charmtx.com",
         "linkedin": "https://www.linkedin.com/in/laksh97",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Charm Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Laksh,\n\nCongratulations on the $80M Series B and the push toward clinical entry this year. <div><br></div><div>The handoff from IND-enabling studies to a first-in-human protocol is where preclinical PK has to become a credible human dose rationale, and it's often the part lean teams outsource.<div><br><div>PumasAI does exactly that translation: allometric and PBPK-informed FIH dose projection, popPK strategy, and the clin-pharm sections that anchor an IND. Your structure-led discovery engine is a real strength; we can make sure the clinical pharmacology story keeps pace with it.</div><div><br></div><div>A practical first step would be an FIH dose-selection and IND clin-pharm package for your lead program.</div><div>\nWould a short call make sense to see where we could plug in ahead of your IND?</div></div></div>",
@@ -845,8 +845,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Laksh, I noticed Charm Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -856,7 +856,7 @@
         "company": "Charm Therapeutics",
         "email": "erkut@charmtx.com",
         "linkedin": "https://www.linkedin.com/in/erkut-bahceci-4a438723",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Charm Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Erkut,\n\nCongratulations on the $80M Series B and the push toward clinical entry this year. <div><br></div><div>The handoff from IND-enabling studies to a first-in-human protocol is where preclinical PK has to become a credible human dose rationale, and it's often the part lean teams outsource.<div><br><div>PumasAI does exactly that translation: allometric and PBPK-informed FIH dose projection, popPK strategy, and the clin-pharm sections that anchor an IND. Your structure-led discovery engine is a real strength; we can make sure the clinical pharmacology story keeps pace with it.</div><div><br></div><div>A practical first step would be an FIH dose-selection and IND clin-pharm package for your lead program.</div><div>\nWould a short call make sense to see where we could plug in ahead of your IND?</div></div></div>",
@@ -869,8 +869,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Erkut, I noticed Charm Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -880,7 +880,7 @@
         "company": "Charm Therapeutics",
         "email": "jessica.ernest@charmtx.com",
         "linkedin": "https://www.linkedin.com/in/jessica-powers-ernest-b7024313",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Charm Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Jessica,\n\nCongratulations on the $80M Series B and the push toward clinical entry this year. <div><br></div><div>The handoff from IND-enabling studies to a first-in-human protocol is where preclinical PK has to become a credible human dose rationale, and it's often the part lean teams outsource.<div><br><div>PumasAI does exactly that translation: allometric and PBPK-informed FIH dose projection, popPK strategy, and the clin-pharm sections that anchor an IND. Your structure-led discovery engine is a real strength; we can make sure the clinical pharmacology story keeps pace with it.</div><div><br></div><div>A practical first step would be an FIH dose-selection and IND clin-pharm package for your lead program.</div><div>\nWould a short call make sense to see where we could plug in ahead of your IND?</div></div></div>",
@@ -893,8 +893,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Jessica, I noticed Charm Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -904,7 +904,7 @@
         "company": "Aquestive Therapeutics",
         "email": "edupras@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/elizabeth-dupras-43689750",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Elizabeth,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -917,8 +917,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Elizabeth, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -928,7 +928,7 @@
         "company": "Aquestive Therapeutics",
         "email": "swargacki@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/stephen-wargacki-7435b321",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Stephen,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -941,8 +941,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Stephen, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -952,7 +952,7 @@
         "company": "Aquestive Therapeutics",
         "email": "john.mccracken@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/john-mccracken-53b68a9",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi John,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -965,8 +965,8 @@
           "fu2Approved": true,
           "linkedin": "Hi John, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -976,7 +976,7 @@
         "company": "Aquestive Therapeutics",
         "email": "dbarber@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/daniel-barber-4779a65",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Daniel,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -989,8 +989,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Daniel, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1000,7 +1000,7 @@
         "company": "Aquestive Therapeutics",
         "email": "mcioffi@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/melinacioffi",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Melina,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -1013,8 +1013,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Melina, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1024,7 +1024,7 @@
         "company": "Aquestive Therapeutics",
         "email": "abruce@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/andrewlbruce",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Andrew,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -1037,8 +1037,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Andrew, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1048,7 +1048,7 @@
         "company": "Aquestive Therapeutics",
         "email": "mschobel@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/mark-schobel-23959a9",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Mark,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -1061,8 +1061,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Mark, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1072,7 +1072,7 @@
         "company": "Aquestive Therapeutics",
         "email": "sberg@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/shawn-lyn-berg",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Shawn,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -1085,8 +1085,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Shawn, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1096,7 +1096,7 @@
         "company": "Aquestive Therapeutics",
         "email": "mblyszczek@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/miloszblyszczek",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Bcmas,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -1109,8 +1109,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Bcmas, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1120,7 +1120,7 @@
         "company": "Aquestive Therapeutics",
         "email": "cjung@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/cassie-jung-61496148",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Cassie,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -1133,8 +1133,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Cassie, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1144,7 +1144,7 @@
         "company": "Aquestive Therapeutics",
         "email": "matthew.davis@aquestive.com",
         "linkedin": "https://www.linkedin.com/in/mwd-rph-md",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Aquestive Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Matthew,\n\nI saw that the Anaphylm CRL came down to human factors, labeling, and a single supportive PK study, with a Q3 resubmission target. That's a tight, well-scoped clin-pharm ask, exactly the kind of work that benefits from getting the design and analysis right the first time.<div><br><div>PumasAI specializes in PK study design and population PK analysis for regulatory submissions, including the bridging studies FDA requests after packaging or labeling changes. We can help structure the study, run the NCA/popPK analysis, and frame the clin-pharm response so it directly answers the agency's question.</div><div><br></div><div>Given your resubmission timeline, an early conversation on the PK study design could protect the Q3 date.</div><div>Would you be open to a 30-45-minute call to compare notes on the analysis plan?</div></div>",
@@ -1157,8 +1157,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Matthew, I noticed Aquestive Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1168,7 +1168,7 @@
         "company": "Artbio",
         "email": "victor.paulus@artbio.com",
         "linkedin": "https://www.linkedin.com/in/victor-paulus-25994a3",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Artbio: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Victor,\n\nCongratulations on the AB001 IND clearance. Radioligand therapy carries a distinctive clin-pharm burden — biodistribution, dosimetry, and PK have to be modeled together to set a safe, effective activity level, and that's rarely a function early teams staff internally.\n<div>\n</div><div>PumasAI supports radiopharmaceutical programs with the PK/dosimetry modeling and Phase 1 design work that underpins dose decisions for alpha emitters. We can help turn your biodistribution data into a defensible escalation scheme and the clin-pharm package FDA will expect.\n</div><div>\n</div><div>A concrete first step: a Phase 1 dosimetry-informed PK modeling and dose-escalation plan for AB001.\n</div><div>\n</div><div>Could we grab 30-45 minutes to talk through your biodistribution, dosimetry, and PK approach?</div>",
@@ -1181,8 +1181,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Victor, I noticed Artbio is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1192,7 +1192,7 @@
         "company": "Artbio",
         "email": "ivana.galetic@artbio.com",
         "linkedin": "https://www.linkedin.com/in/ivana-galetic-157a455",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Artbio: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Ivana,\n\nCongratulations on the AB001 IND clearance. Radioligand therapy carries a distinctive clin-pharm burden — biodistribution, dosimetry, and PK have to be modeled together to set a safe, effective activity level, and that's rarely a function early teams staff internally.\n<div>\n</div><div>PumasAI supports radiopharmaceutical programs with the PK/dosimetry modeling and Phase 1 design work that underpins dose decisions for alpha emitters. We can help turn your biodistribution data into a defensible escalation scheme and the clin-pharm package FDA will expect.\n</div><div>\n</div><div>A concrete first step: a Phase 1 dosimetry-informed PK modeling and dose-escalation plan for AB001.\n</div><div>\n</div><div>Could we grab 30-45 minutes to talk through your biodistribution, dosimetry, and PK approach?</div>",
@@ -1205,8 +1205,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Ivana, I noticed Artbio is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1216,7 +1216,7 @@
         "company": "Artbio",
         "email": "margaret.yu@artbio.com",
         "linkedin": "https://www.linkedin.com/in/margaret-yu-a39a3b10",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Artbio: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Margaret,\n\nCongratulations on the AB001 IND clearance. Radioligand therapy carries a distinctive clin-pharm burden — biodistribution, dosimetry, and PK have to be modeled together to set a safe, effective activity level, and that's rarely a function early teams staff internally.\n<div>\n</div><div>PumasAI supports radiopharmaceutical programs with the PK/dosimetry modeling and Phase 1 design work that underpins dose decisions for alpha emitters. We can help turn your biodistribution data into a defensible escalation scheme and the clin-pharm package FDA will expect.\n</div><div>\n</div><div>A concrete first step: a Phase 1 dosimetry-informed PK modeling and dose-escalation plan for AB001.\n</div><div>\n</div><div>Could we grab 30-45 minutes to talk through your biodistribution, dosimetry, and PK approach?</div>",
@@ -1229,8 +1229,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Margaret, I noticed Artbio is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1240,7 +1240,7 @@
         "company": "Artbio",
         "email": "neel.patel@artbio.com",
         "linkedin": "https://www.linkedin.com/in/neel-patel-9234228",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Artbio: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Neel,\n\nCongratulations on the AB001 IND clearance. Radioligand therapy carries a distinctive clin-pharm burden — biodistribution, dosimetry, and PK have to be modeled together to set a safe, effective activity level, and that's rarely a function early teams staff internally.\n<div>\n</div><div>PumasAI supports radiopharmaceutical programs with the PK/dosimetry modeling and Phase 1 design work that underpins dose decisions for alpha emitters. We can help turn your biodistribution data into a defensible escalation scheme and the clin-pharm package FDA will expect.\n</div><div>\n</div><div>A concrete first step: a Phase 1 dosimetry-informed PK modeling and dose-escalation plan for AB001.\n</div><div>\n</div><div>Could we grab 30-45 minutes to talk through your biodistribution, dosimetry, and PK approach?</div>",
@@ -1253,8 +1253,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Neel, I noticed Artbio is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1264,7 +1264,7 @@
         "company": "Sidewinder Therapeutics Inc.",
         "email": "pzweidler-mckay@sidewinderbio.com",
         "linkedin": "https://www.linkedin.com/in/patrick-zweidler-mckay-md-phd-08ba138",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Sidewinder Therapeutics Inc.: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Patrick,\n\nCongratulations on the $137M Series B. Taking next-gen ADCs into the clinic brings one of the more demanding PK problems in development — characterizing total antibody, conjugated species, and free payload, then tying exposure to both efficacy and tolerability.<div><br><div>PumasAI builds the multi-analyte popPK and exposure-response models that ADC programs need for FIH dose selection and to support the therapeutic-window argument with regulators. We can stand this up as your program approaches IND so the clin-pharm strategy is ready before first dosing.</div><div><br></div><div>A practical first step: an ADC FIH dose-selection and multi-analyte PK modeling plan. Would a brief call work to discuss your lead conjugate's PK strategy?</div></div>",
@@ -1277,8 +1277,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Patrick, I noticed Sidewinder Therapeutics Inc. is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1288,7 +1288,7 @@
         "company": "Sidewinder Therapeutics Inc.",
         "email": "qniu@sidewinderbio.com",
         "linkedin": "https://www.linkedin.com/in/qianniu",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Sidewinder Therapeutics Inc.: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Qian,\n\nCongratulations on the $137M Series B. Taking next-gen ADCs into the clinic brings one of the more demanding PK problems in development — characterizing total antibody, conjugated species, and free payload, then tying exposure to both efficacy and tolerability.<div><br><div>PumasAI builds the multi-analyte popPK and exposure-response models that ADC programs need for FIH dose selection and to support the therapeutic-window argument with regulators. We can stand this up as your program approaches IND so the clin-pharm strategy is ready before first dosing.</div><div><br></div><div>A practical first step: an ADC FIH dose-selection and multi-analyte PK modeling plan. Would a brief call work to discuss your lead conjugate's PK strategy?</div></div>",
@@ -1301,8 +1301,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Qian, I noticed Sidewinder Therapeutics Inc. is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1312,7 +1312,7 @@
         "company": "Sidewinder Therapeutics Inc.",
         "email": "aan@sidewinderbio.com",
         "linkedin": "https://www.linkedin.com/in/annie-an-5010a4217",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Sidewinder Therapeutics Inc.: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Annie,\n\nCongratulations on the $137M Series B. Taking next-gen ADCs into the clinic brings one of the more demanding PK problems in development — characterizing total antibody, conjugated species, and free payload, then tying exposure to both efficacy and tolerability.<div><br><div>PumasAI builds the multi-analyte popPK and exposure-response models that ADC programs need for FIH dose selection and to support the therapeutic-window argument with regulators. We can stand this up as your program approaches IND so the clin-pharm strategy is ready before first dosing.</div><div><br></div><div>A practical first step: an ADC FIH dose-selection and multi-analyte PK modeling plan. Would a brief call work to discuss your lead conjugate's PK strategy?</div></div>",
@@ -1325,8 +1325,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Annie, I noticed Sidewinder Therapeutics Inc. is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1336,7 +1336,7 @@
         "company": "Sidewinder Therapeutics Inc.",
         "email": "rmcrae@sidewinderbio.com",
         "linkedin": "https://www.linkedin.com/in/robert-mcrae-b766361a",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Sidewinder Therapeutics Inc.: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Robert,\n\nCongratulations on the $137M Series B. Taking next-gen ADCs into the clinic brings one of the more demanding PK problems in development — characterizing total antibody, conjugated species, and free payload, then tying exposure to both efficacy and tolerability.<div><br><div>PumasAI builds the multi-analyte popPK and exposure-response models that ADC programs need for FIH dose selection and to support the therapeutic-window argument with regulators. We can stand this up as your program approaches IND so the clin-pharm strategy is ready before first dosing.</div><div><br></div><div>A practical first step: an ADC FIH dose-selection and multi-analyte PK modeling plan. Would a brief call work to discuss your lead conjugate's PK strategy?</div></div>",
@@ -1349,8 +1349,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Robert, I noticed Sidewinder Therapeutics Inc. is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1360,7 +1360,7 @@
         "company": "Sidewinder Therapeutics Inc.",
         "email": "emurphy@sidewinderbio.com",
         "linkedin": "https://www.linkedin.com/in/murphness",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Sidewinder Therapeutics Inc.: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Eric,\n\nCongratulations on the $137M Series B. Taking next-gen ADCs into the clinic brings one of the more demanding PK problems in development — characterizing total antibody, conjugated species, and free payload, then tying exposure to both efficacy and tolerability.<div><br><div>PumasAI builds the multi-analyte popPK and exposure-response models that ADC programs need for FIH dose selection and to support the therapeutic-window argument with regulators. We can stand this up as your program approaches IND so the clin-pharm strategy is ready before first dosing.</div><div><br></div><div>A practical first step: an ADC FIH dose-selection and multi-analyte PK modeling plan. Would a brief call work to discuss your lead conjugate's PK strategy?</div></div>",
@@ -1373,8 +1373,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Eric, I noticed Sidewinder Therapeutics Inc. is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       },
       {
@@ -1384,7 +1384,7 @@
         "company": "Artbio",
         "email": "rosa.greasley@artbio.com",
         "linkedin": "https://www.linkedin.com/in/rosa-greasley-331b9994",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Artbio: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Rosa,\n\nCongratulations on the AB001 IND clearance. Radioligand therapy carries a distinctive clin-pharm burden — biodistribution, dosimetry, and PK have to be modeled together to set a safe, effective activity level, and that's rarely a function early teams staff internally.\n<div>\n</div><div>PumasAI supports radiopharmaceutical programs with the PK/dosimetry modeling and Phase 1 design work that underpins dose decisions for alpha emitters. We can help turn your biodistribution data into a defensible escalation scheme and the clin-pharm package FDA will expect.\n</div><div>\n</div><div>A concrete first step: a Phase 1 dosimetry-informed PK modeling and dose-escalation plan for AB001.\n</div><div>\n</div><div>Could we grab 30-45 minutes to talk through your biodistribution, dosimetry, and PK approach?</div>",
@@ -1397,8 +1397,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Rosa, I noticed Artbio is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-08",
+        "followUpDate": "2026-06-15",
         "notes": ""
       }
     ],
