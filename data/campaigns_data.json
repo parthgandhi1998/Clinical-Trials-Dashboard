@@ -1328,6 +1328,17 @@
         "lastContacted": "2026-06-25",
         "followUpDate": "2026-07-02",
         "notes": ""
+      },
+      {
+        "id": "ct_1782393987314",
+        "name": "Chloe Wells",
+        "email": "chloe.wells@kairospharma.com",
+        "title": "Senior Scientist",
+        "company": "Kairos Pharma Ltd.",
+        "linkedin": "",
+        "status": "not-started",
+        "drafts": {},
+        "notes": ""
       }
     ],
     "sender_closing": ""
