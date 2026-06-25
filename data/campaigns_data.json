@@ -1720,7 +1720,7 @@
         "company": "Vedana Therapeutics",
         "email": "chasebourke@browneconsulting.com",
         "linkedin": "https://www.linkedin.com/in/chbourke",
-        "status": "not-started",
+        "status": "email1-sent",
         "drafts": {
           "subject1": "Vedana Therapeutics: MIDD & Clinical Pharmacology Support",
           "email1": "Hi Chase,\n\nCongratulations on Vedana's $46M Series A launch. The next-gen anti-PACAP plus PACAP/CGRP bispecific positioning is one of the more interesting differentiation plays in migraine prevention right now.<div><br></div><div>As you frame the FIH for the anti-PACAP mAb and the bispecific, there's a real opportunity to lean on the body of CGRP popPK/PD evidence to inform starting dose, dose interval, and exposure-response targets. But the dual-target bispecific PK behavior typically demands its own modeling story. </div><div><br></div><div>We can help stand up the popPK, target engagement, and E-R framework before the SAP is locked, so the Phase 1 reads cleanly into Phase 2 dose selection. </div><div><br></div><div>PumasAI has supported clinical pharmacology for several CNS programs. Would you be open to discuss this further?</div>",
@@ -1733,8 +1733,8 @@
           "fu2Approved": true,
           "linkedin": "Hi Chase, I noticed Vedana Therapeutics is running a your therapeutic area trial. At PumasAI, we help teams like yours with pharmacometrics, clinical pharmacology, and MIDD strategy. Would a quick chat be useful?"
         },
-        "lastContacted": null,
-        "followUpDate": null,
+        "lastContacted": "2026-06-25",
+        "followUpDate": "2026-07-02",
         "notes": ""
       },
       {
