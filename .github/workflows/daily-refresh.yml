@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -33,12 +33,12 @@ jobs:
           # If not set, keyword-based classification is used automatically — no error.
           # Add the secret later at: Settings → Secrets → Actions → ANTHROPIC_API_KEY
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          
         run: |
           python fetch_trials.py \
             --json data/trials_data.json \
             --cache-path classification_cache.json \
             --days 365
-
       - name: Commit and push updated data
         run: |
           git config user.name "github-actions[bot]"
