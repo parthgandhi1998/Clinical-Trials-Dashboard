@@ -860,11 +860,41 @@ function renderTable() {
 }
 
 // ── MODAL ─────────────────────────────────────────────────────────────────────
-function showModal(idx) {
-  const r = filtered[idx];
+// Detail shard loader. The heavy modal-only fields (eligibility criteria,
+// brief summary, outcome measures, central contacts, official title, study
+// design) are not carried in trials_data.json — they live in small per-bucket
+// files under ./data/detail/, which is what keeps the main payload well under
+// GitHub's 100 MB per-file limit. Only the bucket holding the trial being
+// opened is fetched, and it is cached for the rest of the session.
+const _detailCache = {};
+let _modalToken = 0;
+function detailBucket(nctId) { return String(nctId || "").slice(-2) || "__"; }
+function loadTrialDetail(nctId) {
+  const bucket = detailBucket(nctId);
+  if (!_detailCache[bucket]) {
+    _detailCache[bucket] = fetch("./data/detail/" + bucket + ".json")
+      .then(res => (res.ok ? res.json() : {}))
+      .catch(() => ({}));   // shard missing or offline — degrade gracefully
+  }
+  return _detailCache[bucket].then(map => map[nctId] || null);
+}
+
+async function showModal(idx) {
+  let r = filtered[idx];
+  const token = ++_modalToken;
+  const body = document.getElementById("modal-body");
   document.getElementById("modal-title").textContent = r.title;
   document.getElementById("modal-ct-link").href = r.url;
-  document.getElementById("modal-body").innerHTML = `
+  // Open right away so the click feels responsive, then fill in once the
+  // shard resolves (instant after the first open in that bucket).
+  body.innerHTML = `<div style="padding:32px 0;text-align:center;color:var(--text-mid);font-size:13px">Loading study details…</div>`;
+  document.getElementById("modal-overlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+  const detail = await loadTrialDetail(r.nct_id);
+  if (token !== _modalToken) return;   // a newer modal was opened meanwhile
+  // Records that still carry these fields inline keep working unchanged.
+  if (detail) r = Object.assign({}, r, detail);
+  body.innerHTML = `
     <div class="modal-section-label">Overview</div>
     <div class="modal-grid">
       <div class="modal-field"><div class="modal-label">NCT ID</div>
@@ -945,13 +975,13 @@ function showModal(idx) {
         <div class="modal-value" style="font-size:12px;line-height:1.7;color:var(--text-mid);white-space:pre-wrap;max-height:180px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;padding:8px 10px">${r.eligibility_criteria}</div></div>` : ""}
     </div>` : ""}
 
-    ${(r.primary_outcomes.length || r.secondary_outcomes.length) ? `
+    ${((r.primary_outcomes||[]).length || (r.secondary_outcomes||[]).length) ? `
     <div class="modal-section-label">Outcome Measures</div>
     <div class="modal-grid">
-      ${r.primary_outcomes.length ? `<div class="modal-field full"><div class="modal-label">Primary Outcomes</div>
-        <div class="modal-value"><ul style="margin:0;padding-left:16px;font-size:12px;color:var(--text-mid);line-height:1.8">${r.primary_outcomes.map(o=>`<li>${o}</li>`).join("")}</ul></div></div>` : ""}
-      ${r.secondary_outcomes.length ? `<div class="modal-field full"><div class="modal-label">Secondary Outcomes</div>
-        <div class="modal-value"><ul style="margin:0;padding-left:16px;font-size:12px;color:var(--text-mid);line-height:1.8">${r.secondary_outcomes.map(o=>`<li>${o}</li>`).join("")}</ul></div></div>` : ""}
+      ${(r.primary_outcomes||[]).length ? `<div class="modal-field full"><div class="modal-label">Primary Outcomes</div>
+        <div class="modal-value"><ul style="margin:0;padding-left:16px;font-size:12px;color:var(--text-mid);line-height:1.8">${(r.primary_outcomes||[]).map(o=>`<li>${o}</li>`).join("")}</ul></div></div>` : ""}
+      ${(r.secondary_outcomes||[]).length ? `<div class="modal-field full"><div class="modal-label">Secondary Outcomes</div>
+        <div class="modal-value"><ul style="margin:0;padding-left:16px;font-size:12px;color:var(--text-mid);line-height:1.8">${(r.secondary_outcomes||[]).map(o=>`<li>${o}</li>`).join("")}</ul></div></div>` : ""}
     </div>` : ""}
 
     <div class="modal-section-label">Locations &amp; Contact</div>

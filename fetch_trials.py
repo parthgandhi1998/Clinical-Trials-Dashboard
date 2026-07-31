@@ -2193,13 +2193,13 @@ function showModal(idx) {{
         <div class="modal-value" style="font-size:12px;line-height:1.7;color:var(--text-mid);white-space:pre-wrap;max-height:180px;overflow-y:auto;border:1px solid var(--border);border-radius:6px;padding:8px 10px">${{r.eligibility_criteria}}</div></div>` : ""}}
     </div>` : ""}}
 
-    ${{(r.primary_outcomes.length || r.secondary_outcomes.length) ? `
+    ${{((r.primary_outcomes||[]).length || (r.secondary_outcomes||[]).length) ? `
     <div class="modal-section-label">Outcome Measures</div>
     <div class="modal-grid">
-      ${{r.primary_outcomes.length ? `<div class="modal-field full"><div class="modal-label">Primary Outcomes</div>
-        <div class="modal-value"><ul style="margin:0;padding-left:16px;font-size:12px;color:var(--text-mid);line-height:1.8">${{r.primary_outcomes.map(o=>`<li>${{o}}</li>`).join("")}}</ul></div></div>` : ""}}
-      ${{r.secondary_outcomes.length ? `<div class="modal-field full"><div class="modal-label">Secondary Outcomes</div>
-        <div class="modal-value"><ul style="margin:0;padding-left:16px;font-size:12px;color:var(--text-mid);line-height:1.8">${{r.secondary_outcomes.map(o=>`<li>${{o}}</li>`).join("")}}</ul></div></div>` : ""}}
+      ${{(r.primary_outcomes||[]).length ? `<div class="modal-field full"><div class="modal-label">Primary Outcomes</div>
+        <div class="modal-value"><ul style="margin:0;padding-left:16px;font-size:12px;color:var(--text-mid);line-height:1.8">${{(r.primary_outcomes||[]).map(o=>`<li>${{o}}</li>`).join("")}}</ul></div></div>` : ""}}
+      ${{(r.secondary_outcomes||[]).length ? `<div class="modal-field full"><div class="modal-label">Secondary Outcomes</div>
+        <div class="modal-value"><ul style="margin:0;padding-left:16px;font-size:12px;color:var(--text-mid);line-height:1.8">${{(r.secondary_outcomes||[]).map(o=>`<li>${{o}}</li>`).join("")}}</ul></div></div>` : ""}}
     </div>` : ""}}
 
     <div class="modal-section-label">Locations &amp; Contact</div>
@@ -3102,6 +3102,70 @@ CSV_COL_MAP = {
 }
 
 # ─── JSON DATA EXPORT ──────────────────────────────────────────────────────────
+# ─── DETAIL SHARDING ──────────────────────────────────────────────────────────
+# These fields are rendered *only* inside the dashboard's detail modal. The
+# table, the filters, the sponsor cards and the CSV export never read them, yet
+# together they account for roughly 58% of every record's bytes. Carrying them
+# inline is what pushed data/trials_data.json past GitHub's hard 100 MB
+# per-file push limit in July 2026, which silently broke the daily refresh.
+#
+# They are split into small per-bucket files that the dashboard lazy-loads for
+# just the one trial the user clicks on.
+DETAIL_FIELDS = (
+    "eligibility_criteria", "summary", "contacts",
+    "primary_outcomes", "secondary_outcomes", "official_title",
+    "allocation", "masking", "intervention_model", "primary_purpose",
+    "min_age", "max_age", "sex", "healthy_volunteers", "acronym",
+)
+
+def detail_bucket(nct_id):
+    """Bucket key for a trial's detail record.
+
+    Deliberately trivial: the last two characters of the NCT ID. The dashboard
+    computes this identically in JavaScript (String(nct).slice(-2)), so the two
+    implementations cannot drift apart the way a hash function could.
+    """
+    return str(nct_id or "")[-2:] or "__"
+
+def split_detail_fields(records):
+    """Pop DETAIL_FIELDS off each record; return {bucket: {nct_id: {field: val}}}.
+
+    Mutates `records` in place to keep peak memory down, so only call this when
+    the slimmed records are what you intend to serialize.
+    """
+    shards = {}
+    for r in records:
+        nct = r.get("nct_id")
+        if not nct:
+            continue
+        detail = {}
+        for field in DETAIL_FIELDS:
+            val = r.pop(field, None)
+            if val not in ("", None, [], {}):
+                detail[field] = val
+        if detail:
+            shards.setdefault(detail_bucket(nct), {})[nct] = detail
+    return shards
+
+def write_detail_shards(shards, out_dir):
+    """Write one JSON file per bucket, pruning buckets that no longer exist."""
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    total_bytes = 0
+    for bucket, mapping in sorted(shards.items()):
+        path = out_dir / f"{bucket}.json"
+        path.write_text(json.dumps(mapping, separators=(",", ":")), encoding="utf-8")
+        total_bytes += path.stat().st_size
+    keep = {f"{bucket}.json" for bucket in shards}
+    for stale in out_dir.glob("*.json"):
+        if stale.name not in keep:
+            stale.unlink()
+    biggest = max((p.stat().st_size for p in out_dir.glob("*.json")), default=0)
+    print(f"  ✓ Detail shards → {out_dir}  "
+          f"({len(shards)} files, {total_bytes // 1024:,} KB total, "
+          f"largest {biggest // 1024:,} KB)")
+    return total_bytes
+
 def generate_json(records, generated_at, days=365, since_date=None, until_date=None):
     """Output processed trial data as a compact JSON file for the permanent viewer."""
     from datetime import timedelta
@@ -3400,11 +3464,15 @@ def main():
     if args.json:
         json_path = Path(args.json)
         json_path.parent.mkdir(parents=True, exist_ok=True)
+        # Split the modal-only fields out before serializing, so the main
+        # payload stays far below GitHub's 100 MB per-file push limit.
+        detail_shards = split_detail_fields(records)
         json_data = generate_json(records, generated, days=args.days,
                                    since_date=since_date, until_date=until_date)
         json_path.write_text(json_data, encoding="utf-8")
         size_kb = json_path.stat().st_size // 1024
         print(f"\n  ✓ Data saved → {json_path}  ({size_kb} KB, {len(records):,} trials)")
+        write_detail_shards(detail_shards, json_path.parent / "detail")
         print(f"    Load this file in the dashboard viewer to explore.\n")
         if not args.output or args.output == str(OUTPUT_HTML):
             return   # Don't also write the self-contained HTML unless explicitly asked
