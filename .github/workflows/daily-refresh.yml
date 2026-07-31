@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
 
@@ -33,15 +33,41 @@ jobs:
           # If not set, keyword-based classification is used automatically — no error.
           # Add the secret later at: Settings → Secrets → Actions → ANTHROPIC_API_KEY
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          
         run: |
           python fetch_trials.py \
             --json data/trials_data.json \
             --cache-path classification_cache.json \
             --days 365
+
+      # ── Fail loudly BEFORE the push if any data file approaches GitHub's hard
+      #    100 MB per-file reject limit. Without this, an oversized file makes
+      #    `git push` fail with an opaque GH001 error and the refresh silently
+      #    stalls for weeks (this is exactly what happened in July 2026).
+      - name: Guard against GitHub's 100 MB file limit
+        run: |
+          LIMIT=94371840   # 90 MiB — trip well before GitHub's 100 MB hard reject
+          FAIL=0
+          echo "Checking committed data file sizes..."
+          while IFS= read -r -d '' f; do
+            SIZE=$(stat -c%s "$f")
+            MB=$(awk "BEGIN{printf \"%.1f\", $SIZE/1048576}")
+            if [ "$SIZE" -gt "$LIMIT" ]; then
+              echo "::error file=$f::$f is ${MB} MB, over the 90 MiB safety limit. GitHub hard-rejects any file above 100 MB, so this must be slimmed or split before it can be pushed."
+              FAIL=1
+            else
+              echo "  ok    $f  ${MB} MB"
+            fi
+          done < <(find data classification_cache.json -type f -print0 2>/dev/null)
+          if [ "$FAIL" -ne 0 ]; then
+            echo "Aborting before push so the failure reason is visible in this log."
+            exit 1
+          fi
+          echo "All data files within limits."
+
       - name: Commit and push updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/trials_data.json classification_cache.json
+          # -A so newly created detail shards under data/detail/ are picked up too
+          git add -A data classification_cache.json
           git diff --cached --quiet && echo "No changes to commit" || (git commit -m "chore: refresh clinical trials data ($(date -u +%Y-%m-%d))" && git push)
