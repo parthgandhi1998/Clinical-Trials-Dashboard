@@ -2280,37 +2280,43 @@ function phaseAngle(phase, conditions, interventions, areas, enrollment) {
   const lo = (s) => (s || '').toLowerCase();
 
   const enrollNum = parseInt(enrollment, 10) || 0;
-  const isLimitedDataset = enrollNum > 0 && enrollNum < 50;
+  // A registered interventional trial reporting fewer than 10 subjects is more
+  // often a registry placeholder than a real cohort (Sanofi's Phase 3 ITP study
+  // lists 4). Treat those as unknown so we don't tell a large sponsor their
+  // dataset is small. Between 10 and 49 is a genuinely small cohort.
+  const isLimitedDataset = enrollNum >= 10 && enrollNum < 50;
 
   // Healthy-volunteer studies enroll participants, not patients. Calling them
   // patients is the kind of error a clinical pharmacologist notices immediately.
   const isHealthyVol = /healthy\s+(volunteer|subject|particip)/i.test(conditions || '');
-  const noun = isHealthyVol ? 'participants' : 'patients';
 
-  // Brand style: spell out zero through nine in body text, numerals for 10+.
-  const NUM_WORDS = ['zero','one','two','three','four','five','six','seven','eight','nine'];
-  const nWord = (v) => {
-    const n = parseInt(v, 10);
-    if (!Number.isFinite(n)) return String(v || '');
-    return n < 10 ? NUM_WORDS[n] : n.toLocaleString('en-US');
-  };
   // "Healthy Volunteers" is not an indication, so never say "package for
   // Healthy Volunteers". Blank it out for the phrases that read as indications.
   const condRef = isHealthyVol ? '' : (conditions || '');
 
-  // Word boundaries on short abbreviations. Without them, the bare "all"
-  // matched any string containing that substring, so "Allergic Rhinitis",
-  // "Palliative Care", "Smallpox" and "Metabolically Healthy Obesity" were all
-  // treated as oncology and got tumor-framed copy.
-  const isOnc = (c,i,a) => [c,i,a].some(s => lo(s).match(/cancer|tumor|tumour|oncol|leukemia|lymphoma|melanoma|carcinoma|sarcoma|myeloma|glioblastoma|nsclc|sclc|breast|lung|prostate|colorectal|hepatocellular|\brenal\b|bladder|pancrea|ovarian|gastric|head and neck|\baml\b|\bcll\b|\ball\b|\bdlbcl\b|\bnhl\b/));
-  const isImmuno = (c,i,a) => [c,i,a].some(s => lo(s).match(/immune|autoimmune|rheumatoid|lupus|psoria|crohn|colitis|atopic|asthma|eczema|inflammat|multiple.sclerosis|ankylosing|sjögren|scleroderma/));
-  const isRare = (c,i,a) => [c,i,a].some(s => lo(s).match(/rare|orphan|spinal.muscular|duchenne|huntington|fabry|gaucher|cystic.fibro|hemophilia|sickle.cell|thalassemia|wilson|pompe|niemann|batten|rett/));
-  const isCNS = (c,i,a) => [c,i,a].some(s => lo(s).match(/alzheimer|parkinson|epilepsy|seizure|depression|schizophren|bipolar|anxiety|migraine|neuropath|dementia|\badhd\b|autism|stroke|multiple.sclerosis|amyotroph|\bals\b/));
-  const isADC = (c,i,a) => [c,i,a].some(s => lo(s).match(/antibody.drug.conjug|\badc\b|trastuzumab.deruxtecan|sacituzumab|enfortumab|mirvetuximab|payload|linker/));
-  const isBiologic = (c,i,a) => [c,i,a].some(s => lo(s).match(/biologic|monoclonal|\bmab\b|antibod|biosimilar|fusion.protein|pd-1|pd-l1|ctla-4|\bcd[0-9]+\b|anti-vegf|anti-tnf|anti-il|bispecific/));
-  const isGeneTx = (c,i,a) => [c,i,a].some(s => lo(s).match(/gene.therap|cell.therap|car-t|\bcar t\b|\baav\b|lentivir|crispr|\bsirna\b|\bmrna\b|antisense|oligonucleotide/));
-  const isVaccine = (c,i,a) => [c,i,a].some(s => lo(s).match(/vaccine|immunisation|immunization|adjuvant|antigen|seroconversion|antibody.tit/));
-  const isMetabolic = (c,i,a) => [c,i,a].some(s => lo(s).match(/diabet|obesity|metabolic|insulin|glp-1|sglt2|hba1c|glyc|lipid|cholesterol|nash|nafld|fatty.liver/));
+  // Two fixes here.
+  //
+  // 1. Word boundaries on short abbreviations. Without them the bare "all"
+  //    matched any string containing that substring, so "Allergic Rhinitis",
+  //    "Palliative Care", "Smallpox" and "Metabolically Healthy Obesity" were
+  //    all treated as oncology and got tumor-framed copy.
+  //
+  // 2. These match on conditions and interventions only, never on the derived
+  //    therapy_areas. That field is produced by the classifier and is wrong
+  //    often enough to corrupt outbound copy: an ITP study came back tagged
+  //    Oncology and was told about "the oncology division", and a Ravulizumab
+  //    myasthenia gravis study came back tagged Vaccines and was told about
+  //    seroconversion and lot consistency. Conditions and interventions come
+  //    straight from the registry, so they are the trustworthy inputs.
+  const isOnc = (c,i,a) => [c,i].some(s => lo(s).match(/cancer|tumor|tumour|oncol|leukemia|lymphoma|melanoma|carcinoma|sarcoma|myeloma|glioblastoma|nsclc|sclc|breast|lung|prostate|colorectal|hepatocellular|\brenal\b|bladder|pancrea|ovarian|gastric|head and neck|\baml\b|\bcll\b|\ball\b|\bdlbcl\b|\bnhl\b/));
+  const isImmuno = (c,i,a) => [c,i].some(s => lo(s).match(/immune|autoimmune|rheumatoid|lupus|psoria|crohn|colitis|atopic|asthma|eczema|inflammat|multiple.sclerosis|ankylosing|sjögren|scleroderma/));
+  const isRare = (c,i,a) => [c,i].some(s => lo(s).match(/rare|orphan|spinal.muscular|duchenne|huntington|fabry|gaucher|cystic.fibro|hemophilia|sickle.cell|thalassemia|wilson|pompe|niemann|batten|rett/));
+  const isCNS = (c,i,a) => [c,i].some(s => lo(s).match(/alzheimer|parkinson|epilepsy|seizure|depression|schizophren|bipolar|anxiety|migraine|neuropath|dementia|\badhd\b|autism|stroke|multiple.sclerosis|amyotroph|\bals\b/));
+  const isADC = (c,i,a) => [c,i].some(s => lo(s).match(/antibody.drug.conjug|\badc\b|trastuzumab.deruxtecan|sacituzumab|enfortumab|mirvetuximab|payload|linker/));
+  const isBiologic = (c,i,a) => [c,i].some(s => lo(s).match(/biologic|monoclonal|\bmab\b|antibod|biosimilar|fusion.protein|pd-1|pd-l1|ctla-4|\bcd[0-9]+\b|anti-vegf|anti-tnf|anti-il|bispecific/));
+  const isGeneTx = (c,i,a) => [c,i].some(s => lo(s).match(/gene.therap|cell.therap|car-t|\bcar t\b|\baav\b|lentivir|crispr|\bsirna\b|\bmrna\b|antisense|oligonucleotide/));
+  const isVaccine = (c,i,a) => [c,i].some(s => lo(s).match(/vaccine|immunisation|immunization|adjuvant|antigen|seroconversion|antibody.tit/));
+  const isMetabolic = (c,i,a) => [c,i].some(s => lo(s).match(/diabet|obesity|metabolic|insulin|glp-1|sglt2|hba1c|glyc|lipid|cholesterol|nash|nafld|fatty.liver/));
 
   // One vetted, non-specific line about the kind of work we do. Replaces the
   // four invented-sounding case studies that named outcomes we cannot evidence.
@@ -2322,8 +2328,8 @@ function phaseAngle(phase, conditions, interventions, areas, enrollment) {
     serviceList:     'NCA, PopPK, dose-escalation modeling, and the clinical pharmacology write-up',
     openingHook: (conds, ints, a, enroll) => {
       const size = isLimitedDataset
-        ? ` With ${nWord(enroll)} ${noun}, the cohort is small enough that Bayesian methods and adaptive modeling do real work, pulling more signal out of fewer subjects than standard NCA will.`
-        : enroll ? ` With ${nWord(enroll)} ${noun} across escalation and expansion, there's enough to build the PopPK model while the study runs instead of piecing it together afterward.` : '';
+        ? ` With a cohort this size, Bayesian methods and adaptive modeling do real work, pulling more signal out of fewer subjects than standard NCA will.`
+        : enroll ? ` There's enough here to build the PopPK model while the study runs instead of piecing it together afterward.` : '';
       if (isADC(conds,ints,a)) return `First-in-human ADC work carries PK complexity that standard escalation designs do not handle well. Total antibody, conjugated payload and free payload each behave differently, so multi-analyte modeling matters from the first cohort.${size}`;
       if (isGeneTx(conds,ints,a)) return `Gene and cell therapy programs do not fit standard compartmental PK. Vector kinetics, transgene expression and durability need their own framework.${size}`;
       if (isOnc(conds,ints,a)) return `In early-phase oncology the escalation design and PK characterization set up everything downstream, and the exposure-safety relationship is usually what the IND updates turn on.${size}`;
@@ -2343,8 +2349,8 @@ function phaseAngle(phase, conditions, interventions, areas, enrollment) {
     serviceList:     'PopPK, exposure-response, dose optimization and trial simulation',
     openingHook: (conds, ints, a, enroll) => {
       const size = isLimitedDataset
-        ? ` With ${nWord(enroll)} ${noun} the dataset is thin for a dose decision, which is where Bayesian PopPK and simulation earn their place.`
-        : enroll ? ` ${nWord(enroll)} ${noun} is enough to support a solid PopPK/PD model, and that model is usually what the Phase 3 dose has to stand on.` : '';
+        ? ` A dataset this size is thin for a dose decision, which is where Bayesian PopPK and simulation earn their place.`
+        : enroll ? ` The dataset should support a solid PopPK/PD model, and that model is usually what the Phase 3 dose has to stand on.` : '';
       if (isBiologic(conds,ints,a)) return `For biologics the exposure-response picture gets complicated by target-mediated disposition, so dose-proportionality assumptions tend not to hold and the Phase 3 dose needs a model behind it.${size}`;
       if (isImmuno(conds,ints,a)) return `In immunology the exposure-response work has to cover both efficacy and infection risk before a Phase 3 dose is locked in.${size}`;
       if (isOnc(conds,ints,a)) return `Phase 2 is where exposure-response becomes the central question, for toxicity as much as efficacy, and reviewers increasingly want that package before the pivotal trial starts.${size}`;
@@ -2364,8 +2370,8 @@ function phaseAngle(phase, conditions, interventions, areas, enrollment) {
     serviceList:     'PopPK, exposure-response, DDI, special populations, QTc and the regulatory write-up',
     openingHook: (conds, ints, a, enroll) => {
       const size = isLimitedDataset
-        ? ` With ${nWord(enroll)} ${noun} the dose justification leans harder on modeling, and reviewers still expect a quantitative argument for the dose you submit.`
-        : enroll ? ` At ${nWord(enroll)} ${noun} the dataset is rich enough that gaps in the analysis tend to surface as information requests rather than go unnoticed.` : '';
+        ? ` With a smaller dataset the dose justification leans harder on modeling, and reviewers still expect a quantitative argument for the dose you submit.`
+        : enroll ? ` At this scale, gaps in the analysis tend to surface as information requests rather than go unnoticed.` : '';
       if (isRare(conds,ints,a)) return `Rare disease filings carry their own expectations. With limited clinical data, model-based evidence usually has to carry more of the argument.${size}`;
       if (isVaccine(conds,ints,a)) return `The BLA package here runs through immunogenicity modeling, exposure-response for seroconversion and lot consistency, and it is normally on the critical path to review.${size}`;
       if (isOnc(conds,ints,a)) return `At this stage the clinical pharmacology package sits on the critical path to filing, and the exposure-response work for both efficacy and toxicity is the part that draws the most scrutiny.${size}`;
@@ -2394,8 +2400,8 @@ function phaseAngle(phase, conditions, interventions, areas, enrollment) {
     serviceList:     'NCA, PopPK, exposure-response, dose justification and regulatory writing',
     openingHook: (conds, ints, a, enroll) => {
       const size = isLimitedDataset
-        ? ` With ${nWord(enroll)} ${noun} the dataset is small, which is where Bayesian methods and sparse-data modeling are worth the effort.`
-        : enroll ? ` At ${nWord(enroll)} ${noun}, having the quantitative package ready before questions arrive tends to save more time than it costs.` : '';
+        ? ` With a dataset this size, Bayesian methods and sparse-data modeling are worth the effort.`
+        : enroll ? ` Having the quantitative package ready before questions arrive tends to save more time than it costs.` : '';
       if (conds && ints) return `Programs like this benefit from building the modeling in early, whether that's the PK/PD work, exposure-response for the endpoints in ${conds}, or simulation for special populations.${size}`;
       if (conds) return `Programs in ${conds} benefit from building the modeling into the clinical strategy early rather than assembling it under filing pressure.${size}`;
       return `Model-informed development is now the expectation rather than the exception, and teams that build it in early tend to reach decision points with fewer surprises.${size}`;
