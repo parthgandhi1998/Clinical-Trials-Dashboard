@@ -1897,8 +1897,14 @@ function applyCompanyDraft(companyName, bodyField, editorId, subjField, subjInpu
     if ((ct.company || '').trim() !== companyName) return;
     if (!ct.drafts) return; // skip contacts without drafts
     const firstName = ct.name.split(' ')[0] || ct.name;
-    // Prepend personalized greeting to the shared body
-    ct.drafts[bodyField] = `Hi ${firstName},\n\n${editedBody}`;
+    // Prepend the personalized greeting. The shared body comes from a
+    // contenteditable, so it is usually HTML. Prepending "Hi X,\n\n" to HTML
+    // used to collapse the newlines on send, running the greeting into the
+    // first line of the body. Match the greeting's format to the body's.
+    const _bodyIsHtml = /<[a-z][\s\S]*>/i.test(editedBody);
+    ct.drafts[bodyField] = _bodyIsHtml
+      ? `<div>Hi ${escHtml(firstName)},</div><div><br></div>${editedBody}`
+      : `Hi ${firstName},\n\n${editedBody}`;
     if (editedSubj) ct.drafts[subjField] = editedSubj;
     count++;
   });
@@ -2149,9 +2155,18 @@ function findTrialsForContact(campaign, contact) {
 // Kept intentionally simple per direction: we don't enumerate therapy areas
 // or phases (which risks being wrong or sounding mechanical). We just signal
 // awareness that there's more in the pipeline and leave the door open.
+// Strip trailing legal suffixes so emails read "Tes Pharma" rather than
+// "Tes Pharma S.r.l." Shared so every template uses the same short name.
+function stripLegalSuffix(name) {
+  return String(name || '')
+    .replace(/[,.\-\s]+(Inc|LLC|L\.L\.C|Ltd|Corp|Co|PLC|S\.?A|AG|GmbH|S\.?r\.?l|A\/S|NV|BV|AB|Oy|SpA|Pty|Limited|Corporation|Incorporated|Company|Holdings?|Group|Therapeutics? Inc)\.?\s*$/i, '')
+    .replace(/[,\s]+$/, '')
+    .trim();
+}
+
 function buildOtherProgrammesLine(others, company) {
   if (!others.length) return '';
-  const companyShort = company.replace(/[,.\-\s]+(Inc|LLC|Ltd|Corp|Co|PLC|SA|AG|GmbH|Limited|Corporation|Incorporated|Company)\.?\s*$/i, '').trim();
+  const companyShort = stripLegalSuffix(company);
   const isSingular = others.length === 1;
   const programLabel = isSingular ? 'another active development program' : 'several other active development programs';
   return `I also noticed ${companyShort} has ${programLabel}. If there's a clinical pharmacology need on any of those fronts, happy to discuss.`;
@@ -2162,7 +2177,11 @@ function buildDrafts(ct, co, otherTrials, campaignArea) {
   // co is now an individual trial object from findTrialsForContact
   // co._companyObj has the original company-level data (countries, etc.)
   const companyObj   = co._companyObj || co;
-  const company      = ct.company || co._companyName || coName(companyObj) || 'your company';
+  const _rawCompany  = ct.company || co._companyName || coName(companyObj) || '';
+  // coName() falls back to an em-dash for table display. Reject it here, or the
+  // email greets the prospect with "I noticed — is running ...".
+  const company      = (_rawCompany && _rawCompany.trim() !== '—') ? _rawCompany : 'your company';
+  const companyShort = stripLegalSuffix(company) || company;
   const nctId        = co.nct_id  || '';
   const trialTitle   = co.title   || '';
   const enrollment   = co.enrollment || '';
@@ -2188,6 +2207,10 @@ function buildDrafts(ct, co, otherTrials, campaignArea) {
     : rawAreas.join(', ');
   const countries    = (companyObj.countries || []).slice(0, 3).join(', ') || '';
   const multiNational = (companyObj.countries || []).length > 3;
+  // Spell out counts under 10 per brand style.
+  const _NW = ['zero','one','two','three','four','five','six','seven','eight','nine'];
+  const _cn = (companyObj.countries || []).length;
+  const nCountries = _cn < 10 ? _NW[_cn] : _cn.toLocaleString('en-US');
 
   // Phase-specific angle (pass enrollment for sample size context)
   const phaseContext = phaseAngle(phase, conditions, interventions, areas, enrollment);
@@ -2200,50 +2223,49 @@ function buildDrafts(ct, co, otherTrials, campaignArea) {
   );
   const otherLine = buildOtherProgrammesLine(otherAreaTrials, company);
 
-  // ── Trial description (natural reference, not just stating) ──
+  // ── Trial reference ──
   const trialRef = nctId
     ? `${nctId}, your ${phase ? phase + ' ' : ''}study of ${interventions || trialTitle || (areas + ' program')}${conditions ? ' in ' + conditions : ''}`
     : `${trialTitle || ('your ' + (phase ? phase + ' ' : '') + areas + ' program')}${conditions ? ' in ' + conditions : ''}`;
 
-  // Email 1 — Initial outreach
+  // Email 1 - first touch. Target 90-130 words: one observation, one relevant
+  // scientific point, brief credentials, one ask.
   const subject1 = nctId
     ? `${nctId}: ${phaseContext.subjectAngle}`
-    : `${company}: ${phaseContext.subjectAngle}`;
+    : `${companyShort}: ${phaseContext.subjectAngle}`;
 
   const email1 = `Hi ${firstName},
 
-I came across ${trialRef}, and wanted to reach out.
+Saw ${trialRef}.
 
 ${phaseContext.openingHook(conditions, interventions, areas, enrollment)}
 
-Our team at PumasAI includes pharmacometricians and clinical pharmacologists, several having previous experiences from FDA, Novartis, and BMS. We've supported 75+ regulatory submissions across FDA, EMA, PMDA, NMPA, TGA, and CDSCO, with 37 Phase 3 programs delivered to date. We handle the full clinical pharmacology program end-to-end: ${phaseContext.serviceList}.
-${multiNational ? '\nGiven the ' + (companyObj.countries||[]).length + '-country footprint, you\'ll need PK/PD packages that satisfy each agency\'s expectations, which is something we do routinely across multi-regional programs.\n' : ''}
-${otherLine ? otherLine + '\n\n' : ''}Would a short call make sense to see if there's a fit?`;
+We do pharmacometrics and clinical pharmacology at PumasAI, and several of our team came from the FDA, Novartis and BMS. We've supported more than 75 regulatory submissions across six agencies, including 37 Phase 3 programs. On a study like this we'd usually cover ${phaseContext.serviceList}.
+${multiNational ? '\nWith sites across ' + nCountries + ' countries you\'re writing for several agencies at once, which we do routinely.\n' : ''}
+${otherLine ? otherLine + '\n\n' : ''}Worth a short call?`;
 
-  // Follow-up 1 — Value add
+  // Follow-up 1 - exactly one ask. The old version asked for 15 minutes twice.
   const subject2 = `Re: ${subject1}`;
   const fu1 = `Hi ${firstName},
 
-Wanted to follow up briefly on my earlier note about ${nctId || ('your ' + areas + ' program')}.
+Following up on my note about ${nctId || ('your ' + areas + ' program')}.
 
-${phaseContext.followUp1Hook(conditions, interventions)}
+${phaseContext.followUp1Hook(conditions, interventions)} We${phaseContext.recentWork}.
 
-We recently ${phaseContext.recentWork}. Would it be worth 15 minutes to see if the timing works for ${company}?`;
+Happy to walk through how we'd approach it if that's useful. 15 minutes should cover it.`;
 
-  // Follow-up 2 — Break-up
-  const subject3 = `Last note for ${company}`;
+  // Follow-up 2 - close the loop without the flowery send-off.
+  const subject3 = `Last note on ${nctId || companyShort}`;
   const fu2 = `Hi ${firstName},
 
-I know your inbox is full, so this will be my last note on ${nctId || ('your ' + areas + ' program')}.
+Last note from me on ${nctId || ('your ' + areas + ' program')}.
 
 ${phaseContext.breakupLine(conditions, interventions)}
 
-If the timing isn't right, completely understood. We work with teams at every stage of development, so feel free to reach out whenever it makes sense.
-
-Wishing you and the ${company} team every success with ${nctId ? nctId : 'the program'}.`;
+If the timing isn't right, no problem at all. Happy to pick this up whenever it makes sense.`;
 
   // LinkedIn
-  const linkedin = `Hi ${firstName}, I noticed ${company} is running ${nctId ? nctId + ', ' : ''}a ${phase ? phase + ' ' : ''}${areas} trial. At PumasAI, we help teams like yours with ${phaseContext.linkedInAngle}. Would a quick chat be useful?`;
+  const linkedin = `Hi ${firstName}, saw ${companyShort} is running ${nctId ? nctId + ', ' : ''}a ${phase ? phase + ' ' : ''}study in ${areas}. We handle ${phaseContext.linkedInAngle} at PumasAI. Open to a quick conversation?`;
 
   return {
     subject1, email1, email1Approved: false,
@@ -2257,124 +2279,131 @@ function phaseAngle(phase, conditions, interventions, areas, enrollment) {
   const p = (phase || '').toLowerCase();
   const lo = (s) => (s || '').toLowerCase();
 
-  // Detect sample size context: enrollment < 50 = limited dataset, need ML/Bayesian/data augmentation
   const enrollNum = parseInt(enrollment, 10) || 0;
   const isLimitedDataset = enrollNum > 0 && enrollNum < 50;
 
-  // ── helpers to detect therapy context from conditions/interventions ──
-  const isOnc = (c,i,a) => [c,i,a].some(s => lo(s).match(/cancer|tumor|tumour|oncol|leukemia|lymphoma|melanoma|carcinoma|sarcoma|myeloma|glioblastoma|nsclc|sclc|breast|lung|prostate|colorectal|hepatocellular|renal|bladder|pancrea|ovar|gastric|head.and.neck|aml|cll|all|dlbcl|nhl/));
+  // Healthy-volunteer studies enroll participants, not patients. Calling them
+  // patients is the kind of error a clinical pharmacologist notices immediately.
+  const isHealthyVol = /healthy\s+(volunteer|subject|particip)/i.test(conditions || '');
+  const noun = isHealthyVol ? 'participants' : 'patients';
+
+  // Brand style: spell out zero through nine in body text, numerals for 10+.
+  const NUM_WORDS = ['zero','one','two','three','four','five','six','seven','eight','nine'];
+  const nWord = (v) => {
+    const n = parseInt(v, 10);
+    if (!Number.isFinite(n)) return String(v || '');
+    return n < 10 ? NUM_WORDS[n] : n.toLocaleString('en-US');
+  };
+  // "Healthy Volunteers" is not an indication, so never say "package for
+  // Healthy Volunteers". Blank it out for the phrases that read as indications.
+  const condRef = isHealthyVol ? '' : (conditions || '');
+
+  // Word boundaries on short abbreviations. Without them, the bare "all"
+  // matched any string containing that substring, so "Allergic Rhinitis",
+  // "Palliative Care", "Smallpox" and "Metabolically Healthy Obesity" were all
+  // treated as oncology and got tumor-framed copy.
+  const isOnc = (c,i,a) => [c,i,a].some(s => lo(s).match(/cancer|tumor|tumour|oncol|leukemia|lymphoma|melanoma|carcinoma|sarcoma|myeloma|glioblastoma|nsclc|sclc|breast|lung|prostate|colorectal|hepatocellular|\brenal\b|bladder|pancrea|ovarian|gastric|head and neck|\baml\b|\bcll\b|\ball\b|\bdlbcl\b|\bnhl\b/));
   const isImmuno = (c,i,a) => [c,i,a].some(s => lo(s).match(/immune|autoimmune|rheumatoid|lupus|psoria|crohn|colitis|atopic|asthma|eczema|inflammat|multiple.sclerosis|ankylosing|sjögren|scleroderma/));
   const isRare = (c,i,a) => [c,i,a].some(s => lo(s).match(/rare|orphan|spinal.muscular|duchenne|huntington|fabry|gaucher|cystic.fibro|hemophilia|sickle.cell|thalassemia|wilson|pompe|niemann|batten|rett/));
-  const isCNS = (c,i,a) => [c,i,a].some(s => lo(s).match(/alzheimer|parkinson|epilepsy|seizure|depression|schizophren|bipolar|anxiety|migraine|neuropath|dementia|adhd|asd|autism|stroke|multiple.sclerosis|amyotroph|als\b/));
-  const isCV = (c,i,a) => [c,i,a].some(s => lo(s).match(/heart.failure|hypertension|atrial.fibril|thrombos|anticoagul|cardiovasc|myocardial|arrhythm|atheroscl|pulmonary.arter|pah/));
-  const isADC = (c,i,a) => [c,i,a].some(s => lo(s).match(/antibody.drug.conjug|adc\b|trastuzumab.deruxtecan|sacituzumab|enfortumab|mirvetuximab|payload|linker/));
-  const isBiologic = (c,i,a) => [c,i,a].some(s => lo(s).match(/biologic|monoclonal|mab\b|antibod|biosimilar|fusion.protein|receptor.agonist|pd-1|pd-l1|ctla-4|cd[0-9]|anti-vegf|anti-tnf|anti-il|jak.inhibit|bispecific/));
-  const isGeneTx = (c,i,a) => [c,i,a].some(s => lo(s).match(/gene.therap|cell.therap|car-t|car.t|aav|lentivir|crispr|sirna|mrna|antisense|oligonucleotide/));
-  const isInfect = (c,i,a) => [c,i,a].some(s => lo(s).match(/hiv|hepatitis|influenza|covid|sars|rsv|tuberculosis|malaria|antibiotic|antifungal|antiviral|bacterial|fungal|sepsis/));
-  const isPediatric = (c,i,a) => [c,i,a].some(s => lo(s).match(/pediatr|paediatr|child|infant|neonat|adolescen|juvenile/));
-  const isVaccine = (c,i,a) => [c,i,a].some(s => lo(s).match(/vaccine|immunisation|immunization|adjuvant|antigen|seroconversion|antibody.titre|antibody.titer|mrna.vaccine/));
-  const isDerma = (c,i,a) => [c,i,a].some(s => lo(s).match(/dermat|psoriasis|eczema|acne|alopecia|vitiligo|skin|wound|topical|atopic.dermatit/));
-  const isOphthalm = (c,i,a) => [c,i,a].some(s => lo(s).match(/ophthalm|macular|retina|glaucoma|uveitis|dry.eye|cornea|intraocular|intravitreal/));
+  const isCNS = (c,i,a) => [c,i,a].some(s => lo(s).match(/alzheimer|parkinson|epilepsy|seizure|depression|schizophren|bipolar|anxiety|migraine|neuropath|dementia|\badhd\b|autism|stroke|multiple.sclerosis|amyotroph|\bals\b/));
+  const isADC = (c,i,a) => [c,i,a].some(s => lo(s).match(/antibody.drug.conjug|\badc\b|trastuzumab.deruxtecan|sacituzumab|enfortumab|mirvetuximab|payload|linker/));
+  const isBiologic = (c,i,a) => [c,i,a].some(s => lo(s).match(/biologic|monoclonal|\bmab\b|antibod|biosimilar|fusion.protein|pd-1|pd-l1|ctla-4|\bcd[0-9]+\b|anti-vegf|anti-tnf|anti-il|bispecific/));
+  const isGeneTx = (c,i,a) => [c,i,a].some(s => lo(s).match(/gene.therap|cell.therap|car-t|\bcar t\b|\baav\b|lentivir|crispr|\bsirna\b|\bmrna\b|antisense|oligonucleotide/));
+  const isVaccine = (c,i,a) => [c,i,a].some(s => lo(s).match(/vaccine|immunisation|immunization|adjuvant|antigen|seroconversion|antibody.tit/));
   const isMetabolic = (c,i,a) => [c,i,a].some(s => lo(s).match(/diabet|obesity|metabolic|insulin|glp-1|sglt2|hba1c|glyc|lipid|cholesterol|nash|nafld|fatty.liver/));
-  const isResp = (c,i,a) => [c,i,a].some(s => lo(s).match(/copd|asthma|pulmonary.fibros|cystic.fibros|respiratory|inhale|bronch|pneumon/));
+
+  // One vetted, non-specific line about the kind of work we do. Replaces the
+  // four invented-sounding case studies that named outcomes we cannot evidence.
+  const vettedWork = "'ve run this kind of analysis on programs heading into agency review";
 
   // ── Phase 1 ──
   if (p.includes('1')) return {
-    subjectAngle:    'Early-Phase PK & Dose Characterization',
-    serviceList:     'NCA, PopPK, dose-escalation modeling, PK/PD characterization, and regulatory writing through submission',
+    subjectAngle:    'Early-phase PK and dose characterization',
+    serviceList:     'NCA, PopPK, dose-escalation modeling, and the clinical pharmacology write-up',
     openingHook: (conds, ints, a, enroll) => {
-      const enrollStr = isLimitedDataset
-        ? ` With ${enroll} patients, you have a limited dataset due to small cohort size. That is exactly where Bayesian approaches, ML-augmented NCA, and adaptive modeling extract maximum signal from fewer subjects and strengthen the dose-escalation narrative.`
-        : enroll ? ` With ${enroll} patients across the dose-escalation and expansion cohorts, there's a real opportunity to build a robust PopPK model early that directly informs RP2D selection, rather than retrofitting it later under time pressure.` : '';
-      if (isOnc(conds,ints,a)) return `Phase 1 oncology programs like this one are where the PK characterization and dose-escalation design shape everything downstream.${enrollStr}${ints ? ` For a novel agent like ${ints}, getting the exposure-safety relationship characterized now also strengthens the IND safety updates and sets up a much cleaner Phase 2 transition.` : ''}`;
-      if (isADC(conds,ints,a)) return `First-in-human ADC programs carry unique PK complexity. The interplay between total antibody, conjugated payload, and free payload means standard dose-escalation approaches need to be informed by multi-analyte PK modeling from day one.${enrollStr}`;
-      if (isGeneTx(conds,ints,a)) return `Early-phase gene and cell therapy programs bring non-standard PK/PD considerations. Viral vector kinetics, transgene expression, and durability modeling don't fit traditional compartmental frameworks.${enrollStr}${ints ? ` For ${ints}, establishing the dose-expression relationship early is critical for informing the registrational strategy.` : ''}`;
-      if (isRare(conds,ints,a)) return `Early-phase rare disease programs often have very limited patient numbers to work with. Model-informed dose escalation helps extract maximum pharmacological insight from every subject, which is critical when recruitment is inherently constrained.${enrollStr}`;
-      if (isCNS(conds,ints,a)) return `Phase 1 CNS programs carry the added complexity of demonstrating target engagement across the blood-brain barrier.${enrollStr}${ints ? ` For ${ints}, getting the PK characterization and central compartment modeling right at this stage shapes every decision that follows.` : ''}`;
-      if (isVaccine(conds,ints,a)) return `Early-phase vaccine programs are where the dose-immunogenicity relationship needs to be established. Characterizing antibody titers and seroconversion rates across dose levels is what drives the pivotal trial design.${enrollStr}`;
-      return `Early-phase programs like this one are where model-informed drug development pays the highest dividends. Getting the PK characterization and dose-escalation design right from the start reduces risk and directly informs every downstream decision.${enrollStr}${ints ? ` For ${ints}, building a robust PopPK model now avoids the dose justification questions that often come back from regulators later.` : ''}`;
+      const size = isLimitedDataset
+        ? ` With ${nWord(enroll)} ${noun}, the cohort is small enough that Bayesian methods and adaptive modeling do real work, pulling more signal out of fewer subjects than standard NCA will.`
+        : enroll ? ` With ${nWord(enroll)} ${noun} across escalation and expansion, there's enough to build the PopPK model while the study runs instead of piecing it together afterward.` : '';
+      if (isADC(conds,ints,a)) return `First-in-human ADC work carries PK complexity that standard escalation designs do not handle well. Total antibody, conjugated payload and free payload each behave differently, so multi-analyte modeling matters from the first cohort.${size}`;
+      if (isGeneTx(conds,ints,a)) return `Gene and cell therapy programs do not fit standard compartmental PK. Vector kinetics, transgene expression and durability need their own framework.${size}`;
+      if (isOnc(conds,ints,a)) return `In early-phase oncology the escalation design and PK characterization set up everything downstream, and the exposure-safety relationship is usually what the IND updates turn on.${size}`;
+      if (isCNS(conds,ints,a)) return `Phase 1 CNS programs carry the extra burden of showing target engagement past the blood-brain barrier, which is hard to argue without central-compartment modeling.${size}`;
+      if (isVaccine(conds,ints,a)) return `Early vaccine work lives on the dose-immunogenicity relationship. Titers and seroconversion across dose levels are what the pivotal design rests on.${size}`;
+      return `At this stage the escalation design and PK characterization set up every decision that follows, and dose justification is easier to build now than to reconstruct later.${size}`;
     },
-    followUp1Hook: (conds, ints) => {
-      if (isOnc(conds,ints,'')) return `One thing we hear consistently from early-phase oncology teams: PK data interpretation becomes a bottleneck right when dose-escalation decisions are time-sensitive. Our modeling platform (Pumas) runs these analyses 10x faster than traditional tools like NONMEM, which translates directly into faster dose decisions.`;
-      return `One thing I often hear from Phase 1 teams is that PK data interpretation bottlenecks the dose decision timeline. Our modeling platform compresses turnaround from weeks to days. Worth 15 minutes to walk through how?`;
-    },
-    recentWork:      'supported a Phase 1 FIH program where our NCA + PopPK package directly informed the dose-escalation committee, getting to RP2D two months ahead of the original timeline',
-    breakupLine: (conds, ints) => `If you ever need support with PK analysis, dose escalation modeling, or putting together the early-phase regulatory package${conds ? ' for ' + conds : ''}, we're a call away.`,
-    linkedInAngle:   'Phase 1 PK characterization, NCA, and dose-escalation modeling'
+    followUp1Hook: (conds, ints) => `The usual bottleneck we see in Phase 1 is PK turnaround landing after the escalation committee needs an answer, so the modeling gets deferred and then rebuilt for the briefing package.`,
+    recentWork:      vettedWork,
+    breakupLine: (conds, ints) => `If PK analysis, escalation modeling or the early-phase regulatory package${condRef ? ' for ' + condRef : ''} comes up later, I'm easy to reach.`,
+    linkedInAngle:   'early-phase PK, NCA and dose-escalation modeling'
   };
 
   // ── Phase 2 ──
   if (p.includes('2')) return {
-    subjectAngle:    'Exposure-Response & Phase 3 Dose Rationale',
-    serviceList:     'PopPK, exposure-response, dose optimization, clinical trial simulation, and regulatory writing through submission',
+    subjectAngle:    'Exposure-response and Phase 3 dose rationale',
+    serviceList:     'PopPK, exposure-response, dose optimization and trial simulation',
     openingHook: (conds, ints, a, enroll) => {
-      const enrollStr = isLimitedDataset
-        ? ` With ${enroll} patients, you have a limited dataset due to small cohort size. Bayesian PopPK/E-R and simulation-based dose optimization help you build a defensible Phase 3 dose rationale even with sparse data, which is exactly what FDA expects in these scenarios.`
-        : enroll ? ` With ${enroll} patients, you'll have a dataset that supports a strong PopPK/PD model. Getting that analysis right now is often the difference between a clean Phase 3 dose rationale and a regulatory back-and-forth that delays the pivotal trial.` : '';
-      if (isOnc(conds,ints,a)) return `Phase 2 is where the exposure-response relationship becomes the central question. ${ints ? `For ${ints}, the` : 'The'} E-R for both efficacy and toxicity needs to be well-characterized before committing to a Phase 3 dose. Increasingly, FDA expects a rigorous E-R package before you even start the pivotal trial.${enrollStr}`;
-      if (isImmuno(conds,ints,a)) return `Phase 2 is where the exposure-response relationship becomes the central question, particularly for an immunology asset${ints ? ` like ${ints}` : ''}, where the E-R for both efficacy ${conds ? `(e.g., ACR response, DAS28 for ${conds})` : 'endpoints'} and infection risk needs to be well-characterized before you commit to a Phase 3 dose.${enrollStr}`;
-      if (isBiologic(conds,ints,a)) return `For biologics in Phase 2, the exposure-response story becomes central, particularly when target-mediated disposition means the PK is nonlinear and dose-proportionality assumptions break down.${ints ? ` For ${ints}, a` : ' A'} well-built PopPK/E-R model at this stage is what makes the Phase 3 dose rationale defensible.${enrollStr}`;
-      if (isVaccine(conds,ints,a)) return `Phase 2 vaccine programs are where the immunogenicity-dose relationship becomes the central question. Characterizing the exposure-response for antibody titers and seroconversion rates at this stage drives Phase 3 dose selection and directly shapes the regulatory filing strategy.${enrollStr}`;
-      if (isMetabolic(conds,ints,a)) return `Phase 2 is where the exposure-response relationship defines the program's trajectory${conds ? `. For ${conds}, characterizing the E-R for glycemic endpoints and safety signals` : ''} at this stage directly supports the Phase 3 dose rationale.${enrollStr}`;
-      return `Phase 2 is where the exposure-response relationship defines the program's trajectory. A robust E-R model at this stage directly supports the Phase 3 dose rationale and significantly reduces regulatory back-and-forth.${enrollStr}${ints ? ` For ${ints}, getting this analysis right now avoids costly protocol amendments downstream.` : ''}`;
+      const size = isLimitedDataset
+        ? ` With ${nWord(enroll)} ${noun} the dataset is thin for a dose decision, which is where Bayesian PopPK and simulation earn their place.`
+        : enroll ? ` ${nWord(enroll)} ${noun} is enough to support a solid PopPK/PD model, and that model is usually what the Phase 3 dose has to stand on.` : '';
+      if (isBiologic(conds,ints,a)) return `For biologics the exposure-response picture gets complicated by target-mediated disposition, so dose-proportionality assumptions tend not to hold and the Phase 3 dose needs a model behind it.${size}`;
+      if (isImmuno(conds,ints,a)) return `In immunology the exposure-response work has to cover both efficacy and infection risk before a Phase 3 dose is locked in.${size}`;
+      if (isOnc(conds,ints,a)) return `Phase 2 is where exposure-response becomes the central question, for toxicity as much as efficacy, and reviewers increasingly want that package before the pivotal trial starts.${size}`;
+      if (isVaccine(conds,ints,a)) return `The dose-immunogenicity relationship is what drives Phase 3 selection here, and characterizing it now shapes the filing strategy.${size}`;
+      if (isMetabolic(conds,ints,a)) return `Exposure-response for the glycemic endpoints and the safety signals is what the Phase 3 dose rationale will rest on.${size}`;
+      return `Phase 2 is where exposure-response sets the program's direction, and a solid model here is what makes the Phase 3 dose defensible.${size}`;
     },
-    followUp1Hook: (conds, ints) => {
-      if (isOnc(conds,ints,'')) return `The difference between a smooth Phase 3 launch and a prolonged FDA review often comes down to the E-R analysis quality in Phase 2.${ints ? ` For ${ints}, the therapeutic window characterization is particularly critical.` : ''} Worth a short conversation to see if it lines up with where your team is right now?`;
-      return `The difference between a clean Phase 3 package and a prolonged FDA review often comes down to the quality of the E-R analysis done in Phase 2. Worth a short conversation to see if it lines up with where your team is right now?`;
-    },
-    recentWork:      'completed an exposure-response analysis for a Phase 2 asset that directly informed the pivotal trial dose selection, which the sponsor said helped them avoid a Phase 3 protocol amendment',
-    breakupLine: (conds, ints) => `If a need for PopPK, E-R modeling, or Phase 3 dose justification${conds ? ' for ' + conds : ''} comes up down the road, please don't hesitate to reach out.`,
-    linkedInAngle:   'Phase 2 exposure-response modeling and Phase 3 dose justification'
+    followUp1Hook: (conds, ints) => `In our experience the gap between a clean Phase 3 package and a drawn-out review usually traces back to how well the Phase 2 exposure-response work was done.`,
+    recentWork:      vettedWork,
+    breakupLine: (conds, ints) => `If PopPK, exposure-response or Phase 3 dose justification${condRef ? ' for ' + condRef : ''} comes up later, do get in touch.`,
+    linkedInAngle:   'exposure-response modeling and Phase 3 dose justification'
   };
 
   // ── Phase 3 ──
   if (p.includes('3')) return {
-    subjectAngle:    'Clinical Pharmacology Submission Package',
-    serviceList:     'PopPK, exposure-response, DDI, special populations, QTc, regulatory writing, and agency interactions through submission',
+    subjectAngle:    'Clinical pharmacology submission package',
+    serviceList:     'PopPK, exposure-response, DDI, special populations, QTc and the regulatory write-up',
     openingHook: (conds, ints, a, enroll) => {
-      const enrollStr = isLimitedDataset
-        ? ` With ${enroll} patients (limited dataset due to small cohort size), a well-designed Bayesian PopPK/E-R analysis and data augmentation strategy is critical. FDA reviewers expect quantitative justification for the submitted dose, and sparse data actually strengthens the case for model-based approaches.`
-        : enroll ? ` With ${enroll} patients generating a rich dataset, this is the point where a well-executed clinical pharmacology package can keep the PDUFA date on track, or a gap in the analysis can trigger an information request that costs months.` : '';
-      if (isOnc(conds,ints,a)) return `At the Phase 3 stage, the clinical pharmacology submission package (PopPK, E-R for both efficacy and toxicity, DDI, hepatic/renal impairment, QTc) is on the critical path to filing.${ints ? ` For ${ints}` : ' For an oncology asset'}${conds ? ` in ${conds}` : ''}, FDA reviewers in the oncology division have specific expectations around the E-R safety analysis and dose justification.${enrollStr}`;
-      if (isRare(conds,ints,a)) return `NDA/BLA packages for rare diseases carry unique expectations. FDA's orphan drug reviewers often expect model-based evidence to supplement limited clinical data.${conds ? ` For ${conds}, the` : ' The'} clinical pharmacology package needs to tell a compelling quantitative story, which is exactly what we build.${enrollStr}`;
-      if (isVaccine(conds,ints,a)) return `Phase 3 vaccine programs are on the submission runway, and the clinical pharmacology package for BLA (immunogenicity modeling, exposure-response for seroconversion, lot consistency) is typically on the critical path to CBER review.${enrollStr}`;
-      return `Phase 3 programs are on the submission runway, and the clinical pharmacology package (PopPK, E-R, DDI, special populations) is typically on the critical path.${ints ? ` For ${ints}` : ''}${conds ? ` in ${conds}` : ''}, delivering these analyses right the first time is what avoids information requests and keeps the review timeline on track.${enrollStr}`;
+      const size = isLimitedDataset
+        ? ` With ${nWord(enroll)} ${noun} the dose justification leans harder on modeling, and reviewers still expect a quantitative argument for the dose you submit.`
+        : enroll ? ` At ${nWord(enroll)} ${noun} the dataset is rich enough that gaps in the analysis tend to surface as information requests rather than go unnoticed.` : '';
+      if (isRare(conds,ints,a)) return `Rare disease filings carry their own expectations. With limited clinical data, model-based evidence usually has to carry more of the argument.${size}`;
+      if (isVaccine(conds,ints,a)) return `The BLA package here runs through immunogenicity modeling, exposure-response for seroconversion and lot consistency, and it is normally on the critical path to review.${size}`;
+      if (isOnc(conds,ints,a)) return `At this stage the clinical pharmacology package sits on the critical path to filing, and the exposure-response work for both efficacy and toxicity is the part that draws the most scrutiny.${size}`;
+      return `The clinical pharmacology package is usually on the critical path at this point. Getting PopPK, exposure-response, DDI and special populations right the first time is what keeps information requests off the timeline.${size}`;
     },
-    followUp1Hook: (conds, ints) => {
-      return `Regulatory reviewers increasingly expect MIDD-supported dose justification in Phase 3 submissions. We've prepared packages that went through FDA review with zero clinical pharmacology queries${conds ? ' for ' + conds + ' programs' : ''}. Worth a short conversation?`;
-    },
-    recentWork:      'delivered a complete clinical pharmacology submission package for a Phase 3 program where our PopPK and E-R analyses directly addressed an FDA information request, keeping the PDUFA date on track',
-    breakupLine: (conds, ints) => `If a need for the clinical pharmacology submission package${conds ? ' for ' + conds : ''}, regulatory interactions, or agency meeting preparation arises, PumasAI is here.`,
-    linkedInAngle:   'Phase 3 regulatory clinical pharmacology packages and NDA/BLA submissions'
+    followUp1Hook: (conds, ints) => `Reviewers now expect model-informed dose justification in the submission, and it's much cheaper to build that in than to answer for it after filing.`,
+    recentWork:      vettedWork,
+    breakupLine: (conds, ints) => `If the clinical pharmacology package${condRef ? ' for ' + condRef : ''} or agency meeting prep comes up, I'm happy to help.`,
+    linkedInAngle:   'clinical pharmacology packages for NDA and BLA submissions'
   };
 
-  // ── Phase 4 / Post-marketing ──
+  // ── Phase 4 / post-marketing ──
   if (p.includes('4')) return {
-    subjectAngle:    'Post-Marketing & Label Extension Support',
-    serviceList:     'PMR/PMC analyses, indication extension modeling, posology optimization, and regulatory writing',
-    openingHook: (conds, ints, a, enroll) => `Post-marketing commitments and label extensions require the same analytical rigor as the original submission. PMR/PMC analyses, new indication PK bridging, and posology optimization all benefit from a fresh modeling perspective built on the accumulated clinical dataset.${ints ? ` For ${ints}, the accumulated data across trials creates a powerful foundation for model-based label optimization.` : ''}`,
-    followUp1Hook: (conds, ints) => `Post-marketing PK/PD analyses often uncover dosing optimizations that weren't apparent from the pivotal trials, especially around special populations and real-world adherence patterns. Worth a conversation?`,
-    recentWork:      'supported a post-marketing commitment analysis that leveraged pooled data across trials to justify an optimized dosing regimen, satisfying the FDA PMR ahead of deadline',
-    breakupLine: (conds, ints) => `If PMR/PMC support, label extension modeling, or new indication pharmacology work comes up, please feel free to reach out.`,
+    subjectAngle:    'Post-marketing and label extension support',
+    serviceList:     'PMR and PMC analyses, indication extension modeling and posology optimization',
+    openingHook: (conds, ints, a, enroll) => `Post-marketing commitments and label work need the same rigor as the original filing, and by this point there is a lot more data to work with than the pivotal trials had.${ints ? ` For ${ints}, pooling across studies usually opens up dosing questions worth revisiting.` : ''}`,
+    followUp1Hook: (conds, ints) => `Post-marketing analyses often surface dosing refinements the pivotal trials could not show, particularly in special populations.`,
+    recentWork:      vettedWork,
+    breakupLine: (conds, ints) => `If PMR or PMC support, label extension work or new indication pharmacology comes up, do reach out.`,
     linkedInAngle:   'post-marketing PK/PD analysis and label optimization'
   };
 
-  // ── Generic fallback (phase-driven, still uses conditions/interventions) ──
+  // ── Generic fallback ──
   return {
-    subjectAngle:    'MIDD & Clinical Pharmacology Support',
-    serviceList:     'NCA, PopPK, exposure-response, dose justification, and regulatory writing through submission',
+    subjectAngle:    'Clinical pharmacology and MIDD support',
+    serviceList:     'NCA, PopPK, exposure-response, dose justification and regulatory writing',
     openingHook: (conds, ints, a, enroll) => {
-      const enrollStr = isLimitedDataset
-        ? ` With ${enroll} patients (limited dataset due to small cohort size), Bayesian approaches, machine learning augmentation, and sparse data modeling help extract maximum signal, particularly when regulatory timelines are tight.`
-        : enroll ? ` With ${enroll} patients, having a regulatory-ready quantitative package that addresses FDA and EMA expectations upfront avoids the back-and-forth that often delays timelines.` : '';
-      if (conds && ints) return `Programs like this benefit significantly from building model-informed drug development into the clinical strategy early, whether it's PK/PD characterization for ${ints}, exposure-response for efficacy endpoints in ${conds}, or simulation-based dose optimization for special populations.${enrollStr}`;
-      if (conds) return `Programs in ${conds} benefit significantly from building model-informed drug development into the clinical strategy early. PK/PD characterization, exposure-response analysis, and simulation-based dose optimization all strengthen the regulatory narrative.${enrollStr}`;
-      return `Model-Informed Drug Development is increasingly expected by FDA and EMA reviewers. Programs that build MIDD into their clinical strategy from the start consistently reach decision points faster with fewer surprises.${enrollStr}`;
+      const size = isLimitedDataset
+        ? ` With ${nWord(enroll)} ${noun} the dataset is small, which is where Bayesian methods and sparse-data modeling are worth the effort.`
+        : enroll ? ` At ${nWord(enroll)} ${noun}, having the quantitative package ready before questions arrive tends to save more time than it costs.` : '';
+      if (conds && ints) return `Programs like this benefit from building the modeling in early, whether that's the PK/PD work, exposure-response for the endpoints in ${conds}, or simulation for special populations.${size}`;
+      if (conds) return `Programs in ${conds} benefit from building the modeling into the clinical strategy early rather than assembling it under filing pressure.${size}`;
+      return `Model-informed development is now the expectation rather than the exception, and teams that build it in early tend to reach decision points with fewer surprises.${size}`;
     },
-    followUp1Hook: (conds, ints) => `Many teams find that proactive MIDD strategy reduces overall development time and strengthens regulatory interactions${conds ? ', especially in ' + conds + ' where the regulatory landscape is evolving' : ''}. Worth a short conversation?`,
-    recentWork:      'supported a clinical development program with PK/PD modeling that informed a key regulatory decision, reducing back-and-forth with FDA by several months',
-    breakupLine: (conds, ints) => `If a pharmacometrics or clinical pharmacology need comes up at any stage${conds ? ' for ' + conds : ''}, please feel free to reach out.`,
-    linkedInAngle:   'pharmacometrics, clinical pharmacology, and MIDD strategy'
+    followUp1Hook: (conds, ints) => `Teams that plan the modeling work up front generally spend less time on regulatory back-and-forth later.`,
+    recentWork:      vettedWork,
+    breakupLine: (conds, ints) => `If a pharmacometrics or clinical pharmacology need comes up at any stage${condRef ? ' for ' + condRef : ''}, do feel free to reach out.`,
+    linkedInAngle:   'pharmacometrics, clinical pharmacology and MIDD strategy'
   };
 }
 
@@ -2771,7 +2800,7 @@ function renderExportTab(c) {
             <label style="font-size:11px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:8px">✍ Email Closing — applies to every email (individual &amp; bulk)</label>
             <div style="margin-bottom:8px">
               <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">Closing greeting</label>
-              <input id="sender-closing-input" class="form-input" style="width:100%" placeholder="e.g. Best regards, / Warm regards, / Thanks," value="${c.sender_closing || 'Best regards,'}" oninput="saveSenderField('${c.id}','sender_closing',this.value)">
+              <input id="sender-closing-input" class="form-input" style="width:100%" placeholder="e.g. Best regards, / Warm regards, / Thanks," value="${c.sender_closing || ''}" oninput="saveSenderField('${c.id}','sender_closing',this.value)">
             </div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
               <div>
@@ -2783,7 +2812,23 @@ function renderExportTab(c) {
                 <input id="sender-title-input" class="form-input" style="width:100%" placeholder="e.g. Co-founder, PumasAI" value="${c.sender_title || ''}" oninput="saveSenderField('${c.id}','sender_title',this.value)">
               </div>
             </div>
-            <div style="font-size:11px;color:var(--text-muted)">Preview: <em style="color:var(--text-mid)">${c.sender_closing || 'Best regards,'}</em> → <em style="color:var(--text-mid)">${c.sender_name || 'Your name'}</em> · <em style="color:var(--text-mid)">${c.sender_title || 'Your title'}</em> → Outlook signature</div>
+            <div style="margin-bottom:8px">
+              <label style="font-size:11px;color:var(--text-muted);display:block;margin-bottom:3px">What gets appended</label>
+              <select class="form-input" style="width:100%" onchange="saveSenderField('${c.id}','signature_mode',this.value)">
+                <option value="both"    ${(c.signature_mode||'both')==='both'    ? 'selected' : ''}>My closing above, then my Outlook signature</option>
+                <option value="closing" ${(c.signature_mode||'both')==='closing' ? 'selected' : ''}>My closing above only (skip Outlook signature)</option>
+                <option value="outlook" ${(c.signature_mode||'both')==='outlook' ? 'selected' : ''}>My Outlook signature only (skip the closing above)</option>
+                <option value="none"    ${(c.signature_mode||'both')==='none'    ? 'selected' : ''}>Nothing at all (body only)</option>
+              </select>
+            </div>
+            <div style="font-size:11px;color:var(--text-muted)">Preview: ${
+              (c.signature_mode||'both')==='none' ? '<em style="color:var(--text-mid)">nothing appended</em>'
+              : (c.signature_mode||'both')==='outlook' ? '<em style="color:var(--text-mid)">your Outlook signature only</em>'
+              : ((c.sender_closing || c.sender_name || c.sender_title)
+                  ? [c.sender_closing, c.sender_name, c.sender_title].filter(Boolean).map(x=>'<em style="color:var(--text-mid)">'+x+'</em>').join(' &middot; ')
+                  : '<em style="color:var(--text-mid)">no closing set</em>')
+                + ((c.signature_mode||'both')==='both' ? ' then your Outlook signature' : ' only')
+            }</div>
           </div>
 
           <!-- Attachments -->
@@ -3378,9 +3423,13 @@ async function doServerSend(rows, label, displayMode) {
         rows,
         display: displayMode,
         attachments_b64: pendingAttachments.map(a => ({ name: a.name, data: a.dataB64 })),
-        sender_closing: getCampaign(activeCampaignId)?.sender_closing || 'Best regards,',
-        sender_name:    getCampaign(activeCampaignId)?.sender_name  || '',
-        sender_title:   getCampaign(activeCampaignId)?.sender_title || '',
+        // Send exactly what the user chose. The old `|| 'Best regards,'` here
+        // (and its twin in email_server.py) meant a blank closing silently came
+        // back as "Best regards," on every send.
+        sender_closing: getCampaign(activeCampaignId)?.sender_closing ?? '',
+        sender_name:    getCampaign(activeCampaignId)?.sender_name    ?? '',
+        sender_title:   getCampaign(activeCampaignId)?.sender_title   ?? '',
+        signature_mode: getCampaign(activeCampaignId)?.signature_mode || 'both',
       }),
     });
     const result = await r.json();
