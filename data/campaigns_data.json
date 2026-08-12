@@ -1,5 +1,286 @@
 [
   {
+    "id": "cmp_1786550766457",
+    "name": "Novartis_trial",
+    "owner": "Parth",
+    "area": "Cardiovascular",
+    "notes": "",
+    "status": "draft",
+    "created": "2026-08-12T16:06:06.457Z",
+    "companies": [
+      {
+        "name": "Novartis Pharmaceuticals",
+        "org_type": "INDUSTRY",
+        "funder_types": [],
+        "therapy_areas": [
+          "Cardiovascular",
+          "Oncology",
+          "Hematology",
+          "Neurology",
+          "Dermatology",
+          "Immunology & Inflammation",
+          "Other",
+          "Renal & Urology",
+          "Respiratory",
+          "Metabolic & Endocrine",
+          "Women's Health",
+          "Psychiatry & Mental Health",
+          "Ophthalmology",
+          "Musculoskeletal",
+          "Infectious Disease",
+          "Vaccines",
+          "Rare & Genetic Diseases"
+        ],
+        "phases": [
+          "Phase 1",
+          "N/A",
+          "Phase 3",
+          "Phase 1, Phase 2",
+          "Phase 4",
+          "Phase 2"
+        ],
+        "countries": [
+          "Canada",
+          "United States",
+          "Argentina",
+          "Australia",
+          "Austria",
+          "Belgium",
+          "Brazil",
+          "Bulgaria",
+          "China",
+          "Colombia",
+          "Croatia",
+          "Czechia",
+          "Denmark",
+          "Estonia",
+          "France",
+          "Germany",
+          "Greece",
+          "Hungary",
+          "India",
+          "Israel",
+          "Italy",
+          "Lithuania",
+          "Mexico",
+          "Netherlands",
+          "Poland",
+          "Portugal",
+          "Romania",
+          "Slovakia",
+          "South Africa",
+          "Spain",
+          "Switzerland",
+          "United Kingdom",
+          "Singapore",
+          "Japan",
+          "South Korea",
+          "Taiwan",
+          "Russia",
+          "Kenya",
+          "Malaysia",
+          "Zambia",
+          "Hong Kong",
+          "Iceland",
+          "Norway",
+          "Puerto Rico",
+          "Slovenia",
+          "Sweden",
+          "Turkey (Türkiye)",
+          "United Arab Emirates",
+          "Saudi Arabia",
+          "Panama",
+          "Thailand"
+        ],
+        "trials": [
+          {
+            "nct_id": "NCT07465653",
+            "title": "A Safety and Tolerability Study of HJB647 in Heart Failure Participants With Reduced Ejection Fraction",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "12",
+            "start_date": "2026-03-18",
+            "therapy_areas": [
+              "Cardiovascular"
+            ],
+            "conditions": [
+              "Heart Failure With Reduced Ejection Fraction"
+            ],
+            "interventions": [
+              "HJB647 low dose",
+              "HJB647 high dose",
+              "Placebo"
+            ]
+          },
+          {
+            "nct_id": "NCT07484269",
+            "title": "PULSE Registry: for Patients Receiving Lutetium (177Lu) Vipivotide Tetraxetan",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "753",
+            "start_date": "2026-08-01",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "Metastatic Prostate Cancer"
+            ],
+            "interventions": []
+          },
+          {
+            "nct_id": "NCT07225504",
+            "title": "A Study to Evaluate the Efficacy and Safety of Remibrutinib in Secondary Progressive Multiple Sclerosis",
+            "phase": "Phase 3",
+            "status": "RECRUITING",
+            "enrollment": "1275",
+            "start_date": "2025-11-11",
+            "therapy_areas": [
+              "Hematology",
+              "Neurology",
+              "Oncology"
+            ],
+            "conditions": [
+              "Secondary Progressive Multiple Sclerosis (SPMS)"
+            ],
+            "interventions": [
+              "Remibrutinib (blinded)",
+              "Placebo",
+              "Remibrutinib (Open label)"
+            ]
+          },
+          {
+            "nct_id": "NCT07635316",
+            "title": "A Study of Treatment Patterns and Outcomes in Gastroenteropancreatic Neuroendocrine Tumor (GEP-NET) Patients",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "4023",
+            "start_date": "2026-06-12",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "Gastroenteropancreatic Neuroendocrine Tumor"
+            ],
+            "interventions": []
+          },
+          {
+            "nct_id": "NCT07587723",
+            "title": "A Real-world Study of Treatment Patterns and Outcomes in Primary Immune Thrombocytopenia Patients Treated With Eltrombopag",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "150",
+            "start_date": "2026-06-25",
+            "therapy_areas": [
+              "Hematology"
+            ],
+            "conditions": [
+              "Immune Thrombocytopenia"
+            ],
+            "interventions": []
+          },
+          {
+            "nct_id": "NCT07564401",
+            "title": "A Study to Evaluate DJI136, a DLL3-targeted CAR-T Therapy",
+            "phase": "Phase 1, Phase 2",
+            "status": "RECRUITING",
+            "enrollment": "80",
+            "start_date": "2026-06-16",
+            "therapy_areas": [
+              "Dermatology",
+              "Oncology"
+            ],
+            "conditions": [
+              "Extensive-stage Small Cell Lung Cancer (ES-SCLC)"
+            ],
+            "interventions": [
+              "DJI136"
+            ]
+          },
+          {
+            "nct_id": "NCT07683065",
+            "title": "A Study to Estimate Secukinumab Retention Rate in Psoriasis Patients With MASLD",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "150",
+            "start_date": "2026-07-08",
+            "therapy_areas": [
+              "Dermatology",
+              "Immunology & Inflammation"
+            ],
+            "conditions": [
+              "Plaque Psoriasis",
+              "Metabolic Dysfunction-Associated Steatotic Liver Disease"
+            ],
+            "interventions": []
+          },
+          {
+            "nct_id": "NCT07261631",
+            "title": "Phase I Study of [177Lu]Lu-DFC413 in Patients With Solid Tumors",
+            "phase": "Phase 1",
+            "status": "RECRUITING",
+            "enrollment": "180",
+            "start_date": "2025-11-24",
+            "therapy_areas": [
+              "Oncology"
+            ],
+            "conditions": [
+              "Pancreatic Ductal Adenocarcinoma",
+              "Non-Small Cell Lung Cancer",
+              "HR+/HER2- Ductal and Lobular Breast Cancer",
+              "Triple Negative Breast Cancer",
+              "Colorectal Cancer",
+              "Soft Tissue Sarcoma"
+            ],
+            "interventions": [
+              "68Ga-NNS309",
+              "177Lu-DFC413"
+            ]
+          },
+          {
+            "nct_id": "NCT07190053",
+            "title": "Long Term Treatment Strategies and Effectiveness of Secukinumab in Patient With JIA Subtypes of JPsA and ERA: Study From German BIKER Registry.",
+            "phase": "N/A",
+            "status": "NOT_YET_RECRUITING",
+            "enrollment": "100",
+            "start_date": "2025-12",
+            "therapy_areas": [
+              "Immunology & Inflammation"
+            ],
+            "conditions": [
+              "Enthesitis-related Arthritis (ERA)",
+              "Juvenile Psoriatic Arthritis (JPsA)"
+            ],
+            "interventions": [
+              "Secukinumab"
+            ]
+          },
+          {
+            "nct_id": "NCT07598422",
+            "title": "A Study to Assess the Effectiveness and Safety of Canakinumab in Clinical Use in Patients With Schnitzler's Syndrome",
+            "phase": "N/A",
+            "status": "RECRUITING",
+            "enrollment": "10",
+            "start_date": "2026-05-13",
+            "therapy_areas": [
+              "Other"
+            ],
+            "conditions": [
+              "Schnitzler Syndrome"
+            ],
+            "interventions": []
+          }
+        ],
+        "total": 116,
+        "preferredTrialNcts": [
+          "NCT07465653"
+        ],
+        "contacts": [],
+        "contactsImported": false
+      }
+    ],
+    "contacts": []
+  },
+  {
     "id": "cmp_1782481525929",
     "name": "Vaccines_temp",
     "owner": "Parth",
