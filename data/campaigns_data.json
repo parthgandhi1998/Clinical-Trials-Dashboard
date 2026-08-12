@@ -579,13 +579,13 @@
         "drafts": {
           "subject1": "Quoin Pharmaceuticals: Clinical pharmacology and MIDD support",
           "email1": "Hi James,\n\nSaw your your therapeutic area program.\n\nModel-informed development is now the expectation rather than the exception, and teams that build it in early tend to reach decision points with fewer surprises.\n\nWe do pharmacometrics and clinical pharmacology at PumasAI, and several of our team came from the FDA, Novartis and BMS. We've supported more than 75 regulatory submissions across six agencies, including 37 Phase 3 programs. On a study like this we'd usually cover NCA, PopPK, exposure-response, dose justification and regulatory writing.\n\nWorth a short call?",
-          "email1Approved": false,
+          "email1Approved": true,
           "subject2": "Re: Quoin Pharmaceuticals: Clinical pharmacology and MIDD support",
           "fu1": "Hi James,\n\nFollowing up on my note about your your therapeutic area program.\n\nTeams that plan the modeling work up front generally spend less time on regulatory back-and-forth later. We've run this kind of analysis on programs heading into agency review.\n\nHappy to walk through how we'd approach it if that's useful. 15 minutes should cover it.",
-          "fu1Approved": false,
+          "fu1Approved": true,
           "subject3": "Last note on Quoin Pharmaceuticals",
           "fu2": "Hi James,\n\nLast note from me on your your therapeutic area program.\n\nIf a pharmacometrics or clinical pharmacology need comes up at any stage, do feel free to reach out.\n\nIf the timing isn't right, no problem at all. Happy to pick this up whenever it makes sense.",
-          "fu2Approved": false,
+          "fu2Approved": true,
           "linkedin": "Hi James, saw Quoin Pharmaceuticals is running a study in your therapeutic area. We handle pharmacometrics, clinical pharmacology and MIDD strategy at PumasAI. Open to a quick conversation?"
         },
         "lastContacted": "2026-06-25",
