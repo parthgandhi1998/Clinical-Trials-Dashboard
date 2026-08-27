@@ -556,7 +556,19 @@
         "contactsImported": false
       }
     ],
-    "contacts": []
+    "contacts": [
+      {
+        "id": "ct_1787822639101",
+        "name": "Parth",
+        "email": "parth@pumas.ai",
+        "title": "",
+        "company": "",
+        "linkedin": "",
+        "status": "not-started",
+        "drafts": {},
+        "notes": ""
+      }
+    ]
   },
   {
     "id": "cmp_1782244000575",
